@@ -1,0 +1,2240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+  <bounds minlat='38.3888316' minlon='-96.2511349' maxlat='38.392128' maxlon='-96.2065887' origin='CGImap 0.8.3 (3037912 spike-08.openstreetmap.org)' />
+  <node id='119473252' action='delete' timestamp='2012-03-27T23:20:24Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.330248' lon='-96.4718092'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473254' action='delete' timestamp='2012-03-27T23:20:25Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3274998' lon='-96.4801085'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473256' action='delete' timestamp='2012-03-27T23:20:24Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3268549' lon='-96.4820451'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473259' action='delete' timestamp='2012-03-27T23:20:24Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3261174' lon='-96.4842533'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473262' action='delete' timestamp='2012-03-27T23:20:24Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.325148' lon='-96.4870723'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473265' action='delete' timestamp='2012-03-27T23:20:24Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3251549' lon='-96.489368'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473267' action='delete' timestamp='2012-03-27T23:20:25Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3251797' lon='-96.4910688'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473269' action='delete' timestamp='2012-03-27T23:20:25Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3251768' lon='-96.4937078'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473271' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3251802' lon='-96.4959011'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473273' action='delete' timestamp='2012-03-27T23:20:25Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3252058' lon='-96.500401'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473275' action='delete' timestamp='2012-03-27T23:20:25Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.325197' lon='-96.5031208'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473277' action='delete' timestamp='2012-03-27T23:20:25Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3252094' lon='-96.5115807'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473279' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.325242' lon='-96.5169532'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473281' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3245401' lon='-96.5215113'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473283' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3242246' lon='-96.5235665'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473285' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.323805' lon='-96.5262607'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473287' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3215059' lon='-96.5415783'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473289' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3212058' lon='-96.5436524'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473291' action='delete' timestamp='2012-03-27T23:20:26Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3198054' lon='-96.5527744'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473294' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.319494' lon='-96.554841'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473296' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.319128' lon='-96.5572282'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473299' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3187151' lon='-96.5599914'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473301' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3183071' lon='-96.5626967'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473304' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3180554' lon='-96.5643776'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473306' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3178195' lon='-96.5659966'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473309' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3173022' lon='-96.5693392'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473315' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3167511' lon='-96.5729499'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473320' action='delete' timestamp='2012-03-27T23:20:27Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3145277' lon='-96.5875795'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473323' action='delete' timestamp='2012-03-27T23:20:28Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3133889' lon='-96.5927516'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473324' action='delete' timestamp='2012-03-27T23:20:28Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3123331' lon='-96.5976357'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473326' action='delete' timestamp='2012-03-27T23:20:28Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3117888' lon='-96.600161'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473328' action='delete' timestamp='2012-03-27T23:20:28Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3092906' lon='-96.6116926'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473330' action='delete' timestamp='2012-03-27T23:20:28Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3087118' lon='-96.6143713'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473332' action='delete' timestamp='2012-03-27T23:20:28Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3082004' lon='-96.6166563'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473334' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3077466' lon='-96.6187492'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473336' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3067782' lon='-96.623232'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473339' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3053316' lon='-96.6299091'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473342' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3043782' lon='-96.6343825'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473345' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3034403' lon='-96.6386351'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473348' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3024851' lon='-96.6430755'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473351' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.3005524' lon='-96.651819'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473353' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2999929' lon='-96.6544424'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473355' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2994984' lon='-96.656703'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473357' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2986739' lon='-96.6605388'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473359' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2981816' lon='-96.6627975'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473361' action='delete' timestamp='2012-03-27T23:20:29Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2955842' lon='-96.6743358'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473363' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2950611' lon='-96.6763676'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473365' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2945335' lon='-96.6783288'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473367' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.292008' lon='-96.6880073'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473369' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2915647' lon='-96.6896926'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473372' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.291104' lon='-96.6914977'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473375' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2906335' lon='-96.6932956'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473377' action='delete' timestamp='2012-03-27T23:20:30Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2901194' lon='-96.6952592'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473381' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.289558' lon='-96.6974366'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473384' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2889736' lon='-96.6996827'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473387' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2883477' lon='-96.702127'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473389' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2876491' lon='-96.7048543'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473390' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2870531' lon='-96.7071197'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473391' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.281837' lon='-96.7271743'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473392' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2807173' lon='-96.731517'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473395' action='delete' timestamp='2012-03-27T23:20:31Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2802059' lon='-96.7335067'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473398' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2784581' lon='-96.7408624'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473400' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2779027' lon='-96.7431594'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473403' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.277219' lon='-96.7460455'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473404' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2751329' lon='-96.754668'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473406' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2739961' lon='-96.759872'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473409' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2735781' lon='-96.7617292'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473412' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2731576' lon='-96.7636759'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473415' action='delete' timestamp='2012-03-27T23:20:33Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2736929' lon='-96.765414'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473418' action='delete' timestamp='2012-03-27T23:20:32Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2743364' lon='-96.7675716'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473421' action='delete' timestamp='2012-03-27T23:20:33Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2751456' lon='-96.7702522'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473424' action='delete' timestamp='2012-03-27T23:20:33Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.275887' lon='-96.772756'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473427' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.277284' lon='-96.7773662'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473429' action='delete' timestamp='2012-03-27T23:20:33Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2777656' lon='-96.7789474'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473431' action='delete' timestamp='2012-03-27T23:20:33Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2783977' lon='-96.7811481'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473433' action='delete' timestamp='2012-03-27T23:20:33Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2789578' lon='-96.7830211'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473435' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2796031' lon='-96.7851768'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473438' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2802579' lon='-96.7873569'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473440' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2809119' lon='-96.7895558'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473443' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2816073' lon='-96.7917493'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473445' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2812797' lon='-96.7941992'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473447' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2810569' lon='-96.7960979'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473448' action='delete' timestamp='2012-03-27T23:20:34Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2807607' lon='-96.7984816'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473451' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2804369' lon='-96.8011155'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473454' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2800912' lon='-96.8038986'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473457' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.278967' lon='-96.8131015'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473458' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2782176' lon='-96.8191335'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473460' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2777058' lon='-96.8233983'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119473462' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2772941' lon='-96.8266411'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='119522610' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3308603' lon='-96.469929'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522613' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3315933' lon='-96.4677028'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522616' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3322563' lon='-96.4657512'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522619' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3328812' lon='-96.4638007'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522622' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3352288' lon='-96.4506595'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522625' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3360451' lon='-96.4453361'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522628' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3388906' lon='-96.4263407'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522629' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3392575' lon='-96.4237277'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522631' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3396652' lon='-96.4211565'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522633' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.341506' lon='-96.4089688'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522635' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3418758' lon='-96.4063741'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522637' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3428494' lon='-96.3998152'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522641' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3435487' lon='-96.3952461'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522644' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3439277' lon='-96.3927235'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522647' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.344237' lon='-96.3905783'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522650' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3445332' lon='-96.3886374'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522655' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3448434' lon='-96.3865321'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522659' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3455766' lon='-96.3816545'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522661' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3458563' lon='-96.3797413'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522664' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3461975' lon='-96.3774891'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522667' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3468713' lon='-96.3729671'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522670' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3471921' lon='-96.3708672'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522672' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3479309' lon='-96.365906'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522674' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='5' changeset='14051873' lat='38.3482517' lon='-96.3636803'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522676' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3485882' lon='-96.3614511'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='119522679' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3489396' lon='-96.3591483'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121142175' timestamp='2012-12-04T00:36:26Z' uid='10786' user='stucki1' visible='true' version='3' changeset='14147199' lat='38.390516' lon='-96.235547' />
+  <node id='121142179' timestamp='2009-11-10T04:13:38Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390525' lon='-96.226342' />
+  <node id='121142185' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390557' lon='-96.221809' />
+  <node id='121142199' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39052' lon='-96.21284' />
+  <node id='121142203' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390516' lon='-96.212263' />
+  <node id='121142206' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390514' lon='-96.211876' />
+  <node id='121142209' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390505' lon='-96.209933' />
+  <node id='121142213' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390501' lon='-96.208963' />
+  <node id='121142215' timestamp='2009-11-10T04:13:39Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390503' lon='-96.207938' />
+  <node id='121142291' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390489' lon='-96.238158' />
+  <node id='121142297' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39044' lon='-96.244328' />
+  <node id='121142299' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390476' lon='-96.248531' />
+  <node id='121142303' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390498' lon='-96.250785' />
+  <node id='121142306' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390421' lon='-96.251504' />
+  <node id='121142308' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390197' lon='-96.252204' />
+  <node id='121142311' timestamp='2009-11-10T04:13:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389721' lon='-96.252968' />
+  <node id='121147481' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391943' lon='-96.207942' />
+  <node id='121147482' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39195' lon='-96.207314' />
+  <node id='121147484' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391988' lon='-96.207097' />
+  <node id='121147485' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392065' lon='-96.206883' />
+  <node id='121147487' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39215' lon='-96.206796' />
+  <node id='121147489' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392311' lon='-96.206729' />
+  <node id='121147491' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392691' lon='-96.206677' />
+  <node id='121147494' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393161' lon='-96.206679' />
+  <node id='121147497' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39381' lon='-96.20668' />
+  <node id='121147499' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393955' lon='-96.206684' />
+  <node id='121147502' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393991' lon='-96.206888' />
+  <node id='121147503' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.394001' lon='-96.207278' />
+  <node id='121147504' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393981' lon='-96.207586' />
+  <node id='121147506' action='delete' timestamp='2009-11-10T04:14:49Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393913' lon='-96.207947' />
+  <node id='121153719' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3502479' lon='-96.350344'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153722' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3518221' lon='-96.3399095'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153724' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3536883' lon='-96.3274951'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153726' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3550845' lon='-96.3181444'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153728' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3554441' lon='-96.3156671'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153730' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3558158' lon='-96.3132137'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153733' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3561643' lon='-96.3108255'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153735' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3572124' lon='-96.3038356'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153737' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3578259' lon='-96.2997428'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153739' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3585151' lon='-96.2950653'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153741' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3588439' lon='-96.2928941'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153745' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3592035' lon='-96.2904688'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153748' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3595503' lon='-96.288204'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153751' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3598972' lon='-96.2858259'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153753' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3602484' lon='-96.2833907'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153756' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3609094' lon='-96.2789568'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121153760' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3614474' lon='-96.2754723'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167526' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.3727918' lon='-96.2122476'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167528' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3706696' lon='-96.2141232'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167531' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3699842' lon='-96.2186572'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167533' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3696162' lon='-96.22102'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167535' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3692673' lon='-96.223383'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167538' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.368922' lon='-96.2257013'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167542' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.368553' lon='-96.2281217'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167544' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3682419' lon='-96.2302318'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167546' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3660963' lon='-96.2444531'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167547' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3659926' lon='-96.2465096'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167549' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3656555' lon='-96.253656'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167551' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3654549' lon='-96.2579135'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167553' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3640687' lon='-96.2640555'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121167555' action='delete' timestamp='2012-11-26T22:05:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.362899' lon='-96.2678245'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121175688' action='delete' timestamp='2009-10-01T22:27:37Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='2706065' lat='38.39555' lon='-96.226358' />
+  <node id='121175794' action='delete' timestamp='2009-10-01T22:27:40Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='2706065' lat='38.393139' lon='-96.20794' />
+  <node id='121176097' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='14051873' lat='38.370919' lon='-96.2123254'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121176098' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3743451' lon='-96.2122258'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121176101' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3758898' lon='-96.212176'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121176104' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3795785' lon='-96.2120582'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121176106' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3871421' lon='-96.211857'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121176110' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3885553' lon='-96.2114507'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121176111' action='delete' timestamp='2012-11-26T22:05:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3887962' lon='-96.2113458' />
+  <node id='121192825' action='delete' timestamp='2009-11-10T04:25:13Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389952' lon='-96.226339' />
+  <node id='121192828' action='delete' timestamp='2009-11-10T04:25:14Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389979' lon='-96.2271' />
+  <node id='121196854' action='delete' timestamp='2012-05-31T02:37:06Z' uid='213956' user='route56' visible='true' version='3' changeset='11754299' lat='38.3859285' lon='-96.2072657' />
+  <node id='121200204' action='delete' timestamp='2009-11-10T04:27:28Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390695' lon='-96.209919' />
+  <node id='121200206' action='delete' timestamp='2009-11-10T04:27:28Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390837' lon='-96.209889' />
+  <node id='121200208' action='delete' timestamp='2009-11-10T04:27:28Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391049' lon='-96.20986' />
+  <node id='121200210' action='delete' timestamp='2009-11-10T04:27:28Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391194' lon='-96.209873' />
+  <node id='121206976' action='delete' timestamp='2009-11-10T04:29:22Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391571' lon='-96.229919' />
+  <node id='121206979' action='delete' timestamp='2009-11-10T04:29:22Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391497' lon='-96.229758' />
+  <node id='121206980' action='delete' timestamp='2009-11-10T04:29:22Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391472' lon='-96.229454' />
+  <node id='121206981' action='delete' timestamp='2009-11-10T04:29:22Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391464' lon='-96.229242' />
+  <node id='121206982' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391484' lon='-96.228991' />
+  <node id='121206984' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39155' lon='-96.228783' />
+  <node id='121206986' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391605' lon='-96.228585' />
+  <node id='121206988' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391665' lon='-96.22823' />
+  <node id='121206989' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391686' lon='-96.227918' />
+  <node id='121206990' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391699' lon='-96.227538' />
+  <node id='121206992' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391722' lon='-96.227409' />
+  <node id='121206995' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391754' lon='-96.227369' />
+  <node id='121206997' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391831' lon='-96.227328' />
+  <node id='121207002' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391902' lon='-96.227328' />
+  <node id='121207004' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392267' lon='-96.227395' />
+  <node id='121207009' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392365' lon='-96.227415' />
+  <node id='121207013' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392741' lon='-96.22749' />
+  <node id='121207015' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393047' lon='-96.227546' />
+  <node id='121207017' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393097' lon='-96.227555' />
+  <node id='121207019' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393234' lon='-96.227575' />
+  <node id='121207022' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39367' lon='-96.227639' />
+  <node id='121207024' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.394331' lon='-96.227688' />
+  <node id='121207028' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.396856' lon='-96.22764' />
+  <node id='121207031' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.397287' lon='-96.227588' />
+  <node id='121207034' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.397566' lon='-96.227529' />
+  <node id='121207037' action='delete' timestamp='2009-11-10T04:29:23Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39784' lon='-96.22748' />
+  <node id='121207764' action='delete' timestamp='2009-11-10T04:29:33Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393792' lon='-96.244326' />
+  <node id='121207789' action='delete' timestamp='2009-11-10T04:29:33Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392755' lon='-96.207948' />
+  <node id='121207821' action='delete' timestamp='2009-11-10T04:29:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393386' lon='-96.207938' />
+  <node id='121220851' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390394' lon='-96.212284' />
+  <node id='121220853' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390274' lon='-96.212279' />
+  <node id='121220854' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390176' lon='-96.21226' />
+  <node id='121220856' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390098' lon='-96.212208' />
+  <node id='121220857' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390049' lon='-96.212136' />
+  <node id='121220886' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390417' lon='-96.212837' />
+  <node id='121220888' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390327' lon='-96.212804' />
+  <node id='121220893' action='delete' timestamp='2009-11-10T04:33:17Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390251' lon='-96.212791' />
+  <node id='121220895' action='delete' timestamp='2009-11-10T04:33:18Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39015' lon='-96.212789' />
+  <node id='121220897' action='delete' timestamp='2009-11-10T04:33:18Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389986' lon='-96.212808' />
+  <node id='121221118' action='delete' timestamp='2009-11-10T04:33:21Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389883' lon='-96.211888' />
+  <node id='121221120' action='delete' timestamp='2009-11-10T04:33:21Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389792' lon='-96.211882' />
+  <node id='121221124' action='delete' timestamp='2009-11-10T04:33:21Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389545' lon='-96.211882' />
+  <node id='121221126' action='delete' timestamp='2009-11-10T04:33:21Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389443' lon='-96.211863' />
+  <node id='121221128' action='delete' timestamp='2009-11-10T04:33:21Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389316' lon='-96.211725' />
+  <node id='121221130' action='delete' timestamp='2009-11-10T04:33:21Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389237' lon='-96.211603' />
+  <node id='121221132' action='delete' timestamp='2009-11-10T04:33:22Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389125' lon='-96.211335' />
+  <node id='121226694' action='delete' timestamp='2009-11-10T04:35:14Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392482' lon='-96.207947' />
+  <node id='121228719' action='delete' timestamp='2009-11-10T04:35:45Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.395389' lon='-96.207943' />
+  <node id='121228748' action='delete' timestamp='2009-11-10T04:35:46Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.395813' lon='-96.207941' />
+  <node id='121236924' action='delete' timestamp='2009-11-10T04:36:35Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.389002' lon='-96.226329' />
+  <node id='121237899' action='delete' timestamp='2009-11-10T04:36:57Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.388399' lon='-96.207952' />
+  <node id='121239217' action='delete' timestamp='2009-11-10T04:37:16Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.394023' lon='-96.244324' />
+  <node id='121244546' action='delete' timestamp='2016-06-26T12:52:44Z' uid='30521' user='dufekin' visible='true' version='4' changeset='40299445' lat='38.3977731' lon='-96.2079542' />
+  <node id='121247304' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3622739' lon='-96.2696973'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121247306' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3620657' lon='-96.2713203'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121247308' action='delete' timestamp='2012-11-26T22:05:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='14051873' lat='38.3618016' lon='-96.2729958'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='121256917' action='delete' timestamp='2009-11-10T04:43:47Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.37754' lon='-96.244378' />
+  <node id='121256919' action='delete' timestamp='2009-11-10T04:43:47Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.377752' lon='-96.244419' />
+  <node id='121256920' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.383186' lon='-96.244384' />
+  <node id='121256922' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.388887' lon='-96.244334' />
+  <node id='121256924' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392609' lon='-96.244326' />
+  <node id='121256926' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392974' lon='-96.244326' />
+  <node id='121256929' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393216' lon='-96.244326' />
+  <node id='121256933' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.396969' lon='-96.244294' />
+  <node id='121256935' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.397729' lon='-96.244289' />
+  <node id='121256938' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.398806' lon='-96.244283' />
+  <node id='121256942' action='delete' timestamp='2012-05-28T04:37:13Z' uid='213956' user='route56' visible='true' version='3' changeset='11722399' lat='38.4005201' lon='-96.2443163' />
+  <node id='121256943' action='delete' timestamp='2012-05-28T01:53:01Z' uid='213956' user='route56' visible='true' version='7' changeset='11721970' lat='38.4013233' lon='-96.2443003' />
+  <node id='121256946' action='delete' timestamp='2014-02-16T03:48:41Z' uid='711717' user='railfan-eric' visible='true' version='6' changeset='20588457' lat='38.4017295' lon='-96.2443037'>
+    <tag k='railway' v='level_crossing' />
+    <tag k='source' v='bing' />
+  </node>
+  <node id='121256950' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.403904' lon='-96.244248' />
+  <node id='121256953' action='delete' timestamp='2009-11-10T04:43:48Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.404912' lon='-96.244253' />
+  <node id='121258599' action='delete' timestamp='2009-11-10T04:44:13Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.390736' lon='-96.22635' />
+  <node id='121258602' action='delete' timestamp='2009-11-10T04:44:13Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392025' lon='-96.226363' />
+  <node id='121258605' action='delete' timestamp='2009-11-10T04:44:13Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.393099' lon='-96.226358' />
+  <node id='121258607' action='delete' timestamp='2009-11-10T04:44:13Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.394102' lon='-96.226355' />
+  <node id='121258610' action='delete' timestamp='2009-11-10T04:44:13Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.397868' lon='-96.226336' />
+  <node id='121271638' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2619992' lon='-96.9005246'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271657' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2623309' lon='-96.8983327'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271659' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2626335' lon='-96.8962854'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271662' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2629538' lon='-96.894229'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271683' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2633056' lon='-96.8918246'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271686' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2636457' lon='-96.8896263'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271688' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2639866' lon='-96.8873582'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271690' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2643939' lon='-96.8846001'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271692' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2647722' lon='-96.8819705'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271703' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2662356' lon='-96.8763633'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271708' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2667654' lon='-96.8742031'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271711' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2673119' lon='-96.8721748'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271714' action='delete' timestamp='2012-03-27T23:20:42Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2678392' lon='-96.8701486'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271719' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2683796' lon='-96.8679717'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271721' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2689833' lon='-96.8656602'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271725' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2695325' lon='-96.8634855'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271728' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2700729' lon='-96.8613985'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271731' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2706823' lon='-96.8589815'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271733' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2711891' lon='-96.857045'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271737' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2717667' lon='-96.8547541'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271740' action='delete' timestamp='2012-03-27T23:20:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2723018' lon='-96.8526295'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271744' action='delete' timestamp='2012-03-27T23:20:44Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.272864' lon='-96.8504473'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271746' action='delete' timestamp='2012-03-27T23:20:44Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2734231' lon='-96.8482835'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271748' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2739578' lon='-96.8461311'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271750' action='delete' timestamp='2012-03-27T23:20:44Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2745202' lon='-96.843963'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271751' action='delete' timestamp='2012-03-27T23:20:44Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.275007' lon='-96.8420514'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271754' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2756311' lon='-96.8395827'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271756' action='delete' timestamp='2012-03-27T23:20:44Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2761327' lon='-96.8377052'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271758' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2763527' lon='-96.8352829'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271760' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2765923' lon='-96.8328112'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121271762' action='delete' timestamp='2012-03-27T23:20:44Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2768031' lon='-96.8307464'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121285161' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.377461' lon='-96.235347' />
+  <node id='121285163' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.377604' lon='-96.235283' />
+  <node id='121285166' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.378526' lon='-96.234829' />
+  <node id='121285169' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.378709' lon='-96.234767' />
+  <node id='121285172' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.378804' lon='-96.234749' />
+  <node id='121285175' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.379306' lon='-96.234708' />
+  <node id='121285178' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.380181' lon='-96.2347' />
+  <node id='121285181' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.38054' lon='-96.234749' />
+  <node id='121285184' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.380825' lon='-96.234811' />
+  <node id='121285187' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.380986' lon='-96.23489' />
+  <node id='121285190' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.381206' lon='-96.235054' />
+  <node id='121285194' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.381516' lon='-96.235324' />
+  <node id='121285196' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.381731' lon='-96.235492' />
+  <node id='121285198' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.381827' lon='-96.23554' />
+  <node id='121285200' action='delete' timestamp='2009-11-10T04:52:34Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.382345' lon='-96.235568' />
+  <node id='121290551' action='delete' timestamp='2012-03-27T23:20:35Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2465649' lon='-96.9976085'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290554' action='delete' timestamp='2012-03-27T23:20:36Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2469647' lon='-96.9950186'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290556' action='delete' timestamp='2012-03-27T23:20:36Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2473812' lon='-96.9923879'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290558' action='delete' timestamp='2012-03-27T23:20:36Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2477425' lon='-96.9902046'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290561' action='delete' timestamp='2012-03-27T23:20:36Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2481351' lon='-96.9877294'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290564' action='delete' timestamp='2012-03-27T23:20:36Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2485678' lon='-96.9851411'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290567' action='delete' timestamp='2012-03-27T23:20:36Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2488709' lon='-96.9832456'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290569' action='delete' timestamp='2012-03-27T23:20:37Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2492452' lon='-96.9809711'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290570' action='delete' timestamp='2012-03-27T23:20:37Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2495927' lon='-96.978762'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290571' action='delete' timestamp='2012-03-27T23:20:37Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2499702' lon='-96.9763711'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290572' action='delete' timestamp='2012-03-27T23:20:37Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2503055' lon='-96.9742637'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290575' action='delete' timestamp='2012-03-27T23:20:37Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2507445' lon='-96.9714795'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290577' action='delete' timestamp='2012-03-27T23:20:37Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2511527' lon='-96.9690516'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290580' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2515485' lon='-96.9664686'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290583' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2519687' lon='-96.9639498'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290586' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2523601' lon='-96.9614089'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290588' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2527135' lon='-96.9592302'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290589' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.253184' lon='-96.9563272'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290592' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2535463' lon='-96.9540607'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290594' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2538985' lon='-96.951919'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290597' action='delete' timestamp='2012-03-27T23:20:38Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2542637' lon='-96.9496968'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290600' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2545586' lon='-96.9477967'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290602' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2548484' lon='-96.9459578'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290605' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2551648' lon='-96.9439767'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290608' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2555108' lon='-96.9419404'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290614' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2558514' lon='-96.9397294'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290617' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2561433' lon='-96.9378519'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290619' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2565395' lon='-96.9354422'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290630' action='delete' timestamp='2012-03-27T23:20:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2569056' lon='-96.93322'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290632' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2572687' lon='-96.9308969'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290633' action='delete' timestamp='2012-03-27T23:20:39Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.257732' lon='-96.9280015'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290635' action='delete' timestamp='2012-03-27T23:20:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2580804' lon='-96.9258385'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290639' action='delete' timestamp='2012-03-27T23:20:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2584626' lon='-96.923472'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290643' action='delete' timestamp='2012-03-27T23:20:40Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2588319' lon='-96.9211315'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290644' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2592187' lon='-96.9186462'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290648' action='delete' timestamp='2012-03-27T23:20:40Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.259597' lon='-96.9163084'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290651' action='delete' timestamp='2012-03-27T23:20:40Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.260263' lon='-96.9121027'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290654' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2606246' lon='-96.9095589'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290657' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2609877' lon='-96.907254'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290660' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2613156' lon='-96.905042'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121290663' action='delete' timestamp='2012-03-27T23:20:41Z' uid='13203' user='bahnpirat' visible='true' version='4' changeset='11122022' lat='38.2616452' lon='-96.902889'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='121296596' action='delete' timestamp='2009-11-10T04:55:55Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.386561' lon='-96.207586' />
+  <node id='121296598' action='delete' timestamp='2009-11-10T04:55:55Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.387006' lon='-96.207811' />
+  <node id='121296603' action='delete' timestamp='2009-11-10T04:55:55Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.387167' lon='-96.207872' />
+  <node id='121296606' action='delete' timestamp='2010-01-04T12:28:37Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3536720' lat='38.387434' lon='-96.207927' />
+  <node id='121296610' action='delete' timestamp='2009-11-10T04:55:56Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.388182' lon='-96.207953' />
+  <node id='121296613' action='delete' timestamp='2009-11-10T04:55:56Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.391201' lon='-96.207935' />
+  <node id='121296620' action='delete' timestamp='2009-11-10T04:55:56Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.392044' lon='-96.207943' />
+  <node id='121296623' action='delete' timestamp='2009-11-10T04:55:56Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.39375' lon='-96.207944' />
+  <node id='121296626' action='delete' timestamp='2009-11-10T04:55:56Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.395742' lon='-96.207941' />
+  <node id='121296629' action='delete' timestamp='2009-11-10T04:55:56Z' uid='147510' user='woodpeck_fixbot' visible='true' version='2' changeset='3079786' lat='38.396771' lon='-96.207936' />
+  <node id='358631419' action='delete' timestamp='2009-03-11T02:03:09Z' uid='4732' user='iandees' visible='true' version='1' changeset='780743' lat='38.3905698' lon='-96.2441643'>
+    <tag k='amenity' v='school' />
+    <tag k='ele' v='339' />
+    <tag k='gnis:county_id' v='111' />
+    <tag k='gnis:created' v='10/13/1978' />
+    <tag k='gnis:feature_id' v='477504' />
+    <tag k='gnis:state_id' v='20' />
+    <tag k='name' v='Lakeside School' />
+  </node>
+  <node id='391541141' action='delete' timestamp='2009-05-06T20:51:34Z' uid='120146' user='TIGERcnl' visible='true' version='1' changeset='1100893' lat='38.392728' lon='-96.210168' />
+  <node id='391541142' action='delete' timestamp='2009-05-06T20:51:34Z' uid='120146' user='TIGERcnl' visible='true' version='1' changeset='1100893' lat='38.393751' lon='-96.210111' />
+  <node id='391541149' action='delete' timestamp='2009-05-06T20:51:35Z' uid='120146' user='TIGERcnl' visible='true' version='1' changeset='1100893' lat='38.392047' lon='-96.210159' />
+  <node id='636565739' action='delete' timestamp='2012-03-27T23:20:46Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='11122022' lat='38.2654277' lon='-96.8794527'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='773022008' action='delete' timestamp='2012-03-27T23:20:46Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='11122022' lat='38.2770478' lon='-96.8286535'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1525943450' action='delete' timestamp='2012-03-27T23:20:45Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='11122022' lat='38.2599664' lon='-96.9139673'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932011' action='delete' timestamp='2012-03-27T23:19:59Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3223007' lon='-96.5363399'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932015' action='delete' timestamp='2012-03-27T23:20:00Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3029661' lon='-96.6408394'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932032' action='delete' timestamp='2012-03-27T23:20:00Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3039327' lon='-96.6364025'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932033' action='delete' timestamp='2013-03-02T14:26:24Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='15221731' lat='38.245405' lon='-97.0056957'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932034' action='delete' timestamp='2012-03-27T23:20:00Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2932379' lon='-96.6833064'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932035' action='delete' timestamp='2012-03-27T23:20:01Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.285269' lon='-96.7140362'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932040' action='delete' timestamp='2012-03-27T23:20:01Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3097913' lon='-96.609403'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932042' action='delete' timestamp='2012-03-27T23:20:01Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3010192' lon='-96.6498033'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932043' action='delete' timestamp='2012-03-27T23:20:02Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2795321' lon='-96.8084339'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932044' action='delete' timestamp='2012-03-27T23:20:02Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3058146' lon='-96.62768'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932049' action='delete' timestamp='2012-03-27T23:20:02Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3252222' lon='-96.5136919'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932056' action='delete' timestamp='2012-03-27T23:20:03Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3205756' lon='-96.5476645'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932059' action='delete' timestamp='2012-03-27T23:20:03Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3152369' lon='-96.5828248'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932060' action='delete' timestamp='2012-03-27T23:20:03Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.312911' lon='-96.5949623'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932064' action='delete' timestamp='2012-03-27T23:20:04Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3219246' lon='-96.538819'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932067' action='delete' timestamp='2012-03-27T23:20:04Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2761895' lon='-96.7502962'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932068' action='delete' timestamp='2012-03-27T23:20:04Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3107527' lon='-96.6049658'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932069' action='delete' timestamp='2012-03-27T23:20:04Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2846785' lon='-96.71628'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932072' action='delete' timestamp='2012-03-27T23:20:05Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3062848' lon='-96.6255094'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932073' action='delete' timestamp='2012-03-27T23:20:05Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3234346' lon='-96.5288132'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932074' action='delete' timestamp='2012-03-27T23:20:05Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3230492' lon='-96.531468'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932076' action='delete' timestamp='2012-03-27T23:20:05Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2857837' lon='-96.7120804'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932079' action='delete' timestamp='2012-03-27T23:20:06Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3252098' lon='-96.5074764'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932081' action='delete' timestamp='2012-03-27T23:20:06Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3251927' lon='-96.4980975'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932094' action='delete' timestamp='2012-03-27T23:20:07Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3252096' lon='-96.509572'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932101' action='delete' timestamp='2012-03-27T23:20:07Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2970954' lon='-96.6678285'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932104' action='delete' timestamp='2012-03-27T23:20:07Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2792367' lon='-96.8108738'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932106' action='delete' timestamp='2012-03-27T23:20:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2842262' lon='-96.7180299'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932107' action='delete' timestamp='2012-03-27T23:20:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2765937' lon='-96.7750882'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932112' action='delete' timestamp='2012-03-27T23:20:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3102344' lon='-96.6073766'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932113' action='delete' timestamp='2012-03-27T23:20:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3226776' lon='-96.5338868'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932114' action='delete' timestamp='2012-03-27T23:20:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2455742' lon='-97.0044442'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932118' action='delete' timestamp='2012-03-27T23:20:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2825214' lon='-96.72458'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932121' action='delete' timestamp='2012-03-27T23:20:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2457933' lon='-97.002705'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932125' action='delete' timestamp='2012-03-27T23:20:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.32495' lon='-96.5188494'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932126' action='delete' timestamp='2012-03-27T23:20:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3072563' lon='-96.6210191'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932128' action='delete' timestamp='2012-03-27T23:20:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3112225' lon='-96.6027812'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932130' action='delete' timestamp='2012-03-27T23:20:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3201883' lon='-96.5502339'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932133' action='delete' timestamp='2012-03-27T23:20:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3148324' lon='-96.5855366'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932137' action='delete' timestamp='2012-03-27T23:20:11Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2812367' lon='-96.7295026'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932151' action='delete' timestamp='2012-03-27T23:20:12Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3252327' lon='-96.5154193'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932158' action='delete' timestamp='2012-03-27T23:20:13Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.316508' lon='-96.5744611'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932167' action='delete' timestamp='2012-03-27T23:20:14Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2976166' lon='-96.6654143'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932168' action='delete' timestamp='2012-03-27T23:20:14Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.286459' lon='-96.7095143'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932171' action='delete' timestamp='2012-03-27T23:20:14Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3288397' lon='-96.4760291'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932189' action='delete' timestamp='2012-03-27T23:20:16Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2965872' lon='-96.6701449'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932190' action='delete' timestamp='2012-03-27T23:20:16Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3209614' lon='-96.5452082'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932192' action='delete' timestamp='2012-03-27T23:20:16Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3159218' lon='-96.5783256'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932194' action='delete' timestamp='2012-03-27T23:20:16Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3156127' lon='-96.580356'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932199' action='delete' timestamp='2012-03-27T23:20:17Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3252036' lon='-96.5053502'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932201' action='delete' timestamp='2012-03-27T23:20:17Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.277938' lon='-96.8214636'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932205' action='delete' timestamp='2012-03-27T23:20:17Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.278462' lon='-96.817167'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932214' action='delete' timestamp='2012-03-27T23:20:18Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2787106' lon='-96.8151653'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932221' action='delete' timestamp='2012-03-27T23:20:18Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2793348' lon='-96.7371727'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932232' action='delete' timestamp='2012-03-27T23:20:19Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2927449' lon='-96.6851909'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932246' action='delete' timestamp='2012-03-27T23:20:20Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3169925' lon='-96.5713684'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932261' action='delete' timestamp='2012-03-27T23:20:20Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3162112' lon='-96.5764241'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932264' action='delete' timestamp='2012-03-27T23:20:20Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3295133' lon='-96.4740108'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932267' action='delete' timestamp='2012-03-27T23:20:21Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2937374' lon='-96.6813973'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932271' action='delete' timestamp='2012-03-27T23:20:21Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.328179' lon='-96.4780407'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932282' action='delete' timestamp='2012-03-27T23:20:21Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2836553' lon='-96.7202389'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932285' action='delete' timestamp='2012-03-27T23:20:21Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3139221' lon='-96.5903301'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932301' action='delete' timestamp='2012-03-27T23:20:22Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2831079' lon='-96.7223568'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932302' action='delete' timestamp='2012-03-27T23:20:22Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2461135' lon='-97.0003457'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932319' action='delete' timestamp='2012-03-27T23:20:23Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2797907' lon='-96.8062981'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932321' action='delete' timestamp='2012-03-27T23:20:23Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2961532' lon='-96.6721236'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932322' action='delete' timestamp='2012-03-27T23:20:23Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3048616' lon='-96.6321144'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932326' action='delete' timestamp='2012-03-27T23:20:23Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3015379' lon='-96.6474314'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932334' action='delete' timestamp='2012-03-27T23:20:23Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.2764252' lon='-96.7493213'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1693932335' action='delete' timestamp='2012-03-27T23:20:23Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='11122022' lat='38.3020194' lon='-96.645217'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851751' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.388697' lon='-96.2118738' />
+  <node id='1762851752' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3887011' lon='-96.2108836' />
+  <node id='1762851753' action='delete' timestamp='2012-07-22T17:25:28Z' uid='121241' user='zephyr' visible='true' version='2' changeset='12436557' lat='38.3889064' lon='-96.2118253'>
+    <tag k='power' v='pole' />
+  </node>
+  <node id='1762851754' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3889092' lon='-96.2117061' />
+  <node id='1762851755' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3890966' lon='-96.210894' />
+  <node id='1762851756' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3891034' lon='-96.2110478' />
+  <node id='1762851757' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.389186' lon='-96.2118738' />
+  <node id='1762851758' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3891901' lon='-96.2115887' />
+  <node id='1762851759' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3892769' lon='-96.2123245'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851760' action='delete' timestamp='2012-05-23T06:25:00Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3892808' lon='-96.2135123'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851761' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3892808' lon='-96.2171049'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851762' action='delete' timestamp='2012-07-22T17:25:28Z' uid='121241' user='zephyr' visible='true' version='2' changeset='12436557' lat='38.3892817' lon='-96.2118754'>
+    <tag k='power' v='pole' />
+  </node>
+  <node id='1762851763' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3894068' lon='-96.211046' />
+  <node id='1762851764' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3894163' lon='-96.2115887' />
+  <node id='1762851765' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3904416' lon='-96.2201696'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851766' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3915871' lon='-96.2231659'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851767' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3925947' lon='-96.2258347'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851768' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3933111' lon='-96.2277899'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851769' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3942228' lon='-96.2303219'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851770' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3950848' lon='-96.2326632'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851771' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3959927' lon='-96.2350485'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851772' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3969619' lon='-96.2375755'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851773' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3978468' lon='-96.2399804'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851774' action='delete' timestamp='2012-05-23T06:25:01Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3986704' lon='-96.24218'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851775' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.3994174' lon='-96.2441791'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851776' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4005015' lon='-96.2471608'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851777' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4009228' lon='-96.2482899'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851778' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.401892' lon='-96.2509342'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851779' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4028688' lon='-96.2535444'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851780' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4035008' lon='-96.2552698'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851781' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4042439' lon='-96.2572445'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851782' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4052168' lon='-96.2599378'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851783' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4062165' lon='-96.2625479'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851784' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4072086' lon='-96.2652803'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851785' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.408913' lon='-96.2669324'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851786' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4109276' lon='-96.2689658'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851787' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4126435' lon='-96.2704957'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851788' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4141716' lon='-96.271967'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851789' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4159793' lon='-96.2736973'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851790' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.417898' lon='-96.2755547'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851791' action='delete' timestamp='2012-05-23T06:25:02Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4198243' lon='-96.2774659'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851792' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.421517' lon='-96.2791034'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851793' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4234432' lon='-96.2809265'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851794' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4255378' lon='-96.2829893'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851795' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.427889' lon='-96.2852426'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851796' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4297767' lon='-96.2870511'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851797' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4313849' lon='-96.2885957'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851798' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4329586' lon='-96.2901061'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851799' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.434448' lon='-96.2915333'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851800' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4364849' lon='-96.2935178'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851801' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4377713' lon='-96.2947692'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851802' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4395417' lon='-96.2964406'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851803' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4415327' lon='-96.2983494'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851804' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4432418' lon='-96.2999945'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851805' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4453003' lon='-96.3019656'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851806' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4472723' lon='-96.3038888'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851808' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4491316' lon='-96.3056634'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851810' action='delete' timestamp='2012-05-23T06:25:03Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4508368' lon='-96.3073612'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851812' action='delete' timestamp='2012-05-23T06:25:04Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4523129' lon='-96.308824'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851815' action='delete' timestamp='2012-05-23T06:25:04Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4540932' lon='-96.3105937'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851817' action='delete' timestamp='2012-05-23T06:25:04Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4561476' lon='-96.312656'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851820' action='delete' timestamp='2012-05-23T06:25:04Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4578189' lon='-96.3143011'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851823' action='delete' timestamp='2012-05-23T06:25:04Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4593624' lon='-96.3158454'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851826' action='delete' timestamp='2012-05-23T06:25:04Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4610411' lon='-96.3175096'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851828' action='delete' timestamp='2012-05-23T06:25:05Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4620438' lon='-96.3184976'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851831' action='delete' timestamp='2012-05-23T06:25:05Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4637713' lon='-96.320205'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851835' action='delete' timestamp='2012-05-23T06:25:05Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4660132' lon='-96.3224975'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851837' action='delete' timestamp='2012-05-23T06:25:05Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4674589' lon='-96.3238932'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851840' action='delete' timestamp='2012-05-23T06:25:05Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4693364' lon='-96.3257732'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851843' action='delete' timestamp='2012-05-23T06:25:06Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4709436' lon='-96.3273799'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851846' action='delete' timestamp='2012-05-23T06:25:06Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4727309' lon='-96.3291496'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851849' action='delete' timestamp='2012-05-23T06:25:06Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4743905' lon='-96.3307515'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851851' action='delete' timestamp='2012-05-23T06:25:06Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4759675' lon='-96.3323678'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851853' action='delete' timestamp='2012-05-23T06:25:06Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4771915' lon='-96.3336099'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851857' action='delete' timestamp='2012-05-23T06:25:06Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4793053' lon='-96.3357058'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851866' action='delete' timestamp='2012-05-23T06:25:07Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4817682' lon='-96.338171'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851872' action='delete' timestamp='2012-05-23T06:25:07Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4830898' lon='-96.3395043'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851876' action='delete' timestamp='2012-05-23T06:25:07Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4851096' lon='-96.3415282'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851883' action='delete' timestamp='2012-05-23T06:25:08Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4874897' lon='-96.343744'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851927' action='delete' timestamp='2012-05-23T06:25:11Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4894831' lon='-96.3457008'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851950' action='delete' timestamp='2012-05-23T06:25:12Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4907181' lon='-96.3469813'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851953' action='delete' timestamp='2012-05-23T06:25:12Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4926701' lon='-96.3489237'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851955' action='delete' timestamp='2012-05-23T06:25:12Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4938638' lon='-96.3501323'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851957' action='delete' timestamp='2012-05-23T06:25:12Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.495598' lon='-96.3518205'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851959' action='delete' timestamp='2012-05-23T06:25:12Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4964088' lon='-96.3526358'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851961' action='delete' timestamp='2012-05-23T06:25:13Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.4983231' lon='-96.3545015'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851964' action='delete' timestamp='2012-05-23T06:25:13Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5006953' lon='-96.3568564'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851966' action='delete' timestamp='2012-05-23T06:25:13Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5023618' lon='-96.358535'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851968' action='delete' timestamp='2012-05-23T06:25:13Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5043285' lon='-96.3605493'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851971' action='delete' timestamp='2012-05-23T06:25:13Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.506175' lon='-96.3620984'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851973' action='delete' timestamp='2012-05-23T06:25:13Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5078602' lon='-96.3635516'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851975' action='delete' timestamp='2012-05-23T06:25:14Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.509838' lon='-96.365259'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851976' action='delete' timestamp='2012-05-23T06:25:14Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5112265' lon='-96.3664437'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851979' action='delete' timestamp='2012-05-23T06:25:14Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5138197' lon='-96.3686882'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851981' action='delete' timestamp='2012-05-23T06:25:14Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5159287' lon='-96.3705299'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851984' action='delete' timestamp='2012-05-23T06:25:14Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5183303' lon='-96.3726162'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851985' action='delete' timestamp='2012-05-23T06:25:14Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5197787' lon='-96.3738727'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851987' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5215836' lon='-96.3754362'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851989' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5229082' lon='-96.3765921'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851991' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5248143' lon='-96.3782275'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851993' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5259024' lon='-96.3791772'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851995' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5275233' lon='-96.3805824'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851998' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5302697' lon='-96.3829564'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762851999' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5314027' lon='-96.3839396'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852003' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5340214' lon='-96.3861842'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852006' action='delete' timestamp='2012-05-23T06:25:15Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5361298' lon='-96.3880498'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852011' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5378593' lon='-96.3895222'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852015' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.539206' lon='-96.3906253'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852020' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5405865' lon='-96.3918819'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852025' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5427022' lon='-96.3937044'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852043' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5443527' lon='-96.3951576'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852048' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5461045' lon='-96.3966683'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852053' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5479387' lon='-96.3982414'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852058' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5496453' lon='-96.399733'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852062' action='delete' timestamp='2012-05-23T06:25:16Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5512169' lon='-96.4010807'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852066' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.553141' lon='-96.4027593'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852083' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5553426' lon='-96.4046681'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852088' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5566441' lon='-96.4057664'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852091' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5587143' lon='-96.4075745'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852093' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5601057' lon='-96.4088119'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852096' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5623558' lon='-96.410668'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852098' action='delete' timestamp='2012-05-23T06:25:17Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5631771' lon='-96.411421'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852100' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5653671' lon='-96.413253'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852102' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5673546' lon='-96.4149365'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852104' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5695183' lon='-96.416711'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852107' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5713519' lon='-96.4180827'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852109' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5734405' lon='-96.4198812'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852111' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5758739' lon='-96.4218907'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852113' action='delete' timestamp='2012-05-23T06:25:18Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5771675' lon='-96.4229363'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852116' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5790121' lon='-96.4244326'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852118' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5805606' lon='-96.4257276'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852119' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5823729' lon='-96.4272263'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852121' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5839962' lon='-96.4285787'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852123' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5857164' lon='-96.4300066'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852126' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5870291' lon='-96.4311207'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852128' action='delete' timestamp='2012-05-23T06:25:19Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5895333' lon='-96.4331398'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852130' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5910966' lon='-96.4344587'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852133' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5929521' lon='-96.4359934'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852134' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.594564' lon='-96.4373459'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852137' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5959434' lon='-96.4385114'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852141' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.5982487' lon='-96.4403914'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852147' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6004939' lon='-96.4422571'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852152' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.602784' lon='-96.4441611'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852157' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6044893' lon='-96.4455999'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852163' action='delete' timestamp='2012-05-23T06:25:20Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6069817' lon='-96.4476526'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852167' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6092603' lon='-96.4495375'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852180' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6115202' lon='-96.4514271'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852182' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6138062' lon='-96.4533215'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852184' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6158298' lon='-96.4549906'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852188' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.618007' lon='-96.4567747'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852194' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6204239' lon='-96.458789'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852198' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.621668' lon='-96.4598298'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852211' action='delete' timestamp='2012-05-23T06:25:21Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.623223' lon='-96.4611247'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852214' action='delete' timestamp='2012-05-23T06:25:22Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6243133' lon='-96.4620024'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852217' action='delete' timestamp='2012-05-23T06:25:22Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6269099' lon='-96.464175'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852219' action='delete' timestamp='2012-05-23T06:25:22Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6290044' lon='-96.465892'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852223' action='delete' timestamp='2012-05-23T06:25:22Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6309976' lon='-96.4675514'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1762852225' action='delete' timestamp='2012-05-23T06:25:22Z' uid='121241' user='zephyr' visible='true' version='1' changeset='11677931' lat='38.6325081' lon='-96.466545'>
+    <tag k='power' v='tower' />
+  </node>
+  <node id='1768279855' action='delete' timestamp='2012-05-28T04:35:51Z' uid='213956' user='route56' visible='true' version='1' changeset='11722399' lat='38.4016343' lon='-96.2443058'>
+    <tag k='railway' v='level_crossing' />
+    <tag k='source' v='bing' />
+  </node>
+  <node id='1768279860' action='delete' timestamp='2012-05-28T04:35:51Z' uid='213956' user='route56' visible='true' version='1' changeset='11722399' lat='38.4016816' lon='-96.2443066'>
+    <tag k='railway' v='level_crossing' />
+    <tag k='source' v='bing' />
+  </node>
+  <node id='1771039373' action='delete' timestamp='2012-05-31T02:36:35Z' uid='213956' user='route56' visible='true' version='1' changeset='11754299' lat='38.3899777' lon='-96.2263564' />
+  <node id='1873932596' action='delete' timestamp='2012-11-26T22:24:11Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='14051873' lat='38.3495725' lon='-96.3549381'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525612' action='delete' timestamp='2012-11-26T22:05:36Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.365772' lon='-96.2510514'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525616' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3887924' lon='-96.2116561' />
+  <node id='2035525619' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3605978' lon='-96.2810468'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525620' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3778638' lon='-96.2121089'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525621' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3612062' lon='-96.2770348'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525622' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3703268' lon='-96.2163744'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525625' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3889516' lon='-96.2113265' />
+  <node id='2035525626' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3888023' lon='-96.2114864' />
+  <node id='2035525627' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3658922' lon='-96.2485772'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525630' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3667312' lon='-96.2401919'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525631' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3676291' lon='-96.2342966'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525632' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3885711' lon='-96.2117868'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525634' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3575223' lon='-96.3017683'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525635' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3645422' lon='-96.26257'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525638' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3853399' lon='-96.2119029'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525639' action='delete' timestamp='2012-11-26T22:05:37Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3679411' lon='-96.2322271'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525645' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3673442' lon='-96.2361863'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525646' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3664172' lon='-96.2422991'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525649' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3813136' lon='-96.2120233'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525653' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.388918' lon='-96.2116376' />
+  <node id='2035525654' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3889264' lon='-96.2114874' />
+  <node id='2035525656' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.383365' lon='-96.2119614'>
+    <tag k='power' v='pole' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525660' action='delete' timestamp='2012-11-26T22:05:38Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3653743' lon='-96.2599592'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525667' action='delete' timestamp='2012-11-26T22:05:39Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3655535' lon='-96.2558194'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525668' action='delete' timestamp='2012-11-26T22:05:39Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3635032' lon='-96.2658917'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525679' action='delete' timestamp='2012-11-26T22:05:39Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3581469' lon='-96.2975642'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035525680' action='delete' timestamp='2012-11-26T22:05:39Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3670408' lon='-96.2381688'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551771' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3432236' lon='-96.3974262'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551775' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3346086' lon='-96.4548915'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551778' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3355671' lon='-96.4484534'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551787' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3510931' lon='-96.3448136'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551791' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3532715' lon='-96.3302496'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551794' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3451905' lon='-96.3842743'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551798' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3425153' lon='-96.402182'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551801' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.346538' lon='-96.3752039'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551804' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3339016' lon='-96.4596068'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551806' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3363464' lon='-96.4432668'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551808' action='delete' timestamp='2012-11-26T22:24:08Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3342467' lon='-96.4572947'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551809' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3377644' lon='-96.4338522'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551810' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3543709' lon='-96.3229232'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551812' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3373857' lon='-96.4363574'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551815' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3540073' lon='-96.3253582'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551819' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3499137' lon='-96.3526171'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551822' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3547266' lon='-96.3205409'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551825' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3407814' lon='-96.41366'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551828' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3366637' lon='-96.4411767'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551831' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3521532' lon='-96.3378291'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551834' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3529342' lon='-96.3324795'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551837' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3349326' lon='-96.4527457'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551841' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.338101' lon='-96.4315562'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551843' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.356524' lon='-96.3084107'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551846' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3568605' lon='-96.3062381'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551849' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3525451' lon='-96.3351552'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551852' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3506429' lon='-96.347764'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551855' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3514597' lon='-96.3423906'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551858' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3400665' lon='-96.4184614'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551861' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3335776' lon='-96.4617633'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551865' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3492588' lon='-96.357023'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551868' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3475382' lon='-96.3685887'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551871' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3404078' lon='-96.4161692'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551873' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3411473' lon='-96.4112897'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551874' action='delete' timestamp='2012-11-26T22:24:09Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3385091' lon='-96.4288848'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551875' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3370575' lon='-96.4385836'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2035551876' action='delete' timestamp='2012-11-26T22:24:10Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='14051873' lat='38.3421846' lon='-96.4043501'>
+    <tag k='power' v='tower' />
+    <tag k='source' v='Bing' />
+  </node>
+  <node id='2674296543' action='delete' timestamp='2014-02-16T04:21:46Z' uid='711717' user='railfan-eric' visible='true' version='1' changeset='20588600' lat='38.4015158' lon='-96.2443037' />
+  <node id='4908190056' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3902083' lon='-96.1879266' />
+  <node id='4908190057' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3904247' lon='-96.187155' />
+  <node id='4908190058' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3903138' lon='-96.1850173' />
+  <node id='4908190059' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3888491' lon='-96.1849112' />
+  <node id='4908190060' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3878781' lon='-96.1835663' />
+  <node id='4908190061' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3859695' lon='-96.1823134' />
+  <node id='4908190062' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3832785' lon='-96.1826602' />
+  <node id='4908190063' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3830122' lon='-96.1803739' />
+  <node id='4908190064' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3811978' lon='-96.1799421' />
+  <node id='4908190065' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.38117' lon='-96.1779602' />
+  <node id='4908190066' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3823716' lon='-96.1771777' />
+  <node id='4908190067' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.386757' lon='-96.1773365' />
+  <node id='4908190068' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3868156' lon='-96.1778408' />
+  <node id='4908190069' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3896536' lon='-96.1778701' />
+  <node id='4908190070' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3895963' lon='-96.1767886' />
+  <node id='4908190071' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3903547' lon='-96.1767521' />
+  <node id='4908190072' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3903611' lon='-96.1748372' />
+  <node id='4908190073' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3884077' lon='-96.1746258' />
+  <node id='4908190074' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3884255' lon='-96.1707557' />
+  <node id='4908190075' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3903685' lon='-96.1704535' />
+  <node id='4908190076' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3903564' lon='-96.1693536' />
+  <node id='4908190077' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3891973' lon='-96.1689469' />
+  <node id='4908190078' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3880357' lon='-96.1688051' />
+  <node id='4908190079' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3872315' lon='-96.1681396' />
+  <node id='4908190080' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3871832' lon='-96.1666977' />
+  <node id='4908190081' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.38081' lon='-96.1667173' />
+  <node id='4908190082' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3751307' lon='-96.1664661' />
+  <node id='4908190083' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3652387' lon='-96.1638697' />
+  <node id='4908190084' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3620588' lon='-96.1612518' />
+  <node id='4908190085' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3587105' lon='-96.1623033' />
+  <node id='4908190086' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3541674' lon='-96.1621745' />
+  <node id='4908190087' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3541585' lon='-96.1757022' />
+  <node id='4908190088' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3562606' lon='-96.1755434' />
+  <node id='4908190089' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3563191' lon='-96.1788591' />
+  <node id='4908190090' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3581047' lon='-96.1790479' />
+  <node id='4908190091' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3581491' lon='-96.1803344' />
+  <node id='4908190092' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3573477' lon='-96.1805713' />
+  <node id='4908190093' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3325704' lon='-96.1804659' />
+  <node id='4908190094' action='delete' timestamp='2017-06-10T22:18:24Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3325557' lon='-96.1859951' />
+  <node id='4908190095' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3377647' lon='-96.1860232' />
+  <node id='4908190096' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3388929' lon='-96.1876016' />
+  <node id='4908190097' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3409807' lon='-96.1870973' />
+  <node id='4908190098' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3417508' lon='-96.1873736' />
+  <node id='4908190099' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3419732' lon='-96.1880884' />
+  <node id='4908190100' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3419345' lon='-96.1893331' />
+  <node id='4908190101' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3326071' lon='-96.1931141' />
+  <node id='4908190102' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3325903' lon='-96.2077268' />
+  <node id='4908190103' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3800407' lon='-96.2077912' />
+  <node id='4908190104' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3913748' lon='-96.2077939' />
+  <node id='4908190105' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.39135' lon='-96.2070114' />
+  <node id='4908190106' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3914159' lon='-96.2067312' />
+  <node id='4908190107' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3925213' lon='-96.2064697' />
+  <node id='4908190108' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3926165' lon='-96.2057318' />
+  <node id='4908190109' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.394' lon='-96.2057131' />
+  <node id='4908190110' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.393268' lon='-96.1999877' />
+  <node id='4908190111' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3933339' lon='-96.1985027' />
+  <node id='4908190112' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3933339' lon='-96.1954672' />
+  <node id='4908190113' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3940586' lon='-96.195187' />
+  <node id='4908190114' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3947101' lon='-96.1939448' />
+  <node id='4908190115' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3947394' lon='-96.1920581' />
+  <node id='4908190116' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3932639' lon='-96.1920165' />
+  <node id='4908190117' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3932219' lon='-96.1896079' />
+  <node id='4908190118' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3920657' lon='-96.1895811' />
+  <node id='4908190119' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3920446' lon='-96.1900263' />
+  <node id='4908190120' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3916578' lon='-96.1899942' />
+  <node id='4908190221' action='delete' timestamp='2017-06-10T22:18:25Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151' lat='38.3910355' lon='-96.1884224' />
+  <node id='6432863037' action='delete' timestamp='2019-04-27T17:17:31Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645307' lat='38.3438094' lon='-96.2836631' />
+  <node id='6432873306' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3460982' lon='-96.2818821' />
+  <node id='6432873307' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.346502' lon='-96.2807448' />
+  <node id='6432873308' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3533342' lon='-96.2765821' />
+  <node id='6432873309' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.361091' lon='-96.2715824' />
+  <node id='6432873310' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3636653' lon='-96.2712606' />
+  <node id='6432873311' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3650112' lon='-96.2694152' />
+  <node id='6432873312' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3686115' lon='-96.262184' />
+  <node id='6432873313' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3709836' lon='-96.2608536' />
+  <node id='6432873314' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3752397' lon='-96.2589439' />
+  <node id='6432873315' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3804543' lon='-96.2559183' />
+  <node id='6432873316' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.382641' lon='-96.2538798' />
+  <node id='6432873317' action='delete' timestamp='2019-04-27T17:27:20Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3907648' lon='-96.2503822' />
+  <node id='6432873331' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3957644' lon='-96.2358294' />
+  <node id='6432873332' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3946602' lon='-96.2329271' />
+  <node id='6432873333' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3918886' lon='-96.2347446' />
+  <node id='6432873334' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3926947' lon='-96.2358012' />
+  <node id='6432873335' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3930812' lon='-96.2375271' />
+  <node id='6432873336' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3945277' lon='-96.2326665' />
+  <node id='6432873337' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3916898' lon='-96.2345191' />
+  <node id='6432873338' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3910714' lon='-96.2335822' />
+  <node id='6432873339' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3910052' lon='-96.2313351' />
+  <node id='6432873340' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3931088' lon='-96.2312998' />
+  <node id='6432873341' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3943842' lon='-96.2322015' />
+  <node id='6432873351' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3931841' lon='-96.2217007' />
+  <node id='6432873352' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3917265' lon='-96.2209117' />
+  <node id='6432873353' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.391721' lon='-96.2198339' />
+  <node id='6432873354' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3931786' lon='-96.2197846' />
+  <node id='6432873355' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3939681' lon='-96.2195592' />
+  <node id='6432873356' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.391732' lon='-96.2196156' />
+  <node id='6432873357' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3916824' lon='-96.2175586' />
+  <node id='6432873358' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578' lat='38.3939295' lon='-96.2175304' />
+  <way id='12992651' action='delete' timestamp='2018-07-06T23:59:44Z' uid='13203' user='bahnpirat' visible='true' version='5' changeset='60479587'>
+    <tag k='cables' v='3' />
+    <tag k='fixme' v='name,operator,voltage' />
+    <tag k='frequency' v='60' />
+    <tag k='power' v='line' />
+    <tag k='source' v='Bing' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </way>
+  <way id='13144866' action='modify' timestamp='2014-03-04T18:55:46Z' uid='564585' user='wegavision' visible='true' version='5' changeset='20916105'>
+    <nd ref='121142215' />
+    <nd ref='121142213' />
+    <nd ref='121142209' />
+    <nd ref='121142206' />
+    <nd ref='121142203' />
+    <nd ref='121142199' />
+    <nd ref='121142185' />
+    <nd ref='121142179' />
+    <nd ref='121142175' />
+    <nd ref='121142291' />
+    <nd ref='121142297' />
+    <nd ref='121142299' />
+    <nd ref='121142303' />
+    <nd ref='121142306' />
+    <nd ref='121142308' />
+    <nd ref='121142311' />
+    <tag k='highway' v='trunk' />
+    <tag k='lanes' v='2' />
+    <tag k='lanes:backward' v='1' />
+    <tag k='lanes:forward' v='1' />
+    <tag k='name' v='Straight' />
+    <tag k='smoothness' v='excellent' />
+    <tag k='surface' v='asphalt' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road 160' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='13144872' action='delete' timestamp='2014-03-04T18:55:45Z' uid='564585' user='wegavision' visible='true' version='4' changeset='20916105'>
+    <tag k='highway' v='tertiary' />
+    <tag k='name' v='Road 160' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road 160' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='13145405' action='delete' timestamp='2007-11-18T06:03:04Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='549799'>
+    <tag k='highway' v='residential' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:separated' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10990630:10990612' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13149799' action='delete' timestamp='2007-11-18T06:30:37Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='549934'>
+    <tag k='access' v='private' />
+    <tag k='highway' v='service' />
+    <tag k='tiger:cfcc' v='A74' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10997653' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13150569' action='delete' timestamp='2007-11-18T06:35:15Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='550006'>
+    <tag k='access' v='private' />
+    <tag k='highway' v='service' />
+    <tag k='tiger:cfcc' v='A74' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10990658' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13151331' action='delete' timestamp='2007-11-18T06:38:57Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='550006'>
+    <tag k='highway' v='residential' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:separated' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10977266:10977268:10977270:10977271:10958598' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13152879' action='delete' timestamp='2007-11-18T06:46:56Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='550006'>
+    <tag k='access' v='private' />
+    <tag k='highway' v='service' />
+    <tag k='tiger:cfcc' v='A74' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10990661' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13152883' action='delete' timestamp='2007-11-18T06:46:57Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='550006'>
+    <tag k='access' v='private' />
+    <tag k='highway' v='service' />
+    <tag k='tiger:cfcc' v='A74' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10990662' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13152905' action='delete' timestamp='2007-11-18T06:47:08Z' uid='7168' user='DaveHansenTiger' visible='true' version='1' changeset='550006'>
+    <tag k='highway' v='residential' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:separated' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10990669' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13154733' action='delete' timestamp='2012-05-31T02:36:55Z' uid='213956' user='route56' visible='true' version='2' changeset='11754299'>
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Road H' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road H' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:separated' v='no' />
+    <tag k='tiger:source' v='tiger_import_dch_v0.6_20070812' />
+    <tag k='tiger:tlid' v='10977542:10977543:10988525' />
+    <tag k='tiger:upload_uuid' v='bulk_upload.pl-224dce35-4b0c-4d2f-92c9-607debed9550' />
+  </way>
+  <way id='13157036' action='delete' timestamp='2013-12-10T01:46:30Z' uid='711717' user='railfan-eric' visible='true' version='5' changeset='19369675'>
+    <tag k='highway' v='unclassified' />
+    <tag k='name' v='Road G' />
+    <tag k='name_1' v='Merrick County Road' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road G' />
+    <tag k='tiger:name_base_1' v='Merrick County Road' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='13157211' action='delete' timestamp='2013-12-10T01:46:31Z' uid='711717' user='railfan-eric' visible='true' version='3' changeset='19369675'>
+    <tag k='HFCS' v='Major Collector' />
+    <tag k='highway' v='unclassified' />
+    <tag k='name' v='Road H' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road H' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='13159298' action='delete' timestamp='2012-12-04T00:36:23Z' uid='10786' user='stucki1' visible='true' version='2' changeset='14147199'>
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Road G 5' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road G 5' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='13160361' action='delete' timestamp='2016-06-26T12:52:54Z' uid='30521' user='dufekin' visible='true' version='5' changeset='40299445'>
+    <tag k='HFCS' v='Major Collector' />
+    <tag k='highway' v='tertiary' />
+    <tag k='name' v='South Prairie Street' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Prairie' />
+    <tag k='tiger:name_direction_prefix' v='S' />
+    <tag k='tiger:name_type' v='St' />
+    <tag k='tiger:reviewed' v='no' />
+    <tag k='tiger:zip_left' v='66801' />
+    <tag k='tiger:zip_right' v='66801' />
+  </way>
+  <way id='34145427' action='delete' timestamp='2017-11-13T16:45:54Z' uid='5446055' user='torapa' visible='true' version='2' changeset='53745610'>
+    <tag k='admin_level' v='8' />
+    <tag k='boundary' v='administrative' />
+    <tag k='source' v='TIGER/Line® 2008 Place Shapefiles (http://www.census.gov/geo/www/tiger/)' />
+  </way>
+  <way id='164668203' action='delete' timestamp='2018-07-06T23:59:43Z' uid='13203' user='bahnpirat' visible='true' version='3' changeset='60479587'>
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='power' v='line' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </way>
+  <way id='164668210' action='delete' timestamp='2018-07-06T23:59:44Z' uid='13203' user='bahnpirat' visible='true' version='5' changeset='60479587'>
+    <tag k='barrier' v='fence' />
+    <tag k='fixme' v='name' />
+    <tag k='power' v='substation' />
+    <tag k='substation' v='distribution' />
+    <tag k='voltage' v='115000' />
+  </way>
+  <way id='193024215' action='delete' timestamp='2018-07-06T23:59:44Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='60479587'>
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='power' v='line' />
+    <tag k='source' v='Bing' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </way>
+  <way id='193024217' action='delete' timestamp='2018-07-06T23:59:45Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='60479587'>
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='power' v='line' />
+    <tag k='source' v='Bing' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </way>
+  <way id='251103334' action='delete' timestamp='2019-04-03T04:08:09Z' uid='1561092' user='sannkc' visible='true' version='3' changeset='68821610'>
+    <tag k='highway' v='unclassified' />
+    <tag k='name' v='Road G' />
+    <tag k='name_1' v='Merrick County Road' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road G' />
+    <tag k='tiger:name_base_1' v='Merrick County Road' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='251103335' action='delete' timestamp='2014-03-04T18:55:45Z' uid='564585' user='wegavision' visible='true' version='2' changeset='20916105'>
+    <tag k='highway' v='tertiary' />
+    <tag k='name' v='Road 160' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Lyon, KS' />
+    <tag k='tiger:name_base' v='Road 160' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='499553384' action='delete' timestamp='2017-06-10T22:18:27Z' uid='6132436' user='Xeragith' visible='true' version='1' changeset='49430151'>
+    <tag k='landuse' v='farmland' />
+  </way>
+  <way id='686318688' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578'>
+    <tag k='man_made' v='pipeline' />
+  </way>
+  <way id='686318691' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578'>
+    <tag k='natural' v='water' />
+    <tag k='water' v='pond' />
+  </way>
+  <way id='686318692' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578'>
+    <tag k='natural' v='water' />
+    <tag k='water' v='pond' />
+  </way>
+  <way id='686318695' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578'>
+    <tag k='natural' v='water' />
+    <tag k='water' v='pond' />
+  </way>
+  <way id='686318696' action='delete' timestamp='2019-04-27T17:27:21Z' uid='2063187' user='gregcrago' visible='true' version='1' changeset='69645578'>
+    <tag k='natural' v='water' />
+    <tag k='water' v='pond' />
+  </way>
+  <relation id='129669' action='modify' timestamp='2016-12-08T01:42:39Z' uid='339581' user='nyuriks' visible='true' version='5' changeset='44248201'>
+    <member type='way' ref='34142598' role='outer' />
+    <member type='way' ref='34145397' role='outer' />
+    <member type='way' ref='34145424' role='outer' />
+    <member type='way' ref='34145426' role='outer' />
+    <member type='way' ref='34145428' role='outer' />
+    <member type='way' ref='34145431' role='outer' />
+    <member type='way' ref='34145432' role='outer' />
+    <member type='way' ref='34145433' role='outer' />
+    <member type='way' ref='34142599' role='inner' />
+    <member type='way' ref='34145381' role='inner' />
+    <member type='way' ref='34145383' role='inner' />
+    <member type='node' ref='151341604' role='admin_centre' />
+    <tag k='admin_level' v='8' />
+    <tag k='border_type' v='city' />
+    <tag k='boundary' v='administrative' />
+    <tag k='name' v='Emporia' />
+    <tag k='place' v='town' />
+    <tag k='source' v='TIGER/Line® 2008 Place Shapefiles (http://www.census.gov/geo/www/tiger/)' />
+    <tag k='type' v='boundary' />
+    <tag k='wikidata' v='Q1583523' />
+    <tag k='wikipedia' v='en:Emporia, Kansas' />
+  </relation>
+  <relation id='8433202' action='modify' timestamp='2018-07-06T23:59:35Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='60479587'>
+    <member type='way' ref='117922217' role='substation' />
+    <member type='way' ref='164668208' role='line' />
+    <member type='way' ref='164668209' role='line' />
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='route' v='power' />
+    <tag k='type' v='route' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </relation>
+  <relation id='8433203' action='modify' timestamp='2018-07-15T13:46:11Z' uid='13203' user='bahnpirat' visible='true' version='2' changeset='60732474'>
+    <member type='way' ref='157178814' role='substation' />
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='route' v='power' />
+    <tag k='type' v='route' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </relation>
+  <relation id='8449519' action='modify' timestamp='2018-07-15T13:46:06Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='60732474'>
+    <member type='way' ref='193024214' role='line' />
+    <member type='way' ref='193024218' role='line' />
+    <member type='way' ref='499553387' role='substation' />
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='route' v='power' />
+    <tag k='type' v='route' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </relation>
+  <relation id='8449552' action='modify' timestamp='2018-07-15T14:04:35Z' uid='13203' user='bahnpirat' visible='true' version='1' changeset='60732874'>
+    <member type='way' ref='193024214' role='line' />
+    <member type='way' ref='192975216' role='line' />
+    <member type='way' ref='156516082' role='substation' />
+    <tag k='cables' v='3' />
+    <tag k='frequency' v='60' />
+    <tag k='route' v='power' />
+    <tag k='type' v='route' />
+    <tag k='voltage' v='115000' />
+    <tag k='wires' v='single' />
+  </relation>
+</osm>
