@@ -7,7 +7,7 @@ It contains:
     - Checking whether certain libraries or tools are appropriate
     - Determining how tools (can) interact with each other
 
-The projects page of this repository also contains:
+The wiki pages of this repository also contains:
 1. Documentation that may be helpful for contributors or other intrested people to figure out how our software works or how to set up experiments, deliverables or other projects.
 2. Results of analysis of experiments
 
