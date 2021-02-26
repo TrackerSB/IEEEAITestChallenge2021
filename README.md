@@ -1,4 +1,10 @@
 # IEEE AI Test Challenge 2021
+[![Total](https://tokei.rs/b1/github/TrackerSB/IEEEAITestChallenge2021?category=lines)](https://github.com/TrackerSB/IEEEAITestChallenge2021)
+[![LoC](https://tokei.rs/b1/github/TrackerSB/IEEEAITestChallenge2021?category=code)](https://github.com/TrackerSB/IEEEAITestChallenge2021)
+[![comments](https://tokei.rs/b1/github/TrackerSB/IEEEAITestChallenge2021?category=comments)](https://github.com/TrackerSB/IEEEAITestChallenge2021)
+[![blank lines](https://tokei.rs/b1/github/TrackerSB/IEEEAITestChallenge2021?category=blanks)](https://github.com/TrackerSB/IEEEAITestChallenge2021)
+[![files](https://tokei.rs/b1/github/TrackerSB/IEEEAITestChallenge2021?category=files)](https://github.com/TrackerSB/IEEEAITestChallenge2021)
+
 This repository relates to the participants of the university of Passau.
 It contains:
 1. All deliverable related files and projects
