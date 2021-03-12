@@ -1,0 +1,19 @@
+[
+{
+    "type": "Radar",
+    "name": "Radar",
+    "params": {
+      "Frequency": 13.4,
+      "Topic": "/apollo/sensor/conti_radar"
+    },
+    "transform": {
+      "x": 0,
+      "y": 0.689,
+      "z": 2.272,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+  }
+]
+

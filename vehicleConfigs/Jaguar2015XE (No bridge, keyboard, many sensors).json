@@ -1,0 +1,38 @@
+[
+{
+    "type": "Keyboard Control",
+    "name": "Keyboard Car Control"
+},
+{
+    "type": "3D Ground Truth",
+    "name": "3DGroundTruth",
+    "params": {
+      "Frequency": 10,
+      "Topic": "/simulator/ground_truth/3d_detections"
+    },
+    "transform": {
+      "x": 0,
+      "y": 1.975314,
+      "z": -0.3679201,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+},
+{
+    "type": "CAN-Bus",
+    "name": "CANBus",
+    "params": {
+      "Topic": "/canbus"
+    },
+    "transform": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "roll": 0
+    }
+}
+]
+
