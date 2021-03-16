@@ -1,4 +1,3 @@
-from collections import namedtuple
 from typing import List, Tuple, Optional
 
 from lgsvl import AgentState, WalkWaypoint
@@ -19,7 +18,9 @@ PEDESTRIAN_DESTINATION: Vector = Vector(-205, 10.25, 139)
 # NOTE The pedestrian speed is just an observation
 PEDESTRIAN_SPEED: float = 4.5  # km/h # FIXME It seems like the pedestrian speed can not be changed
 
-TestResult = namedtuple("TestResult", "successful")
+
+class _TestResult:
+    successful: bool = True
 
 
 def _generate_initial_pedestrian_state() -> AgentState:
@@ -64,7 +65,7 @@ def _main() -> None:
     pedestrian = load_pedestrian(sim, MAP_NAME, initial_pedestrian_state)
     pedestrian.follow(_generate_pedestrian_waypoints())
 
-    test_result = TestResult(True)
+    test_result = _TestResult()
 
     def _on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
         test_result.successful = False
