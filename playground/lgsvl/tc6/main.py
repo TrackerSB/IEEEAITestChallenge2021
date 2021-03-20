@@ -8,7 +8,7 @@ from tc6.locations import *
 EGO_SPEED: float = 50.0  # in km/h
 EGO_DISTANCE: Optional[float] = None  # in m: None --> Calculate a distance which enforces a crash with the pedestrian
 PEDESTRIAN_DIRECTION: bool = True  # Iff True (False) pedestrian moves from A to B (B to A)
-TEST_PLACE: Location = LOC_1_VARB
+TEST_PLACE: Location = LOC_2_VARB
 
 # Test case fixed settings
 UNIT_VECTOR: Vector = Vector(0, 0, 1)  # The unit vector with 0°
@@ -61,8 +61,12 @@ def _generate_initial_ego_state(pedestrian_behavior: _PedestrianBehavior) -> Tup
     else:
         ego_crash_distance = EGO_DISTANCE
         time_to_crash_point = ego_crash_distance / (EGO_SPEED / 3.6)
-    ego_rotation_offset = 90 if PEDESTRIAN_DIRECTION else -90
-    ego_rotation = pedestrian_behavior.initial_state.rotation.y + ego_rotation_offset
+    if TEST_PLACE.ego_approach_rotation is None:
+        # Move in a 90° offset relative to the pedestrian movement
+        ego_rotation_offset = 90 if PEDESTRIAN_DIRECTION else -90
+        ego_rotation = pedestrian_behavior.initial_state.rotation.y + ego_rotation_offset
+    else:
+        ego_rotation = TEST_PLACE.ego_approach_rotation if PEDESTRIAN_DIRECTION else -TEST_PLACE.ego_approach_rotation
     ego_start_pos = TEST_PLACE.ped_crash_pos \
                     - rotate_around_y(UNIT_VECTOR * (ego_crash_distance + EGO_BBOX_OFFSET), -ego_rotation)
     ego_spawn = Spawn(Transform(position=ego_start_pos, rotation=Vector(0, ego_rotation, 0)))
