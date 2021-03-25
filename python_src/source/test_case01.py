@@ -3,7 +3,7 @@ import lgsvl
 from simulator import Simulator, spawn_state, create_EGO, create_NPC, cm_equal
 
 
-class TestCase02(unittest.TestCase):
+class TestCase01(unittest.TestCase):
     def test_agent_name(self):  # Check if EGO Apollo is created
         with Simulator() as sim:
             agent = create_EGO(sim)
