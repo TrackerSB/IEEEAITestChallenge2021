@@ -21,3 +21,7 @@ LOC_2_VARA = Location("San Francisco", Vector(-185, 10.25, 585), Vector(-202, 10
                       Vector(-204, 10.25, 587), 180)
 LOC_2_VARB = Location("San Francisco", Vector(-204, 10.25, 587), Vector(-189.5, 10.25, 586),
                       Vector(-185, 10.25, 585), 0)
+
+LOC_3_VARA = Location("CubeTown", Vector(-7, 0, 42), Vector(3, 0, 42), Vector(7, 0, 42))
+
+LOC_4_VARA = Location("CubeTown", Vector(7, 0, -42), Vector(-3, 0, -42), Vector(-7, 0, -42))

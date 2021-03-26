@@ -5,10 +5,10 @@ from lgsvl import AgentState, WalkWaypoint
 from tc6.locations import *
 
 # Test case configurable settings
-EGO_SPEED: float = 50.0  # in km/h
+EGO_SPEED: float = 30.0  # in km/h
 EGO_DISTANCE: Optional[float] = None  # in m: None --> Calculate a distance which enforces a crash with the pedestrian
 PEDESTRIAN_DIRECTION: bool = True  # Iff True (False) pedestrian moves from A to B (B to A)
-TEST_PLACE: Location = LOC_2_VARB
+TEST_PLACE: Location = LOC_4_VARA
 
 # Test case fixed settings
 UNIT_VECTOR: Vector = Vector(0, 0, 1)  # The unit vector with 0°
