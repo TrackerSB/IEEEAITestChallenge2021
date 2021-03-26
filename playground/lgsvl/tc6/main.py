@@ -1,4 +1,4 @@
-from typing import Tuple, Optional, List
+from typing import Tuple, List
 
 from lgsvl import AgentState, WalkWaypoint
 
@@ -43,7 +43,7 @@ def _generate_initial_pedestrian_behavior() -> _PedestrianBehavior:
     else:
         start = TEST_PLACE.ped_pos_b
         finish = TEST_PLACE.ped_pos_a
-    rotation = get_directional_angle(start - finish, UNIT_VECTOR)
+    rotation = get_directional_angle(finish - start, UNIT_VECTOR)
     spawn = Spawn(Transform(position=start, rotation=Vector(0, rotation, 0)))
     waypoints.append(WalkWaypoint(finish, 0))
     return _PedestrianBehavior(generate_initial_state(spawn, PEDESTRIAN_SPEED), waypoints)
@@ -63,10 +63,10 @@ def _generate_initial_ego_state(pedestrian_behavior: _PedestrianBehavior) -> Tup
         time_to_crash_point = ego_crash_distance / (EGO_SPEED / 3.6)
     if TEST_PLACE.ego_approach_rotation is None:
         # Move in a 90° offset relative to the pedestrian movement
-        ego_rotation_offset = 90 if PEDESTRIAN_DIRECTION else -90
+        ego_rotation_offset = -90 if PEDESTRIAN_DIRECTION else 90
         ego_rotation = pedestrian_behavior.initial_state.rotation.y + ego_rotation_offset
     else:
-        ego_rotation = TEST_PLACE.ego_approach_rotation if PEDESTRIAN_DIRECTION else -TEST_PLACE.ego_approach_rotation
+        ego_rotation = -TEST_PLACE.ego_approach_rotation if PEDESTRIAN_DIRECTION else TEST_PLACE.ego_approach_rotation
     ego_start_pos = TEST_PLACE.ped_crash_pos \
                     - rotate_around_y(UNIT_VECTOR * (ego_crash_distance + EGO_BBOX_OFFSET), -ego_rotation)
     ego_spawn = Spawn(Transform(position=ego_start_pos, rotation=Vector(0, ego_rotation, 0)))
