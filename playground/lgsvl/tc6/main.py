@@ -120,6 +120,36 @@ class TC6TestSuite(unittest.TestCase):
 
         self._iterate_configs(_generate_config)
 
+    def test_farSlow(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                30.0,
+                200.0,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
+    def test_farFast(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                60.0,
+                200.0,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
 
 if __name__ == '__main__':
     unittest.main()
