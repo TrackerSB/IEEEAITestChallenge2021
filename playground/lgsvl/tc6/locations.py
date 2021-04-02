@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, List
 
 from lgsvl import Vector
 
@@ -25,3 +25,10 @@ LOC_2_VARB = Location("San Francisco", Vector(-204, 10.25, 587), Vector(-189.5, 
 LOC_3_VARA = Location("CubeTown", Vector(-7, 0, 42), Vector(3, 0, 42), Vector(7, 0, 42))
 
 LOC_4_VARA = Location("CubeTown", Vector(7, 0, -42), Vector(-3, 0, -42), Vector(-7, 0, -42))
+
+ALL_LOCATIONS: List = [
+    LOC_1_VARA, LOC_1_VARB,
+    LOC_2_VARA, LOC_2_VARB,
+    LOC_3_VARA,
+    LOC_4_VARA
+]
