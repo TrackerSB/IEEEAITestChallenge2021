@@ -5,6 +5,8 @@ from lgsvl import AgentState, WalkWaypoint
 from tc6.locations import *
 
 # Test case configurable settings
+EGO_CAR_MODEL: str = "Jaguar2015XE"
+EGO_CAR_NAME: str = "Jaguar2015XE (Apollo 5.0, many sensors)"
 EGO_SPEED: float = 30.0  # in km/h
 EGO_DISTANCE: Optional[float] = None  # in m: None --> Calculate a distance which enforces a crash with the pedestrian
 PEDESTRIAN_DIRECTION: bool = True  # Iff True (False) pedestrian moves from A to B (B to A)
@@ -86,7 +88,7 @@ def _main() -> None:
     pedestrian.follow(pedestrian_behavior.waypoints)
 
     initial_ego_state, time_to_crash_point = _generate_initial_ego_state(pedestrian_behavior)
-    ego = load_ego(sim, "Jaguar2015XE (Apollo 5.0, many sensors)", initial_ego_state)
+    ego = load_ego(sim, EGO_CAR_NAME, initial_ego_state)
 
     test_result = _TestResult()
 
