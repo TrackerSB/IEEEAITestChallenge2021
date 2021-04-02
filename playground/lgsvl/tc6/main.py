@@ -51,9 +51,13 @@ class TC6TestSuite(unittest.TestCase):
         for location in ALL_LOCATIONS:
             for pedestrian_direction in [True, False]:
                 config = config_provider(location, pedestrian_direction)
-                if not TestCase6.execute(TC6TestSuite._sim, config):
-                    logging.debug("Failed with the following config {}".format(config))
-                    all_succeeded = False
+                test_result = TestCase6.execute(TC6TestSuite._sim, config)
+                if test_result is None:
+                    logging.warning("Skipped config {}".format(config))
+                else:
+                    if not test_result:
+                        logging.debug("Failed with config {}".format(config))
+                        all_succeeded = False
         self.assertTrue(all_succeeded)
 
     def test_enforceCrashSlow(self) -> None:
