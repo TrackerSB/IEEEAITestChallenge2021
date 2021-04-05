@@ -24,6 +24,7 @@ def load_ego(sim: Simulator, ego_car_name: str, initial_state: AgentState) -> Eg
 def load_npc(sim: Simulator, NPC_car_name: str, initial_state: AgentState) -> Agent:
     from lgsvl import AgentType
     from lgsvl.simulator import env
+    # name: Sedan, SUV, Jeep, Hatchback, SchoolBus, BoxTruck
 
     return sim.add_agent(env.str("LGSVL__VEHICLE_0", NPC_car_name), AgentType.NPC, initial_state)
 
