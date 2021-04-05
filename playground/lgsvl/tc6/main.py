@@ -58,7 +58,8 @@ class TC6TestSuite(unittest.TestCase):
                     if not test_result:
                         logging.debug("Failed with config {}".format(config))
                         all_succeeded = False
-        self.assertTrue(all_succeeded)
+        self.assertTrue(all_succeeded,
+                        "The ego vehicle failed with the previously given configurations (See logging output)")
 
     def test_enforceCrashSlow(self) -> None:
         from tc6.config import TestConfig
