@@ -1,4 +1,4 @@
-import unittest
+from unittest import TextTestRunner
 from unittest.suite import TestSuite
 from unittest.loader import TestLoader
 from test_case_01 import TestCase01
@@ -13,5 +13,5 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(TestCase06))
 
     # run the suite
-    runner = unittest.TextTestRunner(verbosity=2)
+    runner = TextTestRunner(verbosity=2)
     runner.run(suite)
