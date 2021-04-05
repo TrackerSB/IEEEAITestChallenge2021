@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from tc6.locations import Location
+from test_case_06.locations import Location
 
 
 @dataclass

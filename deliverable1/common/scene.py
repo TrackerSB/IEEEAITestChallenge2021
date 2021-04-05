@@ -1,11 +1,11 @@
 from typing import Optional, Callable
 
-from lgsvl import AgentState, Simulator
-from lgsvl.agent import Agent, Pedestrian, EgoVehicle
-from lgsvl.geometry import Spawn, Vector
+from lgsvl import AgentState, EgoVehicle, Simulator
+from lgsvl.agent import Agent, Pedestrian
+from lgsvl.geometry import Vector, Transform
 
 
-def load_scene(sim: Simulator, scene_name: str) -> Spawn:
+def load_scene(sim: Simulator, scene_name: str) -> Transform:
     if sim.current_scene == scene_name:
         sim.reset()
     else:
@@ -16,9 +16,8 @@ def load_scene(sim: Simulator, scene_name: str) -> Spawn:
 
 def load_ego(sim: Simulator, ego_car_name: str, initial_state: AgentState) -> EgoVehicle:
     from lgsvl import AgentType
-    from lgsvl.simulator import env
 
-    return sim.add_agent(env.str("LGSVL__VEHICLE_0", ego_car_name), AgentType.EGO, initial_state)
+    return sim.add_agent(ego_car_name, AgentType.EGO, initial_state)
 
 
 def load_pedestrian(sim: Simulator, map_name: str, initial_state: AgentState) -> Pedestrian:
@@ -41,13 +40,20 @@ def load_pedestrian(sim: Simulator, map_name: str, initial_state: AgentState) ->
     return sim.add_agent(random.choice(allowed_names), AgentType.PEDESTRIAN, initial_state)
 
 
+def load_npc(sim: Simulator, NPC_car_name: str, initial_state: AgentState) -> Agent:
+    from lgsvl import AgentType
+    # name: Sedan, SUV, Jeep, Hatchback, SchoolBus, BoxTruck
+
+    return sim.add_agent(NPC_car_name, AgentType.NPC, initial_state)
+
+
 def add_random_traffic(sim: Simulator) -> None:
     from lgsvl import AgentType
     sim.add_random_agents(AgentType.NPC)
     sim.add_random_agents(AgentType.PEDESTRIAN)
 
 
-def generate_initial_state(initial_pos: Spawn, initial_speed: Optional[float] = None) -> AgentState:
+def generate_initial_state(initial_pos: Transform, initial_speed: Optional[float] = None) -> AgentState:
     """
     :param initial_speed: Initial speed in km/h
     """
@@ -74,3 +80,9 @@ def detect_collisions(sim: Simulator,
     """
     for agent in sim.get_agents():
         agent.on_collision(on_collision_detected)
+
+
+def spawn_state(sim, index=0):
+    state = AgentState()
+    state.transform = sim.get_spawn()[index]
+    return state
