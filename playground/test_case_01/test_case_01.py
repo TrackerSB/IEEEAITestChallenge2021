@@ -1,9 +1,10 @@
 import unittest
+from common import SimConnection
+from common.scene import load_ego, load_npc, spawn_state
 
 
 class TestCase01(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, True)
+
 
 
 if __name__ == '__main__':

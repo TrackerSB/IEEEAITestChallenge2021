@@ -1,5 +1,6 @@
 import unittest
 from common import SimConnection
+from common.scene import load_ego, load_npc, spawn_state
 
 
 class TestSimulation(unittest.TestCase):
@@ -17,6 +18,22 @@ class TestSimulation(unittest.TestCase):
         with SimConnection() as sim:
             spawns = sim.get_spawn()
             self.assertGreater(len(spawns), 0)
+
+    def test_EGO_creation(self):  # Check if EGO Apollo is created
+        with SimConnection() as sim:
+            agent_state = spawn_state(sim)
+            agent = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", agent_state)
+            expected = agent.name
+            target = "Lincoln2017MKZ (Apollo 5.0)"
+        self.assertEqual(expected, target)
+
+    def test_NPC_creation(self):
+        with SimConnection(60) as sim:
+            agent_state = spawn_state(sim)
+            agent = load_npc(sim, "Sedan", agent_state)
+            expected = agent.name
+            target = "Sedan"
+        self.assertEqual(expected, target)
 
 
 if __name__ == '__main__':
