@@ -60,9 +60,10 @@ def generate_initial_state(initial_pos: Spawn, initial_speed: Optional[float] = 
 
 
 def _default_on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
+    import logging
     name1 = agent1.uid if agent1 else "OBSTACLE"
     name2 = agent2.uid if agent1 else "OBSTACLE"
-    print("{} collided with {} at {}".format(name1, name2, contact))
+    logging.info("{} collided with {} at {}".format(name1, name2, contact))
 
 
 def detect_collisions(sim: Simulator,

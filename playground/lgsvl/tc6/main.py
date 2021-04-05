@@ -1,106 +1,156 @@
-from typing import Tuple, List
+import unittest
+from sys import stdout
+from typing import Callable
 
-from lgsvl import AgentState, WalkWaypoint
+from lgsvl import Simulator
 
-from tc6.locations import *
+from tc6.config import TestConfig
+from tc6.testcase6 import TestCase6
+from tc6.locations import ALL_LOCATIONS, Location
 
-# Test case configurable settings
-EGO_SPEED: float = 30.0  # in km/h
-EGO_DISTANCE: Optional[float] = None  # in m: None --> Calculate a distance which enforces a crash with the pedestrian
-PEDESTRIAN_DIRECTION: bool = True  # Iff True (False) pedestrian moves from A to B (B to A)
-TEST_PLACE: Location = LOC_4_VARA
-
-# Test case fixed settings
-UNIT_VECTOR: Vector = Vector(0, 0, 1)  # The unit vector with 0°
-# NOTE Due to different bounding box sizes the crash positions of agents differ slightly
-EGO_BBOX_OFFSET: float = 3  # in m
-# NOTE The pedestrian speed is just an observation
-PEDESTRIAN_SPEED: float = 4.4  # km/h # FIXME It seems like the pedestrian speed can not be changed
-
-
-class _TestResult:
-    successful: bool = True
-
-
-class _PedestrianBehavior:
-    def __init__(self, initial_state: AgentState, waypoints: List[WalkWaypoint]):
-        self.initial_state = initial_state
-        self.waypoints = waypoints
-
-    initial_state: AgentState
-    waypoints: List[WalkWaypoint]
+LGSVL_HOST: str = "127.0.0.1"
+LGSVL_PORT: int = 8181
+LOGGING_CONFIG = {
+    "version": 1,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "stream": stdout
+        }
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG"
+    }
+}
 
 
-def _generate_initial_pedestrian_behavior() -> _PedestrianBehavior:
-    from common.geometry import get_directional_angle
-    from common.scene import generate_initial_state
-    from lgsvl.geometry import Spawn, Transform
+class TC6TestSuite(unittest.TestCase):
+    _sim: Simulator = None
 
-    waypoints = [WalkWaypoint(TEST_PLACE.ped_crash_pos, 0)]
-    if PEDESTRIAN_DIRECTION:
-        start = TEST_PLACE.ped_pos_a
-        finish = TEST_PLACE.ped_pos_b
-    else:
-        start = TEST_PLACE.ped_pos_b
-        finish = TEST_PLACE.ped_pos_a
-    rotation = get_directional_angle(finish - start, UNIT_VECTOR)
-    spawn = Spawn(Transform(position=start, rotation=Vector(0, rotation, 0)))
-    waypoints.append(WalkWaypoint(finish, 0))
-    return _PedestrianBehavior(generate_initial_state(spawn, PEDESTRIAN_SPEED), waypoints)
+    @classmethod
+    def setUpClass(cls) -> None:
+        from common.simulator import connect_simulation
+        import logging.config
+        TC6TestSuite._sim = connect_simulation(LGSVL_HOST, LGSVL_PORT)
+        logging.config.dictConfig(LOGGING_CONFIG)
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        TC6TestSuite._sim.stop()
+
+    def _iterate_configs(self, config_provider: Callable[[Location, bool], TestConfig]) -> None:
+        import logging
+        from inspect import currentframe, getouterframes
+
+        current_frame = currentframe()
+        calling_frame = getouterframes(current_frame, 2)
+        logging.info("Start {}".format(calling_frame[1][3]))
+
+        all_succeeded = True
+        for location in ALL_LOCATIONS:
+            for pedestrian_direction in [True, False]:
+                config = config_provider(location, pedestrian_direction)
+                test_result = TestCase6.execute(TC6TestSuite._sim, config)
+                if test_result is None:
+                    logging.warning("Skipped config {}".format(config))
+                else:
+                    if not test_result:
+                        logging.debug("Failed with config {}".format(config))
+                        all_succeeded = False
+        self.assertTrue(all_succeeded,
+                        "The ego vehicle failed with the previously given configurations (See logging output)")
+
+    def test_enforceCrashSlow(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                30.0,
+                None,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
+    def test_enforceCrashFast(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                60.0,
+                None,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
+    def test_nearSlow(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                30.0,
+                40.0,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
+    def test_nearFast(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                60.0,
+                40.0,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
+    def test_farSlow(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                30.0,
+                200.0,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
+
+    def test_farFast(self) -> None:
+        from tc6.config import TestConfig
+
+        def _generate_config(location: Location, pedestrian_direction: bool) -> TestConfig:
+            return TestConfig(
+                "Jaguar2015XE",
+                "Jaguar2015XE (Apollo 5.0, many sensors)",
+                60.0,
+                200.0,
+                pedestrian_direction,
+                location
+            )
+
+        self._iterate_configs(_generate_config)
 
 
-def _generate_initial_ego_state(pedestrian_behavior: _PedestrianBehavior) -> Tuple[AgentState, float]:
-    from common.geometry import rotate_around_y
-    from common.scene import generate_initial_state
-    from lgsvl.geometry import Spawn, Transform
-
-    if EGO_DISTANCE is None:
-        pedestrian_crash_distance = (pedestrian_behavior.initial_state.position - TEST_PLACE.ped_crash_pos).magnitude()
-        time_to_crash_point = pedestrian_crash_distance / (PEDESTRIAN_SPEED / 3.6)  # in seconds
-        ego_crash_distance = (EGO_SPEED / 3.6) * time_to_crash_point
-    else:
-        ego_crash_distance = EGO_DISTANCE
-        time_to_crash_point = ego_crash_distance / (EGO_SPEED / 3.6)
-    if TEST_PLACE.ego_approach_rotation is None:
-        # Move in a 90° offset relative to the pedestrian movement
-        ego_rotation_offset = -90 if PEDESTRIAN_DIRECTION else 90
-        ego_rotation = pedestrian_behavior.initial_state.rotation.y + ego_rotation_offset
-    else:
-        ego_rotation = -TEST_PLACE.ego_approach_rotation if PEDESTRIAN_DIRECTION else TEST_PLACE.ego_approach_rotation
-    ego_start_pos = TEST_PLACE.ped_crash_pos \
-                    - rotate_around_y(UNIT_VECTOR * (ego_crash_distance + EGO_BBOX_OFFSET), -ego_rotation)
-    ego_spawn = Spawn(Transform(position=ego_start_pos, rotation=Vector(0, ego_rotation, 0)))
-    return generate_initial_state(ego_spawn, EGO_SPEED), time_to_crash_point
-
-
-def _main() -> None:
-    from common.scene import load_ego, load_scene, load_pedestrian, detect_collisions
-    from common.simulator import connect_simulation
-    from lgsvl.agent import Agent
-
-    sim = connect_simulation("127.0.0.1", 8181)
-    load_scene(sim, TEST_PLACE.map_name)
-
-    pedestrian_behavior = _generate_initial_pedestrian_behavior()
-    pedestrian = load_pedestrian(sim, TEST_PLACE.map_name, pedestrian_behavior.initial_state)
-    pedestrian.follow(pedestrian_behavior.waypoints)
-
-    initial_ego_state, time_to_crash_point = _generate_initial_ego_state(pedestrian_behavior)
-    ego = load_ego(sim, "Jaguar2015XE (Apollo 5.0, many sensors)", initial_ego_state)
-
-    test_result = _TestResult()
-
-    def _on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
-        test_result.successful = False
-        sim.stop()
-
-    detect_collisions(sim, _on_collision)
-
-    sim.run(time_to_crash_point * 2)
-
-    # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
-    print("Test succeeded" if test_result.successful else "Test failed")
-
-
-if __name__ == "__main__":
-    _main()
+if __name__ == '__main__':
+    unittest.main()
