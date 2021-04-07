@@ -13,5 +13,9 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(TestCase06))
 
     # run the suite
-    runner = TextTestRunner(verbosity=2)
+    """
+    NOTE buffer=False ensure that any error occurring during test runs is printed to stderr immediately instead of
+    being printed after all test cases finished.
+    """
+    runner = TextTestRunner(buffer=False, verbosity=2)
     runner.run(suite)
