@@ -13,10 +13,17 @@ if __name__ == "__main__":
     suite.addTests(loader.loadTestsFromTestCase(TestCase06))
 
     # run the suite
-    """
-    NOTE Using buffer=False and failfast=True together ensures that any exception occurring during test runs is printed
-    to stderr immediately instead of being hold back until all test cases finished.
-    However at least failfast has to be disabled if test cases contain tests that are expected to fail.
-    """
-    runner = TextTestRunner(failfast=True, buffer=False, verbosity=2)
+    debug_enabled = False
+    if debug_enabled:
+        """
+        NOTE Using buffer=False and failfast=True together ensures that any exception occurring during test runs is printed
+        to stderr immediately instead of being hold back until all test cases finished.
+        However at least failfast has to be disabled if test cases contain tests that are expected to fail.
+        """
+        failfast = True
+        buffer = False
+    else:
+        failfast = False
+        buffer = True
+    runner = TextTestRunner(failfast=failfast, buffer=buffer, verbosity=2)
     runner.run(suite)
