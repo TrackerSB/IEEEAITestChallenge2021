@@ -1,2 +1,3 @@
 environs
 lgsvl
+websockets>=8.1  # Although websockets is a dependency of lgsvl the version installed with lgsvl is too old and yields many locking errors (https://github.com/aaugustin/websockets/issues/760)
