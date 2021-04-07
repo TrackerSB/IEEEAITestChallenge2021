@@ -106,8 +106,21 @@ class TestCase6:
             detect_collisions(sim, _on_collision)
 
             start_time = time()
+
+            running_simulation_failed_once = False
             while (time() - start_time) < (time_to_crash_point * 2) and test_result.successful:
-                sim.run(1)
+                try:
+                    sim.run(1)
+                    if running_simulation_failed_once:
+                        logging.info("Continuing the execution failed once but could be restarted")
+                    running_simulation_failed_once = False
+                except Exception:
+                    if running_simulation_failed_once:
+                        logging.exception("Continuing the execution failed again. Skipping test.")
+                        return None
+                    else:
+                        logging.exception("Continuing the execution failed. Retrying once.")
+                        running_simulation_failed_once = True
 
             # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
             return test_result.successful
