@@ -14,8 +14,9 @@ if __name__ == "__main__":
 
     # run the suite
     """
-    NOTE buffer=False ensure that any error occurring during test runs is printed to stderr immediately instead of
-    being printed after all test cases finished.
+    NOTE Using buffer=False and failfast=True together ensures that any exception occurring during test runs is printed
+    to stderr immediately instead of being hold back until all test cases finished.
+    However at least failfast has to be disabled if test cases contain tests that are expected to fail.
     """
-    runner = TextTestRunner(buffer=False, verbosity=2)
+    runner = TextTestRunner(failfast=True, buffer=False, verbosity=2)
     runner.run(suite)
