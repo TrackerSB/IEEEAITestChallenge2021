@@ -2,8 +2,8 @@ from typing import Tuple, List, Optional
 
 from lgsvl import AgentState, WalkWaypoint, Vector, Simulator
 
-from tc6.config import TestConfig
-from tc6.locations import Location
+from test_case_06.config import TestConfig
+from test_case_06.locations import Location
 
 # Test case fixed settings
 UNIT_VECTOR: Vector = Vector(0, 0, 1)  # The unit vector with 0°
@@ -31,7 +31,7 @@ class TestCase6:
     def _generate_initial_pedestrian_behavior(test_place: Location, pedestrian_direction: bool) -> _PedestrianBehavior:
         from common.geometry import get_directional_angle
         from common.scene import generate_initial_state
-        from lgsvl.geometry import Spawn, Transform
+        from lgsvl.geometry import Transform
 
         waypoints = [WalkWaypoint(test_place.ped_crash_pos, 0)]
         if pedestrian_direction:
@@ -41,7 +41,7 @@ class TestCase6:
             start = test_place.ped_pos_b
             finish = test_place.ped_pos_a
         rotation = get_directional_angle(finish - start, UNIT_VECTOR)
-        spawn = Spawn(Transform(position=start, rotation=Vector(0, rotation, 0)))
+        spawn = Transform(position=start, rotation=Vector(0, rotation, 0))
         waypoints.append(WalkWaypoint(finish, 0))
         return _PedestrianBehavior(generate_initial_state(spawn, PEDESTRIAN_SPEED), waypoints)
 
@@ -51,7 +51,7 @@ class TestCase6:
             -> Optional[Tuple[AgentState, float]]:
         from common.geometry import rotate_around_y
         from common.scene import generate_initial_state
-        from lgsvl.geometry import Spawn, Transform
+        from lgsvl.geometry import Transform
 
         if ego_distance is None:
             pedestrian_crash_distance = (
@@ -70,7 +70,7 @@ class TestCase6:
                 ego_rotation = -test_place.ego_approach_rotation if pedestrian_direction else test_place.ego_approach_rotation
             ego_start_pos = test_place.ped_crash_pos \
                             - rotate_around_y(UNIT_VECTOR * (ego_crash_distance + EGO_BBOX_OFFSET), -ego_rotation)
-            ego_spawn = Spawn(Transform(position=ego_start_pos, rotation=Vector(0, ego_rotation, 0)))
+            ego_spawn = Transform(position=ego_start_pos, rotation=Vector(0, ego_rotation, 0))
             return generate_initial_state(ego_spawn, ego_speed), time_to_crash_point
         else:
             return None
@@ -106,8 +106,21 @@ class TestCase6:
             detect_collisions(sim, _on_collision)
 
             start_time = time()
+
+            running_simulation_failed_once = False
             while (time() - start_time) < (time_to_crash_point * 2) and test_result.successful:
-                sim.run(1)
+                try:
+                    sim.run(1)
+                    if running_simulation_failed_once:
+                        logging.info("Continuing the execution failed once but could be restarted")
+                    running_simulation_failed_once = False
+                except Exception:
+                    if running_simulation_failed_once:
+                        logging.exception("Continuing the execution failed again. Skipping test.")
+                        return None
+                    else:
+                        logging.exception("Continuing the execution failed. Retrying once.")
+                        running_simulation_failed_once = True
 
             # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
             return test_result.successful

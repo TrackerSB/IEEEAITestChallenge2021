@@ -15,14 +15,14 @@ class Location:
     ego_approach_rotation: Optional[float] = None  # In degree
 
 
-LOC_1_VARA = Location("San Francisco", Vector(-185, 10.25, 139), Vector(-202, 10.25, 139),
+LOC_1_VARA = Location("SanFrancisco", Vector(-185, 10.25, 139), Vector(-202, 10.25, 139),
                       Vector(-205, 10.25, 139), 500)
-LOC_1_VARB = Location("San Francisco", Vector(-205, 10.25, 139), Vector(-190, 10.25, 139),
+LOC_1_VARB = Location("SanFrancisco", Vector(-205, 10.25, 139), Vector(-190, 10.25, 139),
                       Vector(-185, 10.25, 139), 500)
 
-LOC_2_VARA = Location("San Francisco", Vector(-185, 10.25, 585), Vector(-202, 10.25, 587),
+LOC_2_VARA = Location("SanFrancisco", Vector(-185, 10.25, 585), Vector(-202, 10.25, 587),
                       Vector(-204, 10.25, 587), 500, 180)
-LOC_2_VARB = Location("San Francisco", Vector(-204, 10.25, 587), Vector(-189.5, 10.25, 586),
+LOC_2_VARB = Location("SanFrancisco", Vector(-204, 10.25, 587), Vector(-189.5, 10.25, 586),
                       Vector(-185, 10.25, 585), 500, 0)
 
 LOC_3_VARA = Location("CubeTown", Vector(-7, 0, 42), Vector(3, 0, 42), Vector(7, 0, 42), 80)
