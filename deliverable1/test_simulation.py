@@ -1,6 +1,6 @@
 import unittest
-from deliverable1.common import SimConnection
-from deliverable1.common.scene import load_ego, load_npc, spawn_state
+from common import SimConnection
+from common.scene import load_ego, load_npc, spawn_state
 
 
 class TestSimulation(unittest.TestCase):
