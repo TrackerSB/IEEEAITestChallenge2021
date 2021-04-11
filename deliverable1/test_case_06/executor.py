@@ -94,33 +94,33 @@ class TestCase6:
         if ego_state_result is None:
             logging.warning("Could not generate initial ego state within allowed parameter range")
             return None
-        else:
-            initial_ego_state, time_to_crash_point = ego_state_result
-            ego = load_ego(sim, config.ego_car_name, initial_ego_state)
 
-            test_result = _TestResult()
+        initial_ego_state, time_to_crash_point = ego_state_result
+        ego = load_ego(sim, config.ego_car_name, initial_ego_state)
 
-            def _on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
-                test_result.successful = False
+        test_result = _TestResult()
 
-            detect_collisions(sim, _on_collision)
+        def _on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
+            test_result.successful = False
 
-            start_time = time()
+        detect_collisions(sim, _on_collision)
 
-            running_simulation_failed_once = False
-            while (time() - start_time) < (time_to_crash_point * 2) and test_result.successful:
-                try:
-                    sim.run(1)
-                    if running_simulation_failed_once:
-                        logging.info("Continuing the execution failed once but could be restarted")
-                    running_simulation_failed_once = False
-                except Exception:
-                    if running_simulation_failed_once:
-                        logging.exception("Continuing the execution failed again. Skipping test.")
-                        return None
-                    else:
-                        logging.exception("Continuing the execution failed. Retrying once.")
-                        running_simulation_failed_once = True
+        start_time = time()
 
-            # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
-            return test_result.successful
+        running_simulation_failed_once = False
+        while (time() - start_time) < (time_to_crash_point * 2) and test_result.successful:
+            try:
+                sim.run(1)
+                if running_simulation_failed_once:
+                    logging.info("Continuing the execution failed once but could be restarted")
+                running_simulation_failed_once = False
+            except Exception:
+                if running_simulation_failed_once:
+                    logging.exception("Continuing the execution failed again. Skipping test.")
+                    return None
+                else:
+                    logging.exception("Continuing the execution failed. Retrying once.")
+                    running_simulation_failed_once = True
+
+        # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
+        return test_result.successful
