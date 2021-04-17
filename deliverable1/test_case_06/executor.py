@@ -78,6 +78,7 @@ class TestCase6:
     @staticmethod
     def execute(sim: Simulator, config: TestConfig) -> Optional[bool]:
         import logging
+        from common.apollo import ApolloModule, connect_to_dreamview
         from common.scene import load_ego, load_scene, load_pedestrian, detect_collisions
         from lgsvl.agent import Agent
         from time import time
@@ -97,6 +98,10 @@ class TestCase6:
         else:
             initial_ego_state, time_to_crash_point = ego_state_result
             ego = load_ego(sim, config.ego_car_name, initial_ego_state)
+
+            dv_connection = connect_to_dreamview(ego, config.test_place.ped_crash_pos, "localhost", 9090, 8888)
+            dv_connection.set_hd_map(config.test_place.map_name)
+            dv_connection.enable_module(ApolloModule.Control.value)
 
             test_result = _TestResult()
 

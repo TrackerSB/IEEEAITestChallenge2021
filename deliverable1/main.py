@@ -9,9 +9,9 @@ from test_simulation import TestSimulation
 if __name__ == "__main__":
     suite = TestSuite()
     loader = TestLoader()
-    suite.addTests(loader.loadTestsFromTestCase(TestSimulation))
-    suite.addTests(loader.loadTestsFromTestCase(TestCase01))
-    suite.addTests(loader.loadTestsFromTestCase(TestCase02))
+    # suite.addTests(loader.loadTestsFromTestCase(TestSimulation))
+    # suite.addTests(loader.loadTestsFromTestCase(TestCase01))
+    # suite.addTests(loader.loadTestsFromTestCase(TestCase02))
     suite.addTests(loader.loadTestsFromTestCase(TestCase06))
 
     # run the suite
