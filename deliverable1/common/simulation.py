@@ -1,4 +1,6 @@
 from lgsvl import Simulator
+from decouple import config
+from common.scene import load_scene
 
 
 class SimConnection:
@@ -12,10 +14,7 @@ class SimConnection:
         return Simulator(address=host, port=port)
 
     def __enter__(self):
-        from common.scene import load_scene
-        LGSVL_HOST: str = "127.0.0.1"
-        LGSVL_PORT: int = 8181
-        self.sim = Simulator(LGSVL_HOST, LGSVL_PORT)
+        self.sim = Simulator(config("LGSVL__SIMULATOR_HOST"), int(config("LGSVL__SIMULATOR_PORT")))
         if self.load_scene:
             load_scene(self.sim, self.scene)
         return self.sim

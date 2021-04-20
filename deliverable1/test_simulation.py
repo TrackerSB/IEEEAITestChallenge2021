@@ -3,12 +3,7 @@ from time import sleep
 from common import SimConnection
 from common.scene import load_ego, load_npc, spawn_state
 from lgsvl.dreamview import Connection
-from environs import Env
-
-env = Env()
-LGSVL__APOLLO_HOST = env.str("LGSVL__APOLLO_HOST", "localhost")
-LGSVL__APOLLO_PORT = env.int("LGSVL__APOLLO_PORT", 9090)
-LGSVL__DREAMVIEW_PORT = env.str("LGSVL__DW_0_PORT", "8888")
+from decouple import config
 
 
 class TestSimulation(unittest.TestCase):
@@ -43,28 +38,36 @@ class TestSimulation(unittest.TestCase):
             target = "Sedan"
         self.assertEqual(expected, target)
 
-    def test_apollo_connection_raises_exception(self):
+    def test_apollo_connection(self):
         with SimConnection() as sim:
             ego_state = spawn_state(sim)
             ego = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
-            ego.connect_bridge("LGSVL__APOLLO_HOST", LGSVL__APOLLO_PORT)
+            ego.connect_bridge(config("LGSVL__APOLLO_HOST"), int(config("LGSVL__APOLLO_PORT")))
             timeout = 0
             while not ego.bridge_connected:
                 print(f'Wait for Apollos bridge to connect...{timeout}s')
                 sleep(1)
                 timeout += 1
                 if timeout > 5:
-                    self.assertEqual(ego.bridge_connected, False)
                     break
+            print("Apollo Status: ", ego.bridge_connected)
+            self.assertEqual(True, ego.bridge_connected)
 
-    def test_dreamview_connection_raises_exception(self):
+    def test_dreamview_connection(self):
         with SimConnection() as sim:
             ego_state = spawn_state(sim)
             ego = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
-            ego.connect_bridge(LGSVL__APOLLO_HOST, LGSVL__APOLLO_PORT)
-
-            with self.assertRaises(Exception):
-                dv_connection = Connection(ego.simulator, ego, LGSVL__DREAMVIEW_PORT)
+            ego.connect_bridge(config("LGSVL__APOLLO_HOST"), int(config("LGSVL__APOLLO_PORT")))
+            timeout = 0
+            while not ego.bridge_connected:
+                print(f'Wait for Apollos bridge to connect...{timeout}s')
+                sleep(1)
+                timeout += 1
+                if timeout > 5:
+                    break
+            dv_connection = Connection(ego.simulator, ego, ip=config("LGSVL__DREAMVIEW_HOTS"),
+                                       port=config("LGSVL__DREAMVIEW_PORT"))
+            self.assertEqual(True, True)
 
 
 if __name__ == '__main__':
