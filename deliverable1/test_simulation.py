@@ -65,9 +65,9 @@ class TestSimulation(unittest.TestCase):
                 timeout += 1
                 if timeout > 5:
                     break
-            dv_connection = Connection(ego.simulator, ego, ip=config("LGSVL__DREAMVIEW_HOTS"),
-                                       port=config("LGSVL__DREAMVIEW_PORT"))
-            self.assertEqual(True, True)
+            print("Apollo Status: ", ego.bridge_connected)
+            dv_connection = Connection(ego.simulator, ego, ip=config("LGSVL__DREAMVIEW_HOST"), port=config("LGSVL__DREAMVIEW_PORT"))
+            self.assertEqual(True, ego.bridge_connected)
 
 
 if __name__ == '__main__':
