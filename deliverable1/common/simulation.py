@@ -40,5 +40,8 @@ class SimConnection:
             load_scene(self.sim, self.scene)
         return self.sim
 
+    def __enter__(self):
+        return self.connect()
+
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.sim.close()
