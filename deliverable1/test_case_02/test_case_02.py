@@ -1,23 +1,27 @@
 from unittest import TestCase
-
-from lgsvl import Transform, Vector
-
-from common import SimConnection
-from common.scene import load_npc, load_ego, generate_initial_state
+from common import SimConnection, CarControl
+from common.scene import load_ego, load_npc, spawn_state
 
 
 class TestCase02(TestCase):
-    def test_basicSetup(self):
-        with SimConnection(scene="Shalun") as sim:
-            initial_bus_position = Vector(42, 0, 4)
-            initial_bus_rotation = Vector(0, 250, 0)
-            initial_bus_state = generate_initial_state(Transform(initial_bus_position, initial_bus_rotation), None)
-            school_bus = load_npc(sim, "SchoolBus", initial_bus_state)
+    def test_vehicle_following(self):
+        simConnection = SimConnection()
+        sim = simConnection.connect()
+        # Placing the suv - 10m ahead from the starting point
+        state = spawn_state(sim)
+        truck_state = CarControl.place_car_from_the_point(dimension="vertical", distance=10, state=state)
+        truck = load_npc(sim, "BoxTruck", truck_state)
+        # Driving the truck - speed 5m/s from the starting point
+        truck.follow_closest_lane(True, 5)
 
-            initial_ego_position = Vector(22, 0, -8)
-            initial_ego_rotation = Vector(0, 70, 0)
-            initial_ego_state = generate_initial_state(Transform(initial_ego_position, initial_ego_rotation), 10)
-            ego = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", initial_ego_state)
-            sim.run()
+        # Driving the ego - speed 1m/s from the starting point
+        state = spawn_state(sim)
+        ego_state = CarControl.drive_ego_car(state=state, directions=[("vertical", 4.5)])
+        ego = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
 
-            self.skipTest("Test not implemented yet")
+        # Run the simulator for 10 seconds with debug mode
+        simConnection.execute(timeout=10)
+        self.assertEqual(True, True)
+        simConnection.sim.close()
+
+
