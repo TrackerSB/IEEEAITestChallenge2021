@@ -1,5 +1,4 @@
 import unittest
-from lgsvl.utils import transform_to_forward, transform_to_right
 from common import SimConnection, CarControl
 from common.scene import load_ego, load_npc, spawn_state
 from test_case_01.ego_control import drive_ego_no_apollo, drive_ego_with_apollo

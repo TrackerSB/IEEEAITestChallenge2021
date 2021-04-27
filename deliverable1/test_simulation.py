@@ -1,9 +1,6 @@
 import unittest
-from time import sleep
 from common import SimConnection
 from common.scene import load_ego, load_npc, spawn_state
-from lgsvl.dreamview import Connection
-from decouple import config
 
 
 class TestSimulation(unittest.TestCase):
@@ -37,37 +34,6 @@ class TestSimulation(unittest.TestCase):
             expected = agent.name
             target = "Sedan"
         self.assertEqual(expected, target)
-
-    def test_apollo_connection(self):
-        with SimConnection() as sim:
-            ego_state = spawn_state(sim)
-            ego = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
-            ego.connect_bridge(config("LGSVL__APOLLO_HOST"), int(config("LGSVL__APOLLO_PORT")))
-            timeout = 0
-            while not ego.bridge_connected:
-                print(f'Wait for Apollos bridge to connect...{timeout}s')
-                sleep(1)
-                timeout += 1
-                if timeout > 5:
-                    break
-            print("Apollo Status: ", ego.bridge_connected)
-            self.assertEqual(True, ego.bridge_connected)
-
-    def test_dreamview_connection(self):
-        with SimConnection() as sim:
-            ego_state = spawn_state(sim)
-            ego = load_ego(sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
-            ego.connect_bridge(config("LGSVL__APOLLO_HOST"), int(config("LGSVL__APOLLO_PORT")))
-            timeout = 0
-            while not ego.bridge_connected:
-                print(f'Wait for Apollos bridge to connect...{timeout}s')
-                sleep(1)
-                timeout += 1
-                if timeout > 5:
-                    break
-            print("Apollo Status: ", ego.bridge_connected)
-            dv_connection = Connection(ego.simulator, ego, ip=config("LGSVL__DREAMVIEW_HOST"), port=config("LGSVL__DREAMVIEW_PORT"))
-            self.assertEqual(True, ego.bridge_connected)
 
 
 if __name__ == '__main__':
