@@ -22,11 +22,12 @@ DriveBulid is a platform for:
 ### Our approach
 \<TODO\>
 
-## Test case 01
-\<TODO\>
+## Test case 01 & 02
+This section is helping our team getting familiar with the platform and the simulator by introducing different methods to make vehicle placement and control more approachable. These arrangements express the team member's profound tweaking ability, provide shortcuts to generate different setups in the following sections, and extend the testing diversifies capability to the next level with less effort and a more straightforward codebase. 
 
-## Test case 02
-\<TODO\>
+Using those methods, we successfully provide test cases for placing cars in different positions in a given scenario, e.g., putting the ego car and more than one NPCs on the different and same lane with configurable distance on how many meters counting from the initial point and driving the ego car and NPCs on the scenario with design speeds and different directions. As a result, we can provide a scenario that drives the ego car closely behind the truck by utilizing those design schemes.
+
+Furthermore, we added a test case resulting from executing one scenario repeatedly to find the promising parameters for the ego car and the NPCs for moving the ego to space between those NPCs, aiming to perform the lane changes by adopting the VehicleControl methods. Last but not least, a negative test case demonstrating the unsafe lane change, which can cause crash damage for associating vehicles, is also included in this section.
 
 ## Test case 06
 The demonstrated approach is about test generation.
