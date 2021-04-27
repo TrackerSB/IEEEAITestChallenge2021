@@ -78,7 +78,6 @@ class TestCase6:
     @staticmethod
     def execute(sim: Simulator, config: TestConfig) -> Optional[bool]:
         import logging
-        from common.apollo import ApolloModule, connect_to_dreamview
         from common.scene import load_ego, load_scene, load_pedestrian, detect_collisions
         from lgsvl.agent import Agent
         from time import time
@@ -95,37 +94,33 @@ class TestCase6:
         if ego_state_result is None:
             logging.warning("Could not generate initial ego state within allowed parameter range")
             return None
-        else:
-            initial_ego_state, time_to_crash_point = ego_state_result
-            ego = load_ego(sim, config.ego_car_name, initial_ego_state)
 
-            dv_connection = connect_to_dreamview(ego, config.test_place.ped_crash_pos, "2f7a77719c5f.ngrok.io", 9090, 8888)
-            dv_connection.set_hd_map(config.test_place.map_name)
-            dv_connection.enable_module(ApolloModule.Control.value)
+        initial_ego_state, time_to_crash_point = ego_state_result
+        ego = load_ego(sim, config.ego_car_name, initial_ego_state)
 
-            test_result = _TestResult()
+        test_result = _TestResult()
 
-            def _on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
-                test_result.successful = False
+        def _on_collision(agent1: Agent, agent2: Agent, contact: Vector) -> None:
+            test_result.successful = False
 
-            detect_collisions(sim, _on_collision)
+        detect_collisions(sim, _on_collision)
 
-            start_time = time()
+        start_time = time()
 
-            running_simulation_failed_once = False
-            while (time() - start_time) < (time_to_crash_point * 2) and test_result.successful:
-                try:
-                    sim.run(1)
-                    if running_simulation_failed_once:
-                        logging.info("Continuing the execution failed once but could be restarted")
-                    running_simulation_failed_once = False
-                except Exception:
-                    if running_simulation_failed_once:
-                        logging.exception("Continuing the execution failed again. Skipping test.")
-                        return None
-                    else:
-                        logging.exception("Continuing the execution failed. Retrying once.")
-                        running_simulation_failed_once = True
+        running_simulation_failed_once = False
+        while (time() - start_time) < (time_to_crash_point * 2) and test_result.successful:
+            try:
+                sim.run(1)
+                if running_simulation_failed_once:
+                    logging.info("Continuing the execution failed once but could be restarted")
+                running_simulation_failed_once = False
+            except Exception:
+                if running_simulation_failed_once:
+                    logging.exception("Continuing the execution failed again. Skipping test.")
+                    return None
+                else:
+                    logging.exception("Continuing the execution failed. Retrying once.")
+                    running_simulation_failed_once = True
 
-            # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
-            return test_result.successful
+        # FIXME Sometimes the following print is not visible on the console (but being in debug mode)
+        return test_result.successful
