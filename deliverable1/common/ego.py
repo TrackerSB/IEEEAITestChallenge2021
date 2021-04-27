@@ -2,7 +2,7 @@ import lgsvl
 from common.simulation import SimConnection
 
 
-class EgoCarControl:
+class CarControl:
     def drive_ego_car(state: lgsvl.AgentState, directions: list = [], speed: int = 1):
         print(f'Drive ego car with the speed {speed} km/h')
         for d in directions:
@@ -15,13 +15,14 @@ class EgoCarControl:
             state.velocity += speed * direction
         return state
 
-    def place_ego_car_from_the_point(state: lgsvl.AgentState, dimension: str = "vertical", distance: float = 1):
+    def place_car_from_the_point(state: lgsvl.AgentState, dimension: str = "vertical", distance: float = 1,
+                                     debug: bool = False):
         direction = lgsvl.Vector(0, 0, 0, )
         if dimension == "vertical":
             direction = lgsvl.utils.transform_to_forward(state.transform)
         elif dimension == "horizontal":
             direction = lgsvl.utils.transform_to_right(state.transform)
-        print(f'Old position: {SimConnection.extract_position_from_state(state)}')
+        if debug: print(f'Old position: {SimConnection.extract_position_from_state(state)}')
         state.transform.position = state.position + (distance * direction)
-        print(f'New position: {SimConnection.extract_position_from_state(state)}')
+        if debug: print(f'New position: {SimConnection.extract_position_from_state(state)}')
         return state

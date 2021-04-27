@@ -1,2 +1,2 @@
 from .simulation import SimConnection
-from .ego import EgoCarControl
+from .ego import CarControl
