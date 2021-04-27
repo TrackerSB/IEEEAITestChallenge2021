@@ -22,5 +22,6 @@ class TestCase02(TestCase):
         # Run the simulator for 10 seconds with debug mode
         simConnection.execute(timeout=10)
         self.assertEqual(True, True)
+        simConnection.sim.close()
 
 
