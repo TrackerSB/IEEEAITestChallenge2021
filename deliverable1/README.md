@@ -71,7 +71,7 @@ Specifically, we identified the following parameters for the abstract test case 
 - The distance between the ego-car and the crosswalk. In combination with the "test location," this parameter defines the initial placement of the ego-car.
 
 
-Our code also checks the validity of the provided configuration parameters. For example, it rejects configurations that place the ego-car outside of the road. [@Stefan - Can you elaborate a bit more here?]
+Our code also checks the validity of the provided configuration parameters. At the current stage this validation consists of rejecting a configurations if it places the ego-car outside of the road.
 
 Notably, not all the parameters are mandatory. When some parameters are not defined, our code computes "smart" default values. For example, suppose no distance between the ego-car and the crosswalk is given. In that case, the code calculates a distance that ensures the ego-car will hit the pedestrian at a given speed unless Apollo avoids that. This example illustrates how we can effectively generate diverse and critical scenarios (e.g., near-crash, crash).
 
