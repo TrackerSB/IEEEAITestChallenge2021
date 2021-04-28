@@ -3,6 +3,7 @@ from unittest.suite import TestSuite
 from unittest.loader import TestLoader
 from test_case_01 import TestCase01
 from test_case_02 import TestCase02
+from test_case_04 import TestCase04
 from test_case_06 import TestCase06
 from test_simulation import TestSimulation
 
@@ -11,6 +12,7 @@ if __name__ == "__main__":
     loader = TestLoader()
     suite.addTests(loader.loadTestsFromTestCase(TestCase01))
     suite.addTests(loader.loadTestsFromTestCase(TestCase02))
+    suite.addTests(loader.loadTestsFromTestCase(TestCase04))
     suite.addTests(loader.loadTestsFromTestCase(TestCase06))
 
     # run the suite

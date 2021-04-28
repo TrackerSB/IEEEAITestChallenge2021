@@ -41,7 +41,7 @@ class TestCase04(unittest.TestCase):
 
         self.assertEqual(3.0, encroaching.ego_speed)
 
-    def test_finding_ego_speed_to_avoid_encroaching_npc_speed_20_with_apollo(self):
+    def test_EGO_encroach_NPC_speed_20_with_apollo(self):
         LGSVL__APOLLO_HOST = config("LGSVL__APOLLO_HOST")
         LGSVL__APOLLO_PORT = int(config("LGSVL__APOLLO_PORT"))
         LGSVL__DREAMVIEW_HOST = config("LGSVL__DREAMVIEW_HOST")
