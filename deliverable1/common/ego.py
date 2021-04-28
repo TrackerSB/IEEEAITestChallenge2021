@@ -3,7 +3,7 @@ from common.simulation import SimConnection
 
 
 class CarControl:
-    def drive_ego_car(state: lgsvl.AgentState, directions: list = []):
+    def drive_ego_car(state: lgsvl.AgentState, directions: list = []) -> lgsvl.AgentState:
         for d in directions:
             speed = d[1]
             direction = lgsvl.Vector(0, 0, 0, )
@@ -15,7 +15,7 @@ class CarControl:
         return state
 
     def place_car_from_the_point(state: lgsvl.AgentState, dimension: str = "vertical", distance: float = 1,
-                                     debug: bool = False):
+                                     debug: bool = False) -> lgsvl.AgentState:
         direction = lgsvl.Vector(0, 0, 0, )
         if dimension == "vertical":
             direction = lgsvl.utils.transform_to_forward(state.transform)
@@ -24,4 +24,8 @@ class CarControl:
         if debug: print(f'Old position: {SimConnection.extract_position_from_state(state)}')
         state.transform.position = state.position + (distance * direction)
         if debug: print(f'New position: {SimConnection.extract_position_from_state(state)}')
+        return state
+
+    def rotate_car_by_degree(state: lgsvl.AgentState, degree: float) -> lgsvl.AgentState:
+        state.transform.rotation.y = degree
         return state

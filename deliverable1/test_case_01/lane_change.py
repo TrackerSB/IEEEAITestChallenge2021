@@ -1,8 +1,6 @@
 import lgsvl
 from typing import Callable
 from common import SimConnection, CarControl
-from common.scene import load_ego, load_npc, spawn_state
-
 
 class LaneChange:
     def __init__(self, npc_speed: float, sim_connection: SimConnection, setup_vehicles: Callable, step: float):
