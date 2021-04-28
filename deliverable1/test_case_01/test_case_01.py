@@ -2,7 +2,7 @@ import unittest
 from common import SimConnection, CarControl
 from common.scene import load_ego, load_npc, spawn_state
 from test_case_01.ego_control import drive_ego_no_apollo, drive_ego_with_apollo
-from test_case_01.lane_change import LaneChange, setup_cars
+from test_case_01.lane_change import LaneChange
 
 
 class TestCase01(unittest.TestCase):
