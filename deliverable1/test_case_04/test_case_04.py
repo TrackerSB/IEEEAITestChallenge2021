@@ -39,7 +39,7 @@ class TestCase04(unittest.TestCase):
         )
         encroaching.run()
 
-        self.assertEqual(5.0, encroaching.ego_speed)
+        self.assertEqual(3.0, encroaching.ego_speed)
 
     def test_finding_ego_speed_to_avoid_encroaching_npc_speed_20_with_apollo(self):
         LGSVL__APOLLO_HOST = config("LGSVL__APOLLO_HOST")
@@ -60,6 +60,7 @@ class TestCase04(unittest.TestCase):
         COLLISIONS = []
         SEDAN_WPS = [Vector(-3.15000438690186, 0, 37.7700042724609),
                      Vector(4.85003137588501, -0.0120288729667664, 22.7699680328369)]
+        NPC_SPEED = 20
 
         sim_connection = SimConnection(scene="CubeTown")
         lgsvl_sim = sim_connection.connect()
@@ -91,7 +92,7 @@ class TestCase04(unittest.TestCase):
             # Start the scenario
             waypoints = []
             for point in SEDAN_WPS:
-                waypoints.append(lgsvl.DriveWaypoint(point, 20, sedan.state.transform.rotation))
+                waypoints.append(lgsvl.DriveWaypoint(point, NPC_SPEED, sedan.state.transform.rotation))
 
             sedan.follow(waypoints)
             sim_connection.execute(timeout=15)

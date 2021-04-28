@@ -31,7 +31,7 @@ def _connect_to_apollo(ego: EgoVehicle, host: str, port: int, timeout_secs: int)
     ego.connect_bridge(host, port)
     seconds_waited = 0
     while not ego.bridge_connected:
-        print("Wait for Apollos bridge to connect...")
+        # print("Wait for Apollos bridge to connect...")
         sleep(1)
         seconds_waited += 1
         if seconds_waited > timeout_secs:
