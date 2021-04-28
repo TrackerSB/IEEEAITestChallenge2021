@@ -2,6 +2,7 @@ import unittest
 from common import SimConnection, CarControl
 from common.scene import load_ego, load_npc, spawn_state
 from test_case_01.ego_control import drive_ego_no_apollo, drive_ego_with_apollo
+from test_case_01.lane_change import LaneChange, setup_cars
 
 
 class TestCase01(unittest.TestCase):
@@ -120,6 +121,43 @@ class TestCase01(unittest.TestCase):
         simConnection.sim.close()
         # Crash scenario has non-zero collisions
         self.assertTrue(len(collisions) == 0)
+
+    def test_driving_EGO_changes_lane_with_configurable_parameter(self):
+        # Define configuration for vehicles
+        def setup_cars(simc: SimConnection, npc_speed: float):
+            lgsvl_sim = simc.connect()
+            sedan_state = spawn_state(lgsvl_sim)
+            sedan_state = CarControl.place_car_from_the_point(dimension="vertical", distance=0, state=sedan_state)
+            sedan = load_npc(lgsvl_sim, "Sedan", sedan_state)
+            sedan.follow_closest_lane(True, npc_speed)
+
+            suv_state = spawn_state(lgsvl_sim)
+            suv_state = CarControl.place_car_from_the_point(dimension="vertical", distance=17, state=suv_state)
+            suv = load_npc(lgsvl_sim, "Sedan", suv_state)
+            suv.follow_closest_lane(True, npc_speed)
+
+            ego_state = spawn_state(lgsvl_sim)
+            ego_state = CarControl.place_car_from_the_point(dimension="horizontal", distance=-3.5, state=ego_state)
+            ego_state = CarControl.place_car_from_the_point(dimension="vertical", distance=5, state=ego_state)
+            ego_state = CarControl.drive_ego_car(state=ego_state, directions=[("vertical", 5)])
+            ego = load_ego(lgsvl_sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
+            return {
+                "sedan": sedan,
+                "suv": suv,
+                "ego": ego,
+            }
+
+        # Find an optimal value for NPCs to allow ego make lane changes
+        lane_change = LaneChange(
+            sim_connection=SimConnection(),
+            npc_speed=3.8,
+            setup_vehicles=setup_cars,
+            step=0.1
+        )
+        lane_change.run()
+
+        # The lane change is successful with this optimal value
+        self.assertEqual(4.0, lane_change.npc_speed)
 
 
     # def test_driving_EGO_changes_lane_with_apollo(self):
