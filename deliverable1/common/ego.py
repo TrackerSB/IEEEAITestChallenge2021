@@ -3,8 +3,7 @@ from common.simulation import SimConnection
 
 
 class CarControl:
-    def drive_ego_car(state: lgsvl.AgentState, directions: list = [], speed: int = 1):
-        print(f'Drive ego car with the speed {speed} km/h')
+    def drive_ego_car(state: lgsvl.AgentState, directions: list = []):
         for d in directions:
             speed = d[1]
             direction = lgsvl.Vector(0, 0, 0, )
