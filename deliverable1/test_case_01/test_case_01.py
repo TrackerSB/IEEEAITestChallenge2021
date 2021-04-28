@@ -160,22 +160,22 @@ class TestCase01(unittest.TestCase):
         self.assertEqual(4.0, lane_change.npc_speed)
 
 
-    # def test_driving_EGO_changes_lane_with_apollo(self):
-    #     simConnection = SimConnection()
-    #     vehicles = drive_ego_with_apollo(simConnection)
-    #     sedan = vehicles["sedan"]
-    #     suv = vehicles["suv"]
-    #     ego = vehicles["ego"]
-    #     # sedan and ego and suv on same line
-    #     self.assertAlmostEqual(sedan.state.position.z, ego.state.position.z,
-    #                            delta=1.5, msg="sedan and ego on same lane")
-    #     self.assertAlmostEqual(suv.state.position.z, ego.state.position.z,
-    #                            delta=1.5, msg="ego and suv on same lane")
-    #     # ego is behind suv
-    #     self.assertLess(suv.state.position.x, ego.state.position.x, "ego behind suv")
-    #     self.assertLess(ego.state.position.x, sedan.state.position.x, "ego in front of sedan")
-    #     # Close simulator
-    #     simConnection.sim.close()
+    def test_driving_EGO_changes_lane_with_apollo(self):
+        simConnection = SimConnection()
+        vehicles = drive_ego_with_apollo(simConnection)
+        sedan = vehicles["sedan"]
+        suv = vehicles["suv"]
+        ego = vehicles["ego"]
+        # sedan and ego and suv on same line
+        self.assertAlmostEqual(sedan.state.position.z, ego.state.position.z,
+                               delta=1.5, msg="sedan and ego on same lane")
+        self.assertAlmostEqual(suv.state.position.z, ego.state.position.z,
+                               delta=1.5, msg="ego and suv on same lane")
+        # ego is behind suv
+        self.assertLess(suv.state.position.x, ego.state.position.x, "ego behind suv")
+        self.assertLess(ego.state.position.x, sedan.state.position.x, "ego in front of sedan")
+        # Close simulator
+        simConnection.sim.close()
 
 
 if __name__ == '__main__':

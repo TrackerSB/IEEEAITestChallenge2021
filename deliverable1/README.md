@@ -44,8 +44,7 @@ Test Case 01 and Test Case 02 focus on placing vehicles and moving them, and sin
 
 After we have familiarized ourselves with the simulator and the APIs, we increased the automation of our tests and implemented a script that explores some parameters of a simple lane changes scenario. The script repeatedly executes the scenario by changing the speed of the ego vehicle and the distance between non-ego vehicles to find the most promising configuration, i.e., the configuration that results in a crash. For the sake of illustration, we do not let Apollo drive in this test.
 
-The script implementing this test case can be found [HERE].
-The video is available [HERE] instead.
+The script implementing this test case can be found at [[14]](https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/lane_change.py). The video is available [[13]](https://youtu.be/cIlf7DXdoPw) instead.
 
 ### Forcing the Initial Conditions on the Ego Car
 
@@ -53,7 +52,7 @@ While working on Deliverable 1, we realized that most of the available tests and
 
 In essence, our tests connect the required Apollo modules except for "Control" at the beginning of the execution and set a destination point. This way, Apollo can start perceiving the environment and planning a trajectory, but the ego-cart cannot move autonomously. Next, the tests control the ego-car and drive it until the execution conditions match the expected initial conditions of the test (e.g., the ego-car speed is above the speed limit). At this point, the tests release the control and let Apollo drive the ego-car to the destination (while potentially dealing with critical situations).
 
-To illustrate this idea, we implemented [SCRIPT XXX]. A video that illustrates this idea is available [HERE].
+To illustrate this idea, we implemented [[15]](https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/test_case_01.py#L163). A video that illustrates this idea is available [[16]](https://youtu.be/MbU8xZx-Sc8).
 
 ### Generating Tests From Abstract Scenarios
 
@@ -129,3 +128,11 @@ Additionally, we can also place the ego car in the middle of intersections and p
 [11] Unsafe Changing Lanes Video, [https://youtu.be/VOSgbUkh_JQ](https://youtu.be/VOSgbUkh_JQ)
 
 [12] Truck Following Video, [https://youtu.be/DZtiPGa6Isg](https://youtu.be/DZtiPGa6Isg)
+
+[13] Lane Change Searching Video, https://youtu.be/cIlf7DXdoPw
+
+[14] Lane Change Searching Class, https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/lane_change.py
+
+[15] Driving Ego Car with Apollo, https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/test_case_01.py#L163
+
+[16] Driving Ego Car in General, https://youtu.be/MbU8xZx-Sc8
