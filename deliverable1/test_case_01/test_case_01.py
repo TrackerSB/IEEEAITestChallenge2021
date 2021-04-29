@@ -157,7 +157,7 @@ class TestCase01(unittest.TestCase):
         lane_change.run()
 
         # The lane change is successful with this optimal value
-        self.assertEqual(True, 3.9 <= lane_change.npc_speed <= 4.0)
+        self.assertEqual(True, 3.9 <= lane_change.npc_speed <= 4.2)
 
     def test_driving_EGO_changes_lane_with_apollo(self):
         simConnection = SimConnection()
