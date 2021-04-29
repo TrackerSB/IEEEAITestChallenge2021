@@ -157,25 +157,7 @@ class TestCase01(unittest.TestCase):
         lane_change.run()
 
         # The lane change is successful with this optimal value
-        self.assertEqual(4.0, lane_change.npc_speed)
-
-
-    def test_driving_EGO_changes_lane_with_apollo(self):
-        simConnection = SimConnection()
-        vehicles = drive_ego_with_apollo(simConnection)
-        sedan = vehicles["sedan"]
-        suv = vehicles["suv"]
-        ego = vehicles["ego"]
-        # sedan and ego and suv on same line
-        self.assertAlmostEqual(sedan.state.position.z, ego.state.position.z,
-                               delta=1.5, msg="sedan and ego on same lane")
-        self.assertAlmostEqual(suv.state.position.z, ego.state.position.z,
-                               delta=1.5, msg="ego and suv on same lane")
-        # ego is behind suv
-        self.assertLess(suv.state.position.x, ego.state.position.x, "ego behind suv")
-        self.assertLess(ego.state.position.x, sedan.state.position.x, "ego in front of sedan")
-        # Close simulator
-        simConnection.sim.close()
+        self.assertEqual(True, 3.9 <= lane_change.npc_speed <= 4.2)
 
 
 if __name__ == '__main__':

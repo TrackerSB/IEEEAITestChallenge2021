@@ -79,9 +79,6 @@ def drive_ego_with_apollo(simConnection: SimConnection):
     control.steering = 0.037
     ego.apply_control(control, True)
     simConnection.execute(timeout=5)
-    control.steering = -0.041
-    ego.apply_control(control, True)
-    simConnection.execute(timeout=5)
 
     # Start to drive the ego by Apollo
     try:
@@ -90,15 +87,15 @@ def drive_ego_with_apollo(simConnection: SimConnection):
         dv_connection.enable_module(ApolloModule.Control.value)
 
         dv_connection.setup_apollo(TARGET_POINT.x, TARGET_POINT.z, [])
-        return {
-            "sedan": sedan,
-            "suv": suv,
-            "ego": ego,
-            "collisions": collisions
-        }
     except Exception:
-        print("Failed to establish Apollo and DV connection!")
         simConnection.sim.close()
+
+    return {
+        "sedan": sedan,
+        "suv": suv,
+        "ego": ego,
+        "collisions": collisions
+    }
 
 
 def drive_ego_no_apollo(simConnection: SimConnection, npc_speed: float):
