@@ -5,9 +5,53 @@ from lgsvl.geometry import Vector
 from common import SimConnection, CarControl
 from common.scene import load_ego, load_npc, spawn_state
 from test_case_05.encroaching import Encroaching
+from test_case_05.school_bus import SchoolBus
 
 
 class TestCase05(unittest.TestCase):
+    def test_EGO_respond_SCHOOLBUS_without_crash(self):
+        sim_connection = SimConnection(scene="CubeTown")
+        scenario = SchoolBus(
+            sim_connection=sim_connection,
+            ego_target=Vector(3.03013730049133, -0.00637590885162354, -16.5673313140869),
+            ego_speed=6,
+            ego_brake=0.2,
+            npc_speed=6,
+            npc_source=Vector(-3.84999561309814, -0.00320455431938171, 10.877103805542),
+            npc_target=Vector(3.03013730049133, -0.00320455431938171, -5.877103805542),
+        )
+        try:
+            scenario.run()
+        except Exception:
+            sim_connection.sim.close()
+            self.fail("Failed!")
+
+        # Passed!
+        sim_connection.sim.close()
+        self.assertTrue(True, True)
+
+    @unittest.expectedFailure
+    def test_EGO_respond_SCHOOLBUS_with_crash(self):
+        sim_connection = SimConnection(scene="CubeTown")
+        scenario = SchoolBus(
+            sim_connection=sim_connection,
+            ego_target=Vector(3.03013730049133, -0.00637590885162354, -16.5673313140869),
+            ego_speed=7,
+            ego_brake=0,
+            npc_speed=6,
+            npc_source=Vector(-3.84999561309814, -0.00320455431938171, 10.877103805542),
+            npc_target=Vector(3.03013730049133, -0.00320455431938171, -5.877103805542),
+        )
+        try:
+            scenario.run()
+        except Exception:
+            sim_connection.sim.close()
+            self.fail("Failed!")
+
+        # Passed!
+        sim_connection.sim.close()
+        self.assertTrue(True, True)
+
     def test_finding_ego_speed_to_avoid_encroaching_schoolbus_speed_6(self):
         def setup_cars(sim_connection: SimConnection, ego_speed: float, npc_speed: float):
             lgsvl_sim = sim_connection.connect()
