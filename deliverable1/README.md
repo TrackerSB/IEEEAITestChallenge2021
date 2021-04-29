@@ -136,3 +136,9 @@ Additionally, we can also place the ego car in the middle of intersections and p
 [15] Driving Ego Car with Apollo, https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/test_case_01.py#L163
 
 [16] Driving Ego Car in General, https://youtu.be/MbU8xZx-Sc8
+
+[17] Ego Car responds to Parking School Bus, https://youtu.be/XKGCy5qy4fc
+
+[18] Ego Car responds to School Bus Changing Lane, https://youtu.be/MSM0H43yGOk
+
+[19] Ego Car responds to Sedan Changing Lane, https://youtu.be/Fe7yHTPfHgM
