@@ -4,7 +4,7 @@ from common.scene import load_ego, load_npc, spawn_state
 
 
 class TestCase02(TestCase):
-    def test_vehicle_following(self):
+    def test_EGO_following_NPC_without_crash(self):
         simConnection = SimConnection()
         sim = simConnection.connect()
         # Placing the suv - 10m ahead from the starting point

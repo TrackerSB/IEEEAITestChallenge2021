@@ -9,7 +9,7 @@ def load_scene(sim: Simulator, scene_name: str) -> Transform:
     if sim.current_scene == scene_name:
         sim.reset()
     else:
-        sim.load(scene_name)
+        sim.load(scene_name, 650387)
 
     return sim.get_spawn()[0]
 
