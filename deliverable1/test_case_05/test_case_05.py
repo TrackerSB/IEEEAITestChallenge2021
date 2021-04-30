@@ -1,5 +1,6 @@
 import unittest
 import lgsvl
+import pytest
 from decouple import config
 from lgsvl.geometry import Vector
 from common import SimConnection, CarControl
@@ -86,67 +87,67 @@ class TestCase05(unittest.TestCase):
 
         self.assertEqual(8.0, encroaching.ego_speed)
 
-    # @unittest.expectedFailure
-    # def test_EGO_encroach_schoolbus_speed_6_with_apollo(self):
-    #     LGSVL__APOLLO_HOST = config("LGSVL__APOLLO_HOST")
-    #     LGSVL__APOLLO_PORT = int(config("LGSVL__APOLLO_PORT"))
-    #     LGSVL__DREAMVIEW_HOST = config("LGSVL__DREAMVIEW_HOST")
-    #     MODULES = [
-    #         'Recorder',
-    #         'Localization',
-    #         'Perception',
-    #         'Transform',
-    #         'Routing',
-    #         'Prediction',
-    #         'Planning',
-    #         'Traffic Light',
-    #         'Control'
-    #     ]
-    #     TARGET = Vector(3.03013730049133, -0.00637590885162354, -16.5673313140869)
-    #     COLLISIONS = []
-    #     SEDAN_WPS = [Vector(-3.31942486763, -0.0809718370437622, 24.2049713134766),
-    #                  Vector(-3.84999561309814, -0.00320455431938171, 14.877103805542),
-    #                  Vector(3.84999561309814, -0.00320455431938171, -20.877103805542)]
-    #     NPC_SPEED = 6
-    #
-    #     sim_connection = SimConnection(scene="CubeTown")
-    #     lgsvl_sim = sim_connection.connect()
-    #     # Placing the school_bus
-    #     school_bus_state = spawn_state(lgsvl_sim)
-    #     school_bus = load_npc(lgsvl_sim, "SchoolBus", school_bus_state)
-    #
-    #     # Placing the ego on the starting point
-    #     ego_state = spawn_state(lgsvl_sim)
-    #     ego_state = CarControl.place_car_from_the_point(dimension="horizontal", distance=-6, state=ego_state)
-    #     # ego_state = CarControl.drive_ego_car(ego_state, [("vertical", 6)])
-    #     ego = load_ego(lgsvl_sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
-    #
-    #     def on_collision(agent1, agent2, contact):
-    #         COLLISIONS.append([agent1, agent2, contact])
-    #         sim_connection.sim.close()
-    #         print("Exception: {} collided with {}".format(agent1, agent2))
-    #
-    #     ego.on_collision(on_collision)
-    #     school_bus.on_collision(on_collision)
-    #
-    #     try:
-    #         ego.connect_bridge(LGSVL__APOLLO_HOST, LGSVL__APOLLO_PORT)
-    #         dv = lgsvl.dreamview.Connection(lgsvl_sim, ego, LGSVL__DREAMVIEW_HOST)
-    #         dv.set_hd_map("CubeTown")
-    #         dv.set_vehicle("Lincoln2017MKZ (Apollo 5.0)")
-    #         dv.setup_apollo(TARGET.x, TARGET.z, MODULES)
-    #         # Start the scenario
-    #         school_bus.follow_closest_lane(follow=True, max_speed=10)
-    #         waypoints = []
-    #         for point in SEDAN_WPS:
-    #             waypoints.append(lgsvl.DriveWaypoint(point, NPC_SPEED, school_bus.state.transform.rotation))
-    #
-    #         school_bus.follow(waypoints)
-    #         sim_connection.execute(timeout=15)
-    #     except Exception:
-    #         sim_connection.sim.close()
-    #         self.fail("Failed!")
-    #
-    #     sim_connection.sim.close()
-    #     self.assertTrue(True, True)
+    @pytest.mark.skip(reason="Apollo is not running.")
+    def test_EGO_encroach_schoolbus_speed_6_with_apollo(self):
+        LGSVL__APOLLO_HOST = config("LGSVL__APOLLO_HOST")
+        LGSVL__APOLLO_PORT = int(config("LGSVL__APOLLO_PORT"))
+        LGSVL__DREAMVIEW_HOST = config("LGSVL__DREAMVIEW_HOST")
+        MODULES = [
+            'Recorder',
+            'Localization',
+            'Perception',
+            'Transform',
+            'Routing',
+            'Prediction',
+            'Planning',
+            'Traffic Light',
+            'Control'
+        ]
+        TARGET = Vector(3.03013730049133, -0.00637590885162354, -16.5673313140869)
+        COLLISIONS = []
+        SEDAN_WPS = [Vector(-3.31942486763, -0.0809718370437622, 24.2049713134766),
+                     Vector(-3.84999561309814, -0.00320455431938171, 14.877103805542),
+                     Vector(3.84999561309814, -0.00320455431938171, -20.877103805542)]
+        NPC_SPEED = 6
+
+        sim_connection = SimConnection(scene="CubeTown")
+        lgsvl_sim = sim_connection.connect()
+        # Placing the school_bus
+        school_bus_state = spawn_state(lgsvl_sim)
+        school_bus = load_npc(lgsvl_sim, "SchoolBus", school_bus_state)
+
+        # Placing the ego on the starting point
+        ego_state = spawn_state(lgsvl_sim)
+        ego_state = CarControl.place_car_from_the_point(dimension="horizontal", distance=-6, state=ego_state)
+        # ego_state = CarControl.drive_ego_car(ego_state, [("vertical", 6)])
+        ego = load_ego(lgsvl_sim, "Lincoln2017MKZ (Apollo 5.0)", ego_state)
+
+        def on_collision(agent1, agent2, contact):
+            COLLISIONS.append([agent1, agent2, contact])
+            sim_connection.sim.close()
+            print("Exception: {} collided with {}".format(agent1, agent2))
+
+        ego.on_collision(on_collision)
+        school_bus.on_collision(on_collision)
+
+        try:
+            ego.connect_bridge(LGSVL__APOLLO_HOST, LGSVL__APOLLO_PORT)
+            dv = lgsvl.dreamview.Connection(lgsvl_sim, ego, LGSVL__DREAMVIEW_HOST)
+            dv.set_hd_map("CubeTown")
+            dv.set_vehicle("Lincoln2017MKZ (Apollo 5.0)")
+            dv.setup_apollo(TARGET.x, TARGET.z, MODULES)
+            # Start the scenario
+            school_bus.follow_closest_lane(follow=True, max_speed=10)
+            waypoints = []
+            for point in SEDAN_WPS:
+                waypoints.append(lgsvl.DriveWaypoint(point, NPC_SPEED, school_bus.state.transform.rotation))
+
+            school_bus.follow(waypoints)
+            sim_connection.execute(timeout=15)
+        except Exception:
+            sim_connection.sim.close()
+            self.fail("Failed!")
+
+        sim_connection.sim.close()
+        self.assertTrue(True, True)
 
