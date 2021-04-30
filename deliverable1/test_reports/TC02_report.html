@@ -428,8 +428,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     notFoundMessage.hidden = !allRowsHidden;
 }
 </script>
-    <h1>TC04_report.html</h1>
-    <p>Report generated on 30-Apr-2021 at 11:16:10 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <h1>TC02_report.html</h1>
+    <p>Report generated on 30-Apr-2021 at 15:15:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -445,8 +445,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.8</td></tr></table>
     <h2>Summary</h2>
-    <p>2 tests ran in 101.88 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">1 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">1 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>1 tests ran in 11.45 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -457,66 +457,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="xfailed results-table-row">
-        <tr>
-          <td class="col-result">XFailed</td>
-          <td class="col-name">main.py::TestCase04::test_ego_crash_encroaching_npc</td>
-          <td class="col-duration">50.87</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">self = &lt;TestCaseFunction test_ego_crash_encroaching_npc&gt;<br/>testcase = &lt;test_case_04.test_case_04.TestCase04 testMethod=test_ego_crash_encroaching_npc&gt;<br/>rawexcinfo = (&lt;class &#x27;RuntimeError&#x27;&gt;, RuntimeError(&#x27;Event loop is closed&#x27;), &lt;traceback object at 0x7fbfe1737680&gt;)<br/>reason = &#x27;&#x27;<br/><br/>    def addExpectedFailure(<br/>        self,<br/>        testcase: &quot;unittest.TestCase&quot;,<br/>        rawexcinfo: &quot;_SysExcInfoType&quot;,<br/>        reason: str = &quot;&quot;,<br/>    ) -&gt; None:<br/>        try:<br/>&gt;           xfail(str(reason))<br/><span class="error">E           _pytest.outcomes.XFailed</span><br/><br/>../../../../opt/anaconda3/envs/lgsvl/lib/python3.8/site-packages/_pytest/unittest.py:271: XFailed<br/> ------------------------------Captured stdout call------------------------------ <br/>Starting NPC with the speed: 20 m/s and EGO with the speed: 1 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe16eaac0&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe16ea4c0&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 2 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe1712b80&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe1712f10&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 3 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe1723640&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe1723160&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 4 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe17225e0&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe1722a30&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 5 m/s!
-Congratulation! A speed helps ago car avoiding crash is: 5 m/s
-<br/></div></td></tr></tbody>
-      <tbody class="skipped results-table-row">
-        <tr>
-          <td class="col-result">Skipped</td>
-          <td class="col-name">main.py::TestCase04::test_EGO_encroach_NPC_speed_20_with_apollo</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">(&#x27;/Users/vuong/Workspace/projects/IEEEAITestChallenge2021/deliverable1/test_case_04/test_case_04.py&#x27;, 68, &#x27;Skipped: Apollo is not running.&#x27;)<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">main.py::TestCase04::test_finding_ego_speed_to_avoid_encroaching_npc_speed_20</td>
-          <td class="col-duration">50.35</td>
+          <td class="col-name">exec_tc02.py::TestCase02::test_EGO_following_NPC_without_crash</td>
+          <td class="col-duration">11.23</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>Starting NPC with the speed: 20 m/s and EGO with the speed: 1 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe18195e0&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe1819070&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 2 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe181d580&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe181d9d0&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 3 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe1822bb0&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe1822f40&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 4 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fbfe17bb610&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fbfe17bb0d0&gt;
-Ego collided with NPC! Restart the scenario...
-
-Starting NPC with the speed: 20 m/s and EGO with the speed: 5 m/s!
-Congratulation! A speed helps ago car avoiding crash is: 5 m/s
-<br/></div></td></tr></tbody></table></body></html>
+            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
