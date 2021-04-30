@@ -63,7 +63,7 @@ class TestCase04(unittest.TestCase):
         )
         encroaching.run()
 
-        self.assertEqual(5.0, encroaching.ego_speed)
+        self.assertEqual(3.0, encroaching.ego_speed)
 
     @pytest.mark.skip("Apollo is not running.")
     def test_EGO_encroach_NPC_speed_20_with_apollo(self):
