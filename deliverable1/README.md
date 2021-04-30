@@ -11,11 +11,11 @@ Notably, we will not generate simulations from NHTSA crash reports, as we alread
 
 ### TL;DR
 
-We implemented several scripts that cover the suggested test cases and experimented with different levels of automation (manual test, parameter exploration, etc.) to generate a diversified set of driving scenarios.  All the tests use standard maps, such as SingleLaneRoad, SanFrancisco, and CubeTown, while the routes are either hardcode in the tests or generated automatically by our scripts.
+We implemented several scripts that cover the suggested six test cases and experimented with different levels of automation (manual test, parameter exploration, etc.) to generate a diversified set of driving scenarios.  All the tests use standard maps, such as SingleLaneRoad, SanFrancisco, and CubeTown, while the routes are either hardcode in the tests or generated automatically by our scripts.
 
 Despite our previous experience in the domain and the hard work we put into preparing Deliverable 1, we could not run our tests against a fully functional Apollo installation. For example, in our installation, both the Radar and Control modules did not work, so the ego-car cannot perceive pedestrians nor move autonomously. We'll address this issue for Deliverable 2. 
 
-To cope with this situation, we followed the suggestions posted on the Challenge Web site and created "unit tests" instead. Consequently, our scripts rely on `pytest` as the underlying testing framework and generate standard (HTML) reports. Notably, our scripts implement both positive and negative cases, i.e., they drive the ego car to pass and purposely fail the tests to cover both normal and critical scenarios.
+To cope with this situation, we followed the suggestions posted on the Challenge Web site and created "unit tests" instead. Consequently, our scripts rely on `pytest` as the underlying testing framework and generate standard (HTML) reports (cfr. content of the `test_reports` folder). Notably, our scripts implement both positive and negative cases, i.e., they drive the ego car to pass and purposely fail the tests to cover both normal and critical scenarios.
 
 For Deliverable 1, we used the `2020.06` version of the simulator and the Python API version in the branch `preview2`.
 
@@ -34,7 +34,7 @@ Our team joined the competition out of scientific curiosity, to gain more experi
 ## Main Goal and General Approach to Testing
 According to our understanding, the main goal of Deliverable 1 is to prove we have familiarized ourselves with the technological stack (simulator, the APIs, and Apollo) and that we can create various tests, both manually and automatically.
 
-We worked towards this goal during this period and attended the Q/A sessions, watched videos, and read the documentation. We also tried out some of the available examples and inspected the source code published on GitHub to understand the APIs. We installed the required software under different platforms (Ubuntu, Mac --using Parallels, and Windows) and tried to make everything run smoothly. We managed to have a complete setup (simulator, APIs, and Apollo 5.0) with only one Ubuntu machine; however, we could not make Apollo control the ego car or perceive pedestrians. Nevertheless, we generated many scripts to test various scenarios and cover the suggested cases for Deliverable 1. 
+We worked towards this goal during this period and attended the Q/A sessions, watched videos, and read the documentation. We also tried out some of the available examples and inspected the source code published on GitHub to understand the APIs. We installed the required software under different platforms (Ubuntu, Mac -- using Parallels, and Windows) and tried to make everything run smoothly. We managed to have a complete setup (simulator, APIs, and Apollo 5.0) with only one Ubuntu machine; however, we could not make Apollo control the ego car or perceive pedestrians. Nevertheless, we generated many scripts to test various scenarios and cover the six suggested cases for Deliverable 1. 
 
 Below we report on what we have done and provide links to the YouTube videos that illustrate the scripts in action. The code for replicating our experiments is available in the repository inside the various `test_case_XX` folders, along with a copy of the (HTML) reports generated while running the tests.
 
@@ -58,19 +58,26 @@ We did not attempt to generate custom maps, so all our tests only use available 
 
 The following videos illustrate our approach in action:
 
-- Test 01: Changing Lane
+- Test Case 01: Changing Lane
     - Safe Changing Lanes Video [[10]](https://youtu.be/BHEIMy_OqSI)
     - Unsafe Changing Lanes Video [[11]](https://youtu.be/VOSgbUkh_JQ)
     - Ego Car responds to School Bus Changing Lane [[18]](https://youtu.be/MSM0H43yGOk)
     - Ego Car responds to Sedan Changing Lane [[19]](https://youtu.be/Fe7yHTPfHgM)
 
-- Test 02: Car/Truck Following [[12]](https://youtu.be/DZtiPGa6Isg)
-- 
-- Test 04: Encroaching car [[21]](https://youtu.be/Fe7yHTPfHgM)
+- Test Case 02: Car/Truck Following [[12]](https://youtu.be/DZtiPGa6Isg)
 
-- Test 05: School Bus [[17]](https://youtu.be/XKGCy5qy4fc)
+- Test Case 03: Leaving/Entering Parking
+    - Ego exits parking lot [[22]](https://youtu.be/WX7Qlrr83uo)
+    - Ego cannot exit tight parking spot, [[23](https://youtu.be/8bi8mDGt5hw)
+    - Ego exits park lot and crashes into incoming vehicle [[24]](https://youtu.be/0r4TiYCvD4o)
+
+- Test Case 04: Encroaching car [[21]](https://youtu.be/Fe7yHTPfHgM)
+
+- Test Case 05: School Bus [[17]](https://youtu.be/XKGCy5qy4fc)
 
 Test Case 01 and Test Case 02 focus on placing vehicles and moving them, and since they are our first attempt in doing so, these tests take place on a single straight road. Additionally, we configure the ego car to move along a predefined path to study the reliability of our test oracles. So, to clarify further this point, the goal here was *not* to test Apollo; rather, we created different (yet simple) tests that result in predictable outcomes to assess our oracles. We created both positive [[10]](https://youtu.be/BHEIMy_OqSI) and negative tests [[11]](https://youtu.be/VOSgbUkh_JQ).
+
+We discuss Test Case 06 (Pedestrians) later.
 
 ### Parameter Exploration
 
@@ -179,3 +186,9 @@ Alternatively, we can also place the ego car in the middle of those intersection
 [20] Ego Car avoiding and hitting pedestrians, [https://youtu.be/K-sPx8YBPx4](https://youtu.be/K-sPx8YBPx4)
 
 [21] Ego Car responds to Encroaching car, [https://youtu.be/Fe7yHTPfHgM](https://youtu.be/Fe7yHTPfHgM)
+
+[22] Ego exits parking lot [https://youtu.be/WX7Qlrr83uo](https://youtu.be/WX7Qlrr83uo)
+
+[23] Ego cannot exit tight parking spot, [https://youtu.be/8bi8mDGt5hw](https://youtu.be/8bi8mDGt5hw)
+
+[24] Ego exits park lot and crash into incoming vehicle, [https://youtu.be/0r4TiYCvD4o](https://youtu.be/0r4TiYCvD4o)
