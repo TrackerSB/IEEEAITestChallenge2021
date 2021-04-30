@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>TC05_report.html</h1>
-    <p>Report generated on 30-Apr-2021 at 10:11:48 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 30-Apr-2021 at 11:13:20 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -445,8 +445,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.8</td></tr></table>
     <h2>Summary</h2>
-    <p>3 tests ran in 86.26 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">1 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>3 tests ran in 80.99 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">1 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">1 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -461,17 +461,26 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">XFailed</td>
           <td class="col-name">main.py::TestCase05::test_EGO_respond_SCHOOLBUS_with_crash</td>
-          <td class="col-duration">14.65</td>
+          <td class="col-duration">11.86</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;TestCaseFunction test_EGO_respond_SCHOOLBUS_with_crash&gt;<br/>testcase = &lt;test_case_05.test_case_05.TestCase05 testMethod=test_EGO_respond_SCHOOLBUS_with_crash&gt;<br/>rawexcinfo = (&lt;class &#x27;RuntimeError&#x27;&gt;, RuntimeError(&#x27;Event loop is closed&#x27;), &lt;traceback object at 0x7fc87c701d40&gt;)<br/>reason = &#x27;&#x27;<br/><br/>    def addExpectedFailure(<br/>        self,<br/>        testcase: &quot;unittest.TestCase&quot;,<br/>        rawexcinfo: &quot;_SysExcInfoType&quot;,<br/>        reason: str = &quot;&quot;,<br/>    ) -&gt; None:<br/>        try:<br/>&gt;           xfail(str(reason))<br/><span class="error">E           _pytest.outcomes.XFailed</span><br/><br/>../../../../opt/anaconda3/envs/lgsvl/lib/python3.8/site-packages/_pytest/unittest.py:271: XFailed<br/> ------------------------------Captured stdout call------------------------------ <br/>Failed!
+            <div class="log">self = &lt;TestCaseFunction test_EGO_respond_SCHOOLBUS_with_crash&gt;<br/>testcase = &lt;test_case_05.test_case_05.TestCase05 testMethod=test_EGO_respond_SCHOOLBUS_with_crash&gt;<br/>rawexcinfo = (&lt;class &#x27;RuntimeError&#x27;&gt;, RuntimeError(&#x27;Event loop is closed&#x27;), &lt;traceback object at 0x7fb2fef10080&gt;)<br/>reason = &#x27;&#x27;<br/><br/>    def addExpectedFailure(<br/>        self,<br/>        testcase: &quot;unittest.TestCase&quot;,<br/>        rawexcinfo: &quot;_SysExcInfoType&quot;,<br/>        reason: str = &quot;&quot;,<br/>    ) -&gt; None:<br/>        try:<br/>&gt;           xfail(str(reason))<br/><span class="error">E           _pytest.outcomes.XFailed</span><br/><br/>../../../../opt/anaconda3/envs/lgsvl/lib/python3.8/site-packages/_pytest/unittest.py:271: XFailed<br/> ------------------------------Captured stdout call------------------------------ <br/>Failed!
 <br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
+        <tr>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">main.py::TestCase05::test_EGO_encroach_schoolbus_speed_6_with_apollo</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">(&#x27;/Users/vuong/Workspace/projects/IEEEAITestChallenge2021/deliverable1/test_case_05/test_case_05.py&#x27;, 90, &#x27;Skipped: Apollo is not running.&#x27;)<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">main.py::TestCase05::test_EGO_respond_SCHOOLBUS_without_crash</td>
-          <td class="col-duration">19.95</td>
+          <td class="col-duration">19.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -480,16 +489,16 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">main.py::TestCase05::test_finding_ego_speed_to_avoid_encroaching_schoolbus_speed_6</td>
-          <td class="col-duration">50.90</td>
+          <td class="col-duration">49.21</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>Starting NPC with the speed: 6 m/s and EGO with the speed: 6 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fc87c7e0ee0&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fc87c7e0ca0&gt;
+Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fb2fef5ef10&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fb2fef5edf0&gt;
 Ego collided with NPC! Restart the scenario...
 
 Starting NPC with the speed: 6 m/s and EGO with the speed: 7 m/s!
-Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fc87c7eb310&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fc87c7eb820&gt;
+Exception: &lt;lgsvl.agent.EgoVehicle object at 0x7fb2fef3e0d0&gt; collided with &lt;lgsvl.agent.NpcVehicle object at 0x7fb2fef3e910&gt;
 Ego collided with NPC! Restart the scenario...
 
 Starting NPC with the speed: 6 m/s and EGO with the speed: 8 m/s!
