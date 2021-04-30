@@ -2,10 +2,16 @@
 
 ## Introduction
 
-This document introduces our team, describes the main goal and approaches while preparing Deliverable 1, and concludes with a summary of our experience with the IEEE AI Testing Challenge so far.
+This document represents our written simulation test report.
+
+In this document, we introduce our team, describe the main goal and approaches while preparing Deliverable 1, i.e., the generated test scenario scripting methods, and conclude with a summary of our experience with the IEEE AI Testing Challenge so far.
 
 Additionally, as a teaser, we include few ideas for Deliverable 2.
-Notably, we will not generate simulations from NHTSA crash reports, as we already published an approach [1] and implemented a tool [2] for doing that. We feel this might not be entirely novel.
+Notably, we will not generate simulations from NHTSA crash reports, as we already published an approach for doing that [1] and implemented in an open-source tool [2]. We feel submitting the same approach for this tool competition might be not entirely fair and novel.
+
+## TL;DR
+
+We implemented several tests that covered the six suggested test cases and experimented with different levels of automation (manual test, parameter exploration, etc.). However, despite our previous experience in the domain and the hard work we put into preparing Deliverable 1, we could not run our tests against a fully functional Apollo installation. For example,  in our installation, both the Radar and Control modules did not work. Therefore, following the suggestions from the Challenge Web site, we created "unit tests" instead. Consequently, our scripts rely on `pytest` as the underlying testing framework and generate standard (HTML) testing reports. Notably, our scripts implement both positive and negative cases, i.e., they drive the ego car to pass and purposely fail the tests. 
 
 ## The Team 
 
@@ -46,14 +52,6 @@ After we have familiarized ourselves with the simulator and the APIs, we increas
 
 The script implementing this test case can be found at [[14]](https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/lane_change.py). The video is available [[13]](https://youtu.be/cIlf7DXdoPw) instead.
 
-### Forcing the Initial Conditions on the Ego Car
-
-While working on Deliverable 1, we realized that most of the available tests and examples assume that the ego and non-ego vehicles are stationary at the beginning of each test. This setup is sensible to test most of the behaviors of the ego-car but cannot be used to test all of them. For example, it is hard (or even impossible) to test safety-critical situations like driving too fast in front of a stop sign or driving too closely to the heading car without taking the control away from the self-driving software. Therefore, we propose and implement a way to test the ego-car under "non-stationary" initial conditions.
-
-In essence, our tests connect the required Apollo modules except for "Control" at the beginning of the execution and set a destination point. This way, Apollo can start perceiving the environment and planning a trajectory, but the ego-cart cannot move autonomously. Next, the tests control the ego-car and drive it until the execution conditions match the expected initial conditions of the test (e.g., the ego-car speed is above the speed limit). At this point, the tests release the control and let Apollo drive the ego-car to the destination (while potentially dealing with critical situations).
-
-To illustrate this idea, we implemented [[15]](https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/test_case_01.py#L163). A video that illustrates this idea is available [[16]](https://youtu.be/MbU8xZx-Sc8).
-
 ### Generating Tests From Abstract Scenarios
 
 Test Case 06 is about demonstrating how we can generate concrete tests from abstract scenarios. To do so, we first devised an abstract scenario in which a pedestrian walks straight over a crosswalk and the ego-car approaches that crosswalk. The task for the ego-car is to avoid hitting the pedestrian while passing over the crosswalk.
@@ -89,6 +87,14 @@ The organization of the competition was great, and the Q/A sessions and the mate
 ## Plan for Deliverable 2
 
 In the hope of capturing the intended aim of the competition, we brainstormed possible ideas to implement for Deliverable 2. We tried to "think out-of-the-box" while remaining pragmatic. Below we summarize two of such ideas.
+
+### Forcing the Initial Conditions on the Ego Car
+
+While working on Deliverable 1, we realized that most of the available tests and examples assume that the ego and non-ego vehicles are stationary at the beginning of each test. This setup is sensible to test most of the behaviors of the ego-car but cannot be used to test all of them. For example, it is hard (or even impossible) to test safety-critical situations like driving too fast in front of a stop sign or driving too closely to the heading car without taking the control away from the self-driving software. Therefore, we propose and implement a way to test the ego-car under "non-stationary" initial conditions.
+
+In essence, our tests connect the required Apollo modules except for "Control" at the beginning of the execution and set a destination point. This way, Apollo can start perceiving the environment and planning a trajectory, but the ego-cart cannot move autonomously. Next, the tests control the ego-car and drive it until the execution conditions match the expected initial conditions of the test (e.g., the ego-car speed is above the speed limit). At this point, the tests release the control and let Apollo drive the ego-car to the destination (while potentially dealing with critical situations).
+
+To illustrate this idea, we implemented [[15]](https://github.com/TrackerSB/IEEEAITestChallenge2021/blob/master/deliverable1/test_case_01/test_case_01.py#L163). A video that illustrates this idea is available [[16]](https://youtu.be/MbU8xZx-Sc8).
 
 
 ### Parking Lot Madness
