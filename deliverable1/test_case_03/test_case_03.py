@@ -41,8 +41,8 @@ class TestCase03(TestCase):
         vehicle_set = [
             {"name": "Sedan", "load_vehicle": load_npc, "distance": 0, "type": "Sedan"},
             {"name": "Ego", "load_vehicle": load_ego, "distance": 5, "type": "Lincoln2017MKZ (Apollo 5.0)"},
-            {"name": "SUV", "load_vehicle": load_npc, "distance": 10, "type": "SUV"},
-            {"name": "Jeep", "load_vehicle": load_npc, "distance": 15, "type": "Jeep"},
+            {"name": "SUV", "load_vehicle": load_npc, "distance": 12, "type": "SUV"},
+            {"name": "Jeep", "load_vehicle": load_npc, "distance": 17, "type": "Jeep"},
         ]
         # Setup environment
         sim_connection = SimConnection()

@@ -11,7 +11,7 @@ class Scenario:
 
     def on_collision(self, agent1, agent2, contact):
         COLLISIONS.append([agent1, agent2, contact])
-        print("Exception: {} collided with {}".format(agent1, agent2))
+        print("Exception: {} collided with {}".format(agent1.name, agent2.name))
         raise Exception()
 
     def generate_vehicles(self, sim: lgsvl.Simulator, vehicles: list):
@@ -30,10 +30,10 @@ class Scenario:
         control.steering = -0.4
         control.throttle = 0.2
         ego.apply_control(control, True)
-        sim_connection.execute(timeout=5)
+        sim_connection.execute(timeout=3)
         control.steering = 0.13
         ego.apply_control(control, True)
-        sim_connection.execute(timeout=5)
+        sim_connection.execute(timeout=3)
         control.steering = 0
         ego.apply_control(control, True)
         sim_connection.execute(timeout=5)
