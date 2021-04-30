@@ -5,11 +5,67 @@ from lgsvl.geometry import Vector
 from decouple import config
 from common import SimConnection, CarControl
 from common.scene import load_ego, load_npc, spawn_state
+from test_case_03.scenario import Scenario
 
 
 class TestCase03(TestCase):
+    def test_EGO_exit_park_lot(self):
+        vehicle_set = [
+            {"name": "Sedan", "load_vehicle": load_npc, "distance": 0, "type": "Sedan"},
+            {"name": "Ego", "load_vehicle": load_ego, "distance": 10, "type": "Lincoln2017MKZ (Apollo 5.0)"},
+            {"name": "SUV", "load_vehicle": load_npc, "distance": 5, "type": "SUV"},
+            {"name": "Jeep", "load_vehicle": load_npc, "distance": 20, "type": "Jeep"},
+        ]
+        # Setup environment
+        sim_connection = SimConnection()
+        lgsvl_sim = sim_connection.connect()
+        scenario = Scenario(sim_connection)
+        # Setup vehicles position
+        sedan, ego, suv, jeep = scenario.generate_vehicles(lgsvl_sim, vehicle_set)
+
+        # Delay the scenario for 2s
+        sim_connection.execute(timeout=2)
+        try:
+            scenario.drive_ego(sim_connection, ego)
+        except Exception:
+            sim_connection.sim.close()
+            self.fail("Failed!")
+
+        # Passed!
+        sim_connection.sim.close()
+        self.assertTrue(True, True)
+
+
+    @pytest.mark.xfail
+    def test_EGO_exit_park_lot_FAIL(self):
+        vehicle_set = [
+            {"name": "Sedan", "load_vehicle": load_npc, "distance": 0, "type": "Sedan"},
+            {"name": "Ego", "load_vehicle": load_ego, "distance": 5, "type": "Lincoln2017MKZ (Apollo 5.0)"},
+            {"name": "SUV", "load_vehicle": load_npc, "distance": 10, "type": "SUV"},
+            {"name": "Jeep", "load_vehicle": load_npc, "distance": 15, "type": "Jeep"},
+        ]
+        # Setup environment
+        sim_connection = SimConnection()
+        lgsvl_sim = sim_connection.connect()
+        scenario = Scenario(sim_connection)
+        # Setup vehicles position
+        sedan, ego, suv, jeep = scenario.generate_vehicles(lgsvl_sim, vehicle_set)
+
+        # Delay the scenario for 2s
+        sim_connection.execute(timeout=2)
+        try:
+            scenario.drive_ego(sim_connection, ego)
+        except Exception:
+            sim_connection.sim.close()
+            self.fail("Failed!")
+
+        # Passed!
+        sim_connection.sim.close()
+        self.assertTrue(True, True)
+
+
     @pytest.mark.skip("Apollo is not running.")
-    def test_ego_car_move_out_with_apollo(self):
+    def test_EGO_exit_with_apollo(self):
         LGSVL__APOLLO_HOST = config("LGSVL__APOLLO_HOST")
         LGSVL__APOLLO_PORT = int(config("LGSVL__APOLLO_PORT"))
         LGSVL__DREAMVIEW_HOST = config("LGSVL__DREAMVIEW_HOST")
