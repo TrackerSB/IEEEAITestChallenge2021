@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 import lgsvl
 import pytest
@@ -9,7 +10,7 @@ from test_case_03.scenario import Scenario
 
 
 class TestCase03(TestCase):
-    @pytest.mark.xfail
+    @unittest.expectedFailure
     def test_EGO_exit_park_with_incoming_NPC(self):
         NPC_START = lgsvl.geometry.Vector(120, -0.0120140314102173, -2)
         NPC_TARGET = lgsvl.geometry.Vector(60, -0.0121138095855713, -2)
@@ -75,7 +76,7 @@ class TestCase03(TestCase):
         self.assertTrue(True, True)
 
 
-    @pytest.mark.xfail
+    @unittest.expectedFailure
     def test_EGO_exit_park_lot_with_crash(self):
         VEHICLE_SET = [
             {"name": "Sedan", "load_vehicle": load_npc, "distance": 0, "type": "Sedan"},
