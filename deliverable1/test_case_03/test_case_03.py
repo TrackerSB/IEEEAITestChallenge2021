@@ -1,5 +1,6 @@
 from unittest import TestCase
 import lgsvl
+import pytest
 from lgsvl.geometry import Vector
 from decouple import config
 from common import SimConnection, CarControl
@@ -7,7 +8,8 @@ from common.scene import load_ego, load_npc, spawn_state
 
 
 class TestCase03(TestCase):
-    def test_ego_car_move_out(self):
+    @pytest.mark.skip("Apollo is not running.")
+    def test_ego_car_move_out_with_apollo(self):
         LGSVL__APOLLO_HOST = config("LGSVL__APOLLO_HOST")
         LGSVL__APOLLO_PORT = int(config("LGSVL__APOLLO_PORT"))
         LGSVL__DREAMVIEW_HOST = config("LGSVL__DREAMVIEW_HOST")

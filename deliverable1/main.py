@@ -14,7 +14,7 @@ if __name__ == "__main__":
     loader = TestLoader()
     suite.addTests(loader.loadTestsFromTestCase(TestCase01))
     suite.addTests(loader.loadTestsFromTestCase(TestCase02))
-    # suite.addTests(loader.loadTestsFromTestCase(TestCase03))
+    suite.addTests(loader.loadTestsFromTestCase(TestCase03))
     suite.addTests(loader.loadTestsFromTestCase(TestCase04))
     suite.addTests(loader.loadTestsFromTestCase(TestCase05))
     suite.addTests(loader.loadTestsFromTestCase(TestCase06))
