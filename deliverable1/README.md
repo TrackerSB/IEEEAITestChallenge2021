@@ -19,7 +19,6 @@ To cope with this situation, we followed the suggestions posted on the Challenge
 
 For Deliverable 1, we used the `2020.06` version of the simulator and the Python API version in the branch `preview2`.
 
-
 ## The Team 
 
 Our team has previous experience in the simulation-based testing domain. We have published several papers on the automated generation of tests for self-driving car software (e.g., [1]-[4]), implemented several tools, and authored M.Sc. and B.Sc. theses (e.g., [5]-[7]). A complete list of publications can be found here [8].
@@ -38,7 +37,17 @@ We worked towards this goal during this period and attended the Q/A sessions, wa
 
 Below we report on what we have done and provide links to the YouTube videos that illustrate the scripts in action. The code for replicating our experiments is available in the repository inside the various `test_case_XX` folders, along with a copy of the (HTML) reports generated while running the tests.
 
-> Note: our tests rely on `pytest`, one of the standard unit testing frameworks for python, so our reports follow `pytest`'s format.
+
+### Running the tests
+
+Our tests rely on `pytest`, one of the standard unit testing frameworks for python. Consequently, the reports that we generate follow the format defined by `pytest`.
+
+To run the tests, make sure you installed the required libraries listed inside [requirements.txt](requirements.txt) and execute any of the scripts named `exec_tcXX.py`. 
+
+Those scripts configure `pytest` to run the tests that belong to each test case separately. We provide them only to ease the reproduction of the results.
+
+> **Note**: this file is only a reference, i.e., it is not compliant with the format accepted by `pip`.
+
 
 ### General Approach
 
