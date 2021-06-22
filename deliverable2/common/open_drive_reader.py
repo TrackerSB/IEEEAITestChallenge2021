@@ -1,10 +1,8 @@
-import os
-
 from lxml import etree
 from opendrive2lanelet.opendriveparser import parser as opdParser
 
 
-def get_junction_info(path: os.path):
+def get_junction_info(path: str):
     with open(path, 'r') as fh:
         parser = etree.XMLParser()
         rootNode = etree.parse(fh, parser).getroot()
