@@ -1,33 +1,14 @@
-from enum import auto, unique
-
 from lgsvl import EgoVehicle, Vector
 from lgsvl.dreamview import Connection
 
-from common.utility import AutoName
-
-
-@unique
-class SupportedDreamViewCar(AutoName):
-    Lincoln2017MKZ = auto()
-    Jaguar2015XE = auto()
-
-
-class ApolloModule(AutoName):
-    Camera = auto()
-    Control = auto()
-    Localization = auto()
-    Perception = auto()
-    Planning = auto()
-    Prediction = auto()
-    Routing = auto()
-    TrafficLight = auto()
-    Transform = auto()
+from common.config import ApolloModule
 
 
 _INITIAL_MODULES = [
     ApolloModule.Localization,
     ApolloModule.Perception,
     ApolloModule.Planning,
+    ApolloModule.Prediction,
     ApolloModule.Transform,
     ApolloModule.Routing,
     ApolloModule.Prediction

@@ -1,30 +1,24 @@
-from lgsvl import EgoVehicle
+from common.config import SupportedDreamViewCar, SupportedMap
 
-from common.scene import load_scene, load_ego, generate_initial_state, add_random_traffic
-from common.simulator import connect_simulation
-
-
-def _connect_to_bridge(ego: EgoVehicle, host: str, port: int, timeout_secs: int = 5) -> None:
-    from lgsvl.simulator import env
-    from time import sleep
-    ego.connect_bridge(env.str("LGSVL__AUTOPILOT_0_HOST", host),
-                       env.int("LGSVL__AUTOPILOT_0_PORT", port))
-    seconds_waited = 0
-    while not ego.bridge_connected:
-        sleep(1)
-        seconds_waited += 1
-        if seconds_waited > timeout_secs:
-            raise ConnectionRefusedError("Connecting to bridge timed out")
+scene_map: SupportedMap = SupportedMap.BorregasAve
+scene_car: SupportedDreamViewCar = SupportedDreamViewCar.Lincoln2017MKZ
 
 
 def _main() -> None:
-    sim = connect_simulation("localhost", 8181)
-    spawn_pos = load_scene(sim, "Shalun")
+    from common.apollo import ApolloModule, connect_to_dreamview
+    from common.scene import generate_initial_state, load_ego, load_scene, Simulator
+    from lgsvl import Vector
+
+    sim = Simulator()
+    spawn_pos = load_scene(sim, scene_map)
     initial_state = generate_initial_state(spawn_pos)
-    ego = load_ego(sim, "Jaguar2015XE (Apollo 5.0, many sensors)", initial_state)
-    _connect_to_bridge(ego, "127.0.0.1", 9090)
-    add_random_traffic(sim)
-    sim.run()
+    ego = load_ego(sim, scene_car, initial_state)
+    dv_connection = connect_to_dreamview(ego, Vector(0, 0, 0), "localhost", 9090, 8888)
+    dv_connection.set_hd_map(scene_map.value[1])
+    # dv_connection.set_vehicle(scene_car.value)
+    sim.run(5)
+    dv_connection.enable_module(ApolloModule.Control.value)
+    sim.run(30)
 
 
 if __name__ == "__main__":

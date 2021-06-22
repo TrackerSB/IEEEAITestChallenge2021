@@ -1,57 +1,25 @@
-from enum import auto, unique
 from typing import Optional, Callable
 
 from lgsvl import AgentState, EgoVehicle, Simulator
 from lgsvl.agent import Agent, Pedestrian
 from lgsvl.geometry import Vector, Transform
 
-from common.utility import AutoName
-
-
-@unique
-class SupportedMap(AutoName):
-    SanFrancisco = auto()
-    Shalun = auto()
-
-
-@unique
-class SupportedNPC(AutoName):
-    BoxTruck = auto()
-    Hatchback = auto()
-    Jeep = auto()
-    SchoolBus = auto()
-    Sedan = auto()
-    SUV = auto()
-
-
-# The list of available pedestrians can be found in the maps PedestrianManager prefab
-# NOTE The availability of pedestrian names may depend on the currently used map
-@unique
-class SupportedPedestrian(AutoName):
-    Bob = auto()
-    EntrepreneurFemale = auto()
-    Howard = auto()
-    Johny = auto()
-    Pamela = auto()
-    Presley = auto()
-    Robin = auto()
-    Stephen = auto()
-    Zoe = auto()
+from common.config import SupportedDreamViewCar, SupportedMap, SupportedNPC, SupportedPedestrian
 
 
 def load_scene(sim: Simulator, map: SupportedMap) -> Transform:
-    if sim.current_scene == map.value:
+    if sim.current_scene == map.value[0]:
         sim.reset()
     else:
-        sim.load(map.value, 650387)
+        sim.load(map.value[0], 650387)
 
     return sim.get_spawn()[0]
 
 
-def load_ego(sim: Simulator, ego_car_config_name: str, initial_state: AgentState) -> EgoVehicle:
+def load_ego(sim: Simulator, ego_car: SupportedDreamViewCar, initial_state: AgentState) -> EgoVehicle:
     from lgsvl import AgentType
 
-    return sim.add_agent(ego_car_config_name, AgentType.EGO, initial_state)
+    return sim.add_agent(ego_car.value, AgentType.EGO, initial_state)
 
 
 def load_pedestrian(sim: Simulator, initial_state: AgentState) -> Pedestrian:
@@ -68,8 +36,9 @@ def load_npc(sim: Simulator, npc: SupportedNPC, initial_state: AgentState) -> Ag
 
 def add_random_traffic(sim: Simulator) -> None:
     from lgsvl import AgentType
+    # WARN Not all maps support both
     sim.add_random_agents(AgentType.NPC)
-    # sim.add_random_agents(AgentType.PEDESTRIAN)  # FIXME Seems not to work
+    sim.add_random_agents(AgentType.PEDESTRIAN)
 
 
 def get_predefined_spawn_pos(sim, index=0) -> Transform:

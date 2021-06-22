@@ -21,7 +21,7 @@ def _main() -> None:
     sim = Simulator()
     spawn_pos = load_scene(sim, SupportedMap.Shalun)
     initial_state = generate_initial_state(spawn_pos, 20)
-    ego = load_ego(sim, SupportedDreamViewCar.Jaguar2015XE.value, initial_state)
+    ego = load_ego(sim, SupportedDreamViewCar.Jaguar2015XE, initial_state)
     # _detect_collisions(ego)  # FIXME Collisions seem not to be detected
     ego.apply_control(_generate_control_command(), True)
 
