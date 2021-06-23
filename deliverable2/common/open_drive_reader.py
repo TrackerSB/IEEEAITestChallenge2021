@@ -1,8 +1,15 @@
+from typing import Tuple, List, Set
+
 from lxml import etree
 from opendrive2lanelet.opendriveparser import parser as opdParser
+from opendrive2lanelet.opendriveparser.elements.junction import Junction
+from opendrive2lanelet.opendriveparser.elements.road import Road
 
 
 def get_junction_info(path: str):
+    """
+    :return: A map from segment IDs to segments and a list of found junctions
+    """
     with open(path, 'r') as fh:
         parser = etree.XMLParser()
         rootNode = etree.parse(fh, parser).getroot()
@@ -18,7 +25,6 @@ def get_junction_info(path: str):
             # A connecting road can be a lane-connector segment INSIDE the intersection
             # The connecting road can also be another road segment
             for connection in junction._connections:
-
                 connectingRoad = roadNetwork.getRoad(connection._connectingRoad)
                 connectingRoadSet.add(connectingRoad._id)
 
@@ -53,3 +59,12 @@ def get_junction_info(path: str):
                 print(f'\t\t \
                         \n\t\t incomingRoad: {predecessorRoad._id}, startCoord:{incomingRoadConnCoord._start_position} \
                         \n\t\t outgoingRoad: {successorRoad._id}, startCoord:{outgoingRoadConnCoord._start_position}')
+
+
+def get_roads_and_junctions(path: str) -> Tuple[Set[Road], List[Junction]]:
+    parser = etree.XMLParser()
+    with open(path, 'r') as file:
+        root_node = etree.parse(file, parser) \
+            .getroot()
+    road_network = opdParser.parse_opendrive(root_node)
+    return road_network.roads, road_network.junctions
