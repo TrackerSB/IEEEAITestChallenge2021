@@ -1,4 +1,8 @@
+from typing import Set, Tuple, Dict, List
+
 from lgsvl import Vector
+from opendrive2lanelet.opendriveparser.elements.road import Road
+from shapely.geometry import Point, Polygon
 
 
 def _dot_product(a: Vector, b: Vector) -> float:
@@ -36,3 +40,27 @@ def rotate_around_y(a: Vector, angle: float) -> Vector:
         a.y,
         -a.x * sin(acw_angle) + a.z * cos(acw_angle)
     )
+
+
+def interpolate_roads(roads: Set[Road]) -> Tuple[Dict[int, List[Point]], Polygon]:
+    from math import floor
+    from shapely.geometry import box
+    resolution: int = 10  # Steps per meter for visualizing roads
+    road_points_collection: Dict[int, List[Point]] = {}
+    min_x: float = float("Infinity")
+    max_x: float = float("-Infinity")
+    min_y: float = float("Infinity")
+    max_y: float = float("-Infinity")
+    for road in roads:
+        plan_view = road.planView
+        road_points: List[Point] = []
+        for i in range(0, floor(plan_view.length * resolution)):
+            current_point = Point(plan_view.calc(i / resolution)[0])
+            min_x = min(current_point.x, min_x)
+            max_x = max(current_point.x, max_x)
+            min_y = min(current_point.y, min_y)
+            max_y = max(current_point.y, max_y)
+            road_points.append(current_point)
+        road_points.append(Point(plan_view.calc(plan_view.length)[0]))  # Ensure end points of roads are included
+        road_points_collection[road.id] = road_points
+    return road_points_collection, box(min_x, min_y, max_x, max_y)
