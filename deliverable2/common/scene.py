@@ -1,8 +1,10 @@
-from typing import Optional, Callable
+from typing import Optional, Callable, List, Dict
 
 from lgsvl import AgentState, EgoVehicle, Simulator
 from lgsvl.agent import Agent, Pedestrian
 from lgsvl.geometry import Vector, Transform
+from opendrive2lanelet.opendriveparser.elements.junction import Connection as ODConnection
+from shapely.geometry import Point
 
 from common.config import SupportedDreamViewCar, SupportedMap, SupportedNPC, SupportedPedestrian
 
@@ -43,6 +45,33 @@ def add_random_traffic(sim: Simulator) -> None:
 
 def get_predefined_spawn_pos(sim, index=0) -> Transform:
     return sim.get_spawn()[index]
+
+
+def get_entry_point(road_points: Dict[int, List[Point]], connection: ODConnection) -> Transform:
+    from common.geometry import get_directional_angle
+    connecting_road_id = connection.connectingRoad
+    connecting_road = road_points[connecting_road_id]
+    connection_type = connection.contactPoint
+    if connection_type == "start":
+        junction_entry_point = connecting_road[0]
+        entry_direction = Vector(connecting_road[1].x - connecting_road[0].x,
+                                 0,
+                                 connecting_road[1].y - connecting_road[0].y)
+    else:
+        junction_entry_point = connecting_road[-1]
+        entry_direction = Vector(connecting_road[-1].x - connecting_road[-2].x,
+                                 0,
+                                 connecting_road[-1].y - connecting_road[-2].y)
+
+    if entry_direction.x == 0:
+        entry_angle = 0
+    else:
+        entry_angle = get_directional_angle(entry_direction, Vector(0, 0, 1))
+
+    return Transform(
+        position=Vector(junction_entry_point.x, 0, junction_entry_point.y),
+        rotation=Vector(0, entry_angle, 0)
+    )
 
 
 def generate_initial_state(initial_pos: Transform, initial_speed: Optional[float] = None) -> AgentState:
