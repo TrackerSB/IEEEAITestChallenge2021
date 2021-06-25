@@ -1,4 +1,4 @@
-from typing import Optional, Callable, List, Dict
+from typing import Optional, Callable, List, Dict, Tuple
 
 from lgsvl import AgentState, EgoVehicle, Simulator
 from lgsvl.agent import Agent, Pedestrian
@@ -47,30 +47,41 @@ def get_predefined_spawn_pos(sim, index=0) -> Transform:
     return sim.get_spawn()[index]
 
 
-def get_entry_point(road_points: Dict[int, List[Point]], connection: ODConnection) -> Transform:
+def get_entry_final_point(road_points: Dict[int, List[Point]], connection: ODConnection) -> Tuple[Transform, Transform]:
     from common.geometry import get_directional_angle
     connecting_road_id = connection.connectingRoad
     connecting_road = road_points[connecting_road_id]
     connection_type = connection.contactPoint
-    if connection_type == "start":
-        junction_entry_point = connecting_road[0]
-        entry_direction = Vector(connecting_road[1].x - connecting_road[0].x,
-                                 0,
-                                 connecting_road[1].y - connecting_road[0].y)
-    else:
-        junction_entry_point = connecting_road[-1]
-        entry_direction = Vector(connecting_road[-1].x - connecting_road[-2].x,
-                                 0,
-                                 connecting_road[-1].y - connecting_road[-2].y)
 
-    if entry_direction.x == 0:
-        entry_angle = 0
+    segment_start_point = connecting_road[0]
+    segment_start_direction = Vector(connecting_road[1].x - connecting_road[0].x,
+                                     0,
+                                     connecting_road[1].y - connecting_road[0].y)
+    segment_start_angle = get_directional_angle(segment_start_direction, Vector(0, 0, 1))
+
+    segment_final_point = connecting_road[-1]
+    segment_final_direction = Vector(connecting_road[-1].x - connecting_road[-2].x,
+                                     0,
+                                     connecting_road[-1].y - connecting_road[-2].y)
+    segment_final_angle = get_directional_angle(segment_final_direction, Vector(0, 0, 1))
+
+    if connection_type == "start":
+        junction_start_point = segment_start_point
+        junction_start_angle = segment_start_angle
+        junction_final_point = segment_final_point
+        junction_final_angle = segment_final_angle
     else:
-        entry_angle = get_directional_angle(entry_direction, Vector(0, 0, 1))
+        junction_start_point = segment_final_point
+        junction_start_angle = segment_final_angle
+        junction_final_point = segment_start_point
+        junction_final_angle = segment_start_angle
 
     return Transform(
-        position=Vector(junction_entry_point.x, 0, junction_entry_point.y),
-        rotation=Vector(0, entry_angle, 0)
+        position=Vector(junction_start_point.x, 0, junction_start_point.y),
+        rotation=Vector(0, junction_start_angle, 0)
+    ), Transform(
+        position=Vector(junction_final_point.x, 0, junction_final_point.y),
+        rotation=Vector(0, junction_final_angle, 0)
     )
 
 

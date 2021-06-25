@@ -56,6 +56,7 @@ def interpolate_roads(roads: Set[Road]) -> Tuple[Dict[int, List[Point]], Polygon
         road_points: List[Point] = []
         for i in range(0, floor(plan_view.length * resolution)):
             current_point = Point(plan_view.calc(i / resolution)[0])
+            current_point = Point(current_point.x - 2.5, current_point.y)  # FIXME Avoid hard coded x offset
             min_x = min(current_point.x, min_x)
             max_x = max(current_point.x, max_x)
             min_y = min(current_point.y, min_y)
