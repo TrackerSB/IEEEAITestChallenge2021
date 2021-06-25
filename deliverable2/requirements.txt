@@ -1,2 +1,5 @@
 lgsvl
+lxml
+opendrive2lanelet
 python-decouple
+shapely
