@@ -41,7 +41,7 @@ class SupportedPedestrian(AutoName):
 @unique
 class SupportedDreamViewCar(Enum):
     Lincoln2017MKZ = "22656c7b-104b-4e6a-9c70-9955b6582220"
-    Jaguar2015XE = "Jaguar2015XE"
+    Jaguar2015XE = "09510748-1f41-484e-9495-7d17129a62e3"
 
 
 class ApolloModule(AutoName):
