@@ -4,6 +4,7 @@ from lgsvl import AgentState, EgoVehicle, Simulator
 from lgsvl.agent import Agent, Pedestrian
 from lgsvl.geometry import Vector, Transform
 from opendrive2lanelet.opendriveparser.elements.junction import Connection as ODConnection
+from opendrive2lanelet.opendriveparser.elements.road import Road
 from shapely.geometry import Point
 
 from common.config import SupportedDreamViewCar, SupportedMap, SupportedNPC, SupportedPedestrian
@@ -47,41 +48,71 @@ def get_predefined_spawn_pos(sim, index=0) -> Transform:
     return sim.get_spawn()[index]
 
 
-def get_entry_final_point(road_points: Dict[int, List[Point]], connection: ODConnection) -> Tuple[Transform, Transform]:
+def get_entry_final_point(roads: List[Road], road_points: Dict[int, List[Point]], connection: ODConnection,
+                          distance: float) \
+        -> Tuple[Transform, Transform]:
     from common.geometry import get_directional_angle
     connecting_road_id = connection.connectingRoad
     connecting_road = road_points[connecting_road_id]
     connection_type = connection.contactPoint
 
-    segment_start_point = connecting_road[0]
-    segment_start_direction = Vector(connecting_road[1].x - connecting_road[0].x,
-                                     0,
-                                     connecting_road[1].y - connecting_road[0].y)
-    segment_start_angle = get_directional_angle(segment_start_direction, Vector(0, 0, 1))
+    def _find_road(idx):
+        return next(r for r in roads if r.id == idx)
 
-    segment_final_point = connecting_road[-1]
-    segment_final_direction = Vector(connecting_road[-1].x - connecting_road[-2].x,
-                                     0,
-                                     connecting_road[-1].y - connecting_road[-2].y)
-    segment_final_angle = get_directional_angle(segment_final_direction, Vector(0, 0, 1))
+    # Find start position
+    moved_backward = 0
+    current_index_on_road = 0
+    current_road: Road = _find_road(connecting_road_id)
+    current_position = road_points[current_road.id][current_index_on_road]
+    while moved_backward < distance:
+        if current_index_on_road <= 0:
+            current_road = _find_road(current_road.link.predecessor.element_id)
+            current_index_on_road = len(road_points[current_road.id])
+        current_index_on_road = current_index_on_road - 1
+        next_position = road_points[current_road.id][current_index_on_road]
+        added_length = current_position.distance(next_position)
+        moved_backward = moved_backward + added_length
+        current_position = next_position
 
-    if connection_type == "start":
-        junction_start_point = segment_start_point
-        junction_start_angle = segment_start_angle
-        junction_final_point = segment_final_point
-        junction_final_angle = segment_final_angle
-    else:
-        junction_start_point = segment_final_point
-        junction_start_angle = segment_final_angle
-        junction_final_point = segment_start_point
-        junction_final_angle = segment_start_angle
+    start_pos = current_position
+    start_road_points = road_points[current_road.id]
+    second_start_idx = max(current_index_on_road, 1)
+    first_start_idx = second_start_idx - 1
+    start_direction = Vector(start_road_points[second_start_idx].x - start_road_points[first_start_idx].x,
+                             0,
+                             start_road_points[second_start_idx].y - start_road_points[first_start_idx].y)
+    start_angle = get_directional_angle(start_direction, Vector(0, 0, 1))
+
+    # Find final position
+    moved_forward = 0
+    current_road: Road = _find_road(connecting_road_id)
+    current_index_on_road = len(road_points[current_road.id]) - 1
+    current_position = road_points[current_road.id][current_index_on_road]
+    while moved_forward < distance:
+        current_index_on_road = current_index_on_road + 1
+        if current_index_on_road >= len(road_points[current_road.id]):
+            current_road = _find_road(current_road.link.successor.element_id)
+            current_index_on_road = 0
+        next_position = road_points[current_road.id][current_index_on_road]
+        added_length = current_position.distance(next_position)
+        moved_forward = moved_forward + added_length
+        current_position = next_position
+
+    final_pos = current_position
+    final_road_points = road_points[current_road.id]
+    second_start_idx = max(current_index_on_road, 1)
+    first_start_idx = second_start_idx - 1
+    final_direction = Vector(final_road_points[second_start_idx].x - final_road_points[first_start_idx].x,
+                             0,
+                             final_road_points[second_start_idx].y - final_road_points[first_start_idx].y)
+    final_angle = get_directional_angle(final_direction, Vector(0, 0, 1))
 
     return Transform(
-        position=Vector(junction_start_point.x, 0, junction_start_point.y),
-        rotation=Vector(0, junction_start_angle, 0)
+        position=Vector(start_pos.x, 0, start_pos.y),
+        rotation=Vector(0, start_angle, 0)
     ), Transform(
-        position=Vector(junction_final_point.x, 0, junction_final_point.y),
-        rotation=Vector(0, junction_final_angle, 0)
+        position=Vector(final_pos.x, 0, final_pos.y),
+        rotation=Vector(0, final_angle, 0)
     )
 
 
