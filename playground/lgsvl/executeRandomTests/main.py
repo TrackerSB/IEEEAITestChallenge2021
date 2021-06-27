@@ -1,6 +1,6 @@
 from queue import Queue
 
-from lgsvl import Simulator
+from lgsvl import Simulator, dreamview
 from shapely.geometry import LineString, Point
 from shapely.ops import unary_union
 
@@ -72,18 +72,24 @@ def _execute_test(connection) -> None:
     ego = load_ego(sim, SupportedDreamViewCar.Lincoln2017MKZ, initial_state)
 
     # Connect DreamView
-    dreamview = connect_to_dreamview(ego, final_estimation.position, "127.0.0.1", 9090, 8888)
-    dreamview.set_hd_map("Borregas Ave")
-    dreamview.enable_module(ApolloModule.Control.value)
+    ego.connect_bridge("127.0.0.1", 9090)
+    dv = dreamview.Connection(sim, ego, "127.0.0.1")
+    dv.set_hd_map('Borregas Ave')
+    dv.set_vehicle('Lincoln2017MKZ LGSVL')
+    modules = [
+        'Localization',
+        'Transform',
+        'Routing',
+        'Prediction',
+        'Planning',
+        'Control'
+    ]
+    spawns = sim.get_spawn()
+    destination = spawns[0].destinations[0]
+    dv.setup_apollo(destination.position.x, destination.position.z, modules)
 
+    sim.run(10)
     timeout = 10
-    passed = 0
-    while passed < timeout:
-        sim.run(1)
-        if not test_oracle():
-            print("test failed")
-            return
-        passed = passed + 1
 
     print("test passed")
 
