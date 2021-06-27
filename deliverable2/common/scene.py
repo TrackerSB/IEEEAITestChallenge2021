@@ -8,6 +8,7 @@ from opendrive2lanelet.opendriveparser.elements.road import Road
 from shapely.geometry import Point
 
 from common.config import SupportedDreamViewCar, SupportedMap, SupportedNPC, SupportedPedestrian
+from common.geometry import InterpolatedRoad
 
 
 def load_scene(sim: Simulator, map: SupportedMap) -> Transform:
@@ -48,34 +49,32 @@ def get_predefined_spawn_pos(sim, index=0) -> Transform:
     return sim.get_spawn()[index]
 
 
-def get_entry_final_point(roads: List[Road], road_points: Dict[int, List[Point]], connection: ODConnection,
+def get_entry_final_point(roads: Dict[int, InterpolatedRoad], connection: ODConnection,
                           distance: float) \
-        -> Tuple[Transform, Transform]:
+        -> Tuple[InterpolatedRoad, Transform, InterpolatedRoad, Transform]:
     from common.geometry import get_directional_angle
     connecting_road_id = connection.connectingRoad
-    connecting_road = road_points[connecting_road_id]
+    connecting_road = roads[connecting_road_id]
     connection_type = connection.contactPoint
-
-    def _find_road(idx):
-        return next(r for r in roads if r.id == idx)
 
     # Find start position
     moved_backward = 0
     current_index_on_road = 0
-    current_road: Road = _find_road(connecting_road_id)
-    current_position = road_points[current_road.id][current_index_on_road]
+    current_road: InterpolatedRoad = roads[connecting_road_id]
+    current_position = current_road.interpolated_points[current_index_on_road]
     while moved_backward < distance:
         if current_index_on_road <= 0:
-            current_road = _find_road(current_road.link.predecessor.element_id)
-            current_index_on_road = len(road_points[current_road.id])
+            current_road = roads[current_road.link.predecessor.element_id]
+            current_index_on_road = len(current_road.interpolated_points)
         current_index_on_road = current_index_on_road - 1
-        next_position = road_points[current_road.id][current_index_on_road]
+        next_position = current_road.interpolated_points[current_index_on_road]
         added_length = current_position.distance(next_position)
         moved_backward = moved_backward + added_length
         current_position = next_position
 
     start_pos = current_position
-    start_road_points = road_points[current_road.id]
+    start_segment = current_road
+    start_road_points = start_segment.interpolated_points
     second_start_idx = max(current_index_on_road, 1)
     first_start_idx = second_start_idx - 1
     start_direction = Vector(start_road_points[second_start_idx].x - start_road_points[first_start_idx].x,
@@ -85,21 +84,22 @@ def get_entry_final_point(roads: List[Road], road_points: Dict[int, List[Point]]
 
     # Find final position
     moved_forward = 0
-    current_road: Road = _find_road(connecting_road_id)
-    current_index_on_road = len(road_points[current_road.id]) - 1
-    current_position = road_points[current_road.id][current_index_on_road]
+    current_road: InterpolatedRoad = roads[connecting_road_id]
+    current_index_on_road = len(current_road.interpolated_points) - 1
+    current_position = current_road.interpolated_points[current_index_on_road]
     while moved_forward < distance:
         current_index_on_road = current_index_on_road + 1
-        if current_index_on_road >= len(road_points[current_road.id]):
-            current_road = _find_road(current_road.link.successor.element_id)
+        if current_index_on_road >= len(current_road.interpolated_points):
+            current_road = roads[current_road.link.successor.element_id]
             current_index_on_road = 0
-        next_position = road_points[current_road.id][current_index_on_road]
+        next_position = current_road.interpolated_points[current_index_on_road]
         added_length = current_position.distance(next_position)
         moved_forward = moved_forward + added_length
         current_position = next_position
 
     final_pos = current_position
-    final_road_points = road_points[current_road.id]
+    final_segment = current_road
+    final_road_points = final_segment.interpolated_points
     second_start_idx = max(current_index_on_road, 1)
     first_start_idx = second_start_idx - 1
     final_direction = Vector(final_road_points[second_start_idx].x - final_road_points[first_start_idx].x,
@@ -107,10 +107,10 @@ def get_entry_final_point(roads: List[Road], road_points: Dict[int, List[Point]]
                              final_road_points[second_start_idx].y - final_road_points[first_start_idx].y)
     final_angle = get_directional_angle(final_direction, Vector(0, 0, 1))
 
-    return Transform(
+    return start_segment, Transform(
         position=Vector(start_pos.x, 0, start_pos.y),
         rotation=Vector(0, start_angle, 0)
-    ), Transform(
+    ), final_segment, Transform(
         position=Vector(final_pos.x, 0, final_pos.y),
         rotation=Vector(0, final_angle, 0)
     )

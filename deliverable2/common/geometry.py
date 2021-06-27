@@ -42,11 +42,25 @@ def rotate_around_y(a: Vector, angle: float) -> Vector:
     )
 
 
-def interpolate_roads(roads: Set[Road]) -> Tuple[Dict[int, List[Point]], Polygon]:
+class InterpolatedRoad(Road):
+    interpolated_points: List[Point]
+
+    def __init__(self, road: Road, ip: List[Point]):
+        super().__init__()
+        self.interpolated_points = ip
+        self.id = road.id
+        self.junction = road.junction
+        self._link = road.link
+        self._planView = road.planView
+        self._lanes = road.lanes
+        self.name = road.name
+
+
+def interpolate_roads(roads: Set[Road]) -> Tuple[Dict[int, InterpolatedRoad], Polygon]:
     from math import floor
     from shapely.geometry import box
     resolution: int = 10  # Steps per meter for visualizing roads
-    road_points_collection: Dict[int, List[Point]] = {}
+    road_points_collection: Dict[int, InterpolatedRoad] = {}
     min_x: float = float("Infinity")
     max_x: float = float("-Infinity")
     min_y: float = float("Infinity")
@@ -63,5 +77,6 @@ def interpolate_roads(roads: Set[Road]) -> Tuple[Dict[int, List[Point]], Polygon
             max_y = max(current_point.y, max_y)
             road_points.append(current_point)
         road_points.append(Point(plan_view.calc(plan_view.length)[0]))  # Ensure end points of roads are included
-        road_points_collection[road.id] = road_points
+        road.interpolated_points = road_points
+        road_points_collection[road.id] = InterpolatedRoad(road, road_points)
     return road_points_collection, box(min_x, min_y, max_x, max_y)
