@@ -196,4 +196,20 @@ for intersection in intersections:
 
 [print(i) for i in intersections]
 
+# Generate POSITIVE driving paths
+positive_paths_across_intersections = list()
+for intersection in intersections:
+    for lanelet_inside_intersection_id in intersection:
 
+        lanelet_inside_intersection = lanelet_network.find_lanelet_by_id(lanelet_inside_intersection_id)
+
+        assert "more than one PRED for lanelet inside intersection", len(lanelet_inside_intersection.predecessor) <= 1
+        assert "more than one SUCC for lanelet inside intersection", len(lanelet_inside_intersection.successor) <= 1
+
+        positive_paths_across_intersections.append((lanelet_inside_intersection.predecessor[0],
+                                                    lanelet_inside_intersection_id,
+                                                    lanelet_inside_intersection.successor[0]))
+
+
+
+[ print(ppath) for ppath in positive_paths_across_intersections ]
