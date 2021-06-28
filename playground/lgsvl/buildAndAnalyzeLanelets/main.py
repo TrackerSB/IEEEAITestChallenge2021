@@ -3,6 +3,48 @@ from itertools import combinations
 from lxml import etree
 from queue import Queue
 
+import matplotlib.pyplot as plt
+from opendrive2lanelet.opendriveparser.elements.roadPlanView import PlanView
+def plot_polygon(poly):
+    plt.plot(*poly.exterior.xy)
+
+
+#### PATCH PlanView
+import numpy as np
+# Modified version of the calc_geometry method. The mod is only: "rtol=1.e-1"
+def calc_geometry_patched(self, s_pos: float):
+    """Calc position and tangent at s_pos by delegating calculation to geometry.
+
+    Args:
+      s_pos: Position on PlanView in ds.
+
+    Returns:
+      Position (x,y) in cartesion coordinates.
+      Angle in radians at position s_pos.
+
+    """
+    try:
+        # get index of geometry which is at s_pos
+        mask = self._geo_lengths > s_pos
+        sub_idx = np.argmin(self._geo_lengths[mask] - s_pos)
+        geo_idx = np.arange(self._geo_lengths.shape[0])[mask][sub_idx] - 1
+    except ValueError:
+        # s_pos is after last geometry because of rounding error
+        if np.isclose(s_pos, self._geo_lengths[-1], rtol=1.e-1):
+            geo_idx = self._geo_lengths.size - 2
+        else:
+            raise Exception(
+                f"Tried to calculate a position outside of the borders of the reference path at s={s_pos}"
+                f", but path has only length of l={ self._geo_lengths[-1]}"
+            )
+
+    # geo_idx is index which geometry to use
+    return self._geometries[geo_idx].calc_position(
+        s_pos - self._geo_lengths[geo_idx]
+    )
+PlanView.calc_geometry = calc_geometry_patched
+
+
 from opendrive2lanelet.opendriveparser.parser import parse_opendrive
 from opendrive2lanelet.io.opendrive_convert import convert_opendrive
 
@@ -19,7 +61,7 @@ from opendrive2lanelet.network import Network
 #Cubetown:
 #[100, 103, 106, 111, 112, 115]
 #[107, 108, 109, 110, 113, 114]
-#map_file = "cubetown.xodr"
+map_file = "cubetown.xodr"
 
 # This has problems because somehow overlapping segments are NOT reported overlapping at all
 # So there are segments missing
@@ -36,7 +78,7 @@ from opendrive2lanelet.network import Network
 # Not sure if I missed something
 # [101, 103, 105, 107, 108, 114, 115, 119, 120, 122, 123, 125, 131, 132, 134, 135]
 # [136, 137, 138, 139, 140, 141, 147, 148, 149, 150, 151, 152]
-map_file = "borregasave.xodr"
+# map_file = "borregasave.xodr"
 
 with open("{}/{}". format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
     open_drive = parse_opendrive(etree.parse(fi).getroot())
@@ -77,7 +119,26 @@ def has_no_relation_with(self, another_lanelet):
         self.lanelet_id !=l2.adj_left_same_direction or \
         self.lanelet_id != l2.adj_right_same_direction
 
+
+def interpolate_position_any(self, distance: float) -> tuple:
+    max_distance = self.distance[-1]
+    if np.greater_equal(distance, 0):
+
+        # Make sure we cap to max distance so we do not trigger the error
+        if np.greater(distance, max_distance):
+            distance = max_distance
+
+        return self.interpolate_position(distance)
+    else:
+        distance = max_distance + distance
+        # Make sure we cap to max distance so we do not trigger the error
+        if np.less_equal(distance, 0):
+            distance = 0
+
+        return self.interpolate_position(distance)
+
 Lanelet.has_no_relation_with = has_no_relation_with
+Lanelet.interpolate_position_any = interpolate_position_any
 
 # TODO This changes only the instances but at the moment I have no idea how to handle this at class level...
 # Probably it would be enought to extend the class instead of dynamically modify its instances
@@ -196,6 +257,9 @@ for intersection in intersections:
 
 [print(i) for i in intersections]
 
+from shapely.ops import cascaded_union
+
+
 # Generate POSITIVE driving paths
 positive_paths_across_intersections = list()
 for intersection in intersections:
@@ -203,12 +267,57 @@ for intersection in intersections:
 
         lanelet_inside_intersection = lanelet_network.find_lanelet_by_id(lanelet_inside_intersection_id)
 
-        assert "more than one PRED for lanelet inside intersection", len(lanelet_inside_intersection.predecessor) <= 1
-        assert "more than one SUCC for lanelet inside intersection", len(lanelet_inside_intersection.successor) <= 1
+        if len(lanelet_inside_intersection.predecessor) != 1 or len(lanelet_inside_intersection.successor) != 1:
+            print("Unexpected element in the intersection. Skip it")
+            continue
 
-        positive_paths_across_intersections.append((lanelet_inside_intersection.predecessor[0],
-                                                    lanelet_inside_intersection_id,
-                                                    lanelet_inside_intersection.successor[0]))
+        predecessor_lanelet = lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0])
+        successor_lanelet = lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.successor[0])
+
+
+        # Oracle is the UNION of the AREAs OF THOSE LANELETS
+        oracle_polygons = [predecessor_lanelet.convert_to_polygon().shapely_object,
+                    lanelet_inside_intersection.convert_to_polygon().shapely_object,
+                    successor_lanelet.convert_to_polygon().shapely_object]
+
+        positive_path = (predecessor_lanelet, lanelet_inside_intersection, successor_lanelet)
+        print("PATH:", [ l.lanelet_id for l  in positive_path])
+
+        position_1 = predecessor_lanelet.interpolate_position_any(-5)
+        position_2 = predecessor_lanelet.interpolate_position_any(-10)
+        position_3 = predecessor_lanelet.interpolate_position_any(-15)
+
+        plot_polygon(oracle_polygons[0])
+        plt.plot(*position_1[0], "o")
+        plt.plot(*position_2[0], "o")
+        plt.plot(*position_3[0], "o")
+
+        a_position_1 = successor_lanelet.interpolate_position_any(0)
+        a_position_2 = successor_lanelet.interpolate_position_any(5)
+        a_position_3 = successor_lanelet.interpolate_position_any(10)
+
+        plot_polygon(oracle_polygons[1])
+
+        plot_polygon(oracle_polygons[2])
+        plt.plot(*a_position_1[0], "o")
+        plt.plot(*a_position_2[0], "o")
+        plt.plot(*a_position_3[0], "o")
+
+        positive_paths_across_intersections.append(positive_path)
+
+        # [plot_polygon(p) for p in polygons]
+        # Not this can easily be a MULTIPOLIGON as lanelets may NOT overlap precisely
+        # Computing the convexhull does not work...
+        # oracle_polygon = cascaded_union(polygons)
+
+
+
+
+
+
+        lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0]).convert_to_polygon().shapely_object
+
+
 
 
 
