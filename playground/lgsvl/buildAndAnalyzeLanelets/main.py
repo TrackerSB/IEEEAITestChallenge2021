@@ -44,19 +44,43 @@ def calc_geometry_patched(self, s_pos: float):
     )
 PlanView.calc_geometry = calc_geometry_patched
 
-
 from opendrive2lanelet.opendriveparser.parser import parse_opendrive
 from opendrive2lanelet.io.opendrive_convert import convert_opendrive
-
-# from opendrive2lanelet.opendriveparser.elements.junction import Junction
-# from opendrive2lanelet.opendriveparser.elements.road import Road
-#
 from opendrive2lanelet.network import Network
-#
-# from commonroad.common.file_writer import CommonRoadFileWriter, OverwriteExistingFile
-# from commonroad.planning.planning_problem import PlanningProblemSet
-# from commonroad.scenario.scenario import Tag
-#
+from commonroad.scenario.scenario import Scenario
+
+#### PATCH NETWORK
+
+def export_commonroad_scenario(
+        self, dt: float = 0.1, benchmark_id=None, filter_types=None
+):
+    """Export a full CommonRoad scenario
+
+    Args:
+      dt:  (Default value = 0.1)
+      benchmark_id:  (Default value = None)
+      filter_types:  (Default value = None)
+
+    Returns:
+
+    """
+
+    scenario = Scenario(
+        dt=dt, scenario_id=None, benchmark_id=benchmark_id if benchmark_id is not None else "none"
+    )
+
+    scenario.add_objects(
+        self.export_lanelet_network(
+            filter_types=filter_types
+            if isinstance(filter_types, list)
+            else ["driving", "onRamp", "offRamp", "exit", "entry"]
+        )
+    )
+
+    return scenario
+
+Network.export_commonroad_scenario = export_commonroad_scenario
+
 # # Import, parse and convert OpenDRIVE file
 #Cubetown:
 #[100, 103, 106, 111, 112, 115]
