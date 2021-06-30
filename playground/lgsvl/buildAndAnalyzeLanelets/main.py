@@ -285,7 +285,7 @@ from shapely.ops import cascaded_union
 
 
 # Generate POSITIVE driving paths
-positive_paths_across_intersections = list()
+positive_driving_paths_across_intersections = list()
 for intersection in intersections:
     for lanelet_inside_intersection_id in intersection:
 
@@ -327,22 +327,12 @@ for intersection in intersections:
         plt.plot(*a_position_2[0], "o")
         plt.plot(*a_position_3[0], "o")
 
-        positive_paths_across_intersections.append(positive_path)
+        positive_driving_paths_across_intersections.append((position_2[0], a_position_3[0]))
 
         # [plot_polygon(p) for p in polygons]
         # Not this can easily be a MULTIPOLIGON as lanelets may NOT overlap precisely
         # Computing the convexhull does not work...
         # oracle_polygon = cascaded_union(polygons)
 
-
-
-
-
-
-        lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0]).convert_to_polygon().shapely_object
-
-
-
-
-
-[ print(ppath) for ppath in positive_paths_across_intersections ]
+        # lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0]).convert_to_polygon().shapely_object
+[print(p) for p in positive_driving_paths_across_intersections]
