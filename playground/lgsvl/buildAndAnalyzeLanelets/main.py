@@ -85,7 +85,7 @@ Network.export_commonroad_scenario = export_commonroad_scenario
 #Cubetown:
 #[100, 103, 106, 111, 112, 115]
 #[107, 108, 109, 110, 113, 114]
-map_file = "cubetown.xodr"
+map_file = "lanelet/maps/cubetown.xodr"
 
 # This has problems because somehow overlapping segments are NOT reported overlapping at all
 # So there are segments missing
