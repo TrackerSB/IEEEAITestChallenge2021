@@ -9,7 +9,7 @@ LGSVL__SIMULATOR_HOST = env.str("LGSVL__SIMULATOR_HOST", "127.0.0.1")
 LGSVL__SIMULATOR_PORT = env.int("LGSVL__SIMULATOR_PORT", 8181)
 LGSVL__AUTOPILOT_0_HOST = env.str("LGSVL__AUTOPILOT_0_HOST", "127.0.0.1")
 LGSVL__AUTOPILOT_0_PORT = env.int("LGSVL__AUTOPILOT_0_PORT", 9090)
-TIME_LIMIT = 30  # seconds
+TIME_LIMIT = 60  # seconds
 
 
 def spawn_state(sim, index=0):
@@ -59,13 +59,14 @@ class SimModel:
                 currentPos = ego.state.position
                 if lgsvl.evaluator.separation(currentPos, destination) < 5:
                     raise lgsvl.evaluator.TestException(
-                        "FAILED: EGO does not reach to destination, {} vs {}!".format(currentPos, destination)
+                        "PASSED: EGO does reach to destination, {} vs {}!".format(currentPos, destination)
                     )
-                if time.time() - t0 > TIME_LIMIT:
-                    raise lgsvl.evaluator.TestException(
-                        "FAILED: Timeout!"
-                    )
+                else:
+                    if time.time() - t0 > TIME_LIMIT:
+                        raise lgsvl.evaluator.TestException(
+                            "Timeout! EGO does reach to destination, {} vs {}!".format(currentPos, destination)
+                        )
         except lgsvl.evaluator.TestException as e:
-            exit("FAILED: {}".format(e))
+            print("FAILED: {}".format(e))
 
         sim.close()
