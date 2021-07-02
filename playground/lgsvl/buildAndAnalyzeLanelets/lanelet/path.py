@@ -1,3 +1,7 @@
+import os
+import json
+import shutil
+
 import matplotlib.pyplot as plt
 
 
@@ -10,10 +14,21 @@ class Path:
         self.intersections = intersections
         self.lanelet_network = lanelet_network
 
-    def generate_driving_paths(self, intersection, start_point_distance=0, end_point_distance=0):
+    def generate_driving_paths(self, intersection, directory,
+                               start_point_distance=0, end_point_distance=0):
+
+        # Create the directory
+        path = "{}/data/{}".format(os.path.dirname(os.path.realpath(__file__)), directory)
+        if os.path.exists(path):
+            shutil.rmtree(path)
+        os.mkdir(path)
+        print("Directory '% s' created" % directory)
+
         # Generate POSITIVE driving paths
         positive_driving_paths_across_intersections = list()
+        ID = 0
         for lanelet_inside_intersection_id in intersection:
+            ID += 1
             lanelet_inside_intersection = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection_id)
 
             if len(lanelet_inside_intersection.predecessor) != 1 or len(lanelet_inside_intersection.successor) != 1:
@@ -42,6 +57,18 @@ class Path:
             plt.plot(*end_point[0], "x")
 
             plt.show()
+            plt.savefig(
+                "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".png"))
 
             positive_driving_paths_across_intersections.append((start_point[0], end_point[0]))
+
+            with open("{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".json"),
+                      'w') as fp:
+                json.dump(
+                    {
+                        "path": [l.lanelet_id for l in positive_path],
+                        "start": [start_point[0][0], start_point[0][1]],
+                        "end": [end_point[0][0], end_point[0][1]]
+                    }
+                    , fp)
         return positive_driving_paths_across_intersections
