@@ -58,7 +58,7 @@ class SimModel:
             while True:
                 sim.run(0.5)
                 currentPos = ego.state.position
-                print(lgsvl.evaluator.separation(currentPos, destination))
+                # print(lgsvl.evaluator.separation(currentPos, destination))
                 if lgsvl.evaluator.separation(currentPos, destination) < 5:
                     raise lgsvl.evaluator.TestException(
                         "PASSED: EGO does reach to destination, distance {} < 5!".format(lgsvl.evaluator.separation(currentPos, destination))
