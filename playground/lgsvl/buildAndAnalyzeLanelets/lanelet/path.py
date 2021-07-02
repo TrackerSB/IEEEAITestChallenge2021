@@ -49,6 +49,7 @@ class Path:
             start_point = predecessor_lanelet.interpolate_position_any(start_point_distance)
             end_point = successor_lanelet.interpolate_position_any(end_point_distance)
 
+            fig = plt.figure()
             plot_polygon(oracle_polygons[0])  # predecessor
             plot_polygon(oracle_polygons[1])  # intersection
             plot_polygon(oracle_polygons[2])  # successor
@@ -57,7 +58,7 @@ class Path:
             plt.plot(*end_point[0], "x")
 
             plt.show()
-            plt.savefig(
+            fig.savefig(
                 "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".png"))
 
             positive_driving_paths_across_intersections.append((start_point[0], end_point[0]))
