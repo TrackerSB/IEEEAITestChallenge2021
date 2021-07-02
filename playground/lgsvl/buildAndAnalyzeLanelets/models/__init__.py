@@ -1,2 +1,3 @@
-from .sim import Sim
+from .sim import SimModel
 from .map import MapModel
+from .scenario import Scenario

@@ -21,13 +21,13 @@ def place_car_on_the_point(state: lgsvl.AgentState, point: lgsvl.Vector, sim: lg
     return state
 
 
-class Sim:
+class SimModel:
     @staticmethod
-    def run_simulation(start_point, end_point, map: MapModel):
+    def run(scenario, map: MapModel):
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
         sim.load(map.value[0])
-        START_POINT = lgsvl.geometry.Vector(start_point[0], 0, start_point[1])
+        START_POINT = lgsvl.geometry.Vector(scenario.start[0], 0, scenario.start[1])
         ego_state = spawn_state(sim)
         ego_state = place_car_on_the_point(sim=sim, point=START_POINT, state=ego_state)
 
@@ -46,7 +46,7 @@ class Sim:
             'Planning',
             'Control'
         ]
-        dv.setup_apollo(end_point[0], end_point[1], modules)
+        dv.setup_apollo(scenario.end[0], scenario.end[1], modules)
 
         # Run a simulation for 90 seconds
         sim.run(60)
