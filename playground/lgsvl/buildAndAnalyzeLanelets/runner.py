@@ -24,7 +24,7 @@ if __name__ == "__main__":
                 with open(file_path) as file:
                     scenario_data = json.load(file)
                 scenario = Scenario(scenario_data["start"], scenario_data["end"])
-                SimModel.run(scenario, map)
+                SimModel.run(scenario, map, "Test Case {}".format(ID))
                 ID += 1
             except Exception as e:
                 print(e)

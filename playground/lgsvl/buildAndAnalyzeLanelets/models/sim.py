@@ -25,7 +25,8 @@ def place_car_on_the_point(state: lgsvl.AgentState, point: lgsvl.Vector, sim: lg
 
 class SimModel:
     @staticmethod
-    def run(scenario, map: MapModel):
+    def run(scenario, map: MapModel, test_name: str):
+        print("Map {}: {} - ".format(map.value[0], test_name), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
         sim.load(map.value[0])
@@ -57,16 +58,17 @@ class SimModel:
             while True:
                 sim.run(0.5)
                 currentPos = ego.state.position
+                print(lgsvl.evaluator.separation(currentPos, destination))
                 if lgsvl.evaluator.separation(currentPos, destination) < 5:
                     raise lgsvl.evaluator.TestException(
-                        "PASSED: EGO does reach to destination, {} vs {}!".format(currentPos, destination)
+                        "PASSED: EGO does reach to destination, distance {} < 5!".format(lgsvl.evaluator.separation(currentPos, destination))
                     )
                 else:
                     if time.time() - t0 > TIME_LIMIT:
                         raise lgsvl.evaluator.TestException(
-                            "Timeout! EGO does reach to destination, {} vs {}!".format(currentPos, destination)
+                            "FAILED: Timeout! EGO does reach to destination, distance {} > 5!".format(lgsvl.evaluator.separation(currentPos, destination))
                         )
         except lgsvl.evaluator.TestException as e:
-            print("FAILED: {}".format(e))
+            print("{}".format(e))
 
         sim.close()
