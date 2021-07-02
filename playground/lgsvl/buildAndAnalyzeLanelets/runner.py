@@ -8,5 +8,7 @@ if __name__ == "__main__":
         lanelet = LaneLet(map.value[2])
         path_model = Path(lanelet.intersections, lanelet.lanelet_network)
         for intersection in lanelet.intersections:
-            for points in path_model.generate_driving_paths(intersection):
-                Sim.run_simulation(points[0], points[1], map)
+            path_model.generate_driving_paths(intersection, map.value[0])
+
+    # Run a simulation
+    # Sim.run_simulation(points[0], points[1], map)
