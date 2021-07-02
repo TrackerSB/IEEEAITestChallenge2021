@@ -28,13 +28,13 @@ class Path:
         positive_driving_paths_across_intersections = list()
         ID = 0
         for lanelet_inside_intersection_id in intersection:
-            ID += 1
             lanelet_inside_intersection = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection_id)
 
             if len(lanelet_inside_intersection.predecessor) != 1 or len(lanelet_inside_intersection.successor) != 1:
                 print("Unexpected element in the intersection. Skip it")
                 continue
 
+            ID += 1
             predecessor_lanelet = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0])
             successor_lanelet = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.successor[0])
 
