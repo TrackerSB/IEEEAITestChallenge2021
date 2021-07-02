@@ -1,5 +1,5 @@
 from environs import Env
-from supportedmap import SupportedMap
+from .map import MapModel
 import lgsvl
 
 env = Env()
@@ -23,7 +23,7 @@ def place_car_on_the_point(state: lgsvl.AgentState, point: lgsvl.Vector, sim: lg
 
 class Sim:
     @staticmethod
-    def run_simulation(start_point, end_point, map: SupportedMap):
+    def run_simulation(start_point, end_point, map: MapModel):
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
         sim.load(map.value[0])
