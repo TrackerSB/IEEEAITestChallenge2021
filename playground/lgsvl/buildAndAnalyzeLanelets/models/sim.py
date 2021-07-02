@@ -1,6 +1,7 @@
 from environs import Env
 from .map import MapModel
 import lgsvl
+import time
 
 env = Env()
 
@@ -8,6 +9,7 @@ LGSVL__SIMULATOR_HOST = env.str("LGSVL__SIMULATOR_HOST", "127.0.0.1")
 LGSVL__SIMULATOR_PORT = env.int("LGSVL__SIMULATOR_PORT", 8181)
 LGSVL__AUTOPILOT_0_HOST = env.str("LGSVL__AUTOPILOT_0_HOST", "127.0.0.1")
 LGSVL__AUTOPILOT_0_PORT = env.int("LGSVL__AUTOPILOT_0_PORT", 9090)
+TIME_LIMIT = 30  # seconds
 
 
 def spawn_state(sim, index=0):
@@ -47,7 +49,23 @@ class SimModel:
             'Control'
         ]
         dv.setup_apollo(scenario.end[0], scenario.end[1], modules)
+        destination = lgsvl.geometry.Vector(scenario.end[0], 0, scenario.end[1])
 
-        # Run a simulation for 90 seconds
-        sim.run(60)
+        # Run a simulation
+        try:
+            t0 = time.time()
+            while True:
+                sim.run(0.5)
+                currentPos = ego.state.position
+                if lgsvl.evaluator.separation(currentPos, destination) < 5:
+                    raise lgsvl.evaluator.TestException(
+                        "FAILED: EGO does not reach to destination, {} vs {}!".format(currentPos, destination)
+                    )
+                if time.time() - t0 > TIME_LIMIT:
+                    raise lgsvl.evaluator.TestException(
+                        "FAILED: Timeout!"
+                    )
+        except lgsvl.evaluator.TestException as e:
+            exit("FAILED: {}".format(e))
+
         sim.close()
