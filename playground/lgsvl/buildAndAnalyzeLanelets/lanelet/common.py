@@ -70,9 +70,14 @@ class Common:
             if node not in seen:
                 yield sorted(component(node))
 
-    def interpolate_position_any(self, distance: float) -> tuple:
+    def interpolate_position_any(self, distance: float, positive_direction_at_zero=True) -> tuple:
         max_distance = self.distance[-1]
-        if np.greater_equal(distance, 0):
+        if np.equal(distance,0):
+            if positive_direction_at_zero:
+                self.interpolate_position(distance)
+            else:
+                self.interpolate_position(max_distance)
+        elif np.greater(distance, 0):
 
             # Make sure we cap to max distance so we do not trigger the error
             if np.greater(distance, max_distance):
