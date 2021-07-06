@@ -92,8 +92,8 @@ def export_commonroad_scenario(self, dt: float = 0.1, benchmark_id=None, filter_
 Network.export_commonroad_scenario = export_commonroad_scenario
 
 # # Import, parse and convert OpenDRIVE file
-# map_file = "cubetown.xodr"
-map_file = "borregasave.xodr"
+map_file = "cubetown.xodr"
+# map_file = "borregasave.xodr"
 
 with open("{}/{}". format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
     open_drive = parse_opendrive(etree.parse(fi).getroot())
@@ -382,14 +382,14 @@ for intersection in intersections:
 from core.utils import direction_coverage, min_radius, count_turns
 from core.utils import _pairwise as pairs
 from self_driving.edit_distance_polyline import iterative_levenshtein, _standardize
-
+from illumination.illumination_map import IlluminationMap, IlluminationAxisDefinition
 from scipy.spatial.distance import cosine
 
 # Compute the features for all the paths and store min/max values for each feature
-
+# Use only 2 Features
 dc_extrema = [math.inf, -math.inf]
 mr_extrema = [math.inf, -math.inf]
-ct_extrema = [math.inf, -math.inf]
+#ct_extrema = [math.inf, -math.inf]
 
 for p_path in positive_paths:
     interpolated_path = p_path["interpolated_path"]
@@ -403,26 +403,44 @@ for p_path in positive_paths:
     mr_extrema[1] = max(mr_extrema[1], mr)
 
     # Not sure this matters too much...
-    ct = count_turns(interpolated_path)
-    ct_extrema[0] = min(ct_extrema[0], ct)
-    ct_extrema[1] = max(ct_extrema[1], ct)
+    # ct = count_turns(interpolated_path)
+    # ct_extrema[0] = min(ct_extrema[0], ct)
+    # ct_extrema[1] = max(ct_extrema[1], ct)
 
-    p_path["feature_vector"] = [dc, mr, ct]
+    # p_path["feature_vector"] = [dc, mr, ct]
+    p_path["feature_vector"] = [dc, mr]
+    p_path["dc"] = dc
+    p_path["mr"] = mr
 
-# Create the feature maps
+# Create the feature map - TODO Values needs some adjustment
+direction_coverage_feature = IlluminationAxisDefinition("dc", dc_extrema[0], dc_extrema[1], 10)
+min_radius_feature = IlluminationAxisDefinition("mr", mr_extrema[0], mr_extrema[1], 10)
 
+illumination_map = IlluminationMap(direction_coverage_feature, min_radius_feature)
+
+for sample in positive_paths:
+    # Try to add the element to the map
+    if illumination_map.is_cell_free(sample):
+        print("NEW VALUE. ADD TO MAP")
+    else:
+        print("DISCARD VALUE. ALREADY IN MAP")
+    illumination_map.add_sample(sample)
+
+illumination_map.visualize()
+plt.show()
 
 for a, b in pairs(positive_paths):
     it_dist = iterative_levenshtein(a["interpolated_path"], b["interpolated_path"])
 
     # This is bounded 0 - 1
     # This seems quite sensitive with only 3 dimensions
-    # cosine_similarity = 1 - cosine(a["feature_vector"], b["feature_vector"])
+    # TODO Probably this cosine similarity may work better if we rescale the vectors
+    cosine_similarity = 1 - cosine(a["feature_vector"], b["feature_vector"])
 
     print("Comparing ", a["feature_vector"], "-", b["feature_vector"])
 
     # Plot only the roads that are too similar
-    if it_dist < 2.0:
+    if it_dist < 2.0 or True:
         # Plot the standardized roads not the original one (they all start at (0,0))
         std_a = _standardize(a["interpolated_path"])
         std_b = _standardize(b["interpolated_path"])
