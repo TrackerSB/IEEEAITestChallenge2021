@@ -58,15 +58,15 @@ class SimModel:
             while True:
                 sim.run(0.5)
                 currentPos = ego.state.position
-                print(lgsvl.evaluator.separation(currentPos, destination))
-                if lgsvl.evaluator.separation(currentPos, destination) < 5:
+                # print(lgsvl.evaluator.separation(currentPos, destination))
+                if lgsvl.evaluator.separation(currentPos, destination) < 10:
                     raise lgsvl.evaluator.TestException(
-                        "PASSED: EGO does reach to destination, distance {} < 5!".format(lgsvl.evaluator.separation(currentPos, destination))
+                        "PASSED: EGO does reach to destination, distance {} < 10!".format(lgsvl.evaluator.separation(currentPos, destination))
                     )
                 else:
                     if time.time() - t0 > TIME_LIMIT:
                         raise lgsvl.evaluator.TestException(
-                            "FAILED: Timeout! EGO does reach to destination, distance {} > 5!".format(lgsvl.evaluator.separation(currentPos, destination))
+                            "FAILED: Timeout! EGO does reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
                         )
         except lgsvl.evaluator.TestException as e:
             print("{}".format(e))
