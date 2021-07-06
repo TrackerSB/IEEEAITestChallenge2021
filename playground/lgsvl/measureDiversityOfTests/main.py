@@ -92,8 +92,8 @@ def export_commonroad_scenario(self, dt: float = 0.1, benchmark_id=None, filter_
 Network.export_commonroad_scenario = export_commonroad_scenario
 
 # # Import, parse and convert OpenDRIVE file
-map_file = "cubetown.xodr"
-# map_file = "borregasave.xodr"
+# map_file = "cubetown.xodr"
+map_file = "borregasave.xodr"
 
 with open("{}/{}". format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
     open_drive = parse_opendrive(etree.parse(fi).getroot())
@@ -381,33 +381,79 @@ for intersection in intersections:
 # Compute input features for all the positive paths
 from core.utils import direction_coverage, min_radius, count_turns
 from core.utils import _pairwise as pairs
-from self_driving.edit_distance_polyline import iterative_levenshtein
+from self_driving.edit_distance_polyline import iterative_levenshtein, _standardize
 
+from scipy.spatial.distance import cosine
 
-for a, b in pairs(positive_paths):
-    dist = iterative_levenshtein(a["interpolated_path"], b["interpolated_path"])
-    print("Comparing ", a, "-", b)
-    if dist < 100:
-        plot_points(a["interpolated_path"])
-        plot_points(b["interpolated_path"])
-        plt.title("Distance {}".format(dist))
-        plt.show()
+# Compute the features for all the paths and store min/max values for each feature
 
-# Some Features seem to be broken
+dc_extrema = [math.inf, -math.inf]
+mr_extrema = [math.inf, -math.inf]
+ct_extrema = [math.inf, -math.inf]
+
 for p_path in positive_paths:
     interpolated_path = p_path["interpolated_path"]
     dc = direction_coverage(interpolated_path)
-    mr = min_radius(interpolated_path)
-    ct = count_turns(interpolated_path)
-    # Convert to expected representation
-    # print("Features ")
-    # print("Direction coverage ", dc)
-    # print("Min Radius:", mr)
-    # print("Count segments/turns:", ct)
+    dc_extrema[0] = min(dc_extrema[0], dc)
+    dc_extrema[1] = max(dc_extrema[1], dc)
 
-    plot_points( interpolated_path )
-    plot_line(interpolated_path)
-    plt.title("Features: Dir Cov {} - Min Rad {} - Turn Count {} ".format(dc, mr, ct))
-    plt.show()
+    # 100 means almost straight
+    mr = min(min_radius(interpolated_path), 100)
+    mr_extrema[0] = min(mr_extrema[0], mr)
+    mr_extrema[1] = max(mr_extrema[1], mr)
+
+    # Not sure this matters too much...
+    ct = count_turns(interpolated_path)
+    ct_extrema[0] = min(ct_extrema[0], ct)
+    ct_extrema[1] = max(ct_extrema[1], ct)
+
+    p_path["feature_vector"] = [dc, mr, ct]
+
+# Create the feature maps
+
+
+for a, b in pairs(positive_paths):
+    it_dist = iterative_levenshtein(a["interpolated_path"], b["interpolated_path"])
+
+    # This is bounded 0 - 1
+    # This seems quite sensitive with only 3 dimensions
+    # cosine_similarity = 1 - cosine(a["feature_vector"], b["feature_vector"])
+
+    print("Comparing ", a["feature_vector"], "-", b["feature_vector"])
+
+    # Plot only the roads that are too similar
+    if it_dist < 2.0:
+        # Plot the standardized roads not the original one (they all start at (0,0))
+        std_a = _standardize(a["interpolated_path"])
+        std_b = _standardize(b["interpolated_path"])
+        plot_points(std_a)
+        plot_points(std_b)
+        plt.title("IT Distance {} - Cosine Similarity {}".format(it_dist, cosine_similarity))
+        plt.show()
+
+    # if cosine_similarity > 0.9:
+    #     # Plot the standardized roads not the original one (they all start at (0,0))
+    #     std_a = _standardize(a["interpolated_path"])
+    #     std_b = _standardize(b["interpolated_path"])
+    #     plot_points(std_a)
+    #     plot_points(std_b)
+    #     plt.title("IT Distance {} - Cosine Similarity {}".format(it_dist, cosine_similarity))
+    #     plt.show()
+
+# for p_path in positive_paths:
+#     interpolated_path = p_path["interpolated_path"]
+#     dc = direction_coverage(interpolated_path)
+#     mr = min_radius(interpolated_path)
+#     ct = count_turns(interpolated_path)
+#     # Convert to expected representation
+#     # print("Features ")
+#     # print("Direction coverage ", dc)
+#     # print("Min Radius:", mr)
+#     # print("Count segments/turns:", ct)
+#
+#     plot_points( interpolated_path )
+#     plot_line(interpolated_path)
+#     plt.title("Features: Dir Cov {} - Min Rad {} - Turn Count {} ".format(dc, mr, ct))
+#     plt.show()
 
 # Compute Edit Distance between pairs
