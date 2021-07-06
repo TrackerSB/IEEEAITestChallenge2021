@@ -5,16 +5,18 @@ from models import SimModel, MapModel, Scenario
 
 
 def generate_data():
-    for map in [MapModel.CubeTown, MapModel.BorregasAve, MapModel.AutonomouStuff]:
+    for map in [MapModel.CubeTown, MapModel.BorregasAve]:
         lanelet = LaneLet(map.value[2])
         path_model = Path(lanelet.intersections, lanelet.lanelet_network)
+        id = [1]
         for intersection in lanelet.intersections:
-            path_model.generate_driving_paths(intersection, map.value[0])
+            path_model.generate_driving_paths(intersection, map.value[0], id)
 
 
 if __name__ == "__main__":
+    # generate_data()
     # Read data file and execute simulation
-    for map in [MapModel.CubeTown, MapModel.BorregasAve, MapModel.AutonomouStuff]:
+    for map in [MapModel.CubeTown, MapModel.BorregasAve]:
         directory = map.value[0]
         ID = 1
         while True:

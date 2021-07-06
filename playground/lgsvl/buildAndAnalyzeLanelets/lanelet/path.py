@@ -14,19 +14,17 @@ class Path:
         self.intersections = intersections
         self.lanelet_network = lanelet_network
 
-    def generate_driving_paths(self, intersection, directory,
+    def generate_driving_paths(self, intersection, directory, id=[0],
                                start_point_distance=0, end_point_distance=0):
 
         # Create the directory
         path = "{}/data/{}".format(os.path.dirname(os.path.realpath(__file__)), directory)
-        if os.path.exists(path):
-            shutil.rmtree(path)
-        os.mkdir(path)
+        if os.path.exists(path) is False:
+            os.mkdir(path)
         print("Directory '% s' created" % directory)
 
         # Generate POSITIVE driving paths
         positive_driving_paths_across_intersections = list()
-        ID = 0
         for lanelet_inside_intersection_id in intersection:
             lanelet_inside_intersection = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection_id)
 
@@ -34,7 +32,6 @@ class Path:
                 print("Unexpected element in the intersection. Skip it")
                 continue
 
-            ID += 1
             predecessor_lanelet = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0])
             successor_lanelet = self.lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.successor[0])
 
@@ -57,13 +54,13 @@ class Path:
             plt.plot(*start_point[0], "o")
             plt.plot(*end_point[0], "x")
 
-            plt.show()
+            # plt.show()
             fig.savefig(
-                "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".png"))
+                "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(id[0]) + ".png"))
 
             positive_driving_paths_across_intersections.append((start_point[0], end_point[0]))
 
-            with open("{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".json"),
+            with open("{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(id[0]) + ".json"),
                       'w') as fp:
                 json.dump(
                     {
@@ -72,4 +69,6 @@ class Path:
                         "end": [end_point[0][0], end_point[0][1]]
                     }
                     , fp)
+
+            id[0] += 1
         return positive_driving_paths_across_intersections
