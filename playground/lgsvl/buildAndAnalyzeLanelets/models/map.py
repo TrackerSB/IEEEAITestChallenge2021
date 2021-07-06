@@ -5,6 +5,7 @@ from enum import Enum, unique
 class MapModel(Enum):
     BorregasAve = ("BorregasAve", "Borregas Ave", "borregasave.xodr")
     CubeTown = ("CubeTown", "Cubetown", "cubetown.xodr")
-    AutonomouStuff = ("AutonomouStuff", "Autonomous Stuff", "autonomoustuff.xodr")
+    # AutonomouStuff = ("AutonomouStuff", "Autonomous Stuff", "autonomoustuff.xodr")
     SanFrancisco = ("SanFrancisco", "San Francisco", "sanfrancisco.xodr")
-    SingleLaneRoad = ("SingleLaneRoad", "Single Lane Road", "singlelaneroad.xodr")
+    Shalun = ("Shalun", "Shalun", "shalun.xodr")
+    Gomentum = ("Gomentum", "Gomentum", "gomentum.xodr")

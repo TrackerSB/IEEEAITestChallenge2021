@@ -71,4 +71,5 @@ class SimModel:
         except lgsvl.evaluator.TestException as e:
             print("{}".format(e))
 
+        dv.disable_apollo()
         sim.close()
