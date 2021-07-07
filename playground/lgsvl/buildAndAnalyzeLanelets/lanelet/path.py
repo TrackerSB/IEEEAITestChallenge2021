@@ -1,5 +1,3 @@
-import os
-import json
 import math
 from .route import Route
 
@@ -50,13 +48,7 @@ class Path:
             "successor_points": successor_points
         }
 
-    def generate_driving_paths(self, directory):
-        # Create the directory
-        path = "{}/data/{}".format(os.path.dirname(os.path.realpath(__file__)), directory)
-        if os.path.exists(path) is False:
-            os.mkdir(path)
-            print("Directory '% s' created" % directory)
-
+    def generate_driving_paths(self):
         routes = list()
         for intersection in self.intersections:
             for lanelet_inside_intersection_id in intersection:

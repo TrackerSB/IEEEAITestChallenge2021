@@ -60,6 +60,7 @@ def _compute_feature_vector(routes):
 
 def compare_distance(routes, dist=1.9):
     _compute_feature_vector(routes)
+    similar_routes = list()
     for a, b in pairs(routes):
         it_dist = iterative_levenshtein(a.interpolated_points, b.interpolated_points)
 
@@ -72,14 +73,17 @@ def compare_distance(routes, dist=1.9):
         # print("Comparing ", a["feature_vector"], "-", b["feature_vector"])
 
         # Plot only the roads that are too similar
-        if it_dist < dist or True:
+        if it_dist < dist:
             # Plot the standardized roads not the original one (they all start at (0,0))
             std_a = _standardize(a.interpolated_points)
             std_b = _standardize(b.interpolated_points)
-            _plot_points(std_a)
-            _plot_points(std_b)
-            plt.title("IT Distance {} - Cosine Similarity {}".format(it_dist, cosine_similarity))
-            plt.show()
+            # _plot_points(std_a)
+            # _plot_points(std_b)
+            # plt.title("IT Distance {} - Cosine Similarity {}".format(it_dist, cosine_similarity))
+            # plt.show()
+            similar_routes.append(b)
+
+    return [x for x in routes if (x not in similar_routes)]
 
 
 def compare_feature(routes):
