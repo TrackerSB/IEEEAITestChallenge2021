@@ -271,7 +271,7 @@ def plot_line(points):
     plt.ylim([min_y - 10, max_y + 10])
 
 
-
+##### HERE NEW CODE #####
 #
 # For each path we interpolate the central line of the lanelets by the INTERPOLATE_EVERY amount of meters. This sequence of points makes
 # it easy to compute the edit distance between paths and the features
@@ -317,7 +317,7 @@ for intersection in intersections:
         ending_point = successor_lanelet.interpolate_position_any(AFTER_LEAVING_JUNCTION)
         positive_path["ending_point"] = ending_point
 
-        # Refactor to a method
+        # TODO Refactor to a method. Execute this while generating the positive paths
         # Interpolate the path for computing diversity and features
         the_points = list()
         # Find the portion of road before the junction
@@ -378,6 +378,8 @@ for intersection in intersections:
 
         # plt.show()
 
+### HERE THE CODE FOR COMPARING THE TRAJECTORIES
+
 # Compute input features for all the positive paths
 from core.utils import direction_coverage, min_radius, count_turns
 from core.utils import _pairwise as pairs
@@ -393,12 +395,16 @@ mr_extrema = [math.inf, -math.inf]
 
 for p_path in positive_paths:
     interpolated_path = p_path["interpolated_path"]
+
+    # Compute Feature Direction Coverage
     dc = direction_coverage(interpolated_path)
+
     dc_extrema[0] = min(dc_extrema[0], dc)
     dc_extrema[1] = max(dc_extrema[1], dc)
 
-    # 100 means almost straight
+    # Compute feature Min Radius
     mr = min(min_radius(interpolated_path), 100)
+
     mr_extrema[0] = min(mr_extrema[0], mr)
     mr_extrema[1] = max(mr_extrema[1], mr)
 
@@ -409,6 +415,8 @@ for p_path in positive_paths:
 
     # p_path["feature_vector"] = [dc, mr, ct]
     p_path["feature_vector"] = [dc, mr]
+
+    # Store the feature inside the object
     p_path["dc"] = dc
     p_path["mr"] = mr
 
@@ -419,28 +427,36 @@ min_radius_feature = IlluminationAxisDefinition("mr", mr_extrema[0], mr_extrema[
 illumination_map = IlluminationMap(direction_coverage_feature, min_radius_feature)
 
 for sample in positive_paths:
+
     # Try to add the element to the map
+    # Filtering
     if illumination_map.is_cell_free(sample):
         print("NEW VALUE. ADD TO MAP")
     else:
         print("DISCARD VALUE. ALREADY IN MAP")
+        # TODO Get rid of the path, so do not execute thisone
+
+    # Showing
+    # Register it in the map, so we see the most frequent combinations
     illumination_map.add_sample(sample)
 
 illumination_map.visualize()
 plt.show()
 
+# HERE A SECOND APPROACH TO FILTER TESTS
 for a, b in pairs(positive_paths):
     it_dist = iterative_levenshtein(a["interpolated_path"], b["interpolated_path"])
 
     # This is bounded 0 - 1
     # This seems quite sensitive with only 3 dimensions
     # TODO Probably this cosine similarity may work better if we rescale the vectors
+    # FORGET ABOUT COSINE DISTANCE
     cosine_similarity = 1 - cosine(a["feature_vector"], b["feature_vector"])
 
     print("Comparing ", a["feature_vector"], "-", b["feature_vector"])
 
     # Plot only the roads that are too similar
-    if it_dist < 2.0 or True:
+    if it_dist < 1.9 or True:
         # Plot the standardized roads not the original one (they all start at (0,0))
         std_a = _standardize(a["interpolated_path"])
         std_b = _standardize(b["interpolated_path"])
