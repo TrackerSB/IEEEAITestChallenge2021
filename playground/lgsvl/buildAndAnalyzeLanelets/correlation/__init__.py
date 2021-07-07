@@ -1,1 +1,1 @@
-from .filter import compare_feature
+from .filter import compare_feature, compare_distance

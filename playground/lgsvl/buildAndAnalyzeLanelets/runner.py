@@ -2,14 +2,14 @@ import os
 import json
 from lanelet import LaneLet, Path
 from models import SimModel, MapModel, Scenario
-from correlation import compare_feature
+from correlation import compare_feature, compare_distance
 
 
 def generate_data():
     for map in [MapModel.CubeTown]:
         lanelet = LaneLet(map.value[2])
         path_model = Path(lanelet.intersections, lanelet.lanelet_network)
-        paths = compare_feature(path_model.generate_driving_paths(map.value[0]))
+        paths = compare_distance(path_model.generate_driving_paths(map.value[0]))
 
 
 if __name__ == "__main__":

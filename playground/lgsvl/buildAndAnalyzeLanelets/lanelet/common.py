@@ -97,16 +97,6 @@ class Common:
         plt.plot(*poly.exterior.xy)
 
     @staticmethod
-    def plot_points(points):
-        x = [p[0] for p in points]
-        y = [p[1] for p in points]
-        # Plot the points
-        # x, y = the_points.T
-        plt.gca().set_aspect('equal')
-        # plt.scatter(x, y)
-        plt.plot(x, y, "o")
-
-    @staticmethod
     def plot_line(points):
         x = [p[0] for p in points]
         y = [p[1] for p in points]
