@@ -30,6 +30,11 @@ class LaneLet:
         # Access the underlying lanelet network
         self.lanelet_network = scenario.lanelet_network
 
+        splitters = list()
+        mergers = list()
+        enders = list()
+        starter = list()
+
         # Extend the definition of the Lanelet object to ease our analysis
         def has_no_relation_with(self, another_lanelet):
             return self.lanelet_id not in (another_lanelet.successor + another_lanelet.predecessor) or \
@@ -85,7 +90,6 @@ class LaneLet:
                     if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
                         l1.overlaps.add(l2.lanelet_id)
                         l2.overlaps.add(l1.lanelet_id)
-
 
         # Initialize and then merge all the groups of lanelets that have shared items
         intersections = list()

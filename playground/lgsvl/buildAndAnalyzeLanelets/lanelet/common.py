@@ -1,6 +1,7 @@
 import numpy as np
 from commonroad.scenario.scenario import Scenario
 from collections import defaultdict
+import matplotlib.pyplot as plt
 
 
 class Common:
@@ -26,9 +27,9 @@ class Common:
         )
 
     def export_commonroad_scenario(self, dt: float = 0.1, benchmark_id=None, filter_types=None):
-        scenario = Scenario(dt=dt,
-                            scenario_id=None,
-                            benchmark_id=benchmark_id if benchmark_id is not None else "none")
+        scenario = Scenario(
+            dt=dt, scenario_id=None, benchmark_id=benchmark_id if benchmark_id is not None else "none"
+        )
 
         scenario.add_objects(
             self.export_lanelet_network(
@@ -72,11 +73,11 @@ class Common:
 
     def interpolate_position_any(self, distance: float, positive_direction_at_zero=True) -> tuple:
         max_distance = self.distance[-1]
-        if np.equal(distance,0):
+        if np.equal(distance, 0):
             if positive_direction_at_zero:
-                self.interpolate_position(distance)
+                return self.interpolate_position(distance)
             else:
-                self.interpolate_position(max_distance)
+                return self.interpolate_position(max_distance)
         elif np.greater(distance, 0):
 
             # Make sure we cap to max distance so we do not trigger the error
@@ -87,7 +88,35 @@ class Common:
         else:
             distance = max_distance + distance
             # Make sure we cap to max distance so we do not trigger the error
-            if np.less_equal(distance, 0):
-                distance = 0
+            assert np.greater(distance, 0)
 
             return self.interpolate_position(distance)
+
+    @staticmethod
+    def plot_polygon(poly):
+        plt.plot(*poly.exterior.xy)
+
+    @staticmethod
+    def plot_points(points):
+        x = [p[0] for p in points]
+        y = [p[1] for p in points]
+        # Plot the points
+        # x, y = the_points.T
+        plt.gca().set_aspect('equal')
+        # plt.scatter(x, y)
+        plt.plot(x, y, "o")
+
+    @staticmethod
+    def plot_line(points):
+        x = [p[0] for p in points]
+        y = [p[1] for p in points]
+        # Plot the points
+        # x, y = the_points.T
+        plt.gca().set_aspect('equal')
+        plt.plot(x, y)
+        max_x = max(x)
+        min_x = min(x)
+        max_y = max(y)
+        min_y = min(y)
+        plt.xlim([min_x - 10, max_x + 10])
+        plt.ylim([min_y - 10, max_y + 10])
