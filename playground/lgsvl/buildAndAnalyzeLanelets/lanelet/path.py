@@ -4,7 +4,6 @@ import math
 from .route import Route
 
 
-
 class Path:
     def __init__(self, intersections, lanelet_network, before_entering_junction=20, after_leaving_junction=20,
                  interpolate_every=2):
@@ -87,8 +86,6 @@ class Path:
                 route = Route(predecessor_lanelet, lanelet_inside_intersection, successor_lanelet,
                                     starting_point, ending_point, [(p[0], p[1]) for p in interpolated_path])
                 routes.append(route)
-                route.visualize()
-                exit()
+                # route.visualize()
 
-        print(len(routes))
-        return []
+        return routes

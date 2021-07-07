@@ -64,7 +64,7 @@ class IlluminationAxisDefinition:
         """
 
         # TODO Check whether the sample has the feature
-        value = sample[self.feature_name]
+        value = getattr(sample, self.feature_name)
 
         if value < self.min_value:
             self.logger.warning("Sample %s has value %s below the min value %s for feature %s",

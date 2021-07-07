@@ -1,31 +1,15 @@
-import matplotlib
-import os
-import sys
 # Make sure we do not open windows to show images
 # TODO We need to make this call somewhere else...
 # matplotlib.use('Agg')
 
-import matplotlib.pyplot as plt
-import csv
-import json
-import glob
-import numpy as np
-
 # local imports
-from self_driving.edit_distance_polyline import _calc_dist_angle
+from playground.lgsvl.buildAndAnalyzeLanelets.correlation.edit_distance_polyline import _calc_dist_angle
 
 from itertools import tee
 import math
-import logging as log
 # Resampling and spline interpolation
-from scipy.interpolate import splev, splprep
-from numpy.ma import arange
-from numpy import repeat, linspace
-import functools
-from itertools import islice
-from shapely.geometry import Point, LineString
 
-from math import sqrt, degrees, radians
+from math import sqrt
 import numpy as np
 
 def findCircleReturnCenterAndRadius(x1, y1, x2, y2, x3, y3):

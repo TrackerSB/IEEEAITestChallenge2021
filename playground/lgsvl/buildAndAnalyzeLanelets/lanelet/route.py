@@ -10,6 +10,9 @@ class Route:
         self.starting_point = starting_point
         self.ending_point = ending_point
         self.interpolated_points = interpolated_points
+        self.feature_vector = None
+        self.dc = None
+        self.mr = None
 
     def visualize(self):
         # Oracle is the UNION of the AREAs OF THOSE LANELETS
