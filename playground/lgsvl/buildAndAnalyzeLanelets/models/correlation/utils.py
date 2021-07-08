@@ -3,7 +3,7 @@
 # matplotlib.use('Agg')
 
 # local imports
-from playground.lgsvl.buildAndAnalyzeLanelets.correlation.edit_distance_polyline import _calc_dist_angle
+from playground.lgsvl.buildAndAnalyzeLanelets.models.correlation.edit_distance_polyline import _calc_dist_angle
 
 from itertools import tee
 import math

@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from .common import Common
 import os
 import json
+from playground.lgsvl.buildAndAnalyzeLanelets.models.correlation.utils import direction_coverage, min_radius
 
 
 class Route:
@@ -12,9 +13,7 @@ class Route:
         self.starting_point = starting_point
         self.ending_point = ending_point
         self.interpolated_points = interpolated_points
-        self.feature_vector = None
-        self.dc = None
-        self.mr = None
+        self.feature_vector, self.dc, self.mr = self._compute_feature_vector().values()
 
     def to_json(self, directory, ID):
         # Create the directory
@@ -31,7 +30,8 @@ class Route:
         start_point = self.starting_point
         end_point = self.ending_point
         for i in range(0, len(start_point) - 1):
-            fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + str(i+1) + ".json"
+            fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + str(
+                i + 1) + ".json"
             with open(fn, 'w') as fp:
                 json.dump(
                     {
@@ -60,4 +60,21 @@ class Route:
         Common.plot_polygon(oracle_polygons[0])
         Common.plot_polygon(oracle_polygons[1])
         Common.plot_polygon(oracle_polygons[2])
-        plt.show()
+        plt.gca().set_aspect('equal', 'box')
+        # plt.show()
+
+    def _compute_feature_vector(self):
+        # Compute Feature Direction Coverage
+        dc = direction_coverage(self.interpolated_points)
+
+        # Compute feature Min Radius
+        mr = min(min_radius(self.interpolated_points), 100)
+
+        return {
+            "feature_vector": [dc, mr],
+            "dc": dc,
+            "mr": mr
+        }
+
+    def __str__(self):
+        return str(self.__class__) + ": " + str(self.__dict__)

@@ -1,8 +1,6 @@
-import os
-import json
-from lanelet import LaneLet, Path
-from models import SimModel, MapModel, Scenario
-from correlation import compare_feature, compare_distance
+from models.lanelet import LaneLet, Path
+from models import MapModel
+from models.correlation import compare_distance, compare_feature
 
 
 def generate_data():
@@ -10,7 +8,7 @@ def generate_data():
         lanelet = LaneLet(map.value[2])
         path_model = Path(lanelet.intersections, lanelet.lanelet_network)
         paths = compare_distance(path_model.generate_driving_paths())
-        for i in range(0, len(paths) - 1):
+        for i in range(0, len(paths)):
             paths[i].to_json(map.value[0], i)
 
 
