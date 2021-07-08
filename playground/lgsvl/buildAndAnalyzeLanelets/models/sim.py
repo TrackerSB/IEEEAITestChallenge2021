@@ -1,6 +1,6 @@
-from environs import Env
 import lgsvl
 import time
+from environs import Env
 from .scenario import Scenario
 
 env = Env()
@@ -53,6 +53,7 @@ class SimModel:
         destination = lgsvl.geometry.Vector(scenario.end[0], 0, scenario.end[1])
 
         # Run a simulation
+        is_test_failed = False
         try:
             t0 = time.time()
             while True:
@@ -65,11 +66,17 @@ class SimModel:
                     )
                 else:
                     if time.time() - t0 > TIME_LIMIT:
+                        is_test_failed = True
                         raise lgsvl.evaluator.TestException(
                             "FAILED: Timeout! EGO does reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
                         )
         except lgsvl.evaluator.TestException as e:
             print("{}".format(e))
 
+        # Close simulator
         dv.disable_apollo()
         sim.close()
+
+        # Send a message
+        if is_test_failed:
+            raise Exception("TESTING FAILED!")

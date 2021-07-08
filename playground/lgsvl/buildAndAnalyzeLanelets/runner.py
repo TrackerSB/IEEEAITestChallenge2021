@@ -1,42 +1,11 @@
-import json
-import os
-
-from models import MapModel, Scenario, SimModel, Filter
-from models.lanelet import LaneLet, Path
-
-
-def generate_data():
-    for map in [MapModel.CubeTown, MapModel.BorregasAve]:
-        lanelet = LaneLet(map.value[2])
-        path_model = Path(lanelet.intersections, lanelet.lanelet_network)
-        paths = Filter.compare_distance(path_model.generate_driving_paths())
-        for i in range(0, len(paths)):
-            paths[i].to_json(map.value[0], i)
+from models import Experiment, Filter, MapModel
 
 
 if __name__ == "__main__":
-    generate_data()
-    # Read data file and generate test cases
-    test_cases = list()
-    for map in [MapModel.CubeTown, MapModel.BorregasAve]:
-        ID = 0
-        while True:
-            try:
-                file_path = "{}/models/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)),
-                                                                  map.value[0],
-                                                                  str(ID) + ".json")
-                with open(file_path) as file:
-                    scenario_data = json.load(file)
-                scenario = Scenario(scenario_data["start"], scenario_data["end"], map, ID)
-                test_cases.append(scenario)
-                ID += 1
-            except Exception as e:
-                break
+    # Experiment with feature comparison
+    exp_1 = Experiment(maps=[MapModel.CubeTown], filter=Filter.compare_feature)
+    exp_1.run()
 
-    # Run test cases
-    # for tc in test_cases:
-    #     try:
-    #         SimModel.run(tc)
-    #     except Exception as e:
-    #         print(e)
-    #         break
+    # Experiment with distance comparison
+    exp_2 = Experiment(maps=[MapModel.CubeTown], filter=Filter.compare_distance)
+    exp_2.run()
