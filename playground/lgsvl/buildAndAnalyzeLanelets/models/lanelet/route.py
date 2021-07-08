@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from .common import Common
 import os
 import json
-from playground.lgsvl.buildAndAnalyzeLanelets.models.correlation.utils import direction_coverage, min_radius
+from ..correlation.utils import direction_coverage, min_radius
 
 
 class Route:

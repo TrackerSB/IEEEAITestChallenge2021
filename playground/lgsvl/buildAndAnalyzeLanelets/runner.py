@@ -1,8 +1,7 @@
 import json
 import os
 
-from models import MapModel, Scenario, SimModel
-from models.correlation import compare_distance
+from models import MapModel, Scenario, SimModel, Filter
 from models.lanelet import LaneLet, Path
 
 
@@ -10,7 +9,7 @@ def generate_data():
     for map in [MapModel.CubeTown, MapModel.BorregasAve]:
         lanelet = LaneLet(map.value[2])
         path_model = Path(lanelet.intersections, lanelet.lanelet_network)
-        paths = compare_distance(path_model.generate_driving_paths())
+        paths = Filter.compare_distance(path_model.generate_driving_paths())
         for i in range(0, len(paths)):
             paths[i].to_json(map.value[0], i)
 
@@ -35,9 +34,9 @@ if __name__ == "__main__":
                 break
 
     # Run test cases
-    for tc in test_cases:
-        try:
-            SimModel.run(tc)
-        except Exception as e:
-            print(e)
-            break
+    # for tc in test_cases:
+    #     try:
+    #         SimModel.run(tc)
+    #     except Exception as e:
+    #         print(e)
+    #         break
