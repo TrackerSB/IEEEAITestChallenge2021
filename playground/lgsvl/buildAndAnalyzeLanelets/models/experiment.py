@@ -6,9 +6,10 @@ from models.lanelet import LaneLet, Path
 
 
 class Experiment:
-    def __init__(self, maps: list[MapModel], filter) -> None:
+    def __init__(self, maps: list[MapModel], filter, name) -> None:
         self.maps = maps
         self.filter = filter
+        self.name = name
 
     @staticmethod
     def _empty_data_folder():
@@ -54,4 +55,4 @@ class Experiment:
                 pass
                 # print("{}".format(e))
 
-        print(f'RESULT: {len(failed_test_cases)}/{len(test_cases)} FAILED!')
+        print(f'{self.name.upper()} RESULT: {len(failed_test_cases)}/{len(test_cases)} FAILED!\n')
