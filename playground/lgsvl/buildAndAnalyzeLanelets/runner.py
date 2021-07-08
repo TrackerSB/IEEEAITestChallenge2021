@@ -1,10 +1,13 @@
+import json
+import os
+
+from models import MapModel, Scenario, SimModel
+from models.correlation import compare_distance
 from models.lanelet import LaneLet, Path
-from models import MapModel
-from models.correlation import compare_distance, compare_feature
 
 
 def generate_data():
-    for map in [MapModel.CubeTown]:
+    for map in [MapModel.CubeTown, MapModel.BorregasAve]:
         lanelet = LaneLet(map.value[2])
         path_model = Path(lanelet.intersections, lanelet.lanelet_network)
         paths = compare_distance(path_model.generate_driving_paths())
@@ -14,19 +17,29 @@ def generate_data():
 
 if __name__ == "__main__":
     generate_data()
-    # Read data file and execute simulation
-    # for map in [MapModel.CubeTown, MapModel.BorregasAve]:
-    #     directory = map.value[0]
-    #     ID = 1
-    #     while True:
-    #         try:
-    #             file_path = "{}/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory,
-    #                                                        str(ID) + ".json")
-    #             with open(file_path) as file:
-    #                 scenario_data = json.load(file)
-    #             scenario = Scenario(scenario_data["start"], scenario_data["end"])
-    #             SimModel.run(scenario, map, "Test Case {}".format(ID))
-    #             ID += 1
-    #         except Exception as e:
-    #             print(e)
-    #             break
+    # Read data file and generate test cases
+    test_cases = list()
+    for map in [MapModel.CubeTown, MapModel.BorregasAve]:
+        directory = map.value[0]
+        ID = 1
+        while True:
+            try:
+                file_path = "{}/models/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)),
+                                                                  directory,
+                                                                  str(ID) + ".json")
+                with open(file_path) as file:
+                    scenario_data = json.load(file)
+                scenario = Scenario(scenario_data["start"], scenario_data["end"], map, ID)
+                test_cases.append(scenario)
+                ID += 1
+            except Exception as e:
+                break
+
+    # Run test cases
+    for tc in test_cases:
+        print(tc)
+        try:
+            SimModel.run(scenario, "Test Case {}".format(ID))
+        except Exception as e:
+            print(e)
+            break

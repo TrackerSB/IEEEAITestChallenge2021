@@ -1,7 +1,7 @@
 from environs import Env
-from .map import MapModel
 import lgsvl
 import time
+from .scenario import Scenario
 
 env = Env()
 
@@ -25,11 +25,11 @@ def place_car_on_the_point(state: lgsvl.AgentState, point: lgsvl.Vector, sim: lg
 
 class SimModel:
     @staticmethod
-    def run(scenario, map: MapModel, test_name: str):
-        print("Map {}: {} - ".format(map.value[0], test_name), end="")
+    def run(scenario: Scenario):
+        print("Map {}: {} - ".format(scenario.map.value[0], scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
-        sim.load(map.value[0])
+        sim.load(scenario.map.value[0])
         START_POINT = lgsvl.geometry.Vector(scenario.start[0], 0, scenario.start[1])
         ego_state = spawn_state(sim)
         ego_state = place_car_on_the_point(sim=sim, point=START_POINT, state=ego_state)
@@ -38,7 +38,7 @@ class SimModel:
         ego.connect_bridge(LGSVL__AUTOPILOT_0_HOST, LGSVL__AUTOPILOT_0_PORT)
 
         dv = lgsvl.dreamview.Connection(sim, ego, LGSVL__AUTOPILOT_0_HOST)
-        dv.set_hd_map(map.value[1])
+        dv.set_hd_map(scenario.map.value[1])
         dv.set_vehicle('Lincoln2017MKZ LGSVL')
 
         modules = [

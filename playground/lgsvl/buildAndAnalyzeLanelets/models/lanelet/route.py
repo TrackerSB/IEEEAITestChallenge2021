@@ -24,21 +24,31 @@ class Route:
         fig = plt.figure()
         self.visualize()
         fig.savefig(
-            "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + "0.png"))
+            "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".png"))
 
         # Starting point
         start_point = self.starting_point
         end_point = self.ending_point
-        for i in range(0, len(start_point) - 1):
-            fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + str(
-                i + 1) + ".json"
-            with open(fn, 'w') as fp:
-                json.dump(
-                    {
-                        "start": [start_point[i][0], start_point[i][1]],
-                        "end": [end_point[i][0], end_point[i][1]]
-                    }
-                    , fp)
+        # for i in range(0, len(start_point) - 1):
+        #     fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + str(
+        #         i + 1) + ".json"
+        #     with open(fn, 'w') as fp:
+        #         json.dump(
+        #             {
+        #                 "start": [start_point[i][0], start_point[i][1]],
+        #                 "end": [end_point[i][0], end_point[i][1]]
+        #             }
+        #             , fp)
+
+        # Export the center point only. Discard the 1st and 3rd.
+        fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + ".json"
+        with open(fn, 'w') as fp:
+            json.dump(
+                {
+                    "start": [start_point[1][0], start_point[1][1]],
+                    "end": [end_point[1][0], end_point[1][1]]
+                }
+                , fp)
 
     def visualize(self):
         # Oracle is the UNION of the AREAs OF THOSE LANELETS
