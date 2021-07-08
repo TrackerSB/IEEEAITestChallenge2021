@@ -20,12 +20,11 @@ if __name__ == "__main__":
     # Read data file and generate test cases
     test_cases = list()
     for map in [MapModel.CubeTown, MapModel.BorregasAve]:
-        directory = map.value[0]
-        ID = 1
+        ID = 0
         while True:
             try:
                 file_path = "{}/models/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)),
-                                                                  directory,
+                                                                  map.value[0],
                                                                   str(ID) + ".json")
                 with open(file_path) as file:
                     scenario_data = json.load(file)
@@ -37,9 +36,8 @@ if __name__ == "__main__":
 
     # Run test cases
     for tc in test_cases:
-        print(tc)
         try:
-            SimModel.run(scenario, "Test Case {}".format(ID))
+            SimModel.run(tc)
         except Exception as e:
             print(e)
             break
