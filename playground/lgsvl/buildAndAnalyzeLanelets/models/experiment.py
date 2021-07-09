@@ -17,6 +17,19 @@ class Experiment:
         shutil.rmtree(path)
         os.mkdir(path)
 
+    @staticmethod
+    def run_scenario(id, map):
+        try:
+            file_path = "{}/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)),
+                                                            map.value[0],
+                                                            str(id) + ".json")
+            with open(file_path) as file:
+                scenario_data = json.load(file)
+            scenario = Scenario(scenario_data["start"], scenario_data["end"], map, id)
+            SimModel.run(scenario)
+        except Exception as e:
+            print("{}".format(e))
+
     def run(self):
         # Read the map and generate data files
         self._empty_data_folder()

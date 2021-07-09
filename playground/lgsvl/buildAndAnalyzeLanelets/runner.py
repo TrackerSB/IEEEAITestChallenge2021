@@ -9,3 +9,6 @@ if __name__ == "__main__":
     # Experiment with distance comparison
     exp_2 = Experiment(maps=[MapModel.CubeTown], filter=Filter.compare_distance, name="A Distance Filter")
     exp_2.run()
+
+    # Execute a scenario with a given map
+    # Experiment.run_scenario(id=1, map=MapModel.CubeTown)
