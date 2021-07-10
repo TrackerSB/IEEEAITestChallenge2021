@@ -1,12 +1,14 @@
-from typing import Optional, Callable, List, Dict
+from typing import Optional, Callable, List, Dict, Tuple
 
 from lgsvl import AgentState, EgoVehicle, Simulator
 from lgsvl.agent import Agent, Pedestrian
 from lgsvl.geometry import Vector, Transform
 from opendrive2lanelet.opendriveparser.elements.junction import Connection as ODConnection
+from opendrive2lanelet.opendriveparser.elements.road import Road
 from shapely.geometry import Point
 
 from common.config import SupportedDreamViewCar, SupportedMap, SupportedNPC, SupportedPedestrian
+from common.geometry import InterpolatedRoad
 
 
 def load_scene(sim: Simulator, map: SupportedMap) -> Transform:
@@ -47,30 +49,70 @@ def get_predefined_spawn_pos(sim, index=0) -> Transform:
     return sim.get_spawn()[index]
 
 
-def get_entry_point(road_points: Dict[int, List[Point]], connection: ODConnection) -> Transform:
+def get_entry_final_point(roads: Dict[int, InterpolatedRoad], connection: ODConnection,
+                          distance: float) \
+        -> Tuple[InterpolatedRoad, Transform, InterpolatedRoad, Transform]:
     from common.geometry import get_directional_angle
     connecting_road_id = connection.connectingRoad
-    connecting_road = road_points[connecting_road_id]
+    connecting_road = roads[connecting_road_id]
     connection_type = connection.contactPoint
-    if connection_type == "start":
-        junction_entry_point = connecting_road[0]
-        entry_direction = Vector(connecting_road[1].x - connecting_road[0].x,
-                                 0,
-                                 connecting_road[1].y - connecting_road[0].y)
-    else:
-        junction_entry_point = connecting_road[-1]
-        entry_direction = Vector(connecting_road[-1].x - connecting_road[-2].x,
-                                 0,
-                                 connecting_road[-1].y - connecting_road[-2].y)
 
-    if entry_direction.x == 0:
-        entry_angle = 0
-    else:
-        entry_angle = get_directional_angle(entry_direction, Vector(0, 0, 1))
+    # Find start position
+    moved_backward = 0
+    current_index_on_road = 0
+    current_road: InterpolatedRoad = roads[connecting_road_id]
+    current_position = current_road.interpolated_points[current_index_on_road]
+    while moved_backward < distance:
+        if current_index_on_road <= 0:
+            current_road = roads[current_road.link.predecessor.element_id]
+            current_index_on_road = len(current_road.interpolated_points)
+        current_index_on_road = current_index_on_road - 1
+        next_position = current_road.interpolated_points[current_index_on_road]
+        added_length = current_position.distance(next_position)
+        moved_backward = moved_backward + added_length
+        current_position = next_position
 
-    return Transform(
-        position=Vector(junction_entry_point.x, 0, junction_entry_point.y),
-        rotation=Vector(0, entry_angle, 0)
+    start_pos = current_position
+    start_segment = current_road
+    start_road_points = start_segment.interpolated_points
+    second_start_idx = max(current_index_on_road, 1)
+    first_start_idx = second_start_idx - 1
+    start_direction = Vector(start_road_points[second_start_idx].x - start_road_points[first_start_idx].x,
+                             0,
+                             start_road_points[second_start_idx].y - start_road_points[first_start_idx].y)
+    start_angle = get_directional_angle(start_direction, Vector(0, 0, 1))
+
+    # Find final position
+    moved_forward = 0
+    current_road: InterpolatedRoad = roads[connecting_road_id]
+    current_index_on_road = len(current_road.interpolated_points) - 1
+    current_position = current_road.interpolated_points[current_index_on_road]
+    while moved_forward < distance:
+        current_index_on_road = current_index_on_road + 1
+        if current_index_on_road >= len(current_road.interpolated_points):
+            current_road = roads[current_road.link.successor.element_id]
+            current_index_on_road = 0
+        next_position = current_road.interpolated_points[current_index_on_road]
+        added_length = current_position.distance(next_position)
+        moved_forward = moved_forward + added_length
+        current_position = next_position
+
+    final_pos = current_position
+    final_segment = current_road
+    final_road_points = final_segment.interpolated_points
+    second_start_idx = max(current_index_on_road, 1)
+    first_start_idx = second_start_idx - 1
+    final_direction = Vector(final_road_points[second_start_idx].x - final_road_points[first_start_idx].x,
+                             0,
+                             final_road_points[second_start_idx].y - final_road_points[first_start_idx].y)
+    final_angle = get_directional_angle(final_direction, Vector(0, 0, 1))
+
+    return start_segment, Transform(
+        position=Vector(start_pos.x, 0, start_pos.y),
+        rotation=Vector(0, start_angle, 0)
+    ), final_segment, Transform(
+        position=Vector(final_pos.x, 0, final_pos.y),
+        rotation=Vector(0, final_angle, 0)
     )
 
 
