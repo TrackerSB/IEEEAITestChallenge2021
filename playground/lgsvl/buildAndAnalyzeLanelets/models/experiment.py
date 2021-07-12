@@ -1,8 +1,8 @@
 import os
 import json
 import shutil
-from models import MapModel, Scenario, SimModel
 from models.lanelet import LaneLet, Path
+from models import Scenario, SimModel
 
 
 class Experiment:
@@ -37,7 +37,10 @@ class Experiment:
         for map in self.maps:
             lanelet = LaneLet(map.value[2])
             path_model = Path(lanelet.intersections, lanelet.lanelet_network)
-            paths = self.filter(path_model.generate_driving_paths())
+            if self.plan.__name__ == "StraightModel":
+                paths = self.filter(path_model.generate_driving_paths())
+            else:
+                paths = self.filter(path_model.generate_driving_paths_with_parking())
             for i in range(0, len(paths)):
                 paths[i].to_json(map.value[0], i)
 

@@ -8,7 +8,7 @@ from ..correlation.utils import direction_coverage, min_radius
 class Route:
     def __init__(self, predecessor, intersection, successor,
                  starting_point, ending_point, interpolated_points,
-                 parking_point = None):
+                 parking_point=None):
         self.predecessor = predecessor
         self.intersection = intersection
         self.successor = successor

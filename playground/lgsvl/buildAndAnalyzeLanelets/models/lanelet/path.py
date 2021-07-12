@@ -4,12 +4,13 @@ from .route import Route
 
 class Path:
     def __init__(self, intersections, lanelet_network, before_entering_junction=20, after_leaving_junction=20,
-                 interpolate_every=2):
+                 interpolate_every=2, before_entering_junction_parking=0):
         self.intersections = intersections
         self.lanelet_network = lanelet_network
-        self.before_entering_junction = before_entering_junction if before_entering_junction >= 10 else 10
-        self.after_leaving_junction = after_leaving_junction if after_leaving_junction >= 10 else 10
+        self.before_entering_junction = before_entering_junction
+        self.after_leaving_junction = after_leaving_junction
         self.interpolate_every = interpolate_every
+        self.before_entering_junction_parking = before_entering_junction_parking
 
     def generate_junction_points(self, predecessor_lanelet, lanelet_inside_intersection, successor_lanelet):
         predecessor_lanelet_length = predecessor_lanelet.distance[-1]
@@ -64,8 +65,52 @@ class Path:
                 # Starting and Ending point
                 starting_point = predecessor_lanelet.interpolate_position_any(-self.before_entering_junction)
                 ending_point = successor_lanelet.interpolate_position_any(self.after_leaving_junction)
-                parking_point = predecessor_lanelet.interpolate_position_any(-self.before_entering_junction + 5)
                 jp_dict = self.generate_junction_points(predecessor_lanelet, lanelet_inside_intersection, successor_lanelet)
+                predecessor_points, inside_points, successor_points = jp_dict.values()
+
+                # Interpolated path.
+                # TODO This may require some love
+                interpolated_path = list()
+                interpolated_path.extend(predecessor_points)
+                interpolated_path.extend(inside_points)
+                interpolated_path.extend(successor_points)
+
+                # Make sure we keep track of it
+                route = Route(predecessor=predecessor_lanelet,
+                              intersection=lanelet_inside_intersection,
+                              successor=successor_lanelet,
+                              starting_point=starting_point,
+                              ending_point=ending_point,
+                              interpolated_points=[(p[0], p[1]) for p in interpolated_path])
+
+                routes.append(route)
+                # route.visualize()
+
+        return routes
+
+    def generate_driving_paths_with_parking(self):
+        routes = list()
+        for intersection in self.intersections:
+            for lanelet_inside_intersection_id in intersection:
+                lanelet_inside_intersection = self.lanelet_network.find_lanelet_by_id(
+                    lanelet_inside_intersection_id)
+
+                if len(lanelet_inside_intersection.predecessor) != 1 or len(
+                        lanelet_inside_intersection.successor) != 1:
+                    print("Unexpected element in the intersection. Skip it")
+                    continue
+
+                predecessor_lanelet = self.lanelet_network.find_lanelet_by_id(
+                    lanelet_inside_intersection.predecessor[0])
+                successor_lanelet = self.lanelet_network.find_lanelet_by_id(
+                    lanelet_inside_intersection.successor[0])
+
+                # Starting and Ending point
+                starting_point = predecessor_lanelet.interpolate_position_any(-self.before_entering_junction)
+                ending_point = successor_lanelet.interpolate_position_any(self.after_leaving_junction)
+                parking_point = predecessor_lanelet.interpolate_position_any(-self.before_entering_junction_parking)
+                jp_dict = self.generate_junction_points(predecessor_lanelet, lanelet_inside_intersection,
+                                                        successor_lanelet)
                 predecessor_points, inside_points, successor_points = jp_dict.values()
 
                 # Interpolated path.
