@@ -6,13 +6,16 @@ from ..correlation.utils import direction_coverage, min_radius
 
 
 class Route:
-    def __init__(self, predecessor, intersection, successor, starting_point, ending_point, interpolated_points):
+    def __init__(self, predecessor, intersection, successor,
+                 starting_point, ending_point, interpolated_points,
+                 parking_point = None):
         self.predecessor = predecessor
         self.intersection = intersection
         self.successor = successor
         self.starting_point = starting_point
         self.ending_point = ending_point
         self.interpolated_points = interpolated_points
+        self.parking_point = parking_point
         self.feature_vector, self.dc, self.mr = self._compute_feature_vector().values()
 
     def to_json(self, directory, ID):
@@ -29,6 +32,7 @@ class Route:
         # Starting point
         start_point = self.starting_point
         end_point = self.ending_point
+        park_point = self.parking_point
         # for i in range(0, len(start_point) - 1):
         #     fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + str(
         #         i + 1) + ".json"
@@ -42,13 +46,23 @@ class Route:
 
         # Export the center point only. Discard the 1st and 3rd.
         fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + ".json"
-        with open(fn, 'w') as fp:
-            json.dump(
-                {
-                    "start": [start_point[1][0], start_point[1][1]],
-                    "end": [end_point[1][0], end_point[1][1]]
-                }
-                , fp)
+        if self.parking_point is None:
+            with open(fn, 'w') as fp:
+                json.dump(
+                    {
+                        "start": [start_point[1][0], start_point[1][1]],
+                        "end": [end_point[1][0], end_point[1][1]]
+                    }
+                    , fp)
+        else:
+            with open(fn, 'w') as fp:
+                json.dump(
+                    {
+                        "start": [start_point[1][0], start_point[1][1]],
+                        "end": [end_point[1][0], end_point[1][1]],
+                        "park": [park_point[1][0], park_point[1][1]],
+                    }
+                    , fp)
 
     def visualize(self):
         # Oracle is the UNION of the AREAs OF THOSE LANELETS
@@ -62,10 +76,13 @@ class Route:
         # Starting point
         start_point = self.starting_point
         end_point = self.ending_point
+        park_point = self.parking_point
 
         for i in range(0, len(start_point) - 1):
             plt.plot(*start_point[i], "o")
             plt.plot(*end_point[i], "x")
+            if park_point is not None:
+                plt.plot(*park_point[1], "s")
 
         Common.plot_polygon(oracle_polygons[0])
         Common.plot_polygon(oracle_polygons[1])

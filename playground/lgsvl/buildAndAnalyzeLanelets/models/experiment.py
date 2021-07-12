@@ -6,10 +6,11 @@ from models.lanelet import LaneLet, Path
 
 
 class Experiment:
-    def __init__(self, maps: list[MapModel], filter, name) -> None:
+    def __init__(self, maps, filter, name, plan) -> None:
         self.maps = maps
         self.filter = filter
         self.name = name
+        self.plan = plan
 
     @staticmethod
     def _empty_data_folder():
@@ -62,7 +63,7 @@ class Experiment:
         failed_test_cases = list()
         for tc in test_cases:
             try:
-                SimModel.run(tc)
+                self.plan.run(tc)
             except Exception as e:
                 failed_test_cases.append(tc)
                 pass

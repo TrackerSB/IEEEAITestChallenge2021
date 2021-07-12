@@ -7,8 +7,8 @@ class Path:
                  interpolate_every=2):
         self.intersections = intersections
         self.lanelet_network = lanelet_network
-        self.before_entering_junction = before_entering_junction
-        self.after_leaving_junction = after_leaving_junction
+        self.before_entering_junction = before_entering_junction if before_entering_junction >= 10 else 10
+        self.after_leaving_junction = after_leaving_junction if after_leaving_junction >= 10 else 10
         self.interpolate_every = interpolate_every
 
     def generate_junction_points(self, predecessor_lanelet, lanelet_inside_intersection, successor_lanelet):
@@ -64,6 +64,7 @@ class Path:
                 # Starting and Ending point
                 starting_point = predecessor_lanelet.interpolate_position_any(-self.before_entering_junction)
                 ending_point = successor_lanelet.interpolate_position_any(self.after_leaving_junction)
+                parking_point = predecessor_lanelet.interpolate_position_any(-self.before_entering_junction + 5)
                 jp_dict = self.generate_junction_points(predecessor_lanelet, lanelet_inside_intersection, successor_lanelet)
                 predecessor_points, inside_points, successor_points = jp_dict.values()
 
@@ -75,8 +76,14 @@ class Path:
                 interpolated_path.extend(successor_points)
 
                 # Make sure we keep track of it
-                route = Route(predecessor_lanelet, lanelet_inside_intersection, successor_lanelet,
-                                    starting_point, ending_point, [(p[0], p[1]) for p in interpolated_path])
+                route = Route(predecessor=predecessor_lanelet,
+                              intersection=lanelet_inside_intersection,
+                              successor=successor_lanelet,
+                              starting_point=starting_point,
+                              ending_point=ending_point,
+                              interpolated_points=[(p[0], p[1]) for p in interpolated_path],
+                              parking_point=parking_point)
+
                 routes.append(route)
                 # route.visualize()
 
