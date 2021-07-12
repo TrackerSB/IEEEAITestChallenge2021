@@ -1,8 +1,8 @@
 import os
 import json
 import shutil
-from models.lanelet import LaneLet, Path
-from models import Scenario, SimModel
+from .lanelet import LaneLet, Path
+from .scenario import Scenario
 
 
 class Experiment:
@@ -19,7 +19,7 @@ class Experiment:
         os.mkdir(path)
 
     @staticmethod
-    def run_scenario(id, map):
+    def run_scenario(id, map, plan):
         try:
             file_path = "{}/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)),
                                                             map.value[0],
@@ -27,7 +27,7 @@ class Experiment:
             with open(file_path) as file:
                 scenario_data = json.load(file)
             scenario = Scenario(scenario_data["start"], scenario_data["end"], map, id)
-            SimModel.run(scenario)
+            plan.run(scenario)
         except Exception as e:
             print("{}".format(e))
 
