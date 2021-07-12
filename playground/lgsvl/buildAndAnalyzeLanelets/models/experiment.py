@@ -36,10 +36,13 @@ class Experiment:
         self._empty_data_folder()
         for map in self.maps:
             lanelet = LaneLet(map.value[2])
-            path_model = Path(lanelet.intersections, lanelet.lanelet_network)
             if self.plan.__name__ == "StraightModel":
+                path_model = Path(intersections=lanelet.intersections, lanelet_network=lanelet.lanelet_network)
                 paths = self.filter(path_model.generate_driving_paths())
             else:
+                path_model = Path(intersections=lanelet.intersections,
+                                  lanelet_network=lanelet.lanelet_network,
+                                  before_entering_junction_parking=10)
                 paths = self.filter(path_model.generate_driving_paths_with_parking())
             for i in range(0, len(paths)):
                 paths[i].to_json(map.value[0], i)
