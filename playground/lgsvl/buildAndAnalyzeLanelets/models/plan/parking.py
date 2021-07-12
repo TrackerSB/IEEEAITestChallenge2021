@@ -1,7 +1,7 @@
 import lgsvl
 import time
 from environs import Env
-from .common import spawn_state, place_car_on_the_point
+from .common import spawn_state, place_car_on_the_point, load_npc
 from ..scenario import Scenario
 
 env = Env()
@@ -30,6 +30,11 @@ class ParkingModel:
         for c in controllables:
             signal = sim.get_controllable(c.transform.position, "signal")
             signal.control(TRAFFIC_LIGHT_POLICY)
+
+        sedan_state = spawn_state(sim)
+        PARKING_POINT = lgsvl.geometry.Vector(scenario.park[0], 0, scenario.park[1])
+        sedan_state = place_car_on_the_point(sim=sim, point=PARKING_POINT, state=sedan_state)
+        sedan = load_npc(sim, "Sedan", sedan_state)
 
         START_POINT = lgsvl.geometry.Vector(scenario.start[0], 0, scenario.start[1])
         ego_state = spawn_state(sim)

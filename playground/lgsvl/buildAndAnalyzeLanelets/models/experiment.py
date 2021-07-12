@@ -58,7 +58,17 @@ class Experiment:
                                                                     str(idx) + ".json")
                     with open(file_path) as file:
                         scenario_data = json.load(file)
-                    scenario = Scenario(scenario_data["start"], scenario_data["end"], map, idx)
+                    if self.plan.__name__ == "StraightModel":
+                        scenario = Scenario(start=scenario_data["start"],
+                                            end=scenario_data["end"],
+                                            mmap=map,
+                                            tc_id=idx)
+                    else:
+                        scenario = Scenario(start=scenario_data["start"],
+                                            end=scenario_data["end"],
+                                            mmap=map,
+                                            tc_id=idx,
+                                            park=scenario_data["park"])
                     test_cases.append(scenario)
                     idx += 1
                 except Exception as e:
