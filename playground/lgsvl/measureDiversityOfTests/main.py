@@ -42,7 +42,8 @@ def calc_geometry_patched(self, s_pos: float):
         geo_idx = np.arange(self._geo_lengths.shape[0])[mask][sub_idx] - 1
     except ValueError:
         # s_pos is after last geometry because of rounding error
-        if np.isclose(s_pos, self._geo_lengths[-1], rtol=1.e-1):
+        # TODO Make it 3 empirically to fix shalung
+        if np.isclose(s_pos, self._geo_lengths[-1], rtol=3): #1.e-1):
             geo_idx = self._geo_lengths.size - 2
         else:
             raise Exception(
@@ -56,7 +57,54 @@ def calc_geometry_patched(self, s_pos: float):
     )
 PlanView.calc_geometry = calc_geometry_patched
 
-from opendrive2lanelet.opendriveparser.parser import parse_opendrive
+from opendrive2lanelet.opendriveparser import parser as od_parser
+
+## NEEDED TO PATCH THE PARSER
+from opendrive2lanelet.opendriveparser.elements.roadLink import (
+    Predecessor as RoadLinkPredecessor,
+    Successor as RoadLinkSuccessor,
+    Neighbor as RoadLinkNeighbor,
+)
+# PATCHED VERSION
+def patched_parse_opendrive_road_link(newRoad, opendrive_road_link):
+    """
+
+    Args:
+      newRoad:
+      opendrive_road_link:
+
+    """
+    predecessor = opendrive_road_link.find("predecessor")
+
+    if predecessor is not None:
+
+        newRoad.link.predecessor = RoadLinkPredecessor(
+            predecessor.get("elementType"),
+            predecessor.get("elementId"),
+            predecessor.get("contactPoint"),
+        )
+
+    successor = opendrive_road_link.find("successor")
+
+    if successor is not None and 'elementId' in successor.attrib:
+
+        newRoad.link.successor = RoadLinkSuccessor(
+            successor.get("elementType"),
+            successor.get("elementId"),
+            successor.get("contactPoint"),
+        )
+
+    for neighbor in opendrive_road_link.findall("neighbor"):
+
+        newNeighbor = RoadLinkNeighbor(
+            neighbor.get("side"), neighbor.get("elementId"), neighbor.get("direction")
+        )
+
+        newRoad.link.neighbors.append(newNeighbor)
+
+# Use the patched version
+od_parser.parse_opendrive_road_link = patched_parse_opendrive_road_link
+
 from opendrive2lanelet.io.opendrive_convert import convert_opendrive
 from opendrive2lanelet.network import Network
 from commonroad.scenario.scenario import Scenario
@@ -92,11 +140,15 @@ def export_commonroad_scenario(self, dt: float = 0.1, benchmark_id=None, filter_
 Network.export_commonroad_scenario = export_commonroad_scenario
 
 # # Import, parse and convert OpenDRIVE file
-map_file = "cubetown.xodr"
-# map_file = "borregasave.xodr"
+# map_file = "maps/cubetown.xodr"
+# map_file = "maps/borregasave.xodr"
+# map_file = "maps/shalun.xodr"
+# map_file = "maps/gomentum.xodr"
+map_file = "maps/sanfrancisco.xodr"
+
 
 with open("{}/{}". format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
-    open_drive = parse_opendrive(etree.parse(fi).getroot())
+    open_drive = od_parser.parse_opendrive(etree.parse(fi).getroot())
 
 # Load and find all the paths
 road_network = Network()
@@ -130,6 +182,9 @@ def has_no_relation_with(self, another_lanelet):
 
 
 def interpolate_position_any(self, distance: float, positive_direction_at_zero = True) -> tuple:
+    """
+    Alessio: If we ask to go too far away, we need to use the max distance instead. Some lanelets are shorter than 20 meters!
+    """
     max_distance = self.distance[-1]
     if np.equal(distance, 0):
         if positive_direction_at_zero:
@@ -144,11 +199,11 @@ def interpolate_position_any(self, distance: float, positive_direction_at_zero =
 
         return self.interpolate_position(distance)
     else:
-        distance = max_distance + distance
+        the_distance = max_distance + distance if np.greater(max_distance + distance, 0) else 0
         # Make sure we cap to max distance so we do not trigger the error
-        assert np.greater(distance, 0)
+        # assert np.greater(the_distance, 0)
 
-        return self.interpolate_position(distance)
+        return self.interpolate_position(the_distance)
 
 Lanelet.has_no_relation_with = has_no_relation_with
 Lanelet.interpolate_position_any = interpolate_position_any
@@ -188,15 +243,18 @@ for l1, l2 in all_different_pairs([lanelet for lanelet in lanelet_network.lanele
                 # Risky but for the moment the only option we have
                 p2 = p2.buffer(0)
 
-            # If they do not overlap enough, they will not overlap also in the other case!
-            overlapping_area_p1 = round(p1.intersection(p2).area / p1.area * 100, 3)
-            overlapping_area_p2 = round(p2.intersection(p1).area / p2.area * 100, 3)
+            try:
+                # If they do not overlap enough, they will not overlap also in the other case!
+                overlapping_area_p1 = round(p1.intersection(p2).area / p1.area * 100, 3)
+                overlapping_area_p2 = round(p2.intersection(p1).area / p2.area * 100, 3)
 
-            # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
-            #  so we need an heuristic
-            if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
-                l1.overlaps.add(l2.lanelet_id)
-                l2.overlaps.add(l1.lanelet_id)
+                # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
+                #  so we need an heuristic
+                if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
+                    l1.overlaps.add(l2.lanelet_id)
+                    l2.overlaps.add(l1.lanelet_id)
+            except Exception as e:
+                print(">> DISCARDING PROBLEMATIC LANELETS", l1.lanelet_id, l2.lanelet_id, e)
 
 from collections import defaultdict
 
@@ -310,11 +368,19 @@ for intersection in intersections:
 
         # Fill the object with additional properties
 
+        # ALESSIO: Ensure we do not overflow
+        max_distance_before_entering_junction = BEFORE_ENTERING_JUNCTION \
+            if predecessor_lanelet.distance[-1] > BEFORE_ENTERING_JUNCTION else predecessor_lanelet.distance[-1]
+
+        max_distance_after_leaving_junction = AFTER_LEAVING_JUNCTION \
+            if successor_lanelet.distance[-1] > AFTER_LEAVING_JUNCTION else successor_lanelet.distance[-1]
+
+
         # Starting point
-        starting_point = predecessor_lanelet.interpolate_position_any(-BEFORE_ENTERING_JUNCTION)
+        starting_point = predecessor_lanelet.interpolate_position_any(-max_distance_before_entering_junction)
         positive_path["starting_point"] = starting_point
 
-        ending_point = successor_lanelet.interpolate_position_any(AFTER_LEAVING_JUNCTION)
+        ending_point = successor_lanelet.interpolate_position_any(max_distance_after_leaving_junction)
         positive_path["ending_point"] = ending_point
 
         # TODO Refactor to a method. Execute this while generating the positive paths
@@ -325,19 +391,19 @@ for intersection in intersections:
 
         # TODO If this is not true we need to update the code and replace occurrences of BEFORE_ENTERING_JUNCTION with
         #  a variable that contains the max road length
-        assert predecessor_lanelet_length - BEFORE_ENTERING_JUNCTION > 0
+        # assert predecessor_lanelet_length - max_distance_before_entering_junction > 0
 
         # Compute how many samples we can fit there
-        n_points = math.floor(BEFORE_ENTERING_JUNCTION / INTERPOLATE_EVERY)
+        n_points = math.floor(max_distance_before_entering_junction / INTERPOLATE_EVERY)
         # Find the samples
-        predecessor_points = [predecessor_lanelet.interpolate_position_any(-BEFORE_ENTERING_JUNCTION + p * INTERPOLATE_EVERY, positive_direction_at_zero = False)[0] for p in range(0, n_points + 1)]
+        predecessor_points = [predecessor_lanelet.interpolate_position_any(-max_distance_before_entering_junction + p * INTERPOLATE_EVERY, positive_direction_at_zero = False)[0] for p in range(0, n_points + 1)]
 
         # Debug plot
         # plot_polygon(predecessor_lanelet.convert_to_polygon().shapely_object)
         # plot_points(predecessor_points)
 
         # Check if there's some road left to cover in this lanelet
-        shift_by = INTERPOLATE_EVERY - (BEFORE_ENTERING_JUNCTION - (n_points * INTERPOLATE_EVERY))
+        shift_by = INTERPOLATE_EVERY - (max_distance_before_entering_junction - (n_points * INTERPOLATE_EVERY))
         # print("Shift points by", shift_by)
 
         # Do the "normal interpolation"
@@ -357,9 +423,9 @@ for intersection in intersections:
         # TODO Alessio HERE!
         successor_lanelet_length = successor_lanelet.distance[-1]
 
-        assert successor_lanelet_length - AFTER_LEAVING_JUNCTION > 0
+        # assert successor_lanelet_length - max_distance_after_leaving_junction > 0
 
-        n_points = math.floor((AFTER_LEAVING_JUNCTION - shift_by) / INTERPOLATE_EVERY)
+        n_points = math.floor((max_distance_after_leaving_junction - shift_by) / INTERPOLATE_EVERY)
         #
         successor_points = [successor_lanelet.interpolate_position_any(p * INTERPOLATE_EVERY + shift_by)[0] for p in range(0, n_points + 1)]
 
@@ -456,7 +522,7 @@ for a, b in pairs(positive_paths):
     print("Comparing ", a["feature_vector"], "-", b["feature_vector"])
 
     # Plot only the roads that are too similar
-    if it_dist < 1.9 or True:
+    if it_dist < 1.9:
         # Plot the standardized roads not the original one (they all start at (0,0))
         std_a = _standardize(a["interpolated_path"])
         std_b = _standardize(b["interpolated_path"])

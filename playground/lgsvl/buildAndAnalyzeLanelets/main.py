@@ -30,7 +30,7 @@ def calc_geometry_patched(self, s_pos: float):
         geo_idx = np.arange(self._geo_lengths.shape[0])[mask][sub_idx] - 1
     except ValueError:
         # s_pos is after last geometry because of rounding error
-        if np.isclose(s_pos, self._geo_lengths[-1], rtol=1.e-1):
+        if np.isclose(s_pos, self._geo_lengths[-1], rtol=3):  #1.e-1 * 0.5):
             geo_idx = self._geo_lengths.size - 2
         else:
             raise Exception(
@@ -44,7 +44,55 @@ def calc_geometry_patched(self, s_pos: float):
     )
 PlanView.calc_geometry = calc_geometry_patched
 
-from opendrive2lanelet.opendriveparser.parser import parse_opendrive
+from opendrive2lanelet.opendriveparser import parser as od_parser
+
+## NEEDED TO PATCH THE PARSER
+from opendrive2lanelet.opendriveparser.elements.roadLink import (
+    Predecessor as RoadLinkPredecessor,
+    Successor as RoadLinkSuccessor,
+    Neighbor as RoadLinkNeighbor,
+)
+# PATCHED VERSION
+def patched_parse_opendrive_road_link(newRoad, opendrive_road_link):
+    """
+
+    Args:
+      newRoad:
+      opendrive_road_link:
+
+    """
+    predecessor = opendrive_road_link.find("predecessor")
+
+    if predecessor is not None:
+
+        newRoad.link.predecessor = RoadLinkPredecessor(
+            predecessor.get("elementType"),
+            predecessor.get("elementId"),
+            predecessor.get("contactPoint"),
+        )
+
+    successor = opendrive_road_link.find("successor")
+
+    if successor is not None and 'elementId' in successor.attrib:
+
+        newRoad.link.successor = RoadLinkSuccessor(
+            successor.get("elementType"),
+            successor.get("elementId"),
+            successor.get("contactPoint"),
+        )
+
+    for neighbor in opendrive_road_link.findall("neighbor"):
+
+        newNeighbor = RoadLinkNeighbor(
+            neighbor.get("side"), neighbor.get("elementId"), neighbor.get("direction")
+        )
+
+        newRoad.link.neighbors.append(newNeighbor)
+
+# Use the patched version
+od_parser.parse_opendrive_road_link = patched_parse_opendrive_road_link
+
+
 from opendrive2lanelet.io.opendrive_convert import convert_opendrive
 from opendrive2lanelet.network import Network
 from commonroad.scenario.scenario import Scenario
@@ -104,8 +152,28 @@ map_file = "models/lanelet/maps/cubetown.xodr"
 # [136, 137, 138, 139, 140, 141, 147, 148, 149, 150, 151, 152]
 # map_file = "borregasave.xodr"
 
+
+# Problematic maps
+# https://wise.svlsimulator.com/maps/profile/979dd7f3-b25b-47f0-ab10-a6effb370138
+# This cannot be parsed, parsing fail with error lxml.etree.XMLSyntaxError: Document is empty, line 1, column 1
+# Issue with elements that do not declare an elementId
+# map_file = "models/lanelet/maps/gomentum.xodr"
+
+# Works if we tolerate large gaps between lanelets and discard the broken ones...
+# map_file = "models/lanelet/maps/shalun.xodr"
+
+# THIS IS EXTREMELY LARGE, not even sure that Apollo can run it...
+map_file = "models/lanelet/maps/sanfrancisco.xodr"
+
+##### PATCH THE PARSER
+
+
 with open("{}/{}". format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
-    open_drive = parse_opendrive(etree.parse(fi).getroot())
+    # tree = etree.parse(fi, etree.ETCompatXMLParser(encoding='utf-8'))
+    # root = tree.getroot()
+    # open_drive = parse_opendrive(root)
+    open_drive = od_parser.parse_opendrive(etree.parse(fi).getroot())
+
 
 road_network = Network()
 road_network.load_opendrive(open_drive)
@@ -200,17 +268,20 @@ for l1, l2 in all_different_pairs([lanelet for lanelet in lanelet_network.lanele
                 p2 = p2.buffer(0)
 
             # If they do not overlap enough, they will not overlap also in the other case!
-            overlapping_area_p1 = round(p1.intersection(p2).area / p1.area * 100, 3)
-            overlapping_area_p2 = round(p2.intersection(p1).area / p2.area * 100, 3)
+            try:
+                overlapping_area_p1 = round(p1.intersection(p2).area / p1.area * 100, 3)
+                overlapping_area_p2 = round(p2.intersection(p1).area / p2.area * 100, 3)
 
-            # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
-            #  so we need an heuristic
-            if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
-                print(l1, "overlaps with", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
-                l1.overlaps.add(l2.lanelet_id)
-                l2.overlaps.add(l1.lanelet_id)
-            else:
-                print(l1, "FAKE OVERLAP WITH", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+                # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
+                #  so we need an heuristic
+                if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
+                    print(l1, "overlaps with", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+                    l1.overlaps.add(l2.lanelet_id)
+                    l2.overlaps.add(l1.lanelet_id)
+                else:
+                    print(l1, "FAKE OVERLAP WITH", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+            except Exception as e:
+                print(">> Discard problemaic lanelet", e)
     else:
         print(l1, "ALREADY overlaps with", l2)
 
@@ -335,4 +406,6 @@ for intersection in intersections:
         # oracle_polygon = cascaded_union(polygons)
 
         # lanelet_network.find_lanelet_by_id(lanelet_inside_intersection.predecessor[0]).convert_to_polygon().shapely_object
-[print(p) for p in positive_driving_paths_across_intersections]
+# [print(p) for p in positive_driving_paths_across_intersections]
+plt.show()
+print("TOTAL COUNT OF PATHS", len(positive_driving_paths_across_intersections))
