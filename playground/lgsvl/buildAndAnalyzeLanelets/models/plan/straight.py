@@ -77,7 +77,7 @@ class StraightModel:
                     if time.time() - t0 > time_limit:
                         is_test_failed = True
                         raise lgsvl.evaluator.TestException(
-                            "FAILED: Timeout! EGO does reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
+                            "FAILED: Timeout! EGO does not reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
                         )
         except lgsvl.evaluator.TestException as e:
             print("{}".format(e))

@@ -82,13 +82,13 @@ class ParkingModel:
                 # print(lgsvl.evaluator.separation(currentPos, destination))
                 if lgsvl.evaluator.separation(currentPos, destination) < 10:
                     raise lgsvl.evaluator.TestException(
-                        "PASSED: EGO does reach to destination, distance {} < 10!".format(lgsvl.evaluator.separation(currentPos, destination))
+                        "PASSED: EGO passed the NPC and reached to destination, distance {} < 10!".format(lgsvl.evaluator.separation(currentPos, destination))
                     )
                 else:
                     if time.time() - t0 > time_limit:
                         is_test_failed = True
                         raise lgsvl.evaluator.TestException(
-                            "FAILED: Timeout! EGO does reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
+                            "FAILED: Timeout! EGO does not reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
                         )
         except lgsvl.evaluator.TestException as e:
             print("{}".format(e))
