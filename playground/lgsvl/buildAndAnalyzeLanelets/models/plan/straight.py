@@ -29,7 +29,7 @@ TRAFFIC_LIGHT_POLICY = "trigger=50;green=60;yellow=0;red=0;loop"
 class StraightModel:
     @staticmethod
     def run(scenario: Scenario, time_limit: int = TIME_LIMIT):
-        print("Map {}: {} - ".format(scenario.map, scenario.ID), end="")
+        print("Map {} Non-NPC: {} - ".format(scenario.map, scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
         sim.load(scenario.map)

@@ -34,7 +34,7 @@ class ParkingModel:
         self.distance = distance
 
     def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT):
-        print("Map {}: {} - ".format(scenario.map, scenario.ID), end="")
+        print("Map {} with NPC: {} - ".format(scenario.map, scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
         sim.load(scenario.map)
