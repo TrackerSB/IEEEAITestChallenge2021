@@ -54,18 +54,16 @@ from commonroad.scenario.lanelet import Lanelet
 
 
 class LaneLet:
-    def __init__(self, map_file="cubetown.xodr"):
+    def __init__(self, map_path="cubetown.xodr"):
         self.lanelet_network = None
-        self.intersections = self.generate_intersections(map_file)
+        self.intersections = self.generate_intersections(map_path)
 
-    def generate_intersections(self, map_file):
+    def generate_intersections(self, map_path):
         PlanView.calc_geometry = Common.calc_geometry_patched
         Network.export_commonroad_scenario = Common.export_commonroad_scenario
 
         # Import, parse and convert OpenDRIVE file
-        map_file = map_file
-
-        with open("{}/maps/{}".format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
+        with open(map_path, "r") as fi:
             # tree = etree.parse(fi, etree.ETCompatXMLParser(encoding='utf-8'))
             # root = tree.getroot()
             # open_drive = parse_opendrive(root)
