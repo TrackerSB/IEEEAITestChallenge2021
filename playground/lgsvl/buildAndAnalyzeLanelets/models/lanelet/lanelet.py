@@ -160,7 +160,7 @@ class LaneLet:
         intersections = list(Common.connected_components(intersections))
 
         for intersection in intersections:
-            print("Processing", intersection)
+            # print("Processing", intersection)
             # Iterate over a copy
             for lanelet_id in intersection[:]:
                 # if the lanelets has adj lanelets but those do not belong to the intersection flag that

@@ -75,8 +75,8 @@ class Filter:
             # Filtering
             if illumination_map.is_cell_free(sample):
                 filtered_routes.append(sample)
-            else:
-                print("DISCARD VALUE. ALREADY IN MAP")
+            # else:
+                # print("DISCARD VALUE. ALREADY IN MAP")
 
             # Showing
             # Register it in the map, so we see the most frequent combinations

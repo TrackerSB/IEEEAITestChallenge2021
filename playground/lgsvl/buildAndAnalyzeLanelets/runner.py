@@ -52,8 +52,11 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
         expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
 
     for i in range(0, int(samples)):
+        expm.set_plan(StraightModel)
         num_paths = expm.generate_data_paths(float(before_junction), float(after_junction))
         expm.run_scenario(id=random.randint(0, num_paths - 1))
+
+        expm.set_plan(ParkingModel)
         num_paths = expm.generate_data_paths(float(before_junction), float(after_junction), 5)
         expm.run_scenario(id=random.randint(0, num_paths - 1), distance=LEFT)
         expm.run_scenario(id=random.randint(0, num_paths - 1), distance=MIDDLE)

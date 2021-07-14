@@ -71,7 +71,7 @@ class Route:
                            self.successor.convert_to_polygon().shapely_object]
 
         postiv_path = (self.predecessor, self.intersection, self.successor)
-        print("PATH:", [l.lanelet_id for l in postiv_path])
+        # print("PATH:", [l.lanelet_id for l in postiv_path])
 
         # Starting point
         start_point = self.starting_point
