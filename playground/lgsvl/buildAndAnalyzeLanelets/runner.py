@@ -50,10 +50,11 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
         expm.set_filter({"method": filter[0], "distance": float(filter[1]), "show_plot": filter[2]})
     if filter != () and filter[0] == "feature":
         expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
-    num_paths = expm.generate_data_paths(float(before_junction), float(after_junction))
 
     for i in range(0, int(samples)):
+        num_paths = expm.generate_data_paths(float(before_junction), float(after_junction))
         expm.run_scenario(id=random.randint(0, num_paths - 1))
+        num_paths = expm.generate_data_paths(float(before_junction), float(after_junction), 5)
         expm.run_scenario(id=random.randint(0, num_paths - 1), distance=LEFT)
         expm.run_scenario(id=random.randint(0, num_paths - 1), distance=MIDDLE)
         expm.run_scenario(id=random.randint(0, num_paths - 1), distance=RIGHT)
@@ -77,33 +78,6 @@ def generate_all_paths_with_parking(map_file, before_junction, after_junction, p
     if filter != () and filter[0] == "feature":
         expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
     expm.generate_data_paths(float(before_junction), float(after_junction), float(parking_distance))
-
-
-@cli.command()
-@click.argument('map_file', type=click.Path(exists=True))
-@click.argument('before_junction', nargs=1)
-@click.argument('after_junction', nargs=1)
-@click.argument('parking_distance', nargs=1)
-@click.argument('samples', nargs=1)
-@click.argument('filter', nargs=-1)
-def run_scenarios_with_parking(map_file, before_junction, after_junction, parking_distance, samples, filter):
-    map_list = map_file.split('/')
-    mmap = {
-        "name": map_list[len(map_list) - 1].split('.')[0],
-        "path": map_file
-    }
-    expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=StraightModel)
-    if filter != () and filter[0] == "distance":
-        expm.set_filter({"method": filter[0], "distance": float(filter[1]), "show_plot": filter[2]})
-    if filter != () and filter[0] == "feature":
-        expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
-    num_paths = expm.generate_data_paths(float(before_junction), float(after_junction), float(parking_distance))
-
-    for i in range(0, int(samples)):
-        expm.run_scenario(id=random.randint(0, num_paths - 1))
-        expm.run_scenario(id=random.randint(0, num_paths - 1), distance=LEFT)
-        expm.run_scenario(id=random.randint(0, num_paths - 1), distance=MIDDLE)
-        expm.run_scenario(id=random.randint(0, num_paths - 1), distance=RIGHT)
 
 
 if __name__ == "__main__":

@@ -58,7 +58,7 @@ class ParkingModel:
         ego.connect_bridge(LGSVL__AUTOPILOT_0_HOST, LGSVL__AUTOPILOT_0_PORT)
 
         dv = lgsvl.dreamview.Connection(sim, ego, LGSVL__AUTOPILOT_0_HOST)
-        dv.set_hd_map(scenario.map.value[1])
+        dv.set_hd_map(MAPS[scenario.map])
         dv.set_vehicle('Lincoln2017MKZ LGSVL')
 
         modules = [
