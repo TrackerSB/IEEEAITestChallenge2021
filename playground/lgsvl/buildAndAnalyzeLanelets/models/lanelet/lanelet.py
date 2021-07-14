@@ -137,11 +137,11 @@ class LaneLet:
                         # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
                         #  so we need an heuristic
                         if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
-                            print(l1, "overlaps with", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+                            # print(l1, "overlaps with", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
                             l1.overlaps.add(l2.lanelet_id)
                             l2.overlaps.add(l1.lanelet_id)
-                        else:
-                            print(l1, "FAKE OVERLAP WITH", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+                        # else:
+                            # print(l1, "FAKE OVERLAP WITH", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
                     except Exception as e:
                         print(">> Discard problemaic lanelet", e)
 

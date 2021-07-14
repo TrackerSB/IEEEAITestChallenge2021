@@ -23,7 +23,7 @@ class Route:
         path = directory
         if os.path.exists(path) is False:
             os.mkdir(path)
-            print("Directory '% s' created" % directory)
+            # print("Directory '% s' created" % directory)
         fig = plt.figure()
         self.visualize()
         fig.savefig(
