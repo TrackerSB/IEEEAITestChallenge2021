@@ -11,6 +11,14 @@ LGSVL__SIMULATOR_PORT = env.int("LGSVL__SIMULATOR_PORT", 8181)
 LGSVL__AUTOPILOT_0_HOST = env.str("LGSVL__AUTOPILOT_0_HOST", "127.0.0.1")
 LGSVL__AUTOPILOT_0_PORT = env.int("LGSVL__AUTOPILOT_0_PORT", 9090)
 TIME_LIMIT = 60  # seconds
+MAPS = {
+    "BorregasAve": "Borregas Ave",
+    "CubeTown": "Cubetown",
+    "AutonomouStuff": "Autonomous Stuff",
+    "SanFrancisco": "San Francisco",
+    "Shalun": "Shalun",
+    "Gomentum": "Gomentum"
+}
 
 # Wait until an ego vehicle approaches this controllable object within 50 meters
 # Change current state to green and wait for 60s, red & yellow - 0s
