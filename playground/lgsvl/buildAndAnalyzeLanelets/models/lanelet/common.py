@@ -13,7 +13,7 @@ class Common:
             geo_idx = np.arange(self._geo_lengths.shape[0])[mask][sub_idx] - 1
         except ValueError:
             # s_pos is after last geometry because of rounding error
-            if np.isclose(s_pos, self._geo_lengths[-1], rtol=1.e-1):
+            if np.isclose(s_pos, self._geo_lengths[-1], rtol=3):  #1.e-1 * 0.5):
                 geo_idx = self._geo_lengths.size - 2
             else:
                 raise Exception(
@@ -86,11 +86,11 @@ class Common:
 
             return self.interpolate_position(distance)
         else:
-            distance = max_distance + distance
+            the_distance = max_distance + distance if np.greater(max_distance + distance, 0) else 0
             # Make sure we cap to max distance so we do not trigger the error
-            assert np.greater(distance, 0)
+            # assert np.greater(distance, 0)
 
-            return self.interpolate_position(distance)
+            return self.interpolate_position(the_distance)
 
     @staticmethod
     def plot_polygon(poly):

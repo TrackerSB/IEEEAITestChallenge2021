@@ -10,7 +10,7 @@ def place_car_on_the_point(state: lgsvl.AgentState, point: lgsvl.Vector, sim: lg
     state.transform = sim.map_point_on_lane(point)
     return state
 
-def load_npc(sim: lgsvl.Simulator, NPC_car_name: str, initial_state: lgsvl.AgentState) -> lgsvl.Agent:
+def load_npc(sim: lgsvl.Simulator, NPC_car_name: str, initial_state: lgsvl.AgentState) -> lgsvl.agent.Agent:
     from lgsvl import AgentType
     # name: Sedan, SUV, Jeep, Hatchback, SchoolBus, BoxTruck
 
