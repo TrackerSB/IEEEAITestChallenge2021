@@ -15,10 +15,12 @@ RIGHT = 1.9
 
 
 @cli.command()
-@click.argument('map_file', type=click.Path(exists=True))
-@click.argument('before_junction', nargs=1)
-@click.argument('after_junction', nargs=1)
-@click.argument('filter', nargs=-1)
+@click.option('--map_file', help="Name of map file")
+@click.option('--before_junction', type=int, help="Distance before entering junction")
+@click.option('--after_junction', type=int, help="Distance after leaving junction")
+@click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
+              help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
+                   "of cells) and Display Plot or not")
 def generate_all_paths(map_file, before_junction, after_junction, filter):
     map_list = map_file.split('/')
     mmap = {
@@ -26,11 +28,13 @@ def generate_all_paths(map_file, before_junction, after_junction, filter):
         "path": map_file
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=StraightModel)
-    if filter != () and filter[0] == "distance":
-        expm.set_filter({"method": filter[0], "distance": float(filter[1]), "show_plot": filter[2]})
-    if filter != () and filter[0] == "feature":
-        expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
-    expm.generate_data_paths(float(before_junction), float(after_junction))
+    if filter is not None:
+        method, value, show_plot = filter
+        if method == "distance":
+            expm.set_filter({"method": method, "distance": value, "show_plot": show_plot})
+        if method == "feature":
+            expm.set_filter({"method": method, "cells": value, "show_plot": show_plot})
+    expm.generate_data_paths(before_junction, after_junction)
 
 
 @cli.command()
@@ -64,11 +68,13 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
 
 
 @cli.command()
-@click.argument('map_file', type=click.Path(exists=True))
-@click.argument('before_junction', nargs=1)
-@click.argument('after_junction', nargs=1)
-@click.argument('parking_distance', nargs=1)
-@click.argument('filter', nargs=-1)
+@click.option('--map_file', help="Name of map file")
+@click.option('--before_junction', type=int, help="Distance before entering junction")
+@click.option('--after_junction', type=int, help="Distance after leaving junction")
+@click.option('--parking_distance', type=int, help="Parking distance before entering junction")
+@click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
+              help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
+                   "of cells) and Display Plot or not")
 def generate_all_paths_with_parking(map_file, before_junction, after_junction, parking_distance, filter):
     map_list = map_file.split('/')
     mmap = {
@@ -76,10 +82,12 @@ def generate_all_paths_with_parking(map_file, before_junction, after_junction, p
         "path": map_file
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=ParkingModel)
-    if filter != () and filter[0] == "distance":
-        expm.set_filter({"method": filter[0], "distance": float(filter[1]), "show_plot": filter[2]})
-    if filter != () and filter[0] == "feature":
-        expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
+    if filter is not None:
+        method, value, show_plot = filter
+        if method == "distance":
+            expm.set_filter({"method": method, "distance": value, "show_plot": show_plot})
+        if method == "feature":
+            expm.set_filter({"method": method, "cells": value, "show_plot": show_plot})
     expm.generate_data_paths(float(before_junction), float(after_junction), float(parking_distance))
 
 

@@ -36,7 +36,7 @@ class Filter:
             # Plot only the roads that are too similar
             if it_dist < dist:
                 # Plot the standardized roads not the original one (they all start at (0,0))
-                if show_plot == "True":
+                if show_plot:
                     std_a = _standardize(a.interpolated_points)
                     std_b = _standardize(b.interpolated_points)
                     _plot_points(std_a)
@@ -83,6 +83,6 @@ class Filter:
             illumination_map.add_sample(sample)
 
         illumination_map.visualize()
-        if show_plot == "True":
+        if show_plot:
             plt.show()
         return filtered_routes
