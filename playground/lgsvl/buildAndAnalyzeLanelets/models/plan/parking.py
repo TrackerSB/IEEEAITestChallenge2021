@@ -19,8 +19,11 @@ TRAFFIC_LIGHT_POLICY = "trigger=50;green=60;yellow=0;red=0;loop"
 
 
 class ParkingModel:
-    def __init__(self, type):
-        self.type = type
+    def __init__(self):
+        self.distance = 1.85
+
+    def set_distance(self, distance):
+        self.distance = distance
 
     def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT):
         print("Map {}: {} - ".format(scenario.map.value[0], scenario.ID), end="")
@@ -36,7 +39,7 @@ class ParkingModel:
         sedan_state = spawn_state(sim)
         PARKING_POINT = lgsvl.geometry.Vector(scenario.park[0], 0, scenario.park[1])
         sedan_state = place_car_on_the_point(sim=sim, point=PARKING_POINT, state=sedan_state)
-        sedan_state = place_car_from_the_point(dimension="horizontal", distance=self.type, state=sedan_state)
+        sedan_state = place_car_from_the_point(dimension="horizontal", distance=self.distance, state=sedan_state)
         sedan = load_npc(sim, "Sedan", sedan_state)
 
         START_POINT = lgsvl.geometry.Vector(scenario.start[0], 0, scenario.start[1])

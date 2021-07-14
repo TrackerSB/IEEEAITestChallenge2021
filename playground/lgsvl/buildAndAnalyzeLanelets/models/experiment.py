@@ -3,6 +3,7 @@ import json
 import shutil
 from .lanelet import LaneLet, Path
 from .scenario import Scenario
+from .plan import ParkingModel
 
 
 class Experiment:
@@ -24,27 +25,27 @@ class Experiment:
         shutil.rmtree(path)
         os.mkdir(path)
 
-    @staticmethod
-    def run_scenario(id, map, plan, type=None):
+    def run_scenario(self, id, map, distance=None):
         try:
             file_path = "{}/lanelet/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)),
                                                        map.value[0],
                                                        str(id) + ".json")
             with open(file_path) as file:
                 scenario_data = json.load(file)
-            if plan.__name__ == "StraightModel":
+            if self.plan.__name__ == "StraightModel":
                 scenario = Scenario(start=scenario_data["start"],
                                     end=scenario_data["end"],
                                     mmap=map,
                                     tc_id=id)
-                plan.run(scenario)
+                self.plan.run(scenario)
             else:
                 scenario = Scenario(start=scenario_data["start"],
                                     end=scenario_data["end"],
                                     mmap=map,
                                     tc_id=id,
                                     park=scenario_data["park"])
-                p = plan(type)
+                p = ParkingModel()
+                p.set_distance(distance)
                 p.run(scenario)
         except Exception as e:
             print("{}".format(e))
@@ -65,7 +66,7 @@ class Experiment:
                 path_model = Path(intersections=lanelet.intersections,
                                   lanelet_network=lanelet.lanelet_network,
                                   before_entering_junction_parking=10)
-                routes = path_model.generate_driving_paths()
+                routes = path_model.generate_driving_paths_with_parking()
             if self.filter is not None:
                 paths = self.filter(routes)
             else:
