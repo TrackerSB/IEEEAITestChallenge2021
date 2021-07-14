@@ -4,6 +4,7 @@ import shutil
 from .lanelet import LaneLet, Path
 from .scenario import Scenario
 from .plan import ParkingModel
+from .filter import Filter
 
 
 class Experiment:
@@ -69,8 +70,13 @@ class Experiment:
                               before_entering_junction=before_junction, after_leaving_junction=after_junction,
                               before_entering_junction_parking=parking_distance)
             routes = path_model.generate_driving_paths_with_parking()
+
+        paths = 0
         if self.filter is not None:
-            paths = self.filter(routes)
+            if self.filter["method"] == "distance":
+                paths = Filter.compare_distance(routes, {"distance": self.filter["distance"], "show_plot": self.filter["show_plot"]})
+            if self.filter["method"] == "feature":
+                paths = Filter.compare_feature(routes, {"cells": int(self.filter["cells"]), "show_plot": self.filter["show_plot"]})
         else:
             paths = routes
 

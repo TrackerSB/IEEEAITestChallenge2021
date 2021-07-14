@@ -26,9 +26,9 @@ def generate_all_paths(map_file, before_junction, after_junction, filter):
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=StraightModel)
     if filter != () and filter[0] == "distance":
-        expm.set_filter(Filter.compare_distance)
+        expm.set_filter({"method": filter[0], "distance": float(filter[1]), "show_plot": filter[2]})
     if filter != () and filter[0] == "feature":
-        expm.set_filter(Filter.compare_feature)
+        expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
     expm.generate_data_paths(float(before_junction), float(after_junction))
 
 
@@ -46,9 +46,9 @@ def generate_all_paths_with_parking(map_file, before_junction, after_junction, p
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=ParkingModel)
     if filter != () and filter[0] == "distance":
-        expm.set_filter(Filter.compare_distance)
+        expm.set_filter({"method": filter[0], "distance": float(filter[1]), "show_plot": filter[2]})
     if filter != () and filter[0] == "feature":
-        expm.set_filter(Filter.compare_feature)
+        expm.set_filter({"method": filter[0], "cells": float(filter[1]), "show_plot": filter[2]})
     expm.generate_data_paths(float(before_junction), float(after_junction), float(parking_distance))
 
 
