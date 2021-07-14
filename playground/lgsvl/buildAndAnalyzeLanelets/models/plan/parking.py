@@ -26,10 +26,10 @@ class ParkingModel:
         self.distance = distance
 
     def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT):
-        print("Map {}: {} - ".format(scenario.map.value[0], scenario.ID), end="")
+        print("Map {}: {} - ".format(scenario.map, scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
-        sim.load(scenario.map.value[0])
+        sim.load(scenario.map)
         # Get a list of controllable objects
         controllables = sim.get_controllables("signal")
         for c in controllables:

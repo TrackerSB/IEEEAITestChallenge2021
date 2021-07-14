@@ -21,10 +21,10 @@ TRAFFIC_LIGHT_POLICY = "trigger=50;green=60;yellow=0;red=0;loop"
 class StraightModel:
     @staticmethod
     def run(scenario: Scenario, time_limit: int = TIME_LIMIT):
-        print("Map {}: {} - ".format(scenario.map.value[0], scenario.ID), end="")
+        print("Map {}: {} - ".format(scenario.map, scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
-        sim.load(scenario.map.value[0])
+        sim.load(scenario.map)
         # Get a list of controllable objects
         controllables = sim.get_controllables("signal")
         for c in controllables:
