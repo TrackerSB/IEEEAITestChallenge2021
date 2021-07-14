@@ -32,10 +32,18 @@ class Experiment:
                                                        str(id) + ".json")
             with open(file_path) as file:
                 scenario_data = json.load(file)
-            scenario = Scenario(scenario_data["start"], scenario_data["end"], map, id)
             if plan.__name__ == "StraightModel":
+                scenario = Scenario(start=scenario_data["start"],
+                                    end=scenario_data["end"],
+                                    mmap=map,
+                                    tc_id=id)
                 plan.run(scenario)
             else:
+                scenario = Scenario(start=scenario_data["start"],
+                                    end=scenario_data["end"],
+                                    mmap=map,
+                                    tc_id=id,
+                                    park=scenario_data["park"])
                 p = plan(type)
                 p.run(scenario)
         except Exception as e:
