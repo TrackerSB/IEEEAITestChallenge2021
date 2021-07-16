@@ -1,5 +1,46 @@
-lgsvl
-lxml
-opendrive2lanelet
-python-decouple
-shapely
+attrs==20.3.0
+certifi==2021.5.30
+click @ file:///tmp/build/80754af9/click_1621604852318/work
+commonroad-io==2021.2
+commonroad-vehicle-models==2.0.0
+cycler==0.10.0
+decorator==4.4.2
+environs==9.3.2
+importlib-metadata @ file:///opt/concourse/worker/volumes/live/a634a87c-b5e5-41bd-628d-cd0413666c93/volume/importlib-metadata_1617877368300/work
+iniconfig==1.1.1
+iso3166==1.0.1
+kiwisolver @ file:///opt/concourse/worker/volumes/live/0b2f3e77-eaa3-4995-7dd0-c994762fcbde/volume/kiwisolver_1612282417472/work
+-e git+git@github.com:lgsvl/PythonAPI.git@13c92096e7b0ba3c4ac9ad3ea5fee95b56efd234#egg=lgsvl
+lxml @ file:///opt/concourse/worker/volumes/live/42fc56a4-88b4-4605-6037-9605f4e5eeeb/volume/lxml_1616443240194/work
+marshmallow==3.11.1
+matplotlib @ file:///opt/concourse/worker/volumes/live/41e8cd50-031f-4dda-5787-dd3c4f4e0f08/volume/matplotlib-suite_1613407855571/work
+mkl-fft==1.3.0
+mkl-random @ file:///opt/concourse/worker/volumes/live/54b31a45-1da5-4512-5c3a-93c9ff2af8bc/volume/mkl_random_1618853970587/work
+mkl-service==2.3.0
+networkx==2.5.1
+numpy @ file:///opt/concourse/worker/volumes/live/6acd2784-8443-45a5-42ec-e10d2d0eaa28/volume/numpy_and_numpy_base_1620831186338/work
+olefile==0.46
+opendrive2lanelet==1.2.0
+packaging==20.9
+pandas==1.2.5
+Pillow @ file:///opt/concourse/worker/volumes/live/ca23594b-6e35-4c8c-5637-50ac0b550473/volume/pillow_1617386168018/work
+pluggy==0.13.1
+py==1.10.0
+pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
+pyproj==3.1.0
+pytest==6.2.3
+pytest-html==3.1.1
+pytest-metadata==1.11.0
+python-dateutil @ file:///home/ktietz/src/ci/python-dateutil_1611928101742/work
+python-decouple==3.4
+python-dotenv==0.17.0
+pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
+scipy==1.7.0
+seaborn @ file:///tmp/build/80754af9/seaborn_1608578541026/work
+Shapely @ file:///opt/concourse/worker/volumes/live/b6b1656d-4a2d-49a9-5ffa-0a8179e23e85/volume/shapely_1599817147652/work
+six @ file:///tmp/build/80754af9/six_1623709665295/work
+toml==0.10.2
+tornado @ file:///opt/concourse/worker/volumes/live/05341796-4198-4ded-4a9a-332fde3cdfd1/volume/tornado_1606942323372/work
+websocket-client==0.57.0
+websockets==7.0
+zipp @ file:///tmp/build/80754af9/zipp_1625570634446/work
