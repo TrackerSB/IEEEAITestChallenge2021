@@ -13,19 +13,28 @@ LEFT = -1.9
 MIDDLE = 0
 RIGHT = 1.9
 
+MAPS = {
+    "BorregasAve": "maps/BorregasAve.xodr",
+    "CubeTown": "maps/CubeTown.xodr",
+    "AutonomouStuff": "maps/AutonomouStuff.xodr",
+    "SanFrancisco": "maps/SanFrancisco.xodr",
+    "Shalun": "maps/Shalun.xodr",
+    "Gomentum": "maps/Gomentum.xodr"
+}
+
 
 @cli.command()
-@click.option('--map_file', help="Name of map file")
+@click.option('--map_file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
 @click.option('--before_junction', type=int, help="Distance before entering junction")
 @click.option('--after_junction', type=int, help="Distance after leaving junction")
 @click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
 def generate_all_paths(map_file, before_junction, after_junction, filter):
-    map_list = map_file.split('/')
+    map_list = MAPS[map_file].split('/')
     mmap = {
         "name": map_list[len(map_list) - 1].split('.')[0],
-        "path": map_file
+        "path": MAPS[map_file]
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=StraightModel)
     if filter is not None:
@@ -38,7 +47,7 @@ def generate_all_paths(map_file, before_junction, after_junction, filter):
 
 
 @cli.command()
-@click.option('--map_file', help="Name of map file")
+@click.option('--map_file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
 @click.option('--before_junction', type=int, help="Distance before entering junction")
 @click.option('--after_junction', type=int, help="Distance after leaving junction")
 @click.option('--samples', type=int, help="How many tests to sample for Test Pools")
@@ -46,10 +55,10 @@ def generate_all_paths(map_file, before_junction, after_junction, filter):
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
 def run_scenarios(map_file, before_junction, after_junction, samples, filter):
-    map_list = map_file.split('/')
+    map_list = MAPS[map_file].split('/')
     mmap = {
         "name": map_list[len(map_list) - 1].split('.')[0],
-        "path": map_file
+        "path": MAPS[map_file]
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=StraightModel)
     if filter != () and filter[0] == "distance":
@@ -70,7 +79,7 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
 
 
 @cli.command()
-@click.option('--map_file', help="Name of map file")
+@click.option('--map_file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
 @click.option('--before_junction', type=int, help="Distance before entering junction")
 @click.option('--after_junction', type=int, help="Distance after leaving junction")
 @click.option('--parking_distance', type=int, help="Parking distance before entering junction")
@@ -78,10 +87,10 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
 def generate_all_paths_with_parking(map_file, before_junction, after_junction, parking_distance, filter):
-    map_list = map_file.split('/')
+    map_list = MAPS[map_file].split('/')
     mmap = {
         "name": map_list[len(map_list) - 1].split('.')[0],
-        "path": map_file
+        "path": MAPS[map_file]
     }
     expm = Experiment(mmap=mmap, name="Generate All Possible Paths", plan=ParkingModel)
     if filter is not None:
