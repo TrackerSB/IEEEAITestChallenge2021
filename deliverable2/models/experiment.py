@@ -35,6 +35,7 @@ class Experiment:
                 scenario = Scenario(start=scenario_data["start"],
                                     end=scenario_data["end"],
                                     mmap=self.mmap["name"],
+                                    dvmap=self.mmap["dv"],
                                     tc_id=id)
                 self.plan.run(scenario)
             else:
@@ -42,6 +43,7 @@ class Experiment:
                                     end=scenario_data["end"],
                                     mmap=self.mmap["name"],
                                     tc_id=id,
+                                    dvmap=self.mmap["dv"],
                                     park=scenario_data["park"])
                 p = ParkingModel()
                 p.set_distance(distance)
