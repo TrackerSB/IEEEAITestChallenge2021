@@ -20,14 +20,14 @@ class Route:
 
     def to_json(self, directory, ID):
         # Create the directory
-        path = "{}/data/{}".format(os.path.dirname(os.path.realpath(__file__)), directory)
+        path = directory
         if os.path.exists(path) is False:
             os.mkdir(path)
-            print("Directory '% s' created" % directory)
+            # print("Directory '% s' created" % directory)
         fig = plt.figure()
         self.visualize()
         fig.savefig(
-            "{}/data/{}/{}".format(os.path.dirname(os.path.realpath(__file__)), directory, str(ID) + ".png"))
+            "{}/{}".format(directory, str(ID) + ".png"))
 
         # Starting point
         start_point = self.starting_point
@@ -45,7 +45,7 @@ class Route:
         #             , fp)
 
         # Export the center point only. Discard the 1st and 3rd.
-        fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + ".json"
+        fn = directory + '/' + str(ID) + ".json"
         if self.parking_point is None:
             with open(fn, 'w') as fp:
                 json.dump(
@@ -71,7 +71,7 @@ class Route:
                            self.successor.convert_to_polygon().shapely_object]
 
         postiv_path = (self.predecessor, self.intersection, self.successor)
-        print("PATH:", [l.lanelet_id for l in postiv_path])
+        # print("PATH:", [l.lanelet_id for l in postiv_path])
 
         # Starting point
         start_point = self.starting_point

@@ -2,25 +2,73 @@ import os
 from .common import Common
 from lxml import etree
 from opendrive2lanelet.opendriveparser.elements.roadPlanView import PlanView
-from opendrive2lanelet.opendriveparser.parser import parse_opendrive
+from opendrive2lanelet.opendriveparser import parser as od_parser
+## NEEDED TO PATCH THE PARSER
+from opendrive2lanelet.opendriveparser.elements.roadLink import (
+    Predecessor as RoadLinkPredecessor,
+    Successor as RoadLinkSuccessor,
+    Neighbor as RoadLinkNeighbor,
+)
+# PATCHED VERSION
+def patched_parse_opendrive_road_link(newRoad, opendrive_road_link):
+    """
+
+    Args:
+      newRoad:
+      opendrive_road_link:
+
+    """
+    predecessor = opendrive_road_link.find("predecessor")
+
+    if predecessor is not None:
+
+        newRoad.link.predecessor = RoadLinkPredecessor(
+            predecessor.get("elementType"),
+            predecessor.get("elementId"),
+            predecessor.get("contactPoint"),
+        )
+
+    successor = opendrive_road_link.find("successor")
+
+    if successor is not None and 'elementId' in successor.attrib:
+
+        newRoad.link.successor = RoadLinkSuccessor(
+            successor.get("elementType"),
+            successor.get("elementId"),
+            successor.get("contactPoint"),
+        )
+
+    for neighbor in opendrive_road_link.findall("neighbor"):
+
+        newNeighbor = RoadLinkNeighbor(
+            neighbor.get("side"), neighbor.get("elementId"), neighbor.get("direction")
+        )
+
+        newRoad.link.neighbors.append(newNeighbor)
+
+# Use the patched version
+od_parser.parse_opendrive_road_link = patched_parse_opendrive_road_link
+
 from opendrive2lanelet.network import Network
 from commonroad.scenario.lanelet import Lanelet
 
 
 class LaneLet:
-    def __init__(self, map_file="cubetown.xodr"):
+    def __init__(self, map_path="cubetown.xodr"):
         self.lanelet_network = None
-        self.intersections = self.generate_intersections(map_file)
+        self.intersections = self.generate_intersections(map_path)
 
-    def generate_intersections(self, map_file):
+    def generate_intersections(self, map_path):
         PlanView.calc_geometry = Common.calc_geometry_patched
         Network.export_commonroad_scenario = Common.export_commonroad_scenario
 
         # Import, parse and convert OpenDRIVE file
-        map_file = map_file
+        with open(map_path, "r") as fi:
+            # tree = etree.parse(fi, etree.ETCompatXMLParser(encoding='utf-8'))
+            # root = tree.getroot()
+            # open_drive = parse_opendrive(root)
+            open_drive = od_parser.parse_opendrive(etree.parse(fi).getroot())
 
-        with open("{}/maps/{}".format(os.path.dirname(os.path.realpath(__file__)), map_file), "r") as fi:
-            open_drive = parse_opendrive(etree.parse(fi).getroot())
 
         road_network = Network()
         road_network.load_opendrive(open_drive)
@@ -82,14 +130,21 @@ class LaneLet:
                         p2 = p2.buffer(0)
 
                     # If they do not overlap enough, they will not overlap also in the other case!
-                    overlapping_area_p1 = round(p1.intersection(p2).area / p1.area * 100, 3)
-                    overlapping_area_p2 = round(p2.intersection(p1).area / p2.area * 100, 3)
+                    try:
+                        overlapping_area_p1 = round(p1.intersection(p2).area / p1.area * 100, 3)
+                        overlapping_area_p2 = round(p2.intersection(p1).area / p2.area * 100, 3)
 
-                    # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
-                    #  so we need an heuristic
-                    if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
-                        l1.overlaps.add(l2.lanelet_id)
-                        l2.overlaps.add(l1.lanelet_id)
+                        # TODO I found this empirically, the issue is that the lanelets overlaps even if they should NOT
+                        #  so we need an heuristic
+                        if min(overlapping_area_p1, overlapping_area_p2) > 5.0:
+                            # print(l1, "overlaps with", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+                            l1.overlaps.add(l2.lanelet_id)
+                            l2.overlaps.add(l1.lanelet_id)
+                        # else:
+                            # print(l1, "FAKE OVERLAP WITH", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
+                    except Exception as e:
+                        print(">> Discard problemaic lanelet", e)
+
 
         # Initialize and then merge all the groups of lanelets that have shared items
         intersections = list()
@@ -105,7 +160,7 @@ class LaneLet:
         intersections = list(Common.connected_components(intersections))
 
         for intersection in intersections:
-            print("Processing", intersection)
+            # print("Processing", intersection)
             # Iterate over a copy
             for lanelet_id in intersection[:]:
                 # if the lanelets has adj lanelets but those do not belong to the intersection flag that
