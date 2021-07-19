@@ -11,14 +11,6 @@ LGSVL__SIMULATOR_PORT = env.int("LGSVL__SIMULATOR_PORT", 8181)
 LGSVL__AUTOPILOT_0_HOST = env.str("LGSVL__AUTOPILOT_0_HOST", "127.0.0.1")
 LGSVL__AUTOPILOT_0_PORT = env.int("LGSVL__AUTOPILOT_0_PORT", 9090)
 TIME_LIMIT = 60  # seconds
-MAPS = {
-    "BorregasAve": "Borregas Ave",
-    "CubeTown": "Cubetown",
-    "AutonomouStuff": "Autonomous Stuff",
-    "SanFrancisco": "San Francisco",
-    "Shalun": "Shalun",
-    "Gomentum": "Gomentum"
-}
 
 # Wait until an ego vehicle approaches this controllable object within 50 meters
 # Change current state to green and wait for 60s, red & yellow - 0s
@@ -47,7 +39,7 @@ class StraightModel:
         ego.connect_bridge(LGSVL__AUTOPILOT_0_HOST, LGSVL__AUTOPILOT_0_PORT)
 
         dv = lgsvl.dreamview.Connection(sim, ego, LGSVL__AUTOPILOT_0_HOST)
-        dv.set_hd_map(MAPS[scenario.map])
+        dv.set_hd_map(scenario.dvmap)
         dv.set_vehicle('Lincoln2017MKZ LGSVL')
 
         modules = [
