@@ -20,9 +20,39 @@ Links to the videos illustrating SALVO in actions are listed below.
 
 ## SALVO: Automated Generation of Diversified Tests for Self-driving Cars from Existing Maps
 
-**TODO ALESSIO MUST WRITE THIS ONE !!!***
-*A (written) simulation test report, which documents the generated test scenarios, classes, scripting methods, simulation test coverage, and problem findings.
-: it takes a map in OpenDrive (.xodr) format as input, identify all the intersections in it, generates test cases that make the ego-car junctions*
+This section describes our approach, the generated test scenarios, simulation test coverage, and problem findings.
+
+SALVO starts from the consideration that manually generated HD maps are very expensive; therefore, they must be used (and re-used) wisely and extensively. Consequently, SALVO leverage existing maps to generate as many tests as possible. 
+
+Generating many tests without guidance, however, is not what SALVO does. Instead, it follows a systematic approach to maximize the diversity of the generated tests in each map while generating relevant driving scenarios. We define relevant driving scenarios those scenarios that require the ego-car to drive across an intersection.
+
+### SALVO in a Nutshell
+
+SALVO works as follows in steps: given a map in OpenDrive (.xodr) format, (1) SALVO identifies all the intersections in the map and (2) generates all legal trajectories that cross them; each of those trajectories implements a driving scenario. Next, (3) SALVO selects trajectories that are quantifiably different from one another and (4) generates test cases implementing them. As an extension, (5) we also allow SALVO to place static obstacles in front of the ego-car to study the ego-car in even more driving scenarios.
+
+#### 1. Identifying Intersections
+
+Given the input map in the OpenDrive format, we use the opendrive2lanelet library [1] to transform it into the more abstract and less vendor-specific lanelets format. This format provides a straightforward organization of the various lanelets in the map using formal relations such as `follows` and `is_adjacent` but does not natively identify intersections. Therefore, SALVO implements an heuristic to identify them. First, it uses geometrical information about each lanelet to identify overlapping lanelets. Next, it group together lanelets that overlap
+
+TODO
+
+
+
+#### 2. Generating Relevant Scenarios 
+
+Relevant scenarios are defined by legal trajectories across intersections.
+They start on a given lane before an intersection, continue on the same lane across the intersection, and end always on the (logically) same lane after the intersection. The distances before and after the intersections are input parameters and let testers indirectly define how long the tests will last. 
+Notably, because intersections have different configuration and geometry those trajectory force the ego-car to turn left, turn right, or go straight.
+
+#### 3. Selecting Diversified Scenarios
+
+Up to this point, SALVO did not care about diversity of test cases, as it simply discovered all the possible legal trajectories in a map. It does so to explore as much as possible the possibility offered by the input map. However, many trajectory may stress the ego-car in the same way. For example, the CubeTown map contains two intersections that are one the exact copy of the other. Testing the ego-car on both intersections instead of only one is not likely to provide any additional insight on its behavior, therefore, SALVO uses a greedy heuristic to filter out test cases that are too similar to each other. The goal is improving the cost and diversity of the resulting test suites.
+
+We study two approaches for filtering out similar test cases, both based on the analysis of the trajectory that supposedly the ego-car follows during the test execution. The first approach consists of computing the Iterative Levenshtein distance between each pair of legal trajectories and filtering out the trajectories distance falls below a configurable threshold. The smaller is the threshold value, the larger is the resulting test suites. The 
+
+#### 4. Generating Test Cases
+
+#### 5. Placing Obstacles 
 
 ## Requirements
 SALVO is implemented as a Python command line application. It requires Python version 3.7 and the libraries listed in the `requirements.txt` file. 
@@ -66,7 +96,7 @@ python salvo.py generate-all-paths \
         --filter distance 1.9 True
 ```
 
-The second command instead uses the feature maps defined in [1] to characterize the generated paths and filters those paths that cover the same cells of the feature map. In the example command, we configure the map to have 10 cells per feature (for a total of 100 cells in the map). Using this configuration for the CubeTown map, SALVO should produce 5 paths.
+The second command instead uses the feature maps defined in [2] to characterize the generated paths and filters those paths that cover the same cells of the feature map. In the example command, we configure the map to have 10 cells per feature (for a total of 100 cells in the map). Using this configuration for the CubeTown map, SALVO should produce 5 paths.
 
 ```
 python salvo.py generate-all-paths \
@@ -109,4 +139,5 @@ In this section, we link those videos and provide a short description of their c
  - [Static Obstacles in CubeTown](https://youtu.be/WLIh9Pv8FcI). This video shows how SALVO created four tests in the CubeTown map to cover various combinations of static object placement: no obstacle, an obstacle in the middle of the lane, and obstacles partially occluding the lane on the left and right sides.
 
 ## References
-[1] T. Zohdinasab et al., "DeepHyperion: exploring the feature space of deep learning-based systems through illumination search", Proceedings of the 30th ACM SIGSOFT International Symposium on Software Testing and Analysis, ISSTA 2021, 2021, DOI: https://doi.org/10.1145/3460319.3464811
+[1] M. Althoff et al., "Automatic Conversion of Road Networks from OpenDRIVE to Lanelets," in Proc. of the IEEE International Conference on Service Operations and Logistics, and Informatics, 2018
+[2] T. Zohdinasab et al., "DeepHyperion: exploring the feature space of deep learning-based systems through illumination search," in Proc. of ACM SIGSOFT International Symposium on Software Testing and Analysis, 2021
