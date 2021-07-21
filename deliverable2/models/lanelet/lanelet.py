@@ -143,7 +143,7 @@ class LaneLet:
                         # else:
                             # print(l1, "FAKE OVERLAP WITH", l2, "AREA", overlapping_area_p1, "--", overlapping_area_p2)
                     except Exception as e:
-                        print(">> Discard problemaic lanelet", e)
+                        print(">> Discard problematic lanelet", e)
 
 
         # Initialize and then merge all the groups of lanelets that have shared items
