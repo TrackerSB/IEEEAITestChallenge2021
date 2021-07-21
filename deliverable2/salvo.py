@@ -34,9 +34,9 @@ DV_MAPS = {
 
 
 @cli.command()
-@click.option('--map_file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
-@click.option('--before_junction', type=int, help="Distance before entering junction")
-@click.option('--after_junction', type=int, help="Distance after leaving junction")
+@click.option('--map-file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
+@click.option('--before-junction', type=int, help="Distance before entering junction")
+@click.option('--after-junction', type=int, help="Distance after leaving junction")
 @click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
@@ -58,9 +58,9 @@ def generate_all_paths(map_file, before_junction, after_junction, filter):
 
 
 @cli.command()
-@click.option('--map_file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
-@click.option('--before_junction', type=int, help="Distance before entering junction")
-@click.option('--after_junction', type=int, help="Distance after leaving junction")
+@click.option('--map-file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
+@click.option('--before-junction', type=int, help="Distance before entering junction")
+@click.option('--after-junction', type=int, help="Distance after leaving junction")
 @click.option('--samples', type=int, help="How many tests to sample for Test Pools")
 @click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
@@ -91,10 +91,10 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
 
 
 @cli.command()
-@click.option('--map_file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
-@click.option('--before_junction', type=int, help="Distance before entering junction")
-@click.option('--after_junction', type=int, help="Distance after leaving junction")
-@click.option('--parking_distance', type=int, help="Parking distance before entering junction")
+@click.option('--map-file', type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
+@click.option('--before-junction', type=int, help="Distance before entering junction")
+@click.option('--after-junction', type=int, help="Distance after leaving junction")
+@click.option('--parking-distance', type=int, help="Parking distance before entering junction")
 @click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
