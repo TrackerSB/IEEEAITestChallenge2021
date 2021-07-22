@@ -24,18 +24,21 @@ RIGHT = 1.9
 
 class ParkingModel:
     def __init__(self):
-        self.distance = LEFT
+        self.distance = RIGHT
 
-    def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT, distance=0):
+    def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT, distance=None):
         print("Map {} with NPC: {} - ".format(scenario.map, scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
 
-        if scenario.side == 0:
-            self.distance = RIGHT
-        if scenario.side == 1:
-            self.distance = MIDDLE
-        if distance != 0:
+        if distance != None:
             self.distance = distance
+        else:
+            if scenario.side == 0:
+                self.distance = RIGHT
+            if scenario.side == 1:
+                self.distance = MIDDLE
+            if scenario.side == 2:
+                self.distance = LEFT
 
         sim.load(scenario.map)
         # Get a list of controllable objects

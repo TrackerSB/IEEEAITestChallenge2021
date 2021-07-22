@@ -69,9 +69,9 @@ def generate_all_paths(map_file, before_junction, after_junction, filter):
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
 def run_scenarios(map_file, before_junction, after_junction, samples, filter):
-    LEFT = -1.9
+    LEFT = -1.91
     MIDDLE = 0
-    RIGHT = 1.9
+    RIGHT = 1.91
 
     map_list = MAPS[map_file].split('/')
     mmap = {

@@ -47,7 +47,7 @@ class Experiment:
                                     park=scenario_data["park"],
                                     side=scenario_data["side"])
                 p = ParkingModel()
-                p.run(scenario, distance)
+                p.run(scenario=scenario, distance=distance)
         except Exception as e:
             print("{}".format(e))
 
