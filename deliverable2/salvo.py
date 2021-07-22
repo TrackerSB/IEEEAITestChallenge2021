@@ -133,7 +133,7 @@ def generate_all_paths_with_parking(map_file, before_junction, after_junction, p
               type=click.Choice(['SanFrancisco', 'Gomentum', 'CubeTown', 'BorregasAve', 'Shalun'], case_sensitive=True))
 @click.option('--id', type=int, help="ID of a scenario in the data/map-file we want to execute")
 @click.option('--plan-type', type=click.Choice(['nonNPC', 'NPC'], case_sensitive=True))
-def run_scenario(map_file, id, plan_type):
+def run_scenario_by_id(map_file, id, plan_type):
     map_list = MAPS[map_file].split('/')
     mmap = {
         "name": map_list[len(map_list) - 1].split('.')[0],

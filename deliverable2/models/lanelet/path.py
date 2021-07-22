@@ -102,7 +102,7 @@ class Path:
 
         return routes
 
-    def generate_driving_paths_with_parking(self, side):
+    def generate_driving_paths_with_parking(self, side=0):
         routes = list()
         for intersection in self.intersections:
             for lanelet_inside_intersection_id in intersection:
@@ -154,7 +154,8 @@ class Path:
                               starting_point=starting_point,
                               ending_point=ending_point,
                               interpolated_points=[(p[0], p[1]) for p in interpolated_path],
-                              parking_point=selected_parking_point)
+                              parking_point=selected_parking_point,
+                              side=side)
 
                 routes.append(route)
                 # route.visualize()
