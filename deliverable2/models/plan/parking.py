@@ -17,17 +17,25 @@ TIME_LIMIT = 60  # seconds
 # Loop over this control policy from the beginning
 TRAFFIC_LIGHT_POLICY = "trigger=50;green=60;yellow=0;red=0;loop"
 
+LEFT = -1.9
+MIDDLE = 0
+RIGHT = 1.9
+
 
 class ParkingModel:
     def __init__(self):
-        self.distance = 1.85
+        self.distance = LEFT
 
-    def set_distance(self, distance):
-        self.distance = distance
-
-    def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT):
+    def run(self, scenario: Scenario, time_limit: int = TIME_LIMIT, distance=0):
         print("Map {} with NPC: {} - ".format(scenario.map, scenario.ID), end="")
         sim = lgsvl.Simulator(LGSVL__SIMULATOR_HOST, LGSVL__SIMULATOR_PORT)
+
+        if scenario.side == 0:
+            self.distance = RIGHT
+        if scenario.side == 1:
+            self.distance = MIDDLE
+        if distance != 0:
+            self.distance = distance
 
         sim.load(scenario.map)
         # Get a list of controllable objects
@@ -74,13 +82,15 @@ class ParkingModel:
                 # print(lgsvl.evaluator.separation(currentPos, destination))
                 if lgsvl.evaluator.separation(currentPos, destination) < 10:
                     raise lgsvl.evaluator.TestException(
-                        "PASSED: EGO passed the NPC and reached to destination, distance {} < 10!".format(lgsvl.evaluator.separation(currentPos, destination))
+                        "PASSED: EGO passed the NPC and reached to destination, distance {} < 10!".format(
+                            lgsvl.evaluator.separation(currentPos, destination))
                     )
                 else:
                     if time.time() - t0 > time_limit:
                         is_test_failed = True
                         raise lgsvl.evaluator.TestException(
-                            "FAILED: Timeout! EGO does not reach to destination, distance {} > 10!".format(lgsvl.evaluator.separation(currentPos, destination))
+                            "FAILED: Timeout! EGO does not reach to destination, distance {} > 10!".format(
+                                lgsvl.evaluator.separation(currentPos, destination))
                         )
         except lgsvl.evaluator.TestException as e:
             print("{}".format(e))

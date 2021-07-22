@@ -10,7 +10,7 @@ import numpy as np
 class Route:
     def __init__(self, predecessor, intersection, successor,
                  starting_point, ending_point, interpolated_points,
-                 parking_point=None):
+                 parking_point=None, side=0):
         self.predecessor = predecessor
         self.intersection = intersection
         self.successor = successor
@@ -19,6 +19,7 @@ class Route:
         self.interpolated_points = interpolated_points
         self.parking_point = parking_point
         self.feature_vector, self.dc, self.mr = self._compute_feature_vector().values()
+        self.side = side
 
     def to_json(self, directory, ID):
         # Create the directory
@@ -35,6 +36,7 @@ class Route:
         start_point = self.starting_point
         end_point = self.ending_point
         park_point = self.parking_point
+        side = self.side
         # for i in range(0, len(start_point) - 1):
         #     fn = os.path.dirname(os.path.realpath(__file__)) + "/data/" + directory + '/' + str(ID) + str(
         #         i + 1) + ".json"
@@ -63,6 +65,7 @@ class Route:
                         "start": [start_point[1][0], start_point[1][1]],
                         "end": [end_point[1][0], end_point[1][1]],
                         "park": [park_point[0], park_point[1]],
+                        "side": side
                     }
                     , fp)
 

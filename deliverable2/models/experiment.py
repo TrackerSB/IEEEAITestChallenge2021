@@ -44,10 +44,10 @@ class Experiment:
                                     mmap=self.mmap["name"],
                                     tc_id=id,
                                     dvmap=self.mmap["dv"],
-                                    park=scenario_data["park"])
+                                    park=scenario_data["park"],
+                                    side=scenario_data["side"])
                 p = ParkingModel()
-                p.set_distance(distance)
-                p.run(scenario)
+                p.run(scenario, distance)
         except Exception as e:
             print("{}".format(e))
 
