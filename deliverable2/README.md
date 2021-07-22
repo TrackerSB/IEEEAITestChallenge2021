@@ -127,9 +127,10 @@ python salvo.py generate-all-paths-with-parking \
         --map-file BorregasAve \
         --before-junction 20 \
         --after-junction 20 \
-        --parking-distance 5
+        --parking-distance 5 \
+        --side 0
 ```
-In this example, we configure SALVO to use the Borregas Avenue map, start and end paths 20 meters from the intersection, and place NPC 5 meters before the intersection.
+In this example, we configure SALVO to use the Borregas Avenue map, start and end paths 20 meters from the intersection, and place NPC 5 meters before the intersection and it stays on the right side by default.
 
 > Note: In this first implementation of our approach, we do not place NPC after the intersections.
 

@@ -95,7 +95,7 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
 @click.option('--before-junction', type=int, help="Distance before entering junction")
 @click.option('--after-junction', type=int, help="Distance after leaving junction")
 @click.option('--parking-distance', type=int, help="Parking distance before entering junction")
-@click.option('--side', type=int, is_flag=False, flag_value="Flag", help="[Optional] Parking Side 0:Left 1:Middle 2:Right")
+@click.option('--side', type=int, is_flag=False, flag_value="Flag", help="[Optional] Parking Side 0:Right 1:Middle 2:Left")
 @click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
