@@ -143,7 +143,7 @@ python salvo.py generate-all-paths-with-parking \
         --before-junction 20 \
         --after-junction 20 \
         --parking-distance 5 \
-        --side 0
+        --parking-side RIGHT
 ```
 
 In this example, we configure SALVO to use the Borregas Avenue map, start and end the paths 20 meters from the intersection, and place an NPC 5 meters before the intersection. By default, the NPC position is in front of the ego-car on the right side of the lane, but SALVO can place NPC also in other positions.
@@ -167,10 +167,9 @@ python salvo.py generate-all-paths-with-parking \
 
 We published several videos illustrating our approach in action against Apollo Baidu (v.6.0) on YouTube. In this section, we link those videos and provide a short description of their content.
 
-- [Borregas Avenue No Obstacle](https://youtu.be/w97iPkMUBT0). This video shows a test involving no NPCs created by SALVO in the BorregasAve map.
-
-- [Static Obstacles on the Right Side in Borregas Avenue](https://youtu.be/2b8SafWWtYE). This video shows a test created by SALVO in the BorregasAve map, which features an obstacle placed on the right side of the lane.
-
+- [Borregas Avenue No Obstacle](https://youtu.be/IseDL4R2AIE). This video shows a test involving no NPCs created by SALVO in the BorregasAve map.
+- [Static Obstacles on the Right Side in Borregas Avenue](https://youtu.be/2Im8xnfY3lc). This video shows a test created by SALVO in the BorregasAve map, which features an obstacle placed on the right side of the lane.
+- [Static Obstacles on the Left Side in CubeTown](https://youtu.be/ubiUYdo4ZUc). This video shows a test created by SALVO in the CubeTown map, which features an obstacle placed on the left side of the lane.
 - [Static Obstacles in CubeTown](https://youtu.be/WLIh9Pv8FcI). This video shows four tests created by SALVO in the CubeTown map. The tests cover various combinations of static obstacle placement:
  - no obstacle
  - an obstacle in the middle of the lane
