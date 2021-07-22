@@ -51,7 +51,7 @@ class Experiment:
         except Exception as e:
             print("{}".format(e))
 
-    def generate_data_paths(self, before_junction, after_junction, parking_distance=0):
+    def generate_data_paths(self, before_junction, after_junction, parking_distance=0, side=0):
         if self.plan is None:
             raise Exception("Test Type (Go Straight or Parking) is not specified!")
 
@@ -70,7 +70,7 @@ class Experiment:
                               lanelet_network=lanelet.lanelet_network,
                               before_entering_junction=before_junction, after_leaving_junction=after_junction,
                               before_entering_junction_parking=parking_distance)
-            routes = path_model.generate_driving_paths_with_parking()
+            routes = path_model.generate_driving_paths_with_parking(side)
 
         # Filter the list of paths
         paths = 0
