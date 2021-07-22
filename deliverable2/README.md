@@ -171,9 +171,9 @@ We published several videos illustrating our approach in action against Apollo B
 - [Static Obstacles on the Right Side in Borregas Avenue](https://youtu.be/2Im8xnfY3lc). This video shows a test created by SALVO in the BorregasAve map, which features an obstacle placed on the right side of the lane.
 - [Static Obstacles on the Left Side in CubeTown](https://youtu.be/ubiUYdo4ZUc). This video shows a test created by SALVO in the CubeTown map, which features an obstacle placed on the left side of the lane.
 - [Static Obstacles in CubeTown](https://youtu.be/WLIh9Pv8FcI). This video shows four tests created by SALVO in the CubeTown map. The tests cover various combinations of static obstacle placement:
- - no obstacle
- - an obstacle in the middle of the lane
- - obstacles partially occluding the lane on the left and right sides
+   - no obstacle
+   - an obstacle in the middle of the lane
+   - obstacles partially occluding the lane on the left and right sides
 
 ## References
 [1] M. Althoff et al., "Automatic Conversion of Road Networks from OpenDRIVE to Lanelets," in Proc. of the IEEE International Conference on Service Operations and Logistics, and Informatics, 2018
