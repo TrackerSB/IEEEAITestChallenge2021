@@ -4,6 +4,8 @@ import os
 import json
 from ..correlation.utils import direction_coverage, min_radius
 
+import numpy as np
+
 
 class Route:
     def __init__(self, predecessor, intersection, successor,
@@ -60,7 +62,7 @@ class Route:
                     {
                         "start": [start_point[1][0], start_point[1][1]],
                         "end": [end_point[1][0], end_point[1][1]],
-                        "park": [park_point[1][0], park_point[1][1]],
+                        "park": [park_point[0], park_point[1]],
                     }
                     , fp)
 
@@ -82,7 +84,7 @@ class Route:
             plt.plot(*start_point[i], "o")
             plt.plot(*end_point[i], "x")
             if park_point is not None:
-                plt.plot(*park_point[1], "s")
+                plt.plot(park_point[0], park_point[1], "s")
 
         Common.plot_polygon(oracle_polygons[0])
         Common.plot_polygon(oracle_polygons[1])

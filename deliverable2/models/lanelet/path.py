@@ -1,6 +1,10 @@
 import math
 from .route import Route
 
+MIDDLE = 0
+RIGHT = 1
+LEFT = 2
+
 
 class Path:
     def __init__(self, intersections, lanelet_network, before_entering_junction=20, after_leaving_junction=20,
@@ -98,7 +102,7 @@ class Path:
 
         return routes
 
-    def generate_driving_paths_with_parking(self):
+    def generate_driving_paths_with_parking(self, side):
         routes = list()
         for intersection in self.intersections:
             for lanelet_inside_intersection_id in intersection:
@@ -137,6 +141,12 @@ class Path:
                 interpolated_path.extend(inside_points)
                 interpolated_path.extend(successor_points)
 
+                selected_parking_point = parking_point[RIGHT]
+                if side == 1:
+                    selected_parking_point = parking_point[MIDDLE]
+                if side == 2:
+                    selected_parking_point = parking_point[LEFT]
+
                 # Make sure we keep track of it
                 route = Route(predecessor=predecessor_lanelet,
                               intersection=lanelet_inside_intersection,
@@ -144,7 +154,7 @@ class Path:
                               starting_point=starting_point,
                               ending_point=ending_point,
                               interpolated_points=[(p[0], p[1]) for p in interpolated_path],
-                              parking_point=parking_point)
+                              parking_point=selected_parking_point)
 
                 routes.append(route)
                 # route.visualize()

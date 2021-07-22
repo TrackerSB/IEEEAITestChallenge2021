@@ -95,10 +95,11 @@ def run_scenarios(map_file, before_junction, after_junction, samples, filter):
 @click.option('--before-junction', type=int, help="Distance before entering junction")
 @click.option('--after-junction', type=int, help="Distance after leaving junction")
 @click.option('--parking-distance', type=int, help="Parking distance before entering junction")
+@click.option('--side', type=int, is_flag=False, flag_value="Flag", help="[Optional] Parking Side 0:Left 1:Middle 2:Right")
 @click.option('--filter', nargs=3, is_flag=False, flag_value="Flag", type=(str, float, bool),
               help="[Optional] Filter Arguments: Method (Distance or Feature), Measure (Min-distance or the number "
                    "of cells) and Display Plot or not")
-def generate_all_paths_with_parking(map_file, before_junction, after_junction, parking_distance, filter):
+def generate_all_paths_with_parking(map_file, before_junction, after_junction, parking_distance, side, filter):
     map_list = MAPS[map_file].split('/')
     mmap = {
         "name": map_list[len(map_list) - 1].split('.')[0],
@@ -112,7 +113,7 @@ def generate_all_paths_with_parking(map_file, before_junction, after_junction, p
             expm.set_filter({"method": method, "distance": value, "show_plot": show_plot})
         if method == "feature":
             expm.set_filter({"method": method, "cells": value, "show_plot": show_plot})
-    expm.generate_data_paths(before_junction, after_junction, parking_distance)
+    expm.generate_data_paths(before_junction, after_junction, parking_distance, side)
 
 
 if __name__ == "__main__":
