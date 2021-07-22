@@ -10,7 +10,9 @@ The python modules to generate, filter, and execute the test cases are available
 
 We do not describe any *predefined* scenarios or trips/routes, as SALVO generates them automatically at runtime. Nevertheless, we report examples of the generated routes inside the folder `trips-routes`. 
 
-- [ ] **TODO: Plot the intersection and the trip/route if possible!!**
+- [x] **TODO: Plot the intersection and the trip/route if possible!!**
+
+![Trip Route](./trips-routes/trips-routes-00.jpg)
 
 We report the simulation execution reports for some of the generated scenario executions inside the folder `simulation reports` as PDF files. Finally, we list the links to videos illustrating SALVO in action in the following section.
 
@@ -138,14 +140,17 @@ python salvo.py generate-all-paths-with-parking --map-file BorregasAve --before-
 > Note: the previous commands generate (but do not execute) the test cases. To generate AND execute the test cases, execute the `run-scenarios` command. 
 
 ## Link to Videos
-- [ ] **TODO: Add more videos and descriptions!!**
+- [x] **TODO: Add more videos and descriptions!!**
 
 We published several videos on YouTube illustrating our approach in action against Apollo Baidu (v.6.0).
 **TODO: Check that the version of APOLLO is correct **
 In this section, we link those videos and provide a short description of their content.
 
-**TODO: Probably we should add some more videos here!! **
-**TODO: Double check that the videos are working fine **
+- [x] **TODO: Probably we should add some more videos here!! **
+- [x] **TODO: Double check that the videos are working fine **
+
+- [BorregasAve No Obstacle](https://youtu.be/w97iPkMUBT0). This video shows how SALVO created a test in the BorregasAve map to cover no static object placement.
+- [Static Obstacles on the Right Side in BorregasAve](https://youtu.be/2b8SafWWtYE). This video shows how SALVO created a test in the BorregasAve map to cover a static object placement on the right side.
 
  - [Static Obstacles in CubeTown](https://youtu.be/WLIh9Pv8FcI). This video shows how SALVO created four tests in the CubeTown map to cover various combinations of static object placement:
 no obstacle
