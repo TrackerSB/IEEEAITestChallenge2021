@@ -12,7 +12,10 @@ We do not describe any *predefined* scenarios or trips/routes, as SALVO generate
 
 - [x] **TODO: Plot the intersection and the trip/route if possible!!**
 
-![Trip Route](./trips-routes/trips-routes-00.jpg)
+![Trip Route](./trips-routes/trips-routes-00.png)
+![Trip Route with Obstacle on the right](./trips-routes/trips-routes-01.png)
+![Trip Route with Obstacle in front](./trips-routes/trips-routes-02.png)
+![Trip Route with Obstacle on the left](./trips-routes/trips-routes-03.png)
 
 We report the simulation execution reports for some of the generated scenario executions inside the folder `simulation reports` as PDF files. Finally, we list the links to videos illustrating SALVO in action in the following section.
 
