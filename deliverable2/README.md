@@ -47,6 +47,7 @@ Up to this point, SALVO did not consider the diversity of test cases. It simply 
 
 We study two (greedy) approaches for filtering out similar test cases. The first approach consists of computing the iterative Levenshtein distance between pairs of legal trajectories and removing those not distant enough from trajectories already included in the test suite. The similarity between legal trajectories is controlled via a configurable threshold.
 The second approach is based on the feature maps defined by Zohdinasab et al. [2]. Features such as minimum curvature and direction coverage capture high-level characteristics of the legal trajectories and can be used to place the legal trajectory on maps in which each cell corresponds to a different combination of features. Conversely, elements that belong to the same cell have similar features and can be filtered out.
+
 > Note: This second approach produces a succinct evaluation of the coverage achieved by test cases SALVO generated as a by-product.
 
 #### 4. Generating Test Cases
@@ -76,9 +77,9 @@ We tested SALVO on **Ubuntu 20.04.2 LTS** running the **SVL Simulator version 20
 - GoMentum
 - San Francisco
 
-**Note:** SALVO requires the .xodr files of the maps. For simplicity, we copied those files inside this repo.
+**Note:** SALVO requires the .xodr files of the maps and Lincoln2017MKZ for a vehicle. For simplicity, we copied those files inside this repo.
 
-**TODO: Add specifications for the ego-car, cyber-bridge, etc.**
+- [x] **TODO: Add specifications for the ego-car, cyber-bridge, etc.**
 
 ## Usage Examples
 
@@ -142,9 +143,7 @@ python salvo.py generate-all-paths-with-parking --map-file BorregasAve --before-
 ## Link to Videos
 - [x] **TODO: Add more videos and descriptions!!**
 
-We published several videos on YouTube illustrating our approach in action against Apollo Baidu (v.6.0).
-**TODO: Check that the version of APOLLO is correct **
-In this section, we link those videos and provide a short description of their content.
+We published several videos on YouTube illustrating our approach in action against Apollo Baidu (v.6.0). In this section, we link those videos and provide a short description of their content.
 
 - [x] **TODO: Probably we should add some more videos here!! **
 - [x] **TODO: Double check that the videos are working fine **
