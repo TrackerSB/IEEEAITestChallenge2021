@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document is our written simulation test report. In addition, we will submit a paper to the IEEE Test AI conference as suggested by the IEEE Test AI Challenge organizers. A copy of that paper is available in this repo for completeness.
+This document is our written simulation test report. Unfortunately, we were not able to submit a paper to the IEEE Test AI conference as suggested by the IEEE Test AI Challenge organizers. 
 
 In this document, we briefly describe SALVO ---Stephan, ALessio, and VuOng, our names, meaning "safe"  the Italian--- for generating relevant and diversified test cases leveraging existing maps.
 
