@@ -125,44 +125,46 @@ Consequently, and in contrast to many existing test case generators (e.g., ~\cit
 However, since generating virtual tests without any guidance is not cost-effective either because not all the generated tests are relevant or because many tests are similar to each other, \tool follows a systematic approach to generate only relevant test cases and maximize their diversity.
 
 The current implementation of \tool takes existing maps in OpenDrive format~\cite{dupuis2010opendrive}, generates abstract driving scenarios involving intersections, and selects among them those that result in quantifiably different ego-vehicle trajectories (see Figure~\ref{fig:samples-cubetown}). Finally, it instantiates the selected scenarios in the industrial driving simulation SVL~Simulator~\cite{rong2020lgsvl} as test cases and automatically executes them.
-%
-We released \tool freely at the following link:
+
+To promote further research and enable reproducibility of our results, we release \tool as open-source software. \tool's source code and instructions to configure and run it are available at the following link:
 \begin{center}
 \href{https://github.com/TrackerSB/IEEEAITestChallenge2021}{https://github.com/TrackerSB/IEEEAITestChallenge2021}
 \end{center}
 
-
-\section{LGSVL Simulator}
-\label{subsect:lgsvl}
-The LGSVL is a high fidelity simulator that providing full-stack simulation to challenge the autonomous driving software \cite{rong2020lgsvl}. The core simulation engine is based on the Unity game engine \cite{rong2020lgsvl}, one of the best solutions for high fidelity, developer-friendly, cost-effective simulation environments in the industry \cite{craighead2008using}. The simulator provides a reliable communication bridge that allows the exchange of ROS, ROS2, and Cyber RT messages between the simulator and other Autonomous Driving stacks \cite{rong2020lgsvl}. Thus, it can enable software engineers to quickly testing their self-driving software without driving actual vehicles in such common stacks as Autoware and Baidu Apollo \cite{rong2020lgsvl} as illustrated in the Figure~\ref{fig:apollosim}. Moreover, additional features such as easily customize sensors, build and manage new controllable objects, adjust the core simulator' modules, and generate diversified scenarios of particular environments, the simulator can empower various simulation applications for autonomous driving and more \cite{rong2020lgsvl}.
-
 \begin{figure}[tp]
   \centering
     \includegraphics[width=0.5\textwidth]{images/apollo-sim}
-  \caption{
-    Apollo running with LGSVL Simulator, via LGSVL Simulator Website (\href{https://www.svlsimulator.com/docs/archive/2020.06/apollo-master-instructions}{https://www.svlsimulator.com/docs/archive/2020.06/apollo-master-instructions}).
-    }
+  \caption{Apollo Baidu (right, bottom) running with the SVL Simulator~\cite{svl-website}}
   \label{fig:apollosim}
 \end{figure}
 
 
+\section{SVL Simulator}
+\label{subsect:lgsvl}
+The SVL Simulator~\cite{rong2020lgsvl} is the driving simulation selected for the \challenge.
+It is an industrial driving simulator that provides the full simulation stack to test autonomous driving software: On one side, it provides a core simulation engine based on Unity for high fidelity, developer-friendly, cost-effective rigid-body simulation~\cite{craighead2008using}; on the other side, it provides a communication bridge that allows connecting existing autonomous driving stacks such as Autoware~\cite{DBLP:journals/micro/KatoTINTH15} and Apollo Baidu~\cite{apollo}~(see~Figure~\ref{fig:apollosim}). 
+Moreover, the SVL Simulator implements additional features such as easily customizing sensors and an API that enables building and managing controllable objects, adjusting the core simulator's modules, and the automated generation and execution of driving scenarios.
+
+
 \section{Lanelets}
 \label{subsect:lanelets}
-Lanelets are a novel concept to represent the map in both topological and geometrical terms that roughly correspond to (segments of) road lanes~\cite{bender2014lanelets}. Lanelets comprise a set of atomic, interconnected, and \emph{drivable} road segments defined by a left and right bound. Bounds are implemented as polylines (i.e., list of points) and implicitly define the traffic direction, which helps determine the route from the given point to the predefined destination~\cite{PekIV20}.
+Lanelets are a novel concept to represent road maps in both topological and geometrical terms. Lanelets models \emph{drivable} road segments and roughly correspond to (segments of) road lanes~\cite{bender2014lanelets}. They are defined by left and right bounds implemented as polylines (i.e., list of points), connected to define complex road maps, and overlapping to form intersections, joins, and merges. Since lanelets encode allowed traffic directions, they help determine the route from a predefined starting point to a given destination~\cite{PekIV20}.
 
-\begin{figure}[H]
+\begin{figure}[tp]
   \centering
     \includegraphics[width=0.5\textwidth]{images/lanelets_01}
   \caption{An example of lanelets \cite{althoff2018automatic}.}
   \label{fig:lanelets}
 \end{figure}
 
-As illustrated in Figure~\ref{fig:lanelets}, connecting lanelets establishes semantic relations among them and gives rise to road segments and complex road networks that include merge/join and intersections. For example, \emph{adjacent} lanelets share a bound while \emph{preceding/following} lanelets share start point and endpoint in accordance to their traffic directions~\cite{althoff2018automatic}. Notably, lanelets can overlap and share the same start point and endpoint; consequently, they can form complex intersections~\cite{Althoff2017a} and can be used as an intermediate format to represent existing maps~\cite{althoff2018automatic}.
+As illustrated in Figure~\ref{fig:lanelets}, lanelets can be connected to establish semantic relations that form longer road segments, intersections, merges and joins, and complex road networks. Therefore
+they can be used as an intermediate format to represent existing road maps~\cite{althoff2018automatic}. For example, \emph{adjacent} lanelets share one of the two bounds while \emph{preceding/following} lanelets share start or end points in accordance to their traffic direction~\cite{althoff2018automatic}. Notably, lanelets that overlap and share start or end points form intersections~\cite{Althoff2017a}.
 %
-As we detail later, \tool relies on those features to translate existing maps into the lanelets format, identify intersections, and define (abstract) driving scenarios.
+As we detail later, \tool relies on those features to automatically identify the intersections in existing road maps by analyzing their lanelets representation and define (abstract) driving scenarios across them.
+
 
 \section{Automatically Generating Diversified Tests from Existing Maps}
-This section describes our approach and the generated test scenarios. The following sections, instead, summarize achieved results and found problems.
+This section describes our approach to analyze existing maps and generate sets of diversified driving scenarios using two metrics to establish tests diversity. Instead, the following sections present \tool's evaluation in the context of the \challenge, discuss the achieved results and describe promising ideas for future work.
 
 \begin{figure*}[t]
 \minipage{0.32\textwidth}
