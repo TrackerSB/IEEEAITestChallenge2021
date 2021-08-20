@@ -20,6 +20,7 @@
 \begin{document}
 
 \newcommand{\tool}{\textsc{SALVO}\xspace}
+\newcommand{\challenge}{2021 IEEE Autonomous Driving AI Test Challenge\xspace}
 \newboolean{showcomments}
 \setboolean{showcomments}{true}         
 %\setboolean{showcomments}{false} 
@@ -71,7 +72,7 @@ alessio.gambi@uni-passau.de}
 % \item automatically generates test cases that implement those diversified driving scenarios.
 % \end{inparaenum}
 % %
-% We demonstrated \tool in the 2021 IEEE Test AI Challenge
+% We demonstrated \tool in the \challenge
 % by testing state-of-the-art self-driving car software using an industrial driving simulator.
 % In a matter of minutes, \tool analyzed five maps of different complexity levels (from $2$ to more than $15$ intersections), identified more than $1100$ relevant driving scenarios, and selected on average half of them for the execution.
 % %
@@ -84,12 +85,12 @@ alessio.gambi@uni-passau.de}
 %(1) to systematically identify relevant driving scenarios among the myriad of potential driving scenarios,
 %(2) to select scenarios that reduce the required overall testing efforts by ensuring quantifiability and diversity of the expected behaviours of self-driving cars for succeeding scenarios and
 %(3) to generate those test cases.\\
-%We demonstrated \tool at the 2021 IEEE Test AI Challenge by running state-of-the-art self-driving car software in an industrial driving simulator against our generated test cases.
+%We demonstrated \tool at the \challenge by running state-of-the-art self-driving car software in an industrial driving simulator against our generated test cases.
 %In a matter of minutes, \tool analyzed five maps of different complexity (from 2 to more than 15 intersections), identified more than 1100 relevant driving scenarios and selected on average half of them for actual test executions.
 %The evaluation results showed that the generated test cases resulted in quantifiable and diverse trajectories and exposed issues of the self-driving car software.
 
 Simulation-based tests are more cost-effective and less dangerous than field tests; hence, they are becoming the norm for thoroughly testing self-driving cars in virtual environments. High-quality simulation-based testing requires physically accurate computer simulations,  detailed and photo-realistic maps, and systematic approaches for generating tests. Moreover, since creating detailed maps is a manual process, they are expensive, and testers should avoid wasting such valuable resources, for example, by generating irrelevant test cases. To address those issues, we propose \tool a fully automated approach to identify quantifiably diverse and critical driving scenarios that can be instantiated on existing high-definition maps and implement them in an industrial driving simulator as executable test cases.
-The evaluation of \tool in the context of the 2021 IEEE Test AI Challenge showed that it could analyze maps of different complexity and identify many critical driving scenarios in minutes. Furthermore, the tests \tool generated stressed a state-of-art self-driving car software in quantifiably diverse ways and exposed issues with its implementation.
+The evaluation of \tool in the context of the \challenge showed that it could analyze maps of different complexity and identify many critical driving scenarios in minutes. Furthermore, the tests \tool generated stressed a state-of-art self-driving car software in quantifiably diverse ways and exposed issues with its implementation.
 \end{abstract}
 
  \begin{IEEEkeywords}
@@ -97,49 +98,33 @@ Test Case Generation, Autonomous Vehicles, Software-in-the-loop, Diversity, Feat
  \end{IEEEkeywords}
 
 \section{Introduction and Motivation}
-Self-driving cars promise to reduce traffic accidents \cite{peden2016status}, increase fuel efficiency \cite{zamzuri2016current} and enhance comfort %and safety for elders and disabled people 
- \cite{harper2016estimating}.
-Testing self-driving car software is laborious and challenging since their development is still in an early stage and testing them lacks of standardized procedures and established approaches \cite{gambi2019generating}.\par
-
-Nevertheless, many researchers and organisations put a lot of effort in exploring and devising testing approaches to increase the quality of autonomous vehicles before they roam the thoroughfares.
+Self-driving cars promise to reduce traffic accidents \cite{peden2016status}, increase fuel efficiency~\cite{zamzuri2016current} and enhance comfort~\cite{harper2016estimating}.
+Testing self-driving car software is laborious and challenging since self-driving car's development is still in an early stage, and there is a lack of standardized procedures and established approaches \cite{gambi2019generating}. Therefore, many researchers and organizations are currently investigating testing approaches to increase the quality of autonomous vehicles before they roam the thoroughfares.
 %
-Naturalistic field operational testing is a popular approach to validate and verify the safety of autonomous vehicles by leaving the autonomous cars to drive freely on actual roads~\cite{kalra2016driving}. However, this method is inefficient and dangerous~\cite{gambi2019generating}, since attractive execution conditions (e.g.,  traffic situations that lead to traffic accidents) are hard or impossible to recreate, limiting the replicability of testing results~\cite{hasenau2019virtual}. An alternative approach is virtual testing that uses computer simulations aggregating different control procedures under numerous virtual road conditions and traffic patterns to generate diverse test cases to challenge the self-driving software~\cite{hasenau2019virtual}. Virtual testing enables automated test execution and can expose problems in autonomous software, including perception, planning, and decision-making systems. However, it requires the availability of accurate road maps and geometrical models (e.g., 3D models with textures and material properties) to achieve reliable simulations and photo-realism. Artists and domain experts by themselves usually create those maps and models following a manual, laborious, and expensive process.
-%
-Consequently, cartography is an essential building block to conduct thorough virtual testing of autonomous vehicles~\cite{althoff2018automatic}. 
+Naturalistic field operational testing is a popular approach to validate and verify the safety of autonomous vehicles that leaves them free to drive on actual roads. However, as discussed by Kalra and Paddock~\cite{kalra2016driving}, this method is inefficient since relevant execution conditions (e.g., traffic situations that lead to traffic accidents) are hard to observe and ineffective as dangerous situations are impossible to recreate. Those, in turn, make limit the replicability of natural field operational tests' results ~\cite{hasenau2019virtual}. An alternative approach is virtual testing, also known as simulation-based testing, which uses computer simulations to generate diverse test cases to challenge the self-driving software involving traffic patterns and numerous virtual road conditions~\cite{hasenau2019virtual}. Virtual testing enables automated test execution and can expose problems in autonomous software, including perception, planning, and decision-making systems. However, it requires the availability of accurate geometrical models (e.g., 3D models with textures and material properties) to achieve photo-realism, i.e., to close the simulation-to-reality gap~\cite{9207173}, and detailed road maps. Consequently, cartography is an essential building block to conduct thorough virtual testing of autonomous vehicles~\cite{althoff2018automatic}.  Artists and domain experts cooperate to create those models and maps following a manual, laborious, and expensive process.
 
-% \begin{figure}[H]
-%   \centering
-%     \includegraphics[width=0.5\textwidth]{images/lanelets_00}
-%   \caption{Map representation by lanelets~\cite{bender2014lanelets}.}
-%   \label{fig:lanelets}
-% \end{figure}
-
-\begin{figure}[H]
+\begin{figure}[t]
   \centering
     \includegraphics[width=0.3\textwidth]{images/cubetown_1}
     \includegraphics[width=0.3\textwidth]{images/cubetown_2}
     \includegraphics[width=0.3\textwidth]{images/cubetown_3}
-  \caption{Sample driving scenarios generated by \tool from one intersection in the Cube Town map, one of the simplest maps available for the 2021 IEEE Test AI Challenge. Driving scenarios start at the dot, before entering  intersections, and end at the cross, after passing  intersections.
-  Top: left turn; Middle: right turn; Bottom: straight through.}
+  \caption{Sample driving scenarios generated by \tool from an intersection in the Cube Town map available for the \challenge. Driving scenarios begin before entering an intersection~($\bullet$) and end after passing it~($\times$). Top: left turn; Middle: right turn; Bottom: straight through.}
   \label{fig:samples-cubetown}
 \end{figure}
 
-A detailed road map consists of sets of roads composed of lanes, their interconnections (e.g., intersections, junctions), and regulations; hence, it allows creating a coherent, rich (virtual) environment around the ego-vehicle and diversified driving scenarios~\cite{althoff2018automatic,bender2014lanelets}. 
+Detailed road maps consist of roads composed of lanes, their interconnections (e.g., intersections, junctions), and traffic regulations controlling them (e.g., speed limit, traffic direction); hence, they allow testers to create rich, coherent, and diversified driving scenarios~\cite{althoff2018automatic,bender2014lanelets}. 
 %
-Among the existing formats to model road maps, in this work, we rely on notion of lanelets~\cite{bender2014lanelets}, an innovative concept for road representation adopted by many (see Section~\ref{subsect:lanelets}).
+Among the existing formats to model road maps, in this work, we rely on the notion of \emph{lanelets}~\cite{bender2014lanelets}, an innovative concept for road representation adopted by many (see Section~\ref{subsect:lanelets}).
 %
-We rely on lanelets to identify road configurations (e.g., intersections) to create relevant driving scenarios and to generate simulation-based test cases that challenge the autonomous vehicle's software automatically. 
-In other words, we abstract existing maps into the lanelets format, generate  relevant and diversified (abstract) driving scenarios from this representation, and instantiate them into concrete scenarios running in existing driving simulators.
+Specifically, we rely on the semantics encoded in the lanelets representation of existing maps to identify intersections and create relevant driving scenarios around and across them. In other words, we abstract existing maps into the lanelets format to generate relevant and diversified \emph{abstract} driving scenarios. Next, we instantiate those abstract scenarios into concrete ones and generate simulation-based test cases that automatically challenge the autonomous vehicle's software in existing driving simulators.
 
-%\section{Introduction}
-In this paper, we present \tool that implements our approach and summarize its application in the context of the 2021 IEEE Test AI Challenge.
-\tool, which is dubbed after our names ---Stephan, Alessio, and Vuong--- and means "safe" in Italian, works under the consideration that because manually generated road maps are costly, testers must use (and re-use) them wisely and extensively. 
-Consequently, it leverages existing maps and generates as many tests as possible.
+In this paper, we present \tool that implements our approach and summarize its evaluation in the context of the \challenge.
+\tool, which is dubbed after the author's first names ---Stephan, Alessio, and Vuong--- and means ``safe'' in Italian, works under the consideration that because manually generated road maps are costly and valuable, testers must use (and re-use) them wisely and extensively. 
+Consequently, and in contrast to many existing test case generators (e.g., ~\cite{DBLP:conf/icse/GambiMF19,DBLP:conf/icse/HuynhGF19,DBLP:conf/sigsoft/RiccioT20,DBLP:conf/issta/ZohdinasabRGT21,DBLP:conf/sbst/PanichellaGZR21}) that procedurally generate virtual roads, it leverages existing maps to generate as many tests as possible.
 %
 However, since generating virtual tests without any guidance is not cost-effective either because not all the generated tests are relevant or because many tests are similar to each other, \tool follows a systematic approach to generate only relevant test cases and maximize their diversity.
-%. Hence, they are unlikely to discover new insights into the ego-vehicle's behavior. Therefore, 
 
-In short, \tool takes a map in OpenDrive (.xodr) format, generates abstract driving scenarios involving intersections (see Figure~\ref{fig:samples-cubetown}) and selects only those scenarios that result in diversified trajectories of the ego-vehicle to become concrete scenarios. After selecting the concrete driving scenarios, \tool generates test cases implement them and execute those test cases on Ubuntu 20.04.2 LTS running top-end industrial driving simulation and tools such as the SVL Simulator version 2021.01 and Apollo Baidu version 6.0 \footnote{\href{https://apollo.auto/}{https://apollo.auto}} in accordance to the rules of the 2021 IEEE Test AI Challenge.
+The current implementation of \tool takes existing maps in OpenDrive format~\cite{dupuis2010opendrive}, generates abstract driving scenarios involving intersections, and selects among them those that result in quantifiably different ego-vehicle trajectories (see Figure~\ref{fig:samples-cubetown}). Finally, it instantiates the selected scenarios in the industrial driving simulation SVL~Simulator~\cite{rong2020lgsvl} as test cases and automatically executes them.
 %
 We released \tool freely at the following link:
 \begin{center}
@@ -151,7 +136,7 @@ We released \tool freely at the following link:
 \label{subsect:lgsvl}
 The LGSVL is a high fidelity simulator that providing full-stack simulation to challenge the autonomous driving software \cite{rong2020lgsvl}. The core simulation engine is based on the Unity game engine \cite{rong2020lgsvl}, one of the best solutions for high fidelity, developer-friendly, cost-effective simulation environments in the industry \cite{craighead2008using}. The simulator provides a reliable communication bridge that allows the exchange of ROS, ROS2, and Cyber RT messages between the simulator and other Autonomous Driving stacks \cite{rong2020lgsvl}. Thus, it can enable software engineers to quickly testing their self-driving software without driving actual vehicles in such common stacks as Autoware and Baidu Apollo \cite{rong2020lgsvl} as illustrated in the Figure~\ref{fig:apollosim}. Moreover, additional features such as easily customize sensors, build and manage new controllable objects, adjust the core simulator' modules, and generate diversified scenarios of particular environments, the simulator can empower various simulation applications for autonomous driving and more \cite{rong2020lgsvl}.
 
-\begin{figure}[H]
+\begin{figure}[tp]
   \centering
     \includegraphics[width=0.5\textwidth]{images/apollo-sim}
   \caption{
@@ -250,11 +235,11 @@ Specifically, \tool calculates the iterative Levenshtein distance between pairs 
 Testers can control the similarity between the trajectories using a configurable threshold to create larger or smaller test suites. 
 
 
-A similar approach to select diverse trajectories was followed by Zohdinasab and co-author in a pilot study to identify road features relevant for testing lane keeping systems~\cite{zohdinasab2021deephyperion}.
+A similar approach to select diverse trajectories was followed by Zohdinasab and co-author in a pilot study to identify road features relevant for testing lane keeping systems~\cite{DBLP:conf/issta/ZohdinasabRGT21}.
 As \tool, they took inspiration for the computation of the iterative Levenshtein distance from the work of Riccio and Tonella~\cite{DBLP:conf/sigsoft/RiccioT20}.
 
 \subsubsection{Filtering Driving Scenarios using Feature Maps}
-The second approach to select diversified scenarios is based on the feature maps defined by Zohdinasab et al.~\cite{zohdinasab2021deephyperion}. 
+The second approach to select diversified scenarios is based on the feature maps defined by Zohdinasab et al.~\cite{DBLP:conf/issta/ZohdinasabRGT21}. 
 %
 \tool generates numerous driving scenarios containing different types of trajectories and features such as minimum curvature and direction coverage capturing high-level characteristics of those trajectories, which can be used to build feature maps. Those maps place driving scenarios in a two-dimensional space according to the values taken by their features.
 %
@@ -316,10 +301,10 @@ In summary, on top of the test cases that \tool can generate from a given map, t
 \tool is implemented as a Python (version 3.9) command-line application and currently integrated with the SVL driving simulator.\footnote{\href{https://www.svlsimulator.com/}{https://www.svlsimulator.com/}} 
 % Specifically, we use Python 3.9, the libraries listed in the requirements.txt file, and the maps in OpenDrive format available in the SVL simulator.
 %
-We tested \tool on Ubuntu 20.04.2 LTS running the SVL Simulator version 2021.01 and Apollo Baidu version 6.0 \footnote{\href{https://apollo.auto/}{https://apollo.auto/}} in accordance to the rules of the 2021 IEEE Test AI Challenge.
+We tested \tool on Ubuntu 20.04.2 LTS running the SVL Simulator version 2021.01 and Apollo Baidu version 6.0 \footnote{\href{https://apollo.auto/}{https://apollo.auto/}} in accordance to the rules of the \challenge.
 
 \section{Achieved Results and Found Problems}
-To evaluate \tool, we applied it to test Apollo Baidu on the following five maps that were available on the SVL Web site at the time the 2021 IEEE Test AI Challenge took place:
+To evaluate \tool, we applied it to test Apollo Baidu on the following five maps that were available on the SVL Web site at the time the \challenge took place:
 
 \begin{enumerate}
  \item Cube Town
