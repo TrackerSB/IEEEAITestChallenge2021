@@ -15,6 +15,8 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 
+\usepackage{flushend}
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -23,7 +25,7 @@
 \newcommand{\challenge}{2021 IEEE Autonomous Driving AI Test Challenge\xspace}
 
 \newboolean{showcomments}
-\setboolean{showcomments}{true}         
+\setboolean{showcomments}{false}         
 %\setboolean{showcomments}{false} 
 \ifthenelse{\boolean{showcomments}}
   {\newcommand{\nb}[2]{
@@ -224,7 +226,7 @@ Testers can control the similarity between the trajectories using a configurable
 %As \tool, they took inspiration for the computation of the iterative Levenshtein distance from the work of Riccio and Tonella~\cite{DBLP:conf/sigsoft/RiccioT20}.
 
 \subsubsection{Filtering Driving Scenarios using Feature Maps}
-The second approach to select diversified scenarios utilizes the feature maps defined by Zohdinasab et al.~\cite{zohdinasab2021deephyperion}. 
+The second approach to select diversified scenarios utilizes the feature maps defined by Zohdinasab et al.~\cite{DBLP:conf/issta/ZohdinasabRGT21}. 
 Trajectory features capture high-level characteristics of the abstract scenarios that are relevant for testing self-driving car software; examples of those features are the number of turns and the minimum curvature\footnote{The minimum curvature highlights the presence of sharp turns.} that quantify how difficult it would be to follow the trajectory. Instead, feature maps place driving scenarios in a two-dimensional space according to the values taken by their features and provide a compact and understandable representation of their most salient aspects. Intuitively, scenarios with similar features are placed in nearby cells, whereas scenarios that are far away in the map have very different features (see Figure~\ref{fig:feature-maps}).
 
 \begin{figure*}[t]
@@ -244,7 +246,7 @@ Right panel: Diverse trajectories sampled from distant cells in the feature map,
 \label{fig:feature-maps}
 \end{figure*}
 
-\tool's goal is to generate driving scenarios that result in trajectories with different characteristics; therefore, given a feature map filled with all the generated trajectories, \tool selects from each cell at most one trajectory (i.e., driving scenario) as a representative for the class of trajectories with the same feature combination while discarding the others.
+\tool's goal is to generate driving scenarios that result in trajectories with different characteristics; therefore, given a feature map filled with all the generated trajectories, \tool selects from each cell at most one trajectory (i.e., driving scenario) as the representative for the class of trajectories with the same feature combination while discarding the others.
 
 Notably, using the feature maps, testers can easily quantify the coverage achieved by \tool by counting the number of cells that contain at least one driving scenario. Likewise, content generators can use the feature maps to assess the ``richness'' of the road maps. 
 %
@@ -270,102 +272,121 @@ In summary, on top of the diversified test cases that \tool generates from a giv
 We implemented \tool in Python (v3.9) as a command-line application and integrated it with the SVL driving simulator (v2021.01) in accordance to the rules of the \challenge.
 For the evaluation, we ran \tool on a gaming laptop running Ubuntu~20.04.2~LTS, the SVL driving Simulator, and Apollo Baidu (v6.0).
 
-\section{Achieved Results and Problems Found}
+\section{Evaluation}
 \label{sec:evaluation}
 
-To evaluate \tool, we applied it to test Apollo Baidu on the following five maps that were available on the SVL Web site at the time the \challenge took place:
+\subsection{Experimental Settings}
+We evaluated \tool according to the main objectives defined in the \challenge, i.e., generation of diverse tests, automated test generation and execution, and generation of tests that can find problems in Apollo Baidu, and the (limited) resources we had at the time the \challenge took place.
 
-\begin{enumerate}
- \item Cube Town
- \item Borregas Avenue
- \item Shalun
- \item GoMentum
- \item San Francisco
-\end{enumerate}
+Since we deem the first two objectives more relevant than the last one, we devoted more effort to address them. Consequently, we evaluated the ability of \tool to generate diverse and executable test cases automatically using various maps available for the SVL Simulator, but run the tests against Apollo Baidu only for one map.
 
-We selected those five maps according to the following criteria: size, number of intersections, and compatibility with the opendrive2lanelets library (see column \emph{Intersections} in Table~\ref{tab:results} and figures~5--9).
+As summarized in Table~\ref{tab:results-generation}, we selected five maps of increasing size (see figures~\ref{fig:feature-maps-cubetown}~--~\ref{fig:feature-maps-sanfrancisco}) and complexity (see column \emph{Intersections} in Table~\ref{tab:results-generation}). Our selection was limited by the availability of the maps and their compatibility with the opendrive2lanelets library. 
+%
+As summarized in Table~\ref{tab:results-effectiveness}, we tested Apollo Baidu only on the Cube Town map with all the test cases generated from the plain scenarios selected using similarity and feature maps (columns \emph{Plain}) and some test cases generated by placing NPC vehicles (columns \emph{NPC}). Specifically, we created the NPC tests by randomly sampling three selected scenarios from each set and placing the NPC vehicle on the ego-vehicle's left, right, and front. The table reports the number of failed test cases followed by the number of total tests executed.
 
-As reported in Table~\ref{tab:results}, using those five maps, \tool identified more than a hundred intersections and generated more than a thousand driving scenarios that do not involve NPV vehicles. From those scenarios, \tool selected up to 50\% test cases for the execution using features maps, whereas using distance, it selected considerably more cases.
+
+
+\subsection{Achieved Results}
 
 \begin{table}[t]
     \centering
-      \caption{\tool's Evaluation Results}
-      \label{tab:results}
+      \caption{\tool's Evaluation Results: Test Generation and Selection}
+      \label{tab:results-generation}
       \begin{tabular}{lrrrr}
         \toprule
         \multicolumn{1}{c}{\textbf{Map Name}}&
         \multicolumn{1}{c}{\textbf{Intersections}}&
-        \multicolumn{1}{c}{\textbf{Total Tests}}&
-        \multicolumn{2}{c}{\textbf{Selected Tests}} \\
-        & & & Similarity & Feature Map\\
+        \multicolumn{3}{c}{\textbf{Test Cases}}\\ \cmidrule(lr){3-5}
+        & & Total & Similarity & Feature Map\\
         \midrule
         Cube Town & 2 & 12 & 8 & 5\\
         Borregas Ave & 2 & 28 & 20 & 16\\
         Shalun & 14 & 149 & 124 & 33\\
         Gomentum & 25 & 126 & 110 & 25\\
         San Francisco & 89 & 806 & 535 & 52\\
+        \midrule 
+        \textbf{Total} & 132 & 1121 & 797 & 131\\
         \bottomrule
       \end{tabular}
 \end{table}
 
+As reported in Table~\ref{tab:results-generation}, \tool identified more than a hundred intersections and generated more than a thousand driving scenarios that do not involve NPC vehicles. From those scenarios, it selected between 7\% (San Francisco) and 57\% (Borregas Ave) scenarios for the execution using features maps, whereas using similarity, it selected considerably more cases (up to 87\% for Gomentum).
 
+These results suggest that \tool could handle maps of considerable size and effectively identify intersections in them. Furthermore, regarding test generation, it was able to identify many driving scenarios and selected among them different driving scenarios. The results also suggest that feature maps may be more stringent in selecting test cases than similarity computed using edit distance. However, this observation should be taken with care, as the number of selected test cases using feature maps depends on their configurations, i.e., the selected features and their granularity.
+
+\begin{table}[t]
+    \centering
+      \caption{\tool's Evaluation Results: Test Effectiveness}
+      \label{tab:results-effectiveness}
+      \begin{tabular}{l rr rr}
+        \toprule
+        \multicolumn{1}{c}{\textbf{Map Name}} &
+        \multicolumn{2}{c}{\textbf{Similarity}} & % \cmidrule(lr){3-5}
+	\multicolumn{2}{c}{\textbf{Feature Map}}\\ \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+        & Plain & NPC & Plain & NPC \\
+        \midrule
+        Cube Town  & 3/8 & 1/3 & 0/5 & 1/3\\
+        \bottomrule
+      \end{tabular}
+\end{table}
+
+As reported in Table~\ref{tab:results-effectiveness}, the execution of the generated test cases resulted in some failed test cases despite the simplicity of the map. Noticeably, all the failures are caused by the test subject not reaching the target location in time, meaning that the ego-vehicle did not crash into the NPC vehicles nor left the lane but could not plan or execute a suitable trajectory. 
+
+Regarding plain tests, we can observe that selecting tests using similarity resulted in more failures than selecting tests using the feature map. Instead, regarding NPC tests, we can observe that one test failed consistently in both configurations. Upon manual inspection of the failed tests, we noticed that the NPC vehicle was always parked in the middle of the ego-vehicle's lane. This observation suggests either the ego-vehicle failed to plan a trajectory that required to switch the lane or that, although we took extra care to remove possible causes of false positives (e.g., traffic lights, the minimal distance of the NPC car from the intersection), we may have missed something. For example, we may have oversight the possibility that ego-vehicle cannot invade the opposite traffic direction to pass the obstacle, forcing it to wait behind the obstacle indefinitely.
 
 \begin{figure*}[!tp]
-\minipage{0.31\textwidth}
+\hfill
+\minipage{0.33\textwidth}
   \includegraphics[width=\linewidth]{images/map_cubetown}
   \includegraphics[width=\linewidth]{images/feature_cubetown}
   \caption{Cube Town map.}
   \label{fig:feature-maps-cubetown}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage{0.33\textwidth}
   \includegraphics[width=\linewidth]{images/map_borregasave}
   \includegraphics[width=\linewidth]{images/feature_borregasave}
   \caption{Borregas Ave map.}
     \label{fig:feature-maps-borregas}
 \endminipage\hfill
-\minipage{0.31\textwidth}%
+\minipage{0.33\textwidth}%
   \includegraphics[width=\linewidth]{images/map_shalun}
   \includegraphics[width=\linewidth]{images/feature_shalun}
   \caption{Shalun map.}
     \label{fig:feature-maps-shalun}
 \endminipage 
+\hfill
 \end{figure*}
 
-\begin{figure*}[!tp]
-\hfill
-\minipage{0.31\textwidth}%
+\begin{figure*}[p]
+\minipage{0.33\textwidth}%
   \includegraphics[width=\linewidth]{images/map_gomentum}
   \includegraphics[width=\linewidth]{images/feature_gomentum}
   \caption{Gomentum map.}
     \label{fig:feature-maps-gomentum}
 \endminipage\hfill
-\minipage{0.31\textwidth}%
+\minipage{0.33\textwidth}%
   \includegraphics[width=\linewidth]{images/map_sanfrancisco.png}
   \includegraphics[width=\linewidth]{images/feature_sanfrancisco.png}
   \caption{San Francisco map.}
     \label{fig:feature-maps-sanfrancisco}
 \endminipage
 \hfill
-%\minipage{0.31\textwidth}%
-%    \includegraphics[width=\linewidth]{images/map_sanfrancisco.png}
-%\endminipage
 \end{figure*}
-
-The execution of the generated test cases resulted in failed test cases caused by the test subject not reaching the target location in time. Since we take extra care to remove all possible causes of false positives (e.g., traffic lights and random traffic), this result suggests that the test subject could not plan a suitable trajectory in some cases.
 
 \section{Future Work}
 
-In the hope of capturing the intended aim of the challenge, we brainstormed possible ideas to implement for future work. We tried to "think out-of-the-box" while remaining pragmatic. Below we summarize two of such ideas.
+In the hope of capturing the intended aim of the challenge, we brainstormed possible ideas to implement for future work. We tried to ``think out-of-the-box'' while remaining pragmatic. Below we summarize two of such ideas.
 
 \paragraph{Parking Lot Madness}
-Create scenarios that take place inside parking lots to test features like Tesla's "Smart Summon". The idea is to check if the ego-vehicle can safely drive from a parking spot to the parking lot's exit despite pedestrians and other vehicles. Our vision is to generate scenarios by placing the ego-vehicle in different parking spots and controlling the placement and movement of non-ego cars and pedestrians to create various situations.
+Create scenarios that take place inside parking lots to test features like ``Smart Summon.'' The idea is to check if the ego-vehicle can safely drive from a parking spot to the parking lot's exit despite pedestrians and other vehicles. Our vision is to generate scenarios by placing the ego-vehicle in different parking spots and controlling the placement and movement of NPC cars and pedestrians to create various critical situations.
 
 \paragraph{To Pass or Not to Pass?}
-Check the behaviour of the ego vehicle while handling controlled intersections. The idea is to take any map, find where controlled intersections and traffic lights are, and (automatically) generate scenarios where the car must pass the various controlled intersections.
+Check the behavior of the ego-vehicle while handling controlled intersections. 
+The idea is to take any map, find where controlled intersections and traffic lights are, and (automatically) generate scenarios where the car must pass the various controlled intersections, possibly "trapping`` the ego-vehicle in the middle of them by directly acting upon the traffic lights (e.g., flashing lights, turn lights off).
 %
-Concrete tests can be generated by changing which controlled intersection to pass, the direction that ego-vehicle should follow (e.g., turn right, go straight), and directly acting upon the traffic lights (e.g., flashing lights, turn it off).
+%Concrete tests can be generated by changing which controlled intersection to pass, the direction that ego-vehicle should follow (e.g., turn right, go straight), and directly acting upon the traffic lights (e.g., flashing lights, turn lights off).
 %
-Alternatively, we can also place the ego car in the middle of those intersections and try to "trap it there" by controlling the traffic lights. This additional arrangement will let us check whether the vehicle can adequately free controlled intersections or get stuck in the middle of it.
+%Alternatively, we can also place the ego-vehicle in the middle of controlled intersections and try to ``trap it there'' by controlling the traffic lights. This additional arrangement will let us check whether the vehicle can adequately free the controlled intersections or get stuck in the middle of them.
 
 % References
 \bibliographystyle{IEEEtran}
