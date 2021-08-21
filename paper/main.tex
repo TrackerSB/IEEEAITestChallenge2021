@@ -111,7 +111,7 @@ To promote further research and enable reproducibility of our results, we releas
 \begin{figure}[tp]
   \centering
     \includegraphics[width=0.5\textwidth]{images/apollo-sim}
-  \caption{Apollo Baidu (right, bottom) running with the SVL Simulator~\cite{svl-website}}
+  \caption{Apollo Baidu (right, bottom) running with the SVL Simulator~\cite{svl-website}.}
   \label{fig:apollosim}
 \end{figure}
 
@@ -125,7 +125,7 @@ Moreover, the SVL Simulator implements additional features such as easily custom
 
 \section{Lanelets}
 \label{subsect:lanelets}
-Lanelets are a novel concept to represent road maps in both topological and geometrical terms. Lanelets models \emph{drivable} road segments and roughly correspond to (segments of) road lanes~\cite{bender2014lanelets}. They are defined by left and right bounds implemented as polylines (i.e., list of points), connected to define complex road maps, and overlapping to form intersections, joins, and merges. Since lanelets encode allowed traffic directions, they help determine the route from a predefined starting point to a given destination~\cite{PekIV20}.
+Lanelets are a novel concept to represent road maps in both topological and geometrical terms. Lanelets model \emph{drivable} road segments and roughly correspond to (segments of) road lanes~\cite{bender2014lanelets}. They are defined by left and right bounds implemented as polylines (i.e., list of points), connected to define complex road maps, and overlap to form intersections, joins, and merges (see Figure~\ref{fig:lanelets}). Since lanelets encode allowed traffic directions, they help determine the route from a predefined starting point to a given destination~\cite{PekIV20}.
 
 \begin{figure}[tp]
   \centering
@@ -134,7 +134,7 @@ Lanelets are a novel concept to represent road maps in both topological and geom
   \label{fig:lanelets}
 \end{figure}
 
-As illustrated in Figure~\ref{fig:lanelets}, lanelets can be connected to establish semantic relations that form longer road segments, intersections, merges and joins, and complex road networks. Therefore
+Lanelets can be connected to establish semantic relations that form longer road segments, intersections, merges and joins, and complex road networks. Therefore
 they can be used as an intermediate format to represent existing road maps~\cite{althoff2018automatic}. For example, \emph{adjacent} lanelets share one of the two bounds while \emph{preceding/following} lanelets share start or end points in accordance to their traffic direction~\cite{althoff2018automatic}. Notably, lanelets that overlap and share start or end points form intersections~\cite{Althoff2017a}.
 %
 As we detail later, \tool relies on those features to automatically identify the intersections in existing road maps by analyzing their lanelets representation and define (abstract) driving scenarios across them.
